@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 2א — být + mít | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === Concept introduction box === */
+    .concept-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:24px;margin-bottom:20px;}
+    .concept-title{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--green);margin-bottom:8px;}
+    .concept-text{font-size:14px;color:var(--text);line-height:1.8;}
+    .concept-text b.cz{font-family:'Nunito',sans-serif;color:var(--green);direction:ltr;unicode-bidi:isolate;display:inline-block;}
+
+    /* === Verb card with full conjugation table === */
+    .verb-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .verb-header{display:flex;align-items:center;gap:14px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+    .verb-main{flex:1;}
+    .verb-inf{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);direction:ltr;}
+    .verb-inf .arrow{color:var(--muted);font-weight:300;margin:0 8px;}
+    .verb-inf .past{color:var(--green);}
+    .verb-meaning{font-size:13px;color:var(--muted);margin-top:2px;}
+    .big-play{width:42px;height:42px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .big-play:hover{background:var(--gm);}
+    .big-play svg{width:14px;height:14px;fill:var(--gd);margin-right:-2px;}
+
+    .conj-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:14px;}
+    .conj-table th{text-align:right;padding:8px 10px;background:var(--gl);color:var(--gd);font-weight:700;font-size:12px;border-bottom:2px solid var(--gm);}
+    .conj-table td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:middle;}
+    .conj-table tr:last-child td{border-bottom:none;}
+    .conj-table .he-col{color:var(--muted);font-size:13px;width:22%;}
+    .conj-table .past-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--green);direction:ltr;text-align:left;font-size:14.5px;}
+    .conj-table tr:hover td{background:var(--bg);}
+    .conj-table .play-cell{width:32px;text-align:center;}
+
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;margin:0 auto;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:var(--green);}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    /* === Overview table (preview of all 8 irregulars) === */
+    .overview-table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;table-layout:fixed;margin-bottom:14px;}
+    .overview-table th{padding:10px 12px;background:var(--gl);color:var(--gd);font-weight:700;font-size:12px;text-align:center;border-bottom:1px solid var(--border);}
+    .overview-table td{padding:10px 12px;text-align:center;font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;border-bottom:1px solid var(--border);}
+    .overview-table tr:last-child td{border-bottom:none;}
+    .overview-table .he-c{font-family:'Heebo',sans-serif;direction:rtl;color:var(--muted);font-weight:400;font-size:13px;}
+    .overview-table .past-c{color:var(--green);}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson2.html">שיעור 2</a><span>›</span>
+  2א — být + mít
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    שני הפעלים החריגים החשובים ביותר: <span class="cz-phrase">být</span> (להיות) ו-<span class="cz-phrase">mít</span> (להחזיק / יש לי). לפני שנצלול אליהם — נסביר מה זה בכלל פועל "חריג" ולמה הוא לא הולך לפי הנוסחה.
+  </div>
+
+  <!-- ========== CONCEPT INTRO ========== -->
+  <div class="stitle">מה זה פועל חריג?</div>
+
+  <div class="concept-box">
+    <div class="concept-title">פעלים שלא הולכים לפי השיטה משיעור 1</div>
+    <div class="concept-text">
+      בשיעור 1 ראינו את הנוסחה: מורידים T מהאינפיניטיב, מוסיפים L/LA/LI/LY ופועל עזר. ברוב הפעלים זה עובד מצוין.<br><br>
+      אבל יש פעלים — דווקא הכי שימושיים — שלא הולכים לפי הנוסחה. למשל: <b class="cz">jít</b> (ללכת). אם היינו עוקבים אחר הכלל היינו אומרים "jíl" — אבל בעצם אומרים <b class="cz">šel</b> (זכר) או <b class="cz">šla</b> (נקבה). שורש אחר לגמרי!<br><br>
+      אלה <b>הפעלים החריגים</b>. צריך לזכור אותם בעל-פה — אבל יש רק 8 כאלה ברמת A2, וכולם <b>שמישים מאוד</b>.
+    </div>
+  </div>
+
+  <!-- ========== OVERVIEW TABLE ========== -->
+  <div class="stitle">שמונה הפעלים החריגים — תצוגה מקדימה</div>
+
+  <table class="overview-table">
+    <tr><th>אינפיניטיב</th><th>עבר (זכר)</th><th>עברית</th></tr>
+    <tr><td>být</td><td class="past-c">byl</td><td class="he-c">היה</td></tr>
+    <tr><td>mít</td><td class="past-c">měl</td><td class="he-c">היה לו</td></tr>
+    <tr><td>jít</td><td class="past-c">šel</td><td class="he-c">הלך</td></tr>
+    <tr><td>jet</td><td class="past-c">jel</td><td class="he-c">נסע</td></tr>
+    <tr><td>jíst</td><td class="past-c">jedl</td><td class="he-c">אכל</td></tr>
+    <tr><td>pít</td><td class="past-c">pil</td><td class="he-c">שתה</td></tr>
+    <tr><td>číst</td><td class="past-c">četl</td><td class="he-c">קרא</td></tr>
+    <tr><td>psát</td><td class="past-c">psal</td><td class="he-c">כתב</td></tr>
+  </table>
+
+  <div class="tip blue">
+    <strong>💡 השיעור מחולק לפי זוגות</strong>
+    כל תת-עמוד מציג שני פעלים מקובצים לפי משמעות:<br>
+    <b>2א</b> — být + mít (היסודות)<br>
+    <b>2ב</b> — jít + jet (פעלי תנועה)<br>
+    <b>2ג</b> — jíst + pít (אכילה ושתייה)<br>
+    <b>2ד</b> — číst + psát (קריאה וכתיבה)
+  </div>
+
+  <!-- ========== VERB 1: BÝT ========== -->
+  <div class="stitle">הפועל הראשון — být (להיות)</div>
+
+  <div class="verb-block">
+    <div class="verb-header">
+      <div class="verb-main">
+        <div class="verb-inf">být <span class="arrow">→</span> <span class="past">byl / byla</span></div>
+        <div class="verb-meaning">להיות → היה / הייתה. הפועל הכי שימושי בשפה.</div>
+      </div>
+      <button class="big-play" onclick="speak('být. byl. byla.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <table class="conj-table">
+      <tr><th>גוף</th><th>זכר</th><th>נקבה</th><th>תרגום</th><th></th></tr>
+      <tr>
+        <td class="he-col">אני</td>
+        <td class="past-cz">byl jsem</td>
+        <td class="past-cz">byla jsem</td>
+        <td class="he-col">הייתי</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('byl jsem. byla jsem.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">את/ה</td>
+        <td class="past-cz">byl jsi</td>
+        <td class="past-cz">byla jsi</td>
+        <td class="he-col">היית</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('byl jsi. byla jsi.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הוא/היא</td>
+        <td class="past-cz">byl</td>
+        <td class="past-cz">byla</td>
+        <td class="he-col">היה / הייתה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('on byl. ona byla.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אנחנו</td>
+        <td class="past-cz">byli jsme</td>
+        <td class="past-cz">byly jsme</td>
+        <td class="he-col">היינו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('byli jsme. byly jsme.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אתם/ן</td>
+        <td class="past-cz">byli jste</td>
+        <td class="past-cz">byly jste</td>
+        <td class="he-col">הייתם/ן</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('byli jste. byly jste.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הם/הן</td>
+        <td class="past-cz">byli</td>
+        <td class="past-cz">byly</td>
+        <td class="he-col">היו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('oni byli. ony byly.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+    </table>
+
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Včera jsem byla doma.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Včera jsem <b>byla</b> doma.</span>
+      <span class="ex-he">אתמול הייתי בבית. ♀</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Kde jsi byl o víkendu?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Kde jsi <b>byl</b> o víkendu?</span>
+      <span class="ex-he">איפה היית בסוף השבוע? ♂</span>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ זוכרים? את <span class="cz-phrase">být</span> כבר ראיתם!</strong>
+    בשיעור 12 ב-A1 פגשתם את <span class="cz-phrase">byl / byla</span> בפעם הראשונה. עכשיו אתם רואים שזה בעצם <b>חריג</b> — האינפיניטיב הוא <span class="cz-phrase">být</span> (לא <span class="cz-phrase">bytat</span>), והעבר הוא <span class="cz-phrase">byl</span> בלי קשר ישיר. צריך לזכור.
+  </div>
+
+  <!-- ========== VERB 2: MÍT ========== -->
+  <div class="stitle">הפועל השני — mít (יש לי)</div>
+
+  <div class="verb-block">
+    <div class="verb-header">
+      <div class="verb-main">
+        <div class="verb-inf">mít <span class="arrow">→</span> <span class="past">měl / měla</span></div>
+        <div class="verb-meaning">יש לי / להחזיק → היה לו / היה לה. אחרי být הפועל החריג השני הכי שימושי.</div>
+      </div>
+      <button class="big-play" onclick="speak('mít. měl. měla.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <table class="conj-table">
+      <tr><th>גוף</th><th>זכר</th><th>נקבה</th><th>תרגום</th><th></th></tr>
+      <tr>
+        <td class="he-col">אני</td>
+        <td class="past-cz">měl jsem</td>
+        <td class="past-cz">měla jsem</td>
+        <td class="he-col">היה לי</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('měl jsem. měla jsem.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">את/ה</td>
+        <td class="past-cz">měl jsi</td>
+        <td class="past-cz">měla jsi</td>
+        <td class="he-col">היה לך</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('měl jsi. měla jsi.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הוא/היא</td>
+        <td class="past-cz">měl</td>
+        <td class="past-cz">měla</td>
+        <td class="he-col">היה לו / לה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('on měl. ona měla.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אנחנו</td>
+        <td class="past-cz">měli jsme</td>
+        <td class="past-cz">měly jsme</td>
+        <td class="he-col">היה לנו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('měli jsme. měly jsme.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אתם/ן</td>
+        <td class="past-cz">měli jste</td>
+        <td class="past-cz">měly jste</td>
+        <td class="he-col">היה לכם/ן</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('měli jste. měly jste.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הם/הן</td>
+        <td class="past-cz">měli</td>
+        <td class="past-cz">měly</td>
+        <td class="he-col">היה להם/ן</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('oni měli. ony měly.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+    </table>
+
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Měla jsem dobrý víkend.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><b>Měla</b> jsem dobrý víkend.</span>
+      <span class="ex-he">היה לי סוף שבוע טוב. ♀</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Měl jsi čas včera?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><b>Měl</b> jsi čas včera?</span>
+      <span class="ex-he">היה לך זמן אתמול? ♂</span>
+    </div>
+  </div>
+
+  <div class="tip green">
+    <strong>✨ למה ה-ě ב-měl?</strong>
+    האות <span class="cz-phrase">ě</span> נהגית "יֶה" — אז <span class="cz-phrase">měl</span> נשמע כמו "מיֶל" ו-<span class="cz-phrase">měli</span> כמו "מיֶלי". זה הסימן שמפריד את ה-<span class="cz-phrase">m</span> מה-<span class="cz-phrase">e</span> ויוצר את הצליל הצ׳כי המאפיין.
+  </div>
+
+  <!-- ========== CHECK YOURSELF ========== -->
+  <div class="stitle">בדיקה אישית</div>
+
+  <div class="check-box">
+    <h4>אחרי 2א את/ה אמור/ה:</h4>
+    <ul class="check-list">
+      <li>להבין מה זה פועל חריג ולמה הוא לא הולך לפי הנוסחה</li>
+      <li>לדעת את כל הצורות של <span class="cz-phrase">být</span> בעבר — לפי גוף ומגדר</li>
+      <li>לדעת את כל הצורות של <span class="cz-phrase">mít</span> בעבר — לפי גוף ומגדר</li>
+      <li>להגיד לפחות 3 משפטים בעבר עם <span class="cz-phrase">být</span> או <span class="cz-phrase">mít</span></li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson2.html" class="btn-back">→ חזרה לשיעור 2</a>
+    <a href="a2-lesson2b.html" class="btn-next">2ב — jít + jet ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson2a"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 2ג — jíst + pít | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === Two-column comparison at top === */
+    .compare-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+    .pair-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;text-align:center;}
+    .pair-card.eat{border-color:rgba(245,158,11,.3);}
+    .pair-card.drink{border-color:rgba(59,130,246,.3);}
+    .pair-icon{font-size:32px;margin-bottom:6px;}
+    .pair-inf{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;direction:ltr;margin-bottom:2px;}
+    .pair-card.eat .pair-inf{color:#92400e;}
+    .pair-card.drink .pair-inf{color:#1e40af;}
+    .pair-past{font-family:'Nunito',sans-serif;font-size:16px;font-weight:700;color:var(--green);direction:ltr;margin-bottom:4px;}
+    .pair-meaning{font-size:12.5px;color:var(--muted);}
+
+    /* === Verb block === */
+    .verb-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .verb-header{display:flex;align-items:center;gap:14px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+    .verb-main{flex:1;}
+    .verb-inf{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);direction:ltr;}
+    .verb-inf .arrow{color:var(--muted);font-weight:300;margin:0 8px;}
+    .verb-inf .past{color:var(--green);}
+    .verb-meaning{font-size:13px;color:var(--muted);margin-top:2px;}
+    .big-play{width:42px;height:42px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .big-play:hover{background:var(--gm);}
+    .big-play svg{width:14px;height:14px;fill:var(--gd);margin-right:-2px;}
+
+    .conj-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:14px;}
+    .conj-table th{text-align:right;padding:8px 10px;background:var(--gl);color:var(--gd);font-weight:700;font-size:12px;border-bottom:2px solid var(--gm);}
+    .conj-table td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:middle;}
+    .conj-table tr:last-child td{border-bottom:none;}
+    .conj-table .he-col{color:var(--muted);font-size:13px;width:22%;}
+    .conj-table .past-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--green);direction:ltr;text-align:left;font-size:14.5px;}
+    .conj-table tr:hover td{background:var(--bg);}
+    .conj-table .play-cell{width:32px;text-align:center;}
+
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;margin:0 auto;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:var(--green);}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .compare-pair{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson2.html">שיעור 2</a><span>›</span>
+  2ג — jíst + pít
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    שני פעלים שבלעדיהם אי-אפשר לדבר על ארוחה: <span class="cz-phrase">jíst → jedl/jedla</span> (אכל) ו-<span class="cz-phrase">pít → pil/pila</span> (שתה). שניהם חריגים — אבל בדרך שונה.
+  </div>
+
+  <!-- ========== QUICK COMPARISON ========== -->
+  <div class="stitle">אכילה ושתייה — שני פעלים יומיומיים</div>
+
+  <div class="compare-pair">
+    <div class="pair-card eat">
+      <div class="pair-icon">🍽️</div>
+      <div class="pair-inf">jíst → <span style="color:var(--green);">jedl / jedla</span></div>
+      <div class="pair-meaning"><b>לאכול</b> — אכל / אכלה</div>
+    </div>
+    <div class="pair-card drink">
+      <div class="pair-icon">☕</div>
+      <div class="pair-inf">pít → <span style="color:var(--green);">pil / pila</span></div>
+      <div class="pair-meaning"><b>לשתות</b> — שתה / שתתה</div>
+    </div>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 מה מיוחד בשני הפעלים האלה</strong>
+    בשני המקרים יש שינוי לא צפוי בעבר:<br>
+    <b>jíst → jedl</b> — נכנסת אות חדשה: <span class="cz-phrase">d</span> שלא הייתה באינפיניטיב!<br>
+    <b>pít → pil</b> — הצליל הארוך <span class="cz-phrase">í</span> מתקצר ל-<span class="cz-phrase">i</span>.
+  </div>
+
+  <!-- ========== VERB 1: JÍST ========== -->
+  <div class="stitle">הפועל הראשון — jíst (לאכול)</div>
+
+  <div class="verb-block">
+    <div class="verb-header">
+      <div class="verb-main">
+        <div class="verb-inf">jíst <span class="arrow">→</span> <span class="past">jedl / jedla</span></div>
+        <div class="verb-meaning">חריג עם הפתעה: מאיפה ה-<span class="cz-phrase">d</span> צצה? פשוט צריך לזכור.</div>
+      </div>
+      <button class="big-play" onclick="speak('jíst. jedl. jedla.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <table class="conj-table">
+      <tr><th>גוף</th><th>זכר</th><th>נקבה</th><th>תרגום</th><th></th></tr>
+      <tr>
+        <td class="he-col">אני</td>
+        <td class="past-cz">jedl jsem</td>
+        <td class="past-cz">jedla jsem</td>
+        <td class="he-col">אכלתי</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('jedl jsem. jedla jsem.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">את/ה</td>
+        <td class="past-cz">jedl jsi</td>
+        <td class="past-cz">jedla jsi</td>
+        <td class="he-col">אכלת</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('jedl jsi. jedla jsi.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הוא/היא</td>
+        <td class="past-cz">jedl</td>
+        <td class="past-cz">jedla</td>
+        <td class="he-col">אכל / אכלה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('on jedl. ona jedla.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אנחנו</td>
+        <td class="past-cz">jedli jsme</td>
+        <td class="past-cz">jedly jsme</td>
+        <td class="he-col">אכלנו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('jedli jsme. jedly jsme.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אתם/ן</td>
+        <td class="past-cz">jedli jste</td>
+        <td class="past-cz">jedly jste</td>
+        <td class="he-col">אכלתם/ן</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('jedli jste. jedly jste.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הם/הן</td>
+        <td class="past-cz">jedli</td>
+        <td class="past-cz">jedly</td>
+        <td class="he-col">אכלו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('oni jedli. ony jedly.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+    </table>
+
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Včera jsem jedla v restauraci.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Včera jsem <b>jedla</b> v restauraci.</span>
+      <span class="ex-he">אתמול אכלתי במסעדה. ♀</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Co jsi jedl k snídani?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Co jsi <b>jedl</b> k snídani?</span>
+      <span class="ex-he">מה אכלת לארוחת בוקר? ♂</span>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ אל תבלבלו: <span class="cz-phrase">jíst</span> ≠ <span class="cz-phrase">jet</span></strong>
+    <span class="cz-phrase">jíst</span> = לאכול → <span class="cz-phrase">jedl</span><br>
+    <span class="cz-phrase">jet</span> = לנסוע → <span class="cz-phrase">jel</span> (משיעור 2ב)<br>
+    האות <b class="cz-phrase">d</b> ב-<span class="cz-phrase">jedl</span> היא ההבדל. בלעדיה זה <b>נסע</b>, לא אכל.
+  </div>
+
+  <!-- ========== VERB 2: PÍT ========== -->
+  <div class="stitle">הפועל השני — pít (לשתות)</div>
+
+  <div class="verb-block">
+    <div class="verb-header">
+      <div class="verb-main">
+        <div class="verb-inf">pít <span class="arrow">→</span> <span class="past">pil / pila</span></div>
+        <div class="verb-meaning">חריג קל יותר — רק התנועה הארוכה <span class="cz-phrase">í</span> מתקצרת ל-<span class="cz-phrase">i</span>.</div>
+      </div>
+      <button class="big-play" onclick="speak('pít. pil. pila.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <table class="conj-table">
+      <tr><th>גוף</th><th>זכר</th><th>נקבה</th><th>תרגום</th><th></th></tr>
+      <tr>
+        <td class="he-col">אני</td>
+        <td class="past-cz">pil jsem</td>
+        <td class="past-cz">pila jsem</td>
+        <td class="he-col">שתיתי</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('pil jsem. pila jsem.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">את/ה</td>
+        <td class="past-cz">pil jsi</td>
+        <td class="past-cz">pila jsi</td>
+        <td class="he-col">שתית</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('pil jsi. pila jsi.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הוא/היא</td>
+        <td class="past-cz">pil</td>
+        <td class="past-cz">pila</td>
+        <td class="he-col">שתה / שתתה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('on pil. ona pila.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אנחנו</td>
+        <td class="past-cz">pili jsme</td>
+        <td class="past-cz">pily jsme</td>
+        <td class="he-col">שתינו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('pili jsme. pily jsme.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אתם/ן</td>
+        <td class="past-cz">pili jste</td>
+        <td class="past-cz">pily jste</td>
+        <td class="he-col">שתיתם/ן</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('pili jste. pily jste.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הם/הן</td>
+        <td class="past-cz">pili</td>
+        <td class="past-cz">pily</td>
+        <td class="he-col">שתו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('oni pili. ony pily.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+    </table>
+
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Pili jsme kávu v kavárně.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><b>Pili</b> jsme kávu v kavárně.</span>
+      <span class="ex-he">שתינו קפה בבית קפה.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Pila jsi víno včera večer?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><b>Pila</b> jsi víno včera večer?</span>
+      <span class="ex-he">שתית יין אתמול בערב? ♀</span>
+    </div>
+  </div>
+
+  <div class="tip green">
+    <strong>✨ מילים מועילות לזוגית</strong>
+    אוצר מילים נפוץ מסביב לפעלים האלה:<br>
+    <span class="cz-phrase">snídaně, oběd, večeře</span> — ארוחת בוקר, צהריים, ערב<br>
+    <span class="cz-phrase">voda, káva, čaj, pivo, víno</span> — מים, קפה, תה, בירה, יין<br>
+    <span class="cz-phrase">maso, zelenina, ovoce</span> — בשר, ירקות, פירות
+  </div>
+
+  <!-- ========== USAGE EXAMPLES ========== -->
+  <div class="stitle">דוגמאות שימוש מעורבות</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Včera večer jsme jedli pizzu a pili víno.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Včera večer jsme <b>jedli</b> pizzu a <b>pili</b> víno.</span>
+    <span class="ex-he">אתמול בערב אכלנו פיצה ושתינו יין.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Na snídani jsem jedla chleba a pila čaj.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Na snídani jsem <b>jedla</b> chleba a <b>pila</b> čaj.</span>
+    <span class="ex-he">לארוחת בוקר אכלתי לחם ושתיתי תה. ♀</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Co jste jedli a pili na párty?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Co jste <b>jedli</b> a <b>pili</b> na párty?</span>
+    <span class="ex-he">מה אכלתם ושתיתם במסיבה?</span>
+  </div>
+
+  <!-- ========== CHECK YOURSELF ========== -->
+  <div class="stitle">בדיקה אישית</div>
+
+  <div class="check-box">
+    <h4>אחרי 2ג את/ה אמור/ה:</h4>
+    <ul class="check-list">
+      <li>לזכור ש-<span class="cz-phrase">jíst → jedl</span> (יש <b>d</b> שצצה בעבר!)</li>
+      <li>לזכור ש-<span class="cz-phrase">pít → pil</span> (התנועה הארוכה מתקצרת)</li>
+      <li>להבדיל בין <span class="cz-phrase">jedl</span> (אכל) ל-<span class="cz-phrase">jel</span> (נסע) — ה-<b>d</b> היא ההבדל הקריטי</li>
+      <li>להגיד 3 משפטים על מה אכלתם ושתיתם אתמול</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson2b.html" class="btn-back">→ חזרה ל-2ב</a>
+    <a href="a2-lesson2d.html" class="btn-next">2ד — číst + psát ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson2c"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

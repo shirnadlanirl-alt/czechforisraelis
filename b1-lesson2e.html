@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 2ה — תרגול מסכם Lokál | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .quiz-wrap{margin-bottom:24px;}
+    .q-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:12px;}
+    .q-num{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.06em;}
+    .q-text{font-size:15px;font-weight:600;margin-bottom:12px;line-height:1.5;}
+    .q-cz{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;direction:ltr;unicode-bidi:isolate;color:var(--text);margin-bottom:10px;display:block;}
+    .options{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .opt{padding:10px 14px;border-radius:var(--rs);border:1.5px solid var(--border);background:var(--white);font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-align:center;direction:ltr;transition:all .15s;}
+    .opt:hover:not(:disabled){border-color:var(--gm);background:var(--gl);}
+    .opt.correct{background:#dcfce7;border-color:#16a34a;color:#15803d;}
+    .opt.wrong{background:#fee2e2;border-color:#dc2626;color:#dc2626;}
+    .q-feedback{margin-top:10px;font-size:13px;line-height:1.6;display:none;padding:10px 14px;border-radius:var(--rs);}
+    .q-feedback.show{display:block;}
+    .q-feedback.ok{background:#dcfce7;color:#15803d;}
+    .q-feedback.err{background:#fee2e2;color:#dc2626;}
+    .score-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:28px 22px;text-align:center;margin-top:20px;display:none;}
+    .score-box.show{display:block;}
+    .score-num{font-family:'Nunito',sans-serif;font-size:56px;font-weight:800;color:var(--green);}
+    .score-label{font-size:16px;color:var(--muted);margin-top:6px;}
+    .score-msg{font-size:15px;font-weight:600;margin-top:12px;color:var(--text);}
+    .retry-btn{margin-top:16px;padding:10px 28px;border-radius:20px;background:var(--green);color:white;border:none;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;}
+    .retry-btn:hover{opacity:.88;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.options{grid-template-columns:1fr;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson2.html">שיעור 2 — Lokál</a><span>›</span>2ה — תרגול מסכם
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>📍 תרגול מסכם — Lokál</strong>
+    20 שאלות על כל מה שלמדנו: סיומות יחיד ורבים, מילות יחס, ההבדל Lokál לעומת Akuzativ, ופעלים שדורשים Lokál. בחרו את התשובה הנכונה — תקבלו הסבר מיידי.
+  </div>
+
+  <div id="quiz-root" class="quiz-wrap"></div>
+  <div id="score-box" class="score-box"></div>
+
+  <div class="step-nav">
+    <a href="b1-lesson2d.html" class="btn-back">→ 2ד — Lokál רבים</a>
+    <a href="b1-lesson3.html" class="btn-next">שיעור 3 — Genitiv ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson2e">
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#11457E;">📋 Lokál — חוקים לחזרה</strong>
+    <div style="font-size:12px;line-height:2.2;color:#16385f;">
+      <b>5 מילות יחס:</b> v · na · o · při · po<br>
+      <hr style="margin:6px 0;border:none;border-top:1px solid var(--border);">
+      <b>יחיד — נקבה -a:</b> -ě / -e (škola→škole)<br>
+      <b>יחיד — נקבה -ce:</b> -i (restaurace→restauraci)<br>
+      <b>יחיד — זכר דומם:</b> -u / -ě (park→parku)<br>
+      <b>יחיד — זכר חי:</b> -ovi (Petr→Petrovi)<br>
+      <b>יחיד — נטרל -o:</b> -ě (město→městě)<br>
+      <b>יחיד — נטרל -um:</b> -u (muzeum→muzeu)<br>
+      <b>יחיד — נטרל -í:</b> ללא שינוי<br>
+      <hr style="margin:6px 0;border:none;border-top:1px solid var(--border);">
+      <b>רבים — נקבה -a:</b> -ách (ženách)<br>
+      <b>רבים — נקבה רכה:</b> -ích (restauracích)<br>
+      <b>רבים — זכר/נטרל:</b> -ech (městech)
+    </div>
+  </div>
+</aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+const questions = [
+  {
+    q: "אני גרה בפראג. Bydlím ___",
+    cz: "Bydlím ___ (Praha)",
+    opts: ["v Prahu","v Praze","na Prahu","na Praze"],
+    ans: 1,
+    ex: "Praha = נקבה -a. ב-Lokál: a→ě, וגם k→c/h→z לפני ě. Praha → v Praze (h→z)."
+  },
+  {
+    q: "הספר על השולחן. Kniha je ___",
+    cz: "Kniha je ___ (stůl)",
+    opts: ["na stole","na stůl","v stole","na stolu"],
+    ans: 0,
+    ex: "stůl = זכר דומם. ב-Lokál: stůl → stole (סיומת -e). na stole = על השולחן."
+  },
+  {
+    q: "אני לומדת באוניברסיטה. Studuju ___",
+    cz: "Studuju ___ (univerzita)",
+    opts: ["v univerzitě","na univerzitě","na univerzitu","v univerzitu"],
+    ans: 1,
+    ex: "אוניברסיטאות לוקחות na (מוסד פתוח/ציבורי). na + Lokál: univerzita → univerzitě."
+  },
+  {
+    q: "אנחנו מדברים על העבודה. Mluvíme ___",
+    cz: "Mluvíme ___ (práce)",
+    opts: ["o práci","o práce","na práci","v práci"],
+    ans: 0,
+    ex: "mluvit o = לדבר על → תמיד o + Lokál. práce (נקבה רכה -ce) → práci."
+  },
+  {
+    q: "הוא עובד בבית חולים. Pracuje ___",
+    cz: "Pracuje ___ (nemocnice)",
+    opts: ["v nemocnice","v nemocnici","na nemocnici","v nemocnici"],
+    ans: 1,
+    ex: "nemocnice = נקבה רכה -ce. ב-Lokál: -ce → -ci. v nemocnici."
+  },
+  {
+    q: "אנחנו נמצאים במסעדה. Jsme ___",
+    cz: "Jsme ___ (restaurace)",
+    opts: ["v restauraci","v restaurace","na restauraci","na restaurace"],
+    ans: 0,
+    ex: "restaurace = מקום סגור (מסעדה) → v. נקבה רכה -ce → -ci. v restauraci."
+  },
+  {
+    q: "אני חושב/ת על החיים. Přemýšlím ___",
+    cz: "Přemýšlím ___ (život)",
+    opts: ["o životě","o život","na životě","o životu"],
+    ans: 0,
+    ex: "přemýšlet o = לחשוב על → o + Lokál. život (זכר דומם, -t) → životě."
+  },
+  {
+    q: "ספרייה — Lokál יחיד",
+    cz: "v ___ (knihovna)",
+    opts: ["knihovně","knihovnu","knihovny","knihovaě"],
+    ans: 0,
+    ex: "knihovna = נקבה -a. ב-Lokál: -na → -ně (עיצור n+ě). v knihovně."
+  },
+  {
+    q: "מוזיאון — Lokál יחיד",
+    cz: "v ___ (muzeum)",
+    opts: ["muzeu","muzeem","muzea","muzeům"],
+    ans: 0,
+    ex: "muzeum = נטרל -um. ב-Lokál: -um → -u. v muzeu."
+  },
+  {
+    q: "כיכר — Lokál יחיד",
+    cz: "na ___ (náměstí)",
+    opts: ["náměstí","náměstím","náměstích","náměstě"],
+    ans: 0,
+    ex: "náměstí = נטרל -í. ב-Lokál יחיד: ללא שינוי! na náměstí."
+  },
+  {
+    q: "הולך/ת לקונצרט = Akuzativ. נמצא/ת בקונצרט = ?",
+    cz: "Jdu ___ koncert / Jsem ___ koncertě",
+    opts: ["na / na","v / na","na / v","do / na"],
+    ans: 0,
+    ex: "na + Akuzativ = לאן? (Jdu na koncert). na + Lokál = איפה? (Jsem na koncertě). שתיהן na!"
+  },
+  {
+    q: "זה תלוי בך. ___",
+    cz: "___ tobě.",
+    opts: ["Záleží na","Záleží o","Závisí v","Záleží za"],
+    ans: 0,
+    ex: "záležet na = להיות תלוי ב-. na + Lokál: ty → tobě (Lokál של ty)."
+  },
+  {
+    q: "בבתי ספר — Lokál רבים",
+    cz: "ve ___ (škola → רבים Lokál)",
+    opts: ["školách","školech","školích","školám"],
+    ans: 0,
+    ex: "škola = נקבה -a קשה. Lokál רבים: -ách. ve školách."
+  },
+  {
+    q: "במסעדות — Lokál רבים",
+    cz: "v ___ (restaurace → רבים Lokál)",
+    opts: ["restauracích","restauracech","restauracách","restauracím"],
+    ans: 0,
+    ex: "restaurace = נקבה רכה -ce. Lokál רבים: -ích. v restauracích."
+  },
+  {
+    q: "בערים — Lokál רבים",
+    cz: "ve ___ (město → רבים Lokál)",
+    opts: ["měsních","městech","městách","místech"],
+    ans: 1,
+    ex: "město = נטרל -o. Lokál רבים: -ech. ve městech."
+  },
+  {
+    q: "על חברים. o ___",
+    cz: "Mluvím o ___ (kamarádi → רבים)",
+    opts: ["kamarádech","kamarádích","kamarádách","kamarádům"],
+    ans: 0,
+    ex: "kamarád = זכר חי. Lokál רבים: -ech. o kamarádech."
+  },
+  {
+    q: "בגנים (parks) — Lokál רבים",
+    cz: "v ___ (park → רבים Lokál)",
+    opts: ["parcích","parkech","parkách","parkích"],
+    ans: 0,
+    ex: "park → בצורת רבים Lokál: k→c (שינוי עיצור). v parcích."
+  },
+  {
+    q: "אני הולך/ת לחנות (כיוון) — איזה יחסה?",
+    cz: "Jdu do ___ (obchod)",
+    opts: ["obchodu (Lokál)","obchod (Akuzativ)","obchodě (Lokál)","obchodu (Genitiv)"],
+    ans: 3,
+    ex: "do + Genitiv (לא Akuzativ!) = כיוון 'ל-' ב-צ'כית. Jdu do obchodu = אני הולך לחנות."
+  },
+  {
+    q: "Lokál של כינוי ty (אתה/את) אחרי מילת יחס",
+    cz: "Záleží na ___ (ty → Lokál)",
+    opts: ["tě","tobě","ti","tebe"],
+    ans: 1,
+    ex: "Lokál של ty = tobě. (Akuzativ = tě/tebe, Dativ = ti). Záleží na tobě = תלוי בך."
+  },
+  {
+    q: "איזו מילת יחס מתאימה? 'על הכיסא'",
+    cz: "___ židli (על הכיסא — מיקום)",
+    opts: ["v","na","při","po"],
+    ans: 1,
+    ex: "על הכיסא = מיקום על גבי משטח → na + Lokál. na židli (žid­le → žid­li, נקבה רכה)."
+  }
+];
+
+let score = 0;
+let answered = 0;
+
+function initQuiz() {
+  const root = document.getElementById("quiz-root");
+  root.innerHTML = "";
+  score = 0;
+  answered = 0;
+  document.getElementById("score-box").classList.remove("show");
+  questions.forEach((q, qi) => {
+    const card = document.createElement("div");
+    card.className = "q-card";
+    card.id = "q" + qi;
+    const optsHtml = q.opts.map((o, j) =>
+      `<button class="opt" onclick="answer(${qi},${j})">${o}</button>`
+    ).join("");
+    card.innerHTML = `
+      <div class="q-num">שאלה ${qi+1} מתוך ${questions.length}</div>
+      <div class="q-text">${q.q}</div>
+      <span class="q-cz">${q.cz}</span>
+      <div class="options">${optsHtml}</div>
+      <div class="q-feedback" id="fb${qi}"></div>
+    `;
+    root.appendChild(card);
+  });
+}
+
+function answer(qi, j) {
+  const card = document.getElementById("q" + qi);
+  const opts = card.querySelectorAll(".opt");
+  opts.forEach(o => o.disabled = true);
+  const fb = document.getElementById("fb" + qi);
+  const correct = questions[qi].ans;
+  opts[j].classList.add(j === correct ? "correct" : "wrong");
+  if (j !== correct) opts[correct].classList.add("correct");
+  fb.textContent = questions[qi].ex;
+  fb.className = "q-feedback show " + (j === correct ? "ok" : "err");
+  if (j === correct) score++;
+  answered++;
+  if (answered === questions.length) showScore();
+}
+
+function showScore() {
+  const pct = Math.round((score / questions.length) * 100);
+  let msg = pct === 100 ? "מושלם! שליטה מלאה ב-Lokál 🎉" :
+            pct >= 80  ? "כל הכבוד! כמעט שם 💪" :
+            pct >= 60  ? "טוב, עוד קצת תרגול וזה יהיה מושלם 📚" :
+                         "כדאי לחזור על הסיומות — אתה/את יכול/ה! 🔄";
+  const sb = document.getElementById("score-box");
+  sb.innerHTML = `
+    <div class="score-num">${score}/${questions.length}</div>
+    <div class="score-label">${pct}% נכון</div>
+    <div class="score-msg">${msg}</div>
+    <button class="retry-btn" onclick="initQuiz()">נסה שוב</button>
+  `;
+  sb.classList.add("show");
+  sb.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+initQuiz();
+</script>
+</body>
+</html>

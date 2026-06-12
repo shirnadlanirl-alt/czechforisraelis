@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 12ב — těším se · bojím se · zajímám se | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    .verb-block{border-radius:var(--r);padding:22px 24px;margin-bottom:20px;}
+    .verb-block.green{background:var(--gl);border:2px solid rgba(29,158,117,.25);}
+    .verb-block.purple{background:#f5f3ff;border:2px solid rgba(109,40,217,.2);}
+    .verb-block.teal{background:#f0fdfa;border:2px solid rgba(20,184,166,.25);}
+    .verb-name{font-family:'Nunito',sans-serif;font-size:28px;font-weight:800;direction:ltr;margin-bottom:4px;}
+    .verb-name.green{color:var(--gd);}
+    .verb-name.purple{color:#6d28d9;}
+    .verb-name.teal{color:#0f766e;}
+    .verb-meaning{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px;}
+    .verb-rule{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:14px;}
+    .case-badge{display:inline-block;padding:3px 10px;border-radius:10px;font-size:12px;font-weight:700;margin-right:6px;margin-bottom:10px;}
+    .case-badge.four{background:#d1fae5;color:#065f46;}
+    .case-badge.two{background:#fee2e2;color:#991b1b;}
+    .case-badge.four-o{background:#dbeafe;color:#1e3a8a;}
+
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.75);margin-bottom:6px;}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl-g{color:var(--gd);font-weight:900;}
+    .hl-p{color:#6d28d9;font-weight:900;}
+    .hl-t{color:#0f766e;font-weight:900;}
+    .hl-case{background:#fef3c7;color:#92400e;padding:0 3px;border-radius:3px;font-weight:700;}
+
+    /* Pattern row */
+    .pattern-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;}
+    .pbox{background:var(--white);border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;}
+    .pbox-label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
+    .pbox-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;direction:ltr;unicode-bidi:isolate;margin-bottom:3px;}
+    .pbox-he{font-size:12px;color:var(--muted);}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.pattern-row{grid-template-columns:1fr;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="a2.html">A2</a><span>›</span><a href="a2-lesson12.html">שיעור 12</a><span>›</span>12ב — těším se · bojím se · zajímám se
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    שלושה פעלים שדורשים יחסה ספציפית אחריהם: <span class="cz-phrase">těšit se <b>na</b></span> + יחסה 4, <span class="cz-phrase">bát se</span> + יחסה 2, <span class="cz-phrase">zajímat se <b>o</b></span> + יחסה 4. ברמת A2 — לא צריך לשנן את כל הצורות, מספיק לזכור <b>אחרי איזו מילה</b> בא כל פועל.
+  </div>
+
+  <!-- TĚŠIT SE NA -->
+  <div class="verb-block green">
+    <div class="verb-name green">těším se na...</div>
+    <div class="verb-meaning">אני מצפה ל- / מתרגש/ת לקראת</div>
+    <span class="case-badge four">+ na + יחסה 4</span>
+    <div class="verb-rule">מבטא ציפייה נעימה לשמשהו שעתיד להגיע. <span class="cz-phrase">Těšit se na</span> + שם עצם. בעברית: ״אני מצפה/ה ל...״ / ״אני מתרגש/ת לקראת...״</div>
+
+    <div class="pattern-row">
+      <div class="pbox"><div class="pbox-label">אני</div><div class="pbox-cz" style="color:var(--gd);">Těším se na...</div><div class="pbox-he">אני מצפה ל-</div></div>
+      <div class="pbox"><div class="pbox-label">אתה/את</div><div class="pbox-cz" style="color:var(--gd);">Těšíš se na...?</div><div class="pbox-he">אתה/את מצפה ל-?</div></div>
+      <div class="pbox"><div class="pbox-label">הוא/היא</div><div class="pbox-cz" style="color:var(--gd);">Těší se na...</div><div class="pbox-he">הוא/היא מצפה ל-</div></div>
+    </div>
+
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Těším se na víkend.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Těším se <span class="hl-g">na</span> víkend.</span>
+      <span class="ex-he">אני מצפה לסוף השבוע.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Těšíš se na dovolenou?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Těšíš se <span class="hl-g">na</span> dovolenou?</span>
+      <span class="ex-he">אתה/את מצפה לחופשה?</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Moc se těším na tvůj příjezd.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Moc se těším <span class="hl-g">na</span> tvůj příjezd.</span>
+      <span class="ex-he">אני מאוד מצפה/ה לביאתך.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Děti se těší na Vánoce.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Děti se těší <span class="hl-g">na</span> Vánoce.</span>
+      <span class="ex-he">הילדים מצפים לחג המולד.</span>
+    </div>
+  </div>
+
+  <!-- BОЈІТ SE -->
+  <div class="verb-block purple">
+    <div class="verb-name purple">bojím se...</div>
+    <div class="verb-meaning">אני מפחד/ת מ-</div>
+    <span class="case-badge two">+ יחסה 2 (גניטיב) — ממה?</span>
+    <div class="verb-rule"><span class="cz-phrase">bát se</span> = לפחד. אחריו בא <b>יחסה 2</b> — הצורה ה״של/מ-״. ברמת A2 — מספיק לזכור שאחרי <span class="cz-phrase">bojím se</span> השם עצם משתנה קצת. לדוגמה: pes (כלב) → psů (מכלבים).</div>
+
+    <div class="pattern-row">
+      <div class="pbox"><div class="pbox-label">אני</div><div class="pbox-cz" style="color:#6d28d9;">Bojím se...</div><div class="pbox-he">אני מפחד/ת מ-</div></div>
+      <div class="pbox"><div class="pbox-label">אתה/את</div><div class="pbox-cz" style="color:#6d28d9;">Bojíš se...?</div><div class="pbox-he">אתה/את מפחד/ת מ-?</div></div>
+      <div class="pbox"><div class="pbox-label">הוא/היא</div><div class="pbox-cz" style="color:#6d28d9;">Bojí se...</div><div class="pbox-he">הוא/היא מפחד/ת מ-</div></div>
+    </div>
+
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Bojím se létání.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><span class="hl-p">Bojím se</span> létání.</span>
+      <span class="ex-he">אני מפחד/ת מטיסות.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Bojíš se tmy?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><span class="hl-p">Bojíš se</span> tmy?</span>
+      <span class="ex-he">אתה/את מפחד/ת מחושך?</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Nebojím se nic.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Ne<span class="hl-p">bojím se</span> nic.</span>
+      <span class="ex-he">אני לא מפחד/ת משום דבר.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Bojí se zkoušky.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><span class="hl-p">Bojí se</span> zkoušky.</span>
+      <span class="ex-he">הוא/היא מפחד/ת מהמבחן.</span>
+    </div>
+  </div>
+
+  <!-- ZAJÍMAT SE O -->
+  <div class="verb-block teal">
+    <div class="verb-name teal">zajímám se o...</div>
+    <div class="verb-meaning">אני מתעניין/ת ב-</div>
+    <span class="case-badge four-o">+ o + יחסה 4</span>
+    <div class="verb-rule"><span class="cz-phrase">zajímat se o</span> = להתעניין ב-. ה-<b>o</b> (על/ב-) + יחסה 4. פועל מאוד שכיח לתאר תחביבים ותחומי עניין.</div>
+
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Zajímám se o historii.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Zajímám se <span class="hl-t">o</span> historii.</span>
+      <span class="ex-he">אני מתעניין/ת בהיסטוריה.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Zajímáš se o sport?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Zajímáš se <span class="hl-t">o</span> sport?</span>
+      <span class="ex-he">אתה/את מתעניין/ת בספורט?</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Nezajímám se o politiku.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Ne<span class="hl-t">zajímám se</span> o politiku.</span>
+      <span class="ex-he">אני לא מתעניין/ת בפוליטיקה.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Zajímá se o češtinu a kulturu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Zajímá se <span class="hl-t">o</span> češtinu a kulturu.</span>
+      <span class="ex-he">הוא/היא מתעניין/ת בצ׳כית ובתרבות.</span>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>📝 מה הצורה אחרי הפועל?</strong>
+    <b>těším se na</b> + יחסה 4: <span class="cz-phrase">na víkend, na dovolenou, na jídlo</span><br>
+    <b>bojím se</b> + יחסה 2: <span class="cz-phrase">psů (כלבים), výšky (גבהים), tmy (חושך)</span><br>
+    <b>zajímám se o</b> + יחסה 4: <span class="cz-phrase">o sport, o hudbu, o politiku</span><br>
+    ברמת A2 — <b>לא חובה לשנן את כל הצורות</b>. מספיק לזכור את המילה שבאה אחרי (na / ничего / o).
+  </div>
+
+  <div class="tip green">
+    <strong>💡 těšit se — גם להתרגש</strong>
+    <span class="cz-phrase">Těším se na tebe!</span> — אני מצפה/ה לפגוש אותך! (כמו ״I can't wait to see you״)<br>
+    <span class="cz-phrase">Těšíme se na vás.</span> — אנחנו מצפים/ות לכם/ן. (ניסוח רשמי יותר)<br>
+    <span class="cz-phrase">Netěším se na to.</span> — אני לא מצפה/ה לזה. (מבטא חוסר רצון)
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson12a.html" class="btn-back">→ 12א — baví mě</a>
+    <a href="a2-lesson12c.html" class="btn-next">12ג — poznat · najít · chybí mi ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="a2-lesson12b">
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px;">
+    <strong style="display:block;margin-bottom:12px;font-size:14px;">💛 פעלים עם יחסה</strong>
+    <div style="font-size:13px;line-height:2.3;">
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;color:var(--gd);">těším se na</span><br>
+      <span style="color:var(--muted);font-size:11.5px;">+ na + יחסה 4</span><br>
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#6d28d9;">bojím se</span><br>
+      <span style="color:var(--muted);font-size:11.5px;">+ יחסה 2 (גניטיב)</span><br>
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#0f766e;">zajímám se o</span><br>
+      <span style="color:var(--muted);font-size:11.5px;">+ o + יחסה 4</span>
+    </div>
+  </div>
+</aside>
+</div>
+
+<script>
+function speak(text){if(!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>על האתר | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1D9E75;
+      --green-light: #E1F5EE;
+      --green-dark: #085041;
+      --green-mid: #5DCAA5;
+      --text: #1a1a1a;
+      --text-muted: #6b7280;
+      --bg: #fafaf8;
+      --white: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --amber-light: #fef3c7;
+      --blue-light: #eff6ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    /* NAV — identical to index.html */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo span { color: var(--green); }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--green); }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 70px 24px 50px;
+      max-width: 680px;
+      margin: 0 auto;
+      animation: fadeUp 0.7s ease both;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      color: var(--text);
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+    .hero p {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* SECTIONS */
+    .section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 70px;
+      animation: fadeUp 0.7s 0.15s ease both;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+
+    /* STORY block (bio) */
+    .story-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-light) 0%, var(--green-mid) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      color: var(--white);
+      position: relative;
+    }
+    .avatar-note {
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--amber-light);
+      color: #92400e;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+    .story-content {
+      font-size: 15.5px;
+      line-height: 1.85;
+      color: var(--text);
+    }
+    .story-content p { margin-bottom: 14px; }
+    .story-content p:last-child { margin-bottom: 0; }
+    .placeholder {
+      background: var(--amber-light);
+      color: #92400e;
+      padding: 1px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14.5px;
+      border: 1px dashed rgba(146,64,14,0.3);
+    }
+
+    /* WHY block */
+    .why-intro {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text);
+    }
+    .why-intro .lead {
+      font-family: 'Nunito', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    /* PRINCIPLES */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .principle {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .principle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(29,158,117,0.08);
+    }
+    .principle .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .principle h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .principle p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* PORTFOLIO teaser */
+    .portfolio-card {
+      background: linear-gradient(135deg, var(--green-light) 0%, #d4ecdf 100%);
+      border: 1px solid rgba(29,158,117,0.15);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .portfolio-text { flex: 1; min-width: 220px; }
+    .portfolio-text h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+    .portfolio-text p {
+      font-size: 14px;
+      color: var(--green-dark);
+      line-height: 1.7;
+      opacity: 0.85;
+    }
+    .portfolio-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--green-dark);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 1.5px solid var(--green);
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .portfolio-link:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    /* CONTACT form */
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .contact-intro {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .form-field input,
+    .form-field textarea {
+      font-family: 'Heebo', sans-serif;
+      font-size: 14.5px;
+      color: var(--text);
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      transition: border-color 0.15s, background 0.15s;
+      direction: rtl;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--green);
+      background: var(--white);
+    }
+    .form-field textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.6;
+    }
+    .submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+    .submit-note {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: var(--white);
+      font-family: 'Heebo', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(29,158,117,0.25);
+    }
+    .direct-email {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 13.5px;
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .direct-email:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    footer a { color: var(--green); text-decoration: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 720px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 50px 20px 30px; }
+      .hero h1 { font-size: 30px; }
+      .section { padding: 0 20px 50px; }
+      .section-title { font-size: 24px; }
+      .story-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 24px;
+      }
+      .avatar { margin: 0 auto; }
+      .principles-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .portfolio-card { padding: 22px; }
+    }
+  </style>
+<!-- Microsoft Clarity -->
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">צ'כית<span>IL</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">על האתר</a></li>
+      <li><a href="a1.html">התחל ללמוד</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ============== HERO ============== -->
+    <section class="hero">
+      <div class="hero-badge">נעים מאוד 👋</div>
+      <h1>אתר שנבנה <em>מתוך לימוד אמיתי</em>.</h1>
+      <p>אני שיר — מעצבת ומפתחת אתרים ישראלית. עברתי לפראג בסוף 2025. את האתר הזה בניתי מתוך התסכול שלי עצמי, כי הדרך הקיימת ללמוד צ'כית בעברית פשוט לא הייתה מספיק טובה.</p>
+    </section>
+
+    <!-- ============== STORY ============== -->
+    <section class="section">
+      <div class="section-label">הסיפור</div>
+      <h2 class="section-title">קצת עליי</h2>
+
+      <div class="story-card">
+        <div class="avatar">
+          ש
+          <span class="avatar-note">תמונה תוסף בקרוב</span>
+        </div>
+        <div class="story-content">
+          <p>
+            אני שיר — מעצבת ובונת אתרים ירושלמית. עברתי לפראג ב-2025. אני בונה אתרים מאז שאני זוכרת את עצמי — התחלתי באתרים לעצמי, והתגלגלתי לבניית אתרים שלמים שמשרתים עסקים אמיתיים. בדרך אספתי גם ניסיון בניהול משרד עורכי דין, לימודי NLP, עיצוב ושיווק — כל תחנה כזו לימדה אותי משהו אחר על איך אנשים שונים חושבים, וזה מה שמכוון אותי כשאני בונה.
+          </p>
+          <p>
+            עוד לפני המעבר לצ'כיה התחלתי במשימה קטנה: ללמוד את השפה. ומאז שהתחלתי — אני לא מצליחה להפסיק לשפר את הדרך שבה אני לומדת. האתר הזה הוא התוצאה של אובססיה קטנה ובונה: לחבר את הניסיון שלי כמעצבת תוכן עם מה שאני צריכה כלומדת.
+          </p>
+          <p>
+            מעבר לצ'כית, אני עובדת על אתרי לקוחות ובונה את <a href="https://shiralhanati.vercel.app" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--green-mid);">הפורטפוליו האישי שלי</a>. אני מאמינה שכל אתר טוב מתחיל משאלה אחת: ״מי האדם שיגיע לכאן, ומה הוא צריך?״.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== WHY ============== -->
+    <section class="section">
+      <div class="section-label">למה האתר הזה</div>
+      <h2 class="section-title">כי הדרך הקיימת לא הייתה מספיק טובה</h2>
+
+      <div class="why-intro">
+        <div class="lead">ניסיתי כל מה שקיים — אפליקציות לימוד שפות, ספרי דקדוק, קורסים.. שום דבר לא היה מספיק.</div>
+        <p>
+          ספרי לימוד צ'כית בעברית כמעט לא קיימים. מה שכן קיים — בנוי לדוברי אנגלית, ולא מצליח להסביר לנו מספיק על איך ללמוד את השפה. כאן התחיל הקושי האמיתי. מה שחסר לי היה אתר שמדבר עברית, מציג צ'כית מול עברית, ומסביר הכל בפירוט.
+        </p>
+        <p style="margin-top:14px;">
+          אז התחלתי לבנות אותו. בפעם הראשונה, רק בשבילי. אבל די מהר הבנתי שאם זה עוזר לי — זה כנראה יעזור גם לאחרים.
+        </p>
+      </div>
+
+      <div class="principles-grid">
+        <div class="principle">
+          <div class="icon">🎙️</div>
+          <h3>לחיצה אחת לכל מילה</h3>
+          <p>בצ'כית, לכתוב לא מספיק — חייבים לדעת איך זה נשמע. כל מילה ומשפט באתר ניתן להאזנה בלחיצה אחת.</p>
+        </div>
+        <div class="principle">
+          <div class="icon">🪞</div>
+          <h3>צ'כית אמיתית, לא מומצאת</h3>
+          <p>אם אומרים את זה ברחוב בפראג — זה כאן. אם זה רק בספר ואף אחד לא משתמש בזה — זה לא.</p>
+        </div>
+        <div class="principle">
+          <div class="icon">🌳</div>
+          <h3>נבנה הדרגתית, בלי קפיצות</h3>
+          <p>כל שיעור משתמש רק במה שכבר נלמד עד אז. בלי הפתעות, בלי ״תבינו אחר כך״.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== PORTFOLIO TEASER ============== -->
+    <section class="section">
+      <div class="section-label">עוד עבודות</div>
+      <h2 class="section-title">לא רק האתר הזה</h2>
+
+      <div class="portfolio-card">
+        <div class="portfolio-text">
+          <h3>צ'כיתIL היא חלק מפורטפוליו רחב יותר</h3>
+          <p>אני מעצבת ובונה אתרים לעסקים, יוצרים, וארגונים — כל אחד עם הצורך הייחודי שלו. רוצים לראות עוד?</p>
+        </div>
+        <a href="https://shiralhanati.vercel.app" class="portfolio-link" target="_blank" rel="noopener">
+          לפורטפוליו המלא ←
+        </a>
+      </div>
+    </section>
+
+    <!-- ============== CONTACT ============== -->
+    <section class="section" id="contact">
+      <div class="section-label">בואו נדבר</div>
+      <h2 class="section-title">יש לכם הצעה, רעיון, או בקשה?</h2>
+
+      <div class="contact-card">
+        <p class="contact-intro">
+          רוצים לעזור עם דקדוק שלא ברור? לבקש דף שיעור על נושא ספציפי? יש לכם פרויקט שתרצו שאעזור לכם איתו?<br>
+          תכתבו, אני קוראת הכל ועונה במהירות.
+        </p>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">השם שלך</label>
+              <input type="text" id="name" name="name" required placeholder="שיר ישראלי">
+            </div>
+            <div class="form-field">
+              <label for="email">המייל שלך</label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com" dir="ltr">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="subject">נושא הפנייה</label>
+            <input type="text" id="subject" name="subject" placeholder="למשל: בקשה לדף על מספרים סודרים">
+          </div>
+          <div class="form-field">
+            <label for="message">ההודעה</label>
+            <textarea id="message" name="message" required placeholder="כתבו כאן את ההודעה..."></textarea>
+          </div>
+          <div class="submit-row">
+            <button type="submit" class="submit-btn">
+              שליחה ←
+            </button>
+          </div>
+        </form>
+
+        <a href="mailto:shir@czechforisraelis.cz" class="direct-email">או ישירות: shir@czechforisraelis.cz</a>
+      </div>
+    </section>
+
+  </main>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+
+  <script>
+    // טופס יוצר mailto: עם הנתונים שמולאו
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim() || 'פנייה מאתר צ׳כיתIL';
+      const message = document.getElementById('message').value.trim();
+
+      const body =
+        'שם: ' + name + '\n' +
+        'מייל: ' + email + '\n\n' +
+        '---\n\n' +
+        message;
+
+      const mailto = 'mailto:shirnadlanirl@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+
+      window.location.href = mailto;
+    });
+  </script>
+
+</body>
+</html>

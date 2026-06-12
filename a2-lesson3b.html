@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 3ב — פעלים רפלקסיביים בעבר | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === Concept intro box === */
+    .concept-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:24px;margin-bottom:20px;}
+    .concept-title{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--green);margin-bottom:8px;}
+    .concept-text{font-size:14px;color:var(--text);line-height:1.8;}
+    .concept-text b.cz{font-family:'Nunito',sans-serif;color:var(--green);direction:ltr;unicode-bidi:isolate;display:inline-block;}
+
+    /* === Sentence parser visualization === */
+    .sentence-vis{background:var(--bg);border-radius:var(--rs);padding:16px 18px;margin-top:12px;margin-bottom:14px;text-align:center;}
+    .sentence-vis .row{display:flex;justify-content:center;gap:6px;direction:ltr;flex-wrap:wrap;align-items:flex-end;margin-bottom:8px;}
+    .sentence-vis .word{font-family:'Nunito',sans-serif;font-weight:700;padding:6px 12px;border-radius:8px;border:1px solid var(--border);background:var(--white);font-size:14.5px;position:relative;}
+    .sentence-vis .word.slot{background:var(--gl);border-color:var(--green);color:var(--gd);}
+    .sentence-vis .word.jsem{background:#fff3c2;border-color:#f59e0b;color:#92400e;}
+    .sentence-vis .word.se{background:var(--purple-light);border-color:#7c3aed;color:#5b21b6;}
+    .sentence-vis .word .num{position:absolute;top:-8px;right:50%;transform:translateX(50%);background:var(--green);color:white;font-size:10px;font-weight:800;padding:1px 6px;border-radius:8px;font-family:'Nunito',sans-serif;}
+    .sentence-vis .word.jsem .num{background:#f59e0b;}
+    .sentence-vis .word.se .num{background:#7c3aed;}
+    .sentence-vis .label{font-size:12.5px;color:var(--muted);margin-top:6px;}
+
+    /* === Verb block === */
+    .verb-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:12px;transition:border-color .15s;}
+    .verb-block:hover{border-color:var(--gm);}
+    .verb-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+    .verb-cz{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;color:var(--text);direction:ltr;}
+    .verb-arrow{color:var(--muted);font-size:18px;font-weight:300;}
+    .verb-past{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;color:var(--green);direction:ltr;}
+    .verb-he{font-size:13px;color:var(--muted);margin-right:auto;}
+    .play-btn{width:32px;height:32px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .play-btn:hover{background:var(--gm);}
+    .play-btn svg{width:11px;height:11px;fill:var(--gd);margin-right:-1px;}
+
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:#7c3aed;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .verb-head{flex-wrap:wrap;}
+      .verb-he{margin-right:0;flex-basis:100%;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson3.html">שיעור 3</a><span>›</span>
+  3ב — פעלים רפלקסיביים
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    פעלים שצועדים תמיד עם המילה הקטנה <span class="cz-phrase">se</span> — כמו <span class="cz-phrase">dívat se</span> (לראות) או <span class="cz-phrase">učit se</span> (ללמוד). בעבר זה יוצר שאלה: <b>איפה ה-se הולך?</b> התשובה מפתיעה בפשטות שלה.
+  </div>
+
+  <!-- ========== CONCEPT INTRO ========== -->
+  <div class="stitle">מה זה פועל רפלקסיבי?</div>
+
+  <div class="concept-box">
+    <div class="concept-title">פעלים שהולכים יד-ביד עם se</div>
+    <div class="concept-text">
+      בעברית יש לנו פעלים שמתחילים בבניין "התפעל": <b>הת</b>לבשתי, <b>הת</b>רגזתי, <b>הת</b>קלחתי. הם תמיד מתייחסים לפועל שעושים על עצמך.<br><br>
+      בצ׳כית התפקיד הזה ממלאת מילה נפרדת — <b class="cz">se</b>. היא חלק קבוע מהפועל, ואי-אפשר להפריד ביניהם: <b class="cz">dívat se</b>, <b class="cz">učit se</b>, <b class="cz">bavit se</b>.<br><br>
+      בעבר זה יוצר שאלה: יש לנו שני חלקים שצריכים להיות במקום השני — <b class="cz">jsem</b> וגם <b class="cz">se</b>. <b>איך זה עובד?</b>
+    </div>
+  </div>
+
+  <!-- ========== THE RULE ========== -->
+  <div class="stitle">הכלל: jsem se מתאחדים</div>
+
+  <div class="tip blue">
+    <strong>💡 כשיש גם jsem וגם se</strong>
+    הסדר תמיד <b>jsem se</b> (לא <b>se jsem</b>!). שניהם נצמדים אחרי המילה הראשונה במשפט:<br>
+    <b class="cz">Včera jsem se díval na film.</b> — אתמול ראיתי סרט.<br>
+    שניהם יחד, במקום ה-2 וה-3, מיד אחרי המילה הפותחת.
+  </div>
+
+  <div class="sentence-vis">
+    <div class="row">
+      <div class="word slot"><span class="num">1</span>Včera</div>
+      <div class="word jsem"><span class="num">2</span>jsem</div>
+      <div class="word se"><span class="num">3</span>se</div>
+      <div class="word">díval</div>
+      <div class="word">na</div>
+      <div class="word">film.</div>
+    </div>
+    <div class="label">אתמול ראיתי סרט (♂) — שני הקליטיקים מצורפים מיד אחרי <b class="cz">Včera</b>.</div>
+  </div>
+
+  <div class="sentence-vis">
+    <div class="row">
+      <div class="word slot"><span class="num">1</span>Učila</div>
+      <div class="word jsem"><span class="num">2</span>jsem</div>
+      <div class="word se"><span class="num">3</span>se</div>
+      <div class="word">česky.</div>
+    </div>
+    <div class="label">למדתי צ׳כית (♀) — אותו עיקרון: <b class="cz">jsem se</b> מיד אחרי המילה הפותחת.</div>
+  </div>
+
+  <!-- ========== 3RD PERSON ========== -->
+  <div class="stitle">בגוף שלישי — רק se</div>
+
+  <div class="tip green">
+    <strong>✨ ב-on/ona/oni/ony אין jsem</strong>
+    זוכרים שבגוף שלישי אין פועל עזר? אז יש רק <b class="cz">se</b>, והוא לבדו עדיין הולך למקום השני:
+  </div>
+
+  <div class="sentence-vis">
+    <div class="row">
+      <div class="word slot"><span class="num">1</span>Marek</div>
+      <div class="word se"><span class="num">2</span>se</div>
+      <div class="word">díval</div>
+      <div class="word">na</div>
+      <div class="word">televizi.</div>
+    </div>
+    <div class="label">מארק ראה טלוויזיה — אין jsem, ה-se לבדו במקום 2.</div>
+  </div>
+
+  <!-- ========== VERB 1: DÍVAT SE ========== -->
+  <div class="stitle">ארבעה פעלים רפלקסיביים שימושיים</div>
+
+  <div class="verb-block">
+    <div class="verb-head">
+      <span class="verb-cz">dívat se (na)</span>
+      <span class="verb-arrow">←</span>
+      <span class="verb-past">díval / dívala se</span>
+      <button class="play-btn" onclick="speak('dívat se. díval se. dívala se.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="verb-he">להסתכל על / לצפות ב-</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Včera jsem se dívala na seriál.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Včera jsem <b>se</b> dívala na seriál.</span>
+      <span class="ex-he">אתמול צפיתי בסדרה. ♀</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Na co jsi se díval o víkendu?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Na co jsi <b>se</b> díval o víkendu?</span>
+      <span class="ex-he">במה צפית בסוף השבוע? ♂</span>
+    </div>
+  </div>
+
+  <!-- ========== VERB 2: UČIT SE ========== -->
+  <div class="verb-block">
+    <div class="verb-head">
+      <span class="verb-cz">učit se</span>
+      <span class="verb-arrow">←</span>
+      <span class="verb-past">učil / učila se</span>
+      <button class="play-btn" onclick="speak('učit se. učil se. učila se.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="verb-he">ללמוד (לעצמך)</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Učila jsem se česky tři roky.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Učila jsem <b>se</b> česky tři roky.</span>
+      <span class="ex-he">למדתי צ׳כית שלוש שנים. ♀</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Včera večer jsme se učili na test.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Včera večer jsme <b>se</b> učili na test.</span>
+      <span class="ex-he">אתמול בערב למדנו למבחן.</span>
+    </div>
+  </div>
+
+  <!-- ========== VERB 3: BAVIT SE ========== -->
+  <div class="verb-block">
+    <div class="verb-head">
+      <span class="verb-cz">bavit se</span>
+      <span class="verb-arrow">←</span>
+      <span class="verb-past">bavil / bavila se</span>
+      <button class="play-btn" onclick="speak('bavit se. bavil se. bavila se.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="verb-he">להעביר זמן טוב / לפטפט</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Bavil jsem se na party celý večer.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Bavil jsem <b>se</b> na party celý večer.</span>
+      <span class="ex-he">העברתי זמן טוב במסיבה כל הערב. ♂</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Bavily jsme se s kamarádkami.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Bavily jsme <b>se</b> s kamarádkami.</span>
+      <span class="ex-he">פטפטנו עם החברות. ♀ (קבוצת נשים)</span>
+    </div>
+  </div>
+
+  <!-- ========== VERB 4: VRÁTIT SE ========== -->
+  <div class="verb-block">
+    <div class="verb-head">
+      <span class="verb-cz">vrátit se</span>
+      <span class="verb-arrow">←</span>
+      <span class="verb-past">vrátil / vrátila se</span>
+      <button class="play-btn" onclick="speak('vrátit se. vrátil se. vrátila se.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="verb-he">לחזור (ממקום)</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Včera večer jsem se vrátila pozdě.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Včera večer jsem <b>se</b> vrátila pozdě.</span>
+      <span class="ex-he">אתמול בערב חזרתי מאוחר. ♀</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Kdy jste se vrátili z dovolené?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Kdy jste <b>se</b> vrátili z dovolené?</span>
+      <span class="ex-he">מתי חזרתם מהחופשה?</span>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ אזהרה — אסור להפריד</strong>
+    אי-אפשר לשים מילה אחרת בין <span class="cz-phrase">jsem</span> ל-<span class="cz-phrase">se</span>. הם נצמדים יחד:<br>
+    ❌ <span style="color:#991b1b;text-decoration:line-through;direction:ltr;display:inline-block;">Včera jsem dlouho se díval.</span><br>
+    ✅ <span class="cz-phrase">Včera jsem se dlouho díval.</span><br>
+    <span class="cz-phrase">jsem se</span> זה בלוק אחד.
+  </div>
+
+  <!-- ========== CHECK YOURSELF ========== -->
+  <div class="stitle">בדיקה אישית</div>
+
+  <div class="check-box">
+    <h4>אחרי 3ב את/ה אמור/ה:</h4>
+    <ul class="check-list">
+      <li>לזהות פועל רפלקסיבי — פועל שתמיד עם <span class="cz-phrase">se</span></li>
+      <li>לדעת שב-<b>1/2 גוף</b> הסדר תמיד <span class="cz-phrase">jsem se</span> (יחד, מיד אחרי המילה הראשונה)</li>
+      <li>לדעת שב-<b>גוף שלישי</b> רק <span class="cz-phrase">se</span> לבד הולך למקום השני</li>
+      <li>להגיד 3 משפטים על מה ראיתם, איפה למדתם, או איך בילתם אתמול</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson3a.html" class="btn-back">→ חזרה ל-3א</a>
+    <a href="a2-lesson3c.html" class="btn-next">3ג — Když jsem byl malý ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson3b"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 9ג — עתיד: pojedu + budu jezdit | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.red{background:#fef2f2;color:#991b1b;border:1px solid rgba(239,68,68,.25);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* Future compare block */
+    .compare-block{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:16px;}
+    .cb-side{padding:18px 20px;}
+    .cb-side.left{background:#fff7ed;border-left:1px solid var(--border);}
+    .cb-side.right{background:#eff6ff;}
+    .cb-head{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;margin-bottom:4px;direction:ltr;}
+    .cb-head.orange{color:#c2410c;}
+    .cb-head.blue{color:#1d4ed8;}
+    .cb-label{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:10px;letter-spacing:.04em;}
+    .cb-rule{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.5;}
+    .cb-signals{display:flex;flex-wrap:wrap;gap:6px;}
+    .cb-signal.orange{background:#fed7aa;color:#c2410c;border-radius:6px;padding:3px 9px;font-size:12px;font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;}
+    .cb-signal.blue{background:#bfdbfe;color:#1d4ed8;border-radius:6px;padding:3px 9px;font-size:12px;font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;}
+
+    .conj-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+    .conj-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;}
+    .conj-box h4{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;margin-bottom:12px;direction:ltr;}
+    .conj-box h4.orange{color:#c2410c;}
+    .conj-box h4.blue{color:#1d4ed8;}
+    .conj-table{width:100%;border-collapse:collapse;font-size:13.5px;}
+    .conj-table tr{border-bottom:1px solid var(--border);}
+    .conj-table tr:last-child{border-bottom:none;}
+    .conj-table td{padding:8px 6px;vertical-align:middle;}
+    .conj-table .pron{color:var(--muted);font-size:12.5px;direction:ltr;unicode-bidi:isolate;}
+    .conj-table .form{font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;direction:ltr;unicode-bidi:isolate;}
+    .conj-table .form.orange{color:#c2410c;}
+    .conj-table .form.blue{color:#1d4ed8;}
+    .conj-table .play-btn{width:24px;height:24px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .conj-table .play-btn:hover{background:var(--gm);}
+    .conj-table .play-btn svg{width:8px;height:8px;fill:var(--gd);margin-right:-1px;}
+
+    /* 3-way tense table */
+    .tense-table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13.5px;}
+    .tense-table th{background:var(--bg);font-weight:700;padding:10px 12px;border:1px solid var(--border);font-size:12.5px;color:var(--muted);}
+    .tense-table th.label{background:var(--gl);color:var(--gd);}
+    .tense-table td{padding:10px 12px;border:1px solid var(--border);vertical-align:middle;}
+    .tense-table .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;display:block;font-size:15px;}
+    .tense-table .cz.orange{color:#c2410c;}
+    .tense-table .cz.blue{color:#1d4ed8;}
+    .tense-table .he{font-size:12px;color:var(--muted);display:block;}
+
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz .hl-orange{color:#c2410c;}
+    .ex-cz .hl-blue{color:#1d4ed8;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    .recall-box{background:#f0fdf4;border:1px solid rgba(22,163,74,.2);border-radius:var(--rs);padding:13px 16px;font-size:13.5px;color:#14532d;line-height:1.7;margin-bottom:20px;}
+    .recall-box strong{font-weight:700;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .compare-block{grid-template-columns:1fr;}
+      .conj-wrap{grid-template-columns:1fr;}
+      .tense-table{font-size:12px;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson9.html">שיעור 9</a><span>›</span>
+  9ג — עתיד: pojedu + budu jezdit
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    שני אופני עתיד שונים: <span class="cz-phrase">pojedu</span> לנסיעה חד-פעמית עתידית, ו-<span class="cz-phrase">budu jezdit</span> להרגל עתידי. ועוד הכלל החשוב — לא <span class="cz-phrase">budu jet</span>!
+  </div>
+
+  <div class="recall-box">
+    💡 <strong>חזרה מ-8ג:</strong> בשיעור 8 למדנו <span class="cz-phrase">půjdu</span> (עתיד חד-פעמי של jít) ו-<span class="cz-phrase">budu chodit</span> (הרגל עתידי של chodit). כאן — בדיוק אותו הגיון לנסיעה: <span class="cz-phrase">pojedu</span> ו-<span class="cz-phrase">budu jezdit</span>.
+  </div>
+
+  <!-- ========== FUTURE COMPARE ========== -->
+  <div class="stitle">שני סוגי עתיד</div>
+
+  <div class="compare-block">
+    <div class="cb-side left">
+      <div class="cb-head orange">pojedu</div>
+      <div class="cb-label">עתיד חד-פעמי — ״אסע (פעם אחת)״</div>
+      <div class="cb-rule">נסיעה ספציפית אחת בעתיד. לא סדיר — צריך לשנן.</div>
+      <div class="cb-signals">
+        <span class="cb-signal orange">zítra</span>
+        <span class="cb-signal orange">příští týden</span>
+        <span class="cb-signal orange">v sobotu</span>
+        <span class="cb-signal orange">jednou</span>
+      </div>
+    </div>
+    <div class="cb-side right">
+      <div class="cb-head blue">budu jezdit</div>
+      <div class="cb-label">עתיד הרגלי — ״אסע (תמיד)״</div>
+      <div class="cb-rule">הרגל עתידי, שגרה שתתחיל מעכשיו. סדיר: budu + jezdit.</div>
+      <div class="cb-signals">
+        <span class="cb-signal blue">od příštího týdne</span>
+        <span class="cb-signal blue">každý den</span>
+        <span class="cb-signal blue">od teď</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip red">
+    <strong>🚫 חשוב מאוד — לא budu jet!</strong>
+    בצ׳כית, הצורה <span style="font-family:'Nunito',sans-serif;font-weight:800;">budu jet</span> <b>לא קיימת</b> בשימוש רגיל. לנסיעה חד-פעמית בעתיד, משתמשים ב-<span style="font-family:'Nunito',sans-serif;font-weight:800;color:#c2410c;">pojedu</span> (לא סדיר, כמו <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#c2410c;">půjdu</span> מ-8ג). לא לבלבל!
+  </div>
+
+  <!-- ========== CONJUGATION TABLES ========== -->
+  <div class="stitle">הטיות — pojedu ו-budu jezdit</div>
+
+  <div class="conj-wrap">
+    <div class="conj-box">
+      <h4 class="orange">pojedu — פעם אחת בעתיד</h4>
+      <table class="conj-table">
+        <tr>
+          <td class="pron">já</td>
+          <td><span class="form orange">pojedu</span></td>
+          <td><button class="play-btn" onclick="speak('pojedu')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">ty</td>
+          <td><span class="form orange">pojedeš</span></td>
+          <td><button class="play-btn" onclick="speak('pojedeš')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">on/ona</td>
+          <td><span class="form orange">pojede</span></td>
+          <td><button class="play-btn" onclick="speak('pojede')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">my</td>
+          <td><span class="form orange">pojedeme</span></td>
+          <td><button class="play-btn" onclick="speak('pojedeme')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">vy</td>
+          <td><span class="form orange">pojedete</span></td>
+          <td><button class="play-btn" onclick="speak('pojedete')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">oni/ony</td>
+          <td><span class="form orange">pojedou</span></td>
+          <td><button class="play-btn" onclick="speak('pojedou')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+      </table>
+    </div>
+    <div class="conj-box">
+      <h4 class="blue">budu jezdit — הרגל עתידי</h4>
+      <table class="conj-table">
+        <tr>
+          <td class="pron">já</td>
+          <td><span class="form blue">budu jezdit</span></td>
+          <td><button class="play-btn" onclick="speak('budu jezdit')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">ty</td>
+          <td><span class="form blue">budeš jezdit</span></td>
+          <td><button class="play-btn" onclick="speak('budeš jezdit')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">on/ona</td>
+          <td><span class="form blue">bude jezdit</span></td>
+          <td><button class="play-btn" onclick="speak('bude jezdit')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">my</td>
+          <td><span class="form blue">budeme jezdit</span></td>
+          <td><button class="play-btn" onclick="speak('budeme jezdit')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">vy</td>
+          <td><span class="form blue">budete jezdit</span></td>
+          <td><button class="play-btn" onclick="speak('budete jezdit')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">oni/ony</td>
+          <td><span class="form blue">budou jezdit</span></td>
+          <td><button class="play-btn" onclick="speak('budou jezdit')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ========== EXAMPLE PAIRS ========== -->
+  <div class="stitle">זוגות דוגמה — עתיד חד-פעמי מול הרגלי</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Příští týden pojedu do Vídně.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Příští týden <span class="hl-orange">pojedu</span> do Vídně.</span>
+    <span class="ex-he">שבוע הבא אסע לווינה. (פעם אחת)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Od příštího roku budu jezdit do Vídně každý měsíc.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Od příštího roku <span class="hl-blue">budu jezdit</span> do Vídně každý měsíc.</span>
+    <span class="ex-he">מהשנה הבאה אסע לווינה כל חודש. (הרגל)</span>
+  </div>
+
+  <div class="ex-line" style="margin-top:10px;">
+    <button class="ex-btn-sm" onclick="speak('V sobotu pojedeme na výlet.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">V sobotu <span class="hl-orange">pojedeme</span> na výlet.</span>
+    <span class="ex-he">בשבת נסע לטיול. (שבת הזו, פעם אחת)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Každou sobotu budeme jezdit na výlet.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Každou sobotu <span class="hl-blue">budeme jezdit</span> na výlet.</span>
+    <span class="ex-he">כל שבת נסע לטיול. (הרגל עתידי)</span>
+  </div>
+
+  <!-- ========== 3-WAY TENSE TABLE ========== -->
+  <div class="stitle">טבלת זמנים מלאה — jet ו-jezdit</div>
+
+  <table class="tense-table">
+    <thead>
+      <tr>
+        <th class="label"></th>
+        <th>עבר</th>
+        <th>הווה</th>
+        <th>עתיד</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="background:#fff7ed;font-weight:700;color:#c2410c;">כיווני<br><span style="font-size:11px;font-weight:400;color:var(--muted);">(פעם אחת)</span></td>
+        <td>
+          <span class="cz orange">jel/jela jsem</span>
+          <span class="he">נסעתי</span>
+        </td>
+        <td>
+          <span class="cz orange">jedu</span>
+          <span class="he">אני נוסע/ת עכשיו</span>
+        </td>
+        <td>
+          <span class="cz orange">pojedu</span>
+          <span class="he">אסע (פעם)</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="background:#eff6ff;font-weight:700;color:#1d4ed8;">הרגלי<br><span style="font-size:11px;font-weight:400;color:var(--muted);">(שגרה)</span></td>
+        <td>
+          <span class="cz blue">jezdil/jezdila jsem</span>
+          <span class="he">נהגתי לנסוע</span>
+        </td>
+        <td>
+          <span class="cz blue">jezdím</span>
+          <span class="he">אני נוסע/ת בדרך כלל</span>
+        </td>
+        <td>
+          <span class="cz blue">budu jezdit</span>
+          <span class="he">אסע (תמיד)</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip amber">
+    <strong>⭐ שימו לב — jednotlivý vs. opakovaný</strong>
+    צ׳כית מבחינה תמיד בין פעולה <b>חד-פעמית</b> (jednotlivý) לפעולה <b>חוזרת</b> (opakovaný). ההבחנה קיימת בכל הזמנים: עבר, הווה, עתיד. זה ייחודי לצ׳כית ושפות סלאביות — ולא קיים בעברית.
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 משפט היום</strong>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:16px;display:block;margin:4px 0;">Příští léto pojedeme letadlem do Izraele.</span>
+    קיץ הבא נטוס (נסע במטוס) לישראל.
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson9b.html" class="btn-back">→ 9ב — Čím?</a>
+    <a href="a2-lesson9d.html" class="btn-next">9ד — דיאלוגים ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson9c">
+  <div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-radius:var(--r);padding:16px;border-inline-start:5px solid #11457E;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:8px;color:#11457E;font-size:14px;">⏱ הווה / עתיד</strong>
+    <table style="width:100%;font-size:12.5px;border-collapse:collapse;">
+      <tr>
+        <td style="padding:5px 0;color:var(--muted);font-size:11px;font-weight:700;">הווה כיווני</td>
+        <td style="padding:5px 0;font-family:'Nunito',sans-serif;font-weight:800;color:#c2410c;direction:ltr;unicode-bidi:isolate;">jedu</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 0;color:var(--muted);font-size:11px;font-weight:700;">הווה הרגלי</td>
+        <td style="padding:5px 0;font-family:'Nunito',sans-serif;font-weight:800;color:#1d4ed8;direction:ltr;unicode-bidi:isolate;">jezdím</td>
+      </tr>
+      <tr style="border-top:1px solid var(--border);">
+        <td style="padding:5px 0;color:var(--muted);font-size:11px;font-weight:700;">עתיד חד-פעמי</td>
+        <td style="padding:5px 0;font-family:'Nunito',sans-serif;font-weight:800;color:#c2410c;direction:ltr;unicode-bidi:isolate;">pojedu</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 0;color:var(--muted);font-size:11px;font-weight:700;">עתיד הרגלי</td>
+        <td style="padding:5px 0;font-family:'Nunito',sans-serif;font-weight:800;color:#1d4ed8;direction:ltr;unicode-bidi:isolate;">budu jezdit</td>
+      </tr>
+    </table>
+  </div>
+  <div style="background:#fef2f2;border:1px solid rgba(239,68,68,.2);border-radius:var(--rs);padding:13px 16px;font-size:13px;color:#991b1b;line-height:1.7;">
+    <strong style="display:block;margin-bottom:5px;">🚫 לא!</strong>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;text-decoration:line-through;">budu jet</span><br>
+    ✅ <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#c2410c;">pojedu</span>
+  </div>
+</aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

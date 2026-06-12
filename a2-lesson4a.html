@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 4א — הנוסחה של עתיד | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === Step boxes (like 1א) === */
+    .step-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .step-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+    .step-circle{width:36px;height:36px;border-radius:50%;background:var(--green);color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .step-title{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--text);}
+    .step-content{font-size:14.5px;color:var(--text);line-height:1.8;}
+    .step-content b.cz{font-family:'Nunito',sans-serif;color:var(--green);direction:ltr;unicode-bidi:isolate;display:inline-block;}
+
+    .demo{background:var(--bg);border-radius:var(--rs);padding:14px 18px;margin-top:10px;text-align:center;}
+    .demo .demo-line{font-family:'Nunito',sans-serif;font-size:18px;font-weight:700;color:var(--text);direction:ltr;unicode-bidi:isolate;margin-bottom:4px;}
+    .demo .demo-line b{color:var(--green);font-size:22px;}
+    .demo .demo-he{font-size:13px;color:var(--muted);}
+
+    /* === BUDU conjugation === */
+    .forms-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .forms-table{width:100%;border-collapse:collapse;font-size:14px;}
+    .forms-table th{text-align:right;padding:10px 12px;background:var(--gl);color:var(--gd);font-weight:700;font-size:12.5px;border-bottom:2px solid var(--gm);}
+    .forms-table td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+    .forms-table tr:last-child td{border-bottom:none;}
+    .forms-table .he-col{color:var(--muted);font-size:13px;width:22%;}
+    .forms-table .fut-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--green);direction:ltr;text-align:left;font-size:15px;}
+    .forms-table .play-cell{width:32px;text-align:center;}
+    .forms-table tr:hover td{background:var(--bg);}
+
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;margin:0 auto;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* === Past/Present/Future comparison === */
+    .compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:14px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;table-layout:fixed;}
+    .compare-table th{text-align:center;padding:10px 14px;background:var(--gl);color:var(--gd);font-weight:700;font-size:12px;border-bottom:1px solid var(--border);}
+    .compare-table td{padding:11px 14px;text-align:center;font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;border-bottom:1px solid var(--border);}
+    .compare-table tr:last-child td{border-bottom:none;}
+    .compare-table .cz-past{color:#7c3aed;}
+    .compare-table .cz-pres{color:#1e40af;}
+    .compare-table .cz-fut{color:var(--green);}
+
+    /* === Examples list === */
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:var(--green);}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson4.html">שיעור 4</a><span>›</span>
+  4א — הנוסחה של עתיד
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    איך בונים פועל בעתיד בצ׳כית — בשני שלבים בלבד. נעבוד עם פועל אחד: <span class="cz-phrase">dělat</span> (לעשות). כשתבינו את הנוסחה — תוכלו ליישם אותה על כל פועל רגיל שאתם מכירים.
+  </div>
+
+  <!-- ========== STEP 1 ========== -->
+  <div class="stitle">השיטה ב-2 שלבים</div>
+
+  <div class="step-box">
+    <div class="step-head">
+      <div class="step-circle">1</div>
+      <div class="step-title">מטים את הפועל budu לפי הגוף</div>
+    </div>
+    <div class="step-content">
+      <b class="cz">budu</b> הוא העתיד של <b class="cz">být</b> ("להיות"). אבל בעתיד הוא משמש <b>גם כפועל עזר</b> שעוזר ליצור עתיד של פעלים אחרים — בדיוק כמו <span class="cz-phrase">jsem</span> בעבר.
+    </div>
+    <div class="demo">
+      <div class="demo-line">já <b>budu</b> · ty <b>budeš</b> · on/ona <b>bude</b><br>my <b>budeme</b> · vy <b>budete</b> · oni <b>budou</b></div>
+      <div class="demo-he">שש צורות — אחת לכל גוף.</div>
+    </div>
+  </div>
+
+  <!-- ========== STEP 2 ========== -->
+  <div class="step-box">
+    <div class="step-head">
+      <div class="step-circle">2</div>
+      <div class="step-title">מוסיפים את הפועל הראשי באינפיניטיב</div>
+    </div>
+    <div class="step-content">
+      פשוט מוסיפים אחרי <b class="cz">budu</b> את הפועל הראשי — בלי לשנות אותו, בצורת המקור (אינפיניטיב).
+    </div>
+    <div class="demo">
+      <div class="demo-line"><b>budu</b> + dělat = <b>budu dělat</b> (אעשה)</div>
+      <div class="demo-he">budu מותאם לי, dělat נשאר בצורת המקור.</div>
+    </div>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 דמיון לעברית?</strong>
+    בעברית אנחנו אומרים "אני <b>אעבוד</b>" — מילה אחת. בצ׳כית עתיד הוא <b>שתי מילים</b>: פועל עזר (budu) + פועל ראשי (dělat).<br>
+    קצת כמו אנגלית עם "I will work" — שתי מילים: עזר (will) + ראשי (work).
+  </div>
+
+  <!-- ========== FULL TABLE OF BUDU + DĚLAT ========== -->
+  <div class="stitle">כל הצורות של DĚLAT בעתיד</div>
+
+  <div class="forms-block">
+    <table class="forms-table">
+      <tr><th>גוף</th><th>צורה</th><th>תרגום</th><th></th></tr>
+      <tr>
+        <td class="he-col">אני</td>
+        <td class="fut-cz">budu dělat</td>
+        <td class="he-col">אעשה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('budu dělat')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">את/ה</td>
+        <td class="fut-cz">budeš dělat</td>
+        <td class="he-col">תעשה / תעשי</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('budeš dělat')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הוא/היא</td>
+        <td class="fut-cz">bude dělat</td>
+        <td class="he-col">יעשה / תעשה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('bude dělat')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אנחנו</td>
+        <td class="fut-cz">budeme dělat</td>
+        <td class="he-col">נעשה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('budeme dělat')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אתם/ן</td>
+        <td class="fut-cz">budete dělat</td>
+        <td class="he-col">תעשו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('budete dělat')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הם/הן</td>
+        <td class="fut-cz">budou dělat</td>
+        <td class="he-col">יעשו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('budou dělat')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="tip green">
+    <strong>✨ הבדל ענק מהעבר</strong>
+    שמתם לב? בעתיד <b>אין הבדל בין זכר לנקבה</b>. הצורה <span class="cz-phrase">budu dělat</span> זהה לגבר ולאישה. רק בעבר היה צריך להתאים: <span class="cz-phrase">dělal jsem / dělala jsem</span>.<br>
+    זה אומר שעתיד הוא בעצם <b>פשוט יותר</b> מעבר.
+  </div>
+
+  <!-- ========== PAST / PRESENT / FUTURE ========== -->
+  <div class="stitle">השוואה: עבר · הווה · עתיד</div>
+
+  <table class="compare-table">
+    <tr><th>עבר</th><th>הווה</th><th>עתיד</th></tr>
+    <tr>
+      <td class="cz-past">dělal jsem</td>
+      <td class="cz-pres">dělám</td>
+      <td class="cz-fut">budu dělat</td>
+    </tr>
+    <tr>
+      <td class="cz-past">byl jsem</td>
+      <td class="cz-pres">jsem</td>
+      <td class="cz-fut">budu</td>
+    </tr>
+    <tr>
+      <td class="cz-past">pracoval jsem</td>
+      <td class="cz-pres">pracuju</td>
+      <td class="cz-fut">budu pracovat</td>
+    </tr>
+  </table>
+
+  <div class="tip amber">
+    <strong>⚠️ שורה שנייה — být בעתיד</strong>
+    שמתם לב לשורה השנייה? <b>być</b> בעתיד הוא <b>פשוט budu</b> — בלי תוספת.<br>
+    "אהיה" = <span class="cz-phrase">budu</span> (לא <span class="cz-phrase">budu být</span>!)<br>
+    "אהיה בבית" = <span class="cz-phrase">budu doma</span>.
+  </div>
+
+  <!-- ========== EXAMPLES ========== -->
+  <div class="stitle">דוגמאות במשפט</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Zítra budu pracovat doma.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Zítra <b>budu pracovat</b> doma.</span>
+    <span class="ex-he">מחר אעבוד מהבית.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Co budeš dělat v sobotu?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Co <b>budeš dělat</b> v sobotu?</span>
+    <span class="ex-he">מה תעשה/תעשי בשבת?</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Budeme studovat celý týden.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Budeme studovat</b> celý týden.</span>
+    <span class="ex-he">נלמד כל השבוע.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Zítra budu doma.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Zítra <b>budu</b> doma.</span>
+    <span class="ex-he">מחר אהיה בבית. (být בעתיד = רק budu)</span>
+  </div>
+
+  <div class="tip green">
+    <strong>✅ הבנתם את 4א?</strong>
+    אם אתם יכולים להגיד <b>3 משפטים בעתיד על מה תעשו השבוע</b> — אתם מוכנים להמשיך.<br>
+    בתת-העמוד הבא (4ב) נראה את שני החריגים החשובים — <span class="cz-phrase">jít</span> ו-<span class="cz-phrase">jet</span> בעתיד. הם <b>לא</b> הולכים עם budu!
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson4.html" class="btn-back">→ חזרה לשיעור 4</a>
+    <a href="a2-lesson4b.html" class="btn-next">4ב — půjdu + pojedu ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson4a"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

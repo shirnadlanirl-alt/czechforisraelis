@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 1א — הנוסחה של עבר | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === STEP-BY-STEP === */
+    .step-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .step-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+    .step-circle{width:36px;height:36px;border-radius:50%;background:var(--green);color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .step-title{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--text);}
+    .step-content{font-size:14.5px;color:var(--text);line-height:1.8;}
+    .step-content b.cz{font-family:'Nunito',sans-serif;color:var(--green);direction:ltr;unicode-bidi:isolate;display:inline-block;}
+
+    .demo{background:var(--bg);border-radius:var(--rs);padding:14px 18px;margin-top:10px;text-align:center;}
+    .demo .demo-line{font-family:'Nunito',sans-serif;font-size:18px;font-weight:700;color:var(--text);direction:ltr;unicode-bidi:isolate;margin-bottom:4px;}
+    .demo .demo-line b{color:var(--green);font-size:22px;}
+    .demo .demo-he{font-size:13px;color:var(--muted);}
+
+    /* === FORMS TABLE — מאוד מובן, רק dělat === */
+    .forms-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .forms-table{width:100%;border-collapse:collapse;font-size:14px;}
+    .forms-table th{text-align:right;padding:10px 12px;background:var(--gl);color:var(--gd);font-weight:700;font-size:12.5px;border-bottom:2px solid var(--gm);}
+    .forms-table td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+    .forms-table tr:last-child td{border-bottom:none;}
+    .forms-table .he-col{color:var(--muted);font-size:13px;width:24%;}
+    .forms-table .past-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--green);direction:ltr;text-align:left;font-size:15px;}
+    .forms-table .play-cell{width:32px;text-align:center;}
+    .forms-table tr:hover td{background:var(--bg);}
+
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;margin:0 auto;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* === BIG ENDINGS BOX === */
+    .endings-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px;}
+    .ending-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rs);padding:14px;text-align:center;}
+    .ending-card.he{background:#eff6ff;border-color:rgba(59,130,246,.2);}
+    .ending-card.she{background:#fdf2f8;border-color:rgba(236,72,153,.2);}
+    .ending-card.they-m{background:var(--purple-light);border-color:rgba(124,58,237,.2);}
+    .ending-card.they-f{background:#fef3c7;border-color:rgba(245,158,11,.2);}
+    .ending-tag{font-size:11px;font-weight:700;letter-spacing:.05em;margin-bottom:6px;}
+    .ending-card.he .ending-tag{color:#1e40af;}
+    .ending-card.she .ending-tag{color:#be185d;}
+    .ending-card.they-m .ending-tag{color:#7c3aed;}
+    .ending-card.they-f .ending-tag{color:#92400e;}
+    .ending-form{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;direction:ltr;}
+    .ending-card.he .ending-form{color:#1e40af;}
+    .ending-card.she .ending-form{color:#be185d;}
+    .ending-card.they-m .ending-form{color:#7c3aed;}
+    .ending-card.they-f .ending-form{color:#92400e;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .endings-grid{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson1.html">שיעור 1</a><span>›</span>
+  1א — הנוסחה של עבר
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    איך בונים פועל בעבר בצ׳כית — בשלושה שלבים. נעבוד עם פועל אחד בלבד: <span class="cz-phrase">dělat</span> (לעשות). כשתבינו אותו עד הסוף — נוכל להמשיך לתבניות הבאות.
+  </div>
+
+  <!-- ========== STEP 1 ========== -->
+  <div class="stitle">השיטה ב-3 שלבים</div>
+
+  <div class="step-box">
+    <div class="step-head">
+      <div class="step-circle">1</div>
+      <div class="step-title">לוקחים את האינפיניטיב ומורידים את ה-T</div>
+    </div>
+    <div class="step-content">
+      האינפיניטיב הוא הצורה המקורית של הפועל — מה שמופיע במילון. בצ׳כית הוא תמיד מסתיים ב-<b class="cz">-t</b>.<br>
+      פשוט מורידים את ה-<b class="cz">-t</b> בסוף, וזה הבסיס לעבר.
+    </div>
+    <div class="demo">
+      <div class="demo-line">děla<b style="text-decoration:line-through;">t</b> &nbsp;→&nbsp; <b>děla</b></div>
+      <div class="demo-he">לעשות → דֶלָה (השורש)</div>
+    </div>
+  </div>
+
+  <!-- ========== STEP 2 ========== -->
+  <div class="step-box">
+    <div class="step-head">
+      <div class="step-circle">2</div>
+      <div class="step-title">מוסיפים סיומת לפי מי שמדבר/ת</div>
+    </div>
+    <div class="step-content">
+      בצ׳כית הפועל בעבר אומר לנו <b>מי</b> עשה את הפעולה — לפי המגדר והמספר. ארבע אפשרויות:
+    </div>
+    <div class="endings-grid">
+      <div class="ending-card he">
+        <div class="ending-tag">זכר יחיד</div>
+        <div class="ending-form">-l</div>
+      </div>
+      <div class="ending-card she">
+        <div class="ending-tag">נקבה יחידה</div>
+        <div class="ending-form">-la</div>
+      </div>
+      <div class="ending-card they-m">
+        <div class="ending-tag">רבים מעורב/גברים</div>
+        <div class="ending-form">-li</div>
+      </div>
+      <div class="ending-card they-f">
+        <div class="ending-tag">רבות נשים בלבד</div>
+        <div class="ending-form">-ly</div>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="demo-line">děla + <b>l</b> = <b>dělal</b> (הוא עשה) &nbsp;·&nbsp; děla + <b>la</b> = <b>dělala</b> (היא עשתה)</div>
+      <div class="demo-he">לפי המגדר — אותו שורש, סיומת שונה</div>
+    </div>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 מוכר? בדיוק כמו RÁD</strong>
+    הסיומות זהות לאלו של <span class="cz-phrase">rád</span> משיעור 11 ב-A1:<br>
+    <span class="cz-phrase">rád / ráda / rádi / rády</span> ← אותן ארבע סיומות בדיוק.
+  </div>
+
+  <!-- ========== STEP 3 ========== -->
+  <div class="step-box">
+    <div class="step-head">
+      <div class="step-circle">3</div>
+      <div class="step-title">מוסיפים פועל עזר — חוץ מגוף שלישי</div>
+    </div>
+    <div class="step-content">
+      אחרי הסיומת מוסיפים את אותו <b>jsem / jsi / jsme / jste</b> שמכירים מהווה. <b>חוץ מגוף שלישי</b> (הוא/היא/הם/הן) — שם <b>לא</b> מוסיפים כלום.
+    </div>
+    <div class="demo">
+      <div class="demo-line">dělal + <b>jsem</b> = <b>dělal jsem</b> (עשיתי) &nbsp;·&nbsp; dělala (היא עשתה — בלי פועל עזר)</div>
+      <div class="demo-he">אני/את/ה/אנחנו/אתם → עם פועל עזר. הוא/היא/הם/הן → בלעדיו.</div>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ למה אין פועל עזר בגוף שלישי?</strong>
+    זה קצת מוזר אבל פשוט: הצורה <span class="cz-phrase">dělal</span> (זכר יחיד) או <span class="cz-phrase">dělala</span> (נקבה יחידה) <b>כבר אומרת</b> שזה גוף שלישי. אין מקום לבלבול.<br>
+    בכל הגופים האחרים הצורה זהה — <span class="cz-phrase">dělal jsem / dělal jsi / dělal</span> — ולכן <b>jsem/jsi</b> הם אלו שאומרים מי הדובר.
+  </div>
+
+  <!-- ========== FULL TABLE OF DĚLAT ========== -->
+  <div class="stitle">כל הצורות של DĚLAT בעבר</div>
+
+  <div class="forms-block">
+    <table class="forms-table">
+      <tr><th>גוף</th><th>זכר</th><th>נקבה</th><th>תרגום</th><th></th></tr>
+      <tr>
+        <td class="he-col">אני</td>
+        <td class="past-cz">dělal jsem</td>
+        <td class="past-cz">dělala jsem</td>
+        <td class="he-col">עשיתי</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('dělal jsem. dělala jsem.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">את/ה</td>
+        <td class="past-cz">dělal jsi</td>
+        <td class="past-cz">dělala jsi</td>
+        <td class="he-col">עשית</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('dělal jsi. dělala jsi.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הוא</td>
+        <td class="past-cz">dělal</td>
+        <td>—</td>
+        <td class="he-col">הוא עשה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('on dělal')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">היא</td>
+        <td>—</td>
+        <td class="past-cz">dělala</td>
+        <td class="he-col">היא עשתה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('ona dělala')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אנחנו</td>
+        <td class="past-cz">dělali jsme</td>
+        <td class="past-cz">dělaly jsme</td>
+        <td class="he-col">עשינו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('dělali jsme. dělaly jsme.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אתם/ן</td>
+        <td class="past-cz">dělali jste</td>
+        <td class="past-cz">dělaly jste</td>
+        <td class="he-col">עשיתם/ן</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('dělali jste. dělaly jste.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הם</td>
+        <td class="past-cz">dělali</td>
+        <td>—</td>
+        <td class="he-col">הם עשו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('oni dělali')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הן</td>
+        <td>—</td>
+        <td class="past-cz">dělaly</td>
+        <td class="he-col">הן עשו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('ony dělaly')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="tip green">
+    <strong>✅ ככה זה עובד</strong>
+    אם הבנתם את <span class="cz-phrase">dělat</span> — הבנתם את <b>כל</b> הפעלים הרגילים בעבר. כל פועל אחר מתנהג אותו דבר בדיוק: מורידים T, מוסיפים סיומת, מוסיפים פועל עזר.<br>
+    בתת-העמוד הבא (1ב) נראה את התבנית הראשונה של פעלים — <span class="cz-phrase">-át</span> — שאליה <span class="cz-phrase">dělat</span> שייך.
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson1.html" class="btn-back">→ חזרה לשיעור 1</a>
+    <a href="a2-lesson1b.html" class="btn-next">1ב — תבנית -át ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson1a"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

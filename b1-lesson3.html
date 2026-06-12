@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 3 — Genitiv (יחסה 2) | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;margin-bottom:4px;}
+    .page-header h1 .green{color:var(--green);}
+    .page-header p{font-size:14px;color:var(--muted);}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:14px 18px;font-size:14px;color:var(--gd);line-height:1.7;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+    .sub-wrap{max-width:1060px;margin:0 auto;padding:24px 40px 40px;display:grid;grid-template-columns:1fr 290px;gap:24px;}
+    .sub-main{min-width:0;}
+    .sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;}
+    .sub-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px;text-decoration:none;color:var(--text);transition:all .2s;display:flex;flex-direction:column;gap:8px;position:relative;}
+    .sub-card:hover{border-color:var(--gm);transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,158,117,.1);}
+    .sub-num{position:absolute;top:18px;left:18px;width:32px;height:32px;border-radius:50%;background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;}
+    .sub-title{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--text);padding-right:42px;}
+    .sub-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+    .sub-meta{display:flex;gap:10px;margin-top:auto;padding-top:10px;font-size:11px;color:var(--green);font-weight:600;}
+    .sub-meta .dot{width:4px;height:4px;background:var(--muted);border-radius:50%;align-self:center;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .prep-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+    .pchip{padding:7px 16px;border-radius:20px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;direction:ltr;unicode-bidi:isolate;display:flex;flex-direction:column;align-items:center;gap:2px;}
+    .pchip .he{font-family:'Heebo',sans-serif;font-size:11px;font-weight:400;}
+    .pchip.blue{background:#eff6ff;color:#1d4ed8;}
+    .pchip.green{background:var(--gl);color:var(--gd);}
+    .pchip.amber{background:#fef3c7;color:#b45309;}
+    .pchip.purple{background:#f5f3ff;color:#6d28d9;}
+    .pchip.red{background:#fee2e2;color:#b91c1c;}
+    .tip-row{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--r);padding:18px 22px;font-size:14px;color:var(--gd);line-height:1.7;}
+    .tip-row strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+    .b1-badge{background:linear-gradient(135deg,#065f46 0%,#064e3b 100%);color:white;border-radius:var(--r);padding:18px 22px;margin-bottom:18px;display:flex;align-items:center;gap:14px;}
+    .b1-badge .badge-icon{font-size:32px;flex-shrink:0;}
+    .b1-badge-text{font-size:14px;line-height:1.6;}
+    .b1-badge-text strong{display:block;font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;margin-bottom:3px;}
+    .lesson-nav{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
+    .lesson-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .lesson-nav .ln-prev{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .lesson-nav .ln-prev:hover{border-color:var(--green);color:var(--green);}
+    .lesson-nav .ln-next{background:var(--green);color:white;}
+    .lesson-nav .ln-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb,.page-header{padding-right:20px;padding-left:20px;}.sub-wrap{padding:18px 20px 30px;grid-template-columns:1fr;}aside.sidebar{display:none;}.sub-grid{grid-template-columns:1fr;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="b1.html">B1</a><span>›</span>
+  שיעור 3 — Genitiv (יחסה 2)
+</div>
+
+<div class="page-header">
+  <h1>שיעור 3: <span class="green">Genitiv — יחסה 2</span></h1>
+  <p>יחסת הייחוס, השלילה, הכמות ומילות היחס. <span class="cz-phrase">Nemám čas · Kniha Petra · Sklenička vína · Jdu do práce · Bydlím u kamaráda.</span></p>
+</div>
+
+<div class="sub-wrap">
+  <div class="sub-main">
+
+  <div class="b1-badge">
+    <div class="badge-icon">🔑</div>
+    <div class="b1-badge-text">
+      <strong>Genitiv — היחסה הנפוצה ביותר אחרי Akuzativ</strong>
+      Genitiv מופיע בארבעה מצבים: <span style="font-family:'Nunito',sans-serif;font-weight:700;">שלילה</span> (nemám čas), <span style="font-family:'Nunito',sans-serif;font-weight:700;">שייכות</span> (kniha Petra), <span style="font-family:'Nunito',sans-serif;font-weight:700;">כמות</span> (hodně kávy), ו<span style="font-family:'Nunito',sans-serif;font-weight:700;">מילות יחס</span> (do, z, od, u, bez ועוד).
+    </div>
+  </div>
+
+  <div class="why-box">
+    <strong>🔑 מה Genitiv עושה?</strong>
+    השאלה שמזהה אותה: <strong>״של מי? / של מה? / מאיפה? / כמה?״</strong> (koho? / čeho?)<br>
+    Genitiv היא היחסה הכי שימושית לאחר Akuzativ — כי היא נדרשת אחרי עשרות מילות יחס נפוצות כמו <span class="cz-phrase">do, z, od, u, bez, kolem, vedle, kvůli, podle, místo, během.</span>
+  </div>
+
+  <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;">מילות יחס עיקריות עם Genitiv</p>
+  <div class="prep-row">
+    <div class="pchip green">do <span class="he">ל-, לתוך</span></div>
+    <div class="pchip blue">z / ze <span class="he">מ-, מתוך</span></div>
+    <div class="pchip amber">od <span class="he">מ- (מאדם)</span></div>
+    <div class="pchip purple">u <span class="he">אצל, ליד</span></div>
+    <div class="pchip red">bez <span class="he">בלי</span></div>
+    <div class="pchip blue">kolem <span class="he">סביב, בערך</span></div>
+    <div class="pchip green">vedle <span class="he">ליד, לצד</span></div>
+    <div class="pchip amber">kvůli <span class="he">בגלל</span></div>
+    <div class="pchip purple">podle <span class="he">לפי</span></div>
+    <div class="pchip red">během <span class="he">במהלך</span></div>
+  </div>
+
+  <div class="sub-grid">
+    <a href="b1-lesson3a.html" class="sub-card">
+      <div class="sub-num">3א</div>
+      <div class="sub-title">מה Genitiv עושה?</div>
+      <div class="sub-desc">ארבעה שימושים: שלילה (nemám čas), שייכות (kniha Petra), כמות (hodně, málo, kilo…), ומילות יחס. הסבר ודוגמאות לכל אחד.</div>
+      <div class="sub-meta">⏱ 12 דקות <span class="dot"></span> 4 שימושים, דוגמאות</div>
+    </a>
+    <a href="b1-lesson3b.html" class="sub-card">
+      <div class="sub-num">3ב</div>
+      <div class="sub-title">Genitiv יחיד — סיומות</div>
+      <div class="sub-desc">זכר חי → -a, זכר דומם → -u, נקבה -a → -y, נקבה -e/-ce → ללא שינוי, נקבה עיצור → -i, נטרל → -a. טבלה מלאה עם דוגמאות.</div>
+      <div class="sub-meta">⏱ 14 דקות <span class="dot"></span> טבלה, כל המינים</div>
+    </a>
+    <a href="b1-lesson3c.html" class="sub-card">
+      <div class="sub-num">3ג</div>
+      <div class="sub-title">מילות יחס + Genitiv</div>
+      <div class="sub-desc"><span class="cz-phrase">do · z/ze · od · u · bez · kolem · vedle · kvůli · podle · místo · během · blízko.</span> כל מילת יחס עם הסבר ודוגמא.</div>
+      <div class="sub-meta">⏱ 13 דקות <span class="dot"></span> 12 מילות יחס</div>
+    </a>
+    <a href="b1-lesson3d.html" class="sub-card">
+      <div class="sub-num">3ד</div>
+      <div class="sub-title">Genitiv רבים — סיומות</div>
+      <div class="sub-desc">הצורה הכי קשה בצ'כית: סיומת אפס + תנועה מוכנסת. זכר → -ů, נקבה → ∅ (žen, škol), נטרל → ∅ (měst). כולל שינויי עיצורים.</div>
+      <div class="sub-meta">⏱ 15 דקות <span class="dot"></span> רבים, סיומת אפס</div>
+    </a>
+    <a href="b1-lesson3e.html" class="sub-card">
+      <div class="sub-num">3ה</div>
+      <div class="sub-title">תרגול מסכם</div>
+      <div class="sub-desc">20 שאלות — סיומות יחיד ורבים, שלילה, כמות, מילות יחס ותרגום משפטים שלמים.</div>
+      <div class="sub-meta">⏱ 15 דקות <span class="dot"></span> 20 שאלות</div>
+    </a>
+  </div>
+
+  <div class="tip-row">
+    <strong>🔑 שלוש הדוגמאות שצריך לזכור</strong>
+    <span class="cz-phrase">Nemám <b>čas</b>.</span> (אין לי זמן — שלילה: čas ב-Genitiv) ·
+    <span class="cz-phrase">Jdu do <b>práce</b>.</span> (אני הולך/ת לעבודה — do + Genitiv) ·
+    <span class="cz-phrase">Sklenička <b>vína</b>.</span> (כוסית יין — כמות: víno → vína) —
+    שלושה שימושים שונים, יחסה אחת.
+  </div>
+
+  <div class="lesson-nav">
+    <a href="b1-lesson2.html" class="ln-prev">→ שיעור 2 — Lokál</a>
+    <a href="b1-lesson3a.html" class="ln-next">התחל ב-3א ←</a>
+  </div>
+
+  </div><!-- /.sub-main -->
+  <aside class="sidebar" data-page="b1-lesson3"></aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

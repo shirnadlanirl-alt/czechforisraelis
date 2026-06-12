@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 10ג — když | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--orange-light:#fff7ed;--orange-mid:#fed7aa;--orange-dark:#c2410c;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.orange{background:var(--orange-light);color:#9a3412;border:1px solid rgba(234,88,12,.2);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* Main conj card */
+    .conj-card{border-radius:var(--r);padding:22px 24px;margin-bottom:20px;}
+    .conj-card.orange{background:var(--orange-light);border:2px solid rgba(234,88,12,.25);}
+    .conj-word{font-family:'Nunito',sans-serif;font-size:28px;font-weight:800;direction:ltr;margin-bottom:4px;}
+    .conj-word.orange{color:var(--orange-dark);}
+    .conj-meaning{font-size:16px;font-weight:700;color:var(--text);margin-bottom:10px;}
+    .conj-rule{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:14px;}
+    .conj-examples{display:flex;flex-direction:column;gap:8px;}
+
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:rgba(255,255,255,.7);margin-bottom:0;}
+    .ex-line:hover{background:var(--white);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--orange-mid);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn-sm:hover{background:#fdba74;}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--orange-dark);margin-right:-1px;}
+    .hl-orange{color:var(--orange-dark);font-weight:900;}
+
+    /* Use sections */
+    .use-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:14px;}
+    .use-section h3{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+    .use-tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.05em;}
+    .use-tag.time{background:var(--blue-light);color:#1d4ed8;}
+    .use-tag.cond{background:var(--orange-light);color:var(--orange-dark);}
+    .use-desc{font-size:13.5px;color:var(--muted);margin-bottom:12px;line-height:1.65;}
+
+    /* Word-order block */
+    .order-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+    .order-cell{border-radius:var(--rs);padding:14px 16px;}
+    .order-cell.first{background:var(--orange-light);border:1px solid rgba(234,88,12,.2);}
+    .order-cell.second{background:var(--blue-light);border:1px solid rgba(59,130,246,.2);}
+    .order-cell h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;}
+    .order-cell h4.orange{color:var(--orange-dark);}
+    .order-cell h4.blue{color:#1d4ed8;}
+    .order-sentence{font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;direction:ltr;unicode-bidi:isolate;line-height:1.6;margin-bottom:4px;}
+    .order-he{font-size:12px;color:var(--muted);line-height:1.5;}
+
+    /* jestli compare */
+    .compare-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+    .compare-cell{border-radius:var(--rs);padding:14px 16px;}
+    .compare-cell.a{background:var(--orange-light);border:1px solid rgba(234,88,12,.2);}
+    .compare-cell.b{background:var(--purple-light);border:1px solid rgba(124,58,237,.2);}
+    .compare-cell .cw{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;margin-bottom:4px;}
+    .compare-cell.a .cw{color:var(--orange-dark);}
+    .compare-cell.b .cw{color:#6d28d9;}
+    .compare-cell .cdesc{font-size:12.5px;line-height:1.65;margin-bottom:8px;}
+    .compare-cell.a .cdesc{color:#9a3412;}
+    .compare-cell.b .cdesc{color:#5b21b6;}
+    .compare-cell .csent{font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:700;direction:ltr;unicode-bidi:isolate;color:var(--text);line-height:1.6;}
+    .compare-cell .ctransl{font-size:11.5px;color:var(--muted);margin-top:2px;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .order-grid,.compare-row{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson10.html">שיעור 10</a><span>›</span>
+  10ג — když
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    המילה <span class="cz-phrase">když</span> מכסה בצ׳כית שתי משמעויות שבעברית הן מילים נפרדות: ״כש...״ ו-״אם...״. מילה אחת — שני שימושים. ההקשר מבהיר את הכוונה, ולעיתים קרובות שתי הגרסאות העבריות נכונות באותה מידה.
+  </div>
+
+  <!-- ========== MAIN CONJ CARD ========== -->
+  <div class="conj-card orange">
+    <div class="conj-word orange">když</div>
+    <div class="conj-meaning">כש... / אם... — זמן ותנאי</div>
+    <div class="conj-rule">
+      <span class="cz-phrase">když</span> מחברת שני אירועים. בעברית יש לנו שתי מילים שונות — ״כש...״ ו-״אם...״ — אבל בצ׳כית <b>שתיהן</b> הן <span class="cz-phrase">když</span>. ההקשר הוא שמסביר את הכוונה, ולעיתים שתי הגרסאות העבריות נכונות לאותו משפט. <span class="cz-phrase">když</span> פותחת תת-משפט, ובסוף תת-המשפט שמים פסיק לפני המשפט הראשי.
+    </div>
+    <div class="conj-examples">
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Když mám čas, chodím do kavárny.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz"><span class="hl-orange">Když</span> mám čas, chodím do kavárny.</span>
+        <span class="ex-he">כשיש לי זמן, אני הולך/ת לבית קפה.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Když přijdeš, zavolej mi.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz"><span class="hl-orange">Když</span> přijdeš, zavolej mi.</span>
+        <span class="ex-he">אם תבוא/י, תתקשר/י אליי.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Jsem šťastný, když jsem doma.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Jsem šťastný, <span class="hl-orange">když</span> jsem doma.</span>
+        <span class="ex-he">אני שמח/ה כשאני בבית.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Zavolej mi, když budeš mít čas.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Zavolej mi, <span class="hl-orange">když</span> budeš mít čas.</span>
+        <span class="ex-he">תתקשר/י אליי כשיהיה לך זמן.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== USE SECTIONS ========== -->
+  <div class="stitle">שני השימושים</div>
+
+  <div class="use-section">
+    <h3><span class="use-tag time">כש...</span> &nbsp;— כשהמשמעות היא זמן / רצף</h3>
+    <div class="use-desc">
+      הקשרים שבהם התרגום הטבעי הוא ״כש...״ — למשל: אירוע שקרה בעבר, רצף של שתי פעולות, או מצב קבוע.
+    </div>
+    <div class="conj-examples">
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Když jsem byl malý, bydlel jsem v Izraeli.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz"><span class="hl-orange">Když</span> jsem byl malý, bydlel jsem v Izraeli.</span>
+        <span class="ex-he">כשהייתי קטן/ה, גרתי בישראל.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Jsem šťastný, když jsem doma.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Jsem šťastný, <span class="hl-orange">když</span> jsem doma.</span>
+        <span class="ex-he">אני שמח/ה כשאני בבית.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Zavolej mi, když přijdeš.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Zavolej mi, <span class="hl-orange">když</span> přijdeš.</span>
+        <span class="ex-he">תתקשר/י אליי כשתגיע/י.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="use-section">
+    <h3><span class="use-tag cond">אם...</span> &nbsp;— כשהמשמעות היא תנאי</h3>
+    <div class="use-desc">
+      הקשרים שבהם התרגום הטבעי הוא ״אם...״ — למשל: משהו שיקרה רק בתנאי שמשהו אחר יתרחש.
+    </div>
+    <div class="conj-examples">
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Když budeš chtít, můžeme jít spolu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz"><span class="hl-orange">Když</span> budeš chtít, můžeme jít spolu.</span>
+        <span class="ex-he">אם תרצה/י, נוכל ללכת ביחד.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Půjdu s tebou, když budeš mít lístek.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Půjdu s tebou, <span class="hl-orange">když</span> budeš mít lístek.</span>
+        <span class="ex-he">אלך איתך אם יהיה לך כרטיס.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip green">
+    <strong>💡 לעיתים קרובות — שתיהן נכונות</strong>
+    הגבול בין ״כש...״ ל-״אם...״ לא תמיד חד. המשפט <span class="cz-phrase">Když mám čas, chodím do kavárny</span> אפשר לתרגם גם ״כשיש לי זמן״ וגם ״אם יש לי זמן״ — שתיהן נכונות. עם הזמן תפתחו אינטואיציה לאיזו גרסה מרגישה יותר טבעית בהקשר נתון.
+  </div>
+
+  <!-- ========== WORD ORDER ========== -->
+  <div class="stitle">סדר המשפט — לפני או אחרי?</div>
+
+  <div class="order-grid">
+    <div class="order-cell first">
+      <h4 class="orange">když — ראשון</h4>
+      <div class="order-sentence">Když mám čas, <b>chodím</b> do kavárny.</div>
+      <div class="order-he">כשיש לי זמן, אני הולך/ת לבית קפה.</div>
+      <div style="margin-top:8px;font-size:12px;color:#9a3412;">← פסיק בין שני חלקי המשפט</div>
+    </div>
+    <div class="order-cell second">
+      <h4 class="blue">když — שני</h4>
+      <div class="order-sentence"><b>Chodím</b> do kavárny, když mám čas.</div>
+      <div class="order-he">אני הולך/ת לבית קפה כשיש לי זמן.</div>
+      <div style="margin-top:8px;font-size:12px;color:#1d4ed8;">← פסיק גם כאן לפני když</div>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>📝 פסיק — תמיד</strong>
+    בצ׳כית שמים פסיק לפני <span class="cz-phrase">když</span> <b>ואחרי</b> תת-המשפט שמתחיל ב-<span class="cz-phrase">když</span>. כשהמשפט מתחיל ב-<span class="cz-phrase">když</span>, הפסיק בא <b>אחרי</b> כל תת-המשפט — לפני המשפט הראשי: <span class="cz-phrase">Když mám čas<b>,</b> chodím do kavárny.</span> כשהוא אחרון — פסיק לפניו: <span class="cz-phrase">Chodím do kavárny<b>,</b> když mám čas.</span>
+  </div>
+
+  <!-- ========== KDYŽ vs JESTLI ========== -->
+  <div class="stitle">když ו-jestli — מה ההבדל?</div>
+
+  <div class="compare-row">
+    <div class="compare-cell a">
+      <div class="cw">když</div>
+      <div class="cdesc">שכיח יותר, בעל-פה. משמש גם לזמן וגם לתנאי.</div>
+      <div class="csent">Když budeš chtít, zavolej mi.</div>
+      <div class="ctransl">אם תרצה/י, תתקשר/י.</div>
+    </div>
+    <div class="compare-cell b">
+      <div class="cw">jestli</div>
+      <div class="cdesc">רשמי יותר, רק תנאי. נפוץ בכתיבה ובשאלות עקיפות.</div>
+      <div class="csent">Nevím, jestli přijde.</div>
+      <div class="ctransl">אני לא יודע/ת אם הוא/היא יגיע/תגיע.</div>
+    </div>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 jestli — לא כאן</strong>
+    <span class="cz-phrase">jestli</span> = ״אם״ בלבד — אף פעם לא ״כש...״. אפשר להחליף <span class="cz-phrase">když</span> ב-<span class="cz-phrase">jestli</span> במשמעות תנאי בלבד: <span class="cz-phrase">Když/Jestli nevíš, zeptej se.</span> — אבל לא: ~~<span class="cz-phrase">Jestli jsem byl malý...</span>~~. לשיחה יומיומית — <span class="cz-phrase">když</span> עובד תמיד.
+  </div>
+
+  <div class="tip green">
+    <strong>🔄 kdykoli — בכל פעם ש... / כשרק</strong>
+    רוצים להדגיש שמשהו קורה <b>כל פעם</b> שהתנאי מתקיים? אפשר להגיד <span class="cz-phrase">kdykoli</span> (כשרק / בכל עת ש): <span class="cz-phrase">Kdykoli jsem v Praze, navštívím Petřín.</span> (כל פעם שאני בפראג, אני מבקר/ת ב-Petřín.)
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson10b.html" class="btn-back">→ 10ב — protože · a proto</a>
+    <a href="a2-lesson10d.html" class="btn-next">10ד — který ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson10c">
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px;">
+    <strong style="display:block;margin-bottom:12px;font-size:14px;">📌 když — בקצרה</strong>
+    <div style="font-size:13px;line-height:1.8;">
+      <div style="background:var(--orange-light);border-radius:8px;padding:8px 12px;margin-bottom:8px;">
+        <span style="font-family:'Nunito',sans-serif;font-weight:800;color:var(--orange-dark);direction:ltr;unicode-bidi:isolate;display:block;">když</span>
+        <span style="color:#9a3412;font-size:12px;">⏱ זמן — <b>כש...</b><br>❓ תנאי — <b>אם...</b></span>
+      </div>
+      <div style="font-size:12.5px;color:var(--muted);line-height:1.8;padding:0 2px;">
+        <div><b style="color:var(--orange-dark);">Když</b> mám čas, chodím do kavárny.<br><span style="font-size:11.5px;">כשיש לי זמן, אני הולך/ת לבית קפה</span></div>
+        <div style="margin-top:8px;"><b style="color:var(--orange-dark);">Když</b> přijdeš, zavolej mi.<br><span style="font-size:11.5px;">אם תבוא/י, תתקשר/י</span></div>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted);line-height:1.8;">
+      📝 <b>פסיק תמיד</b> — לפני או אחרי<br>
+      🆚 <span style="font-family:'Nunito',sans-serif;font-weight:700;color:#6d28d9;">jestli</span> = רק ״אם״, רשמי יותר<br>
+      🔄 <span style="font-family:'Nunito',sans-serif;font-weight:700;color:var(--orange-dark);">kdykoli</span> = כשרק / בכל פעם ש
+    </div>
+  </div>
+</aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ'; u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

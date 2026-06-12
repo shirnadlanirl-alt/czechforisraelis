@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 3ג — מילות יחס + Genitiv | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .prep-table{width:100%;border-collapse:collapse;margin-bottom:22px;font-size:13.5px;}
+    .end-table th{text-align:center;background:var(--gd);color:white;font-weight:700;padding:9px 14px;font-size:11.5px;}
+    .prep-table th:first-child{border-radius:0 var(--rs) 0 0;}
+    .prep-table th:last-child{border-radius:var(--rs) 0 0 0;}
+    .prep-table td{padding:10px 14px;border:1px solid var(--border);vertical-align:top;line-height:1.6;}
+    .prep-table td .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:16px;color:var(--gd);}
+    .prep-table td .he{font-size:12.5px;color:var(--muted);margin-top:2px;}
+    .prep-table td .ex{font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;direction:ltr;unicode-bidi:isolate;color:var(--text);margin-top:5px;}
+    .prep-table td .exhe{font-size:11.5px;color:var(--muted);}
+    .prep-table tr:nth-child(even) td{background:#fafaf8;}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:28px;height:28px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl{color:var(--green);font-weight:900;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}}
+      .end-table td[class],.prep-table td[class]{text-align:center;}
+    </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson3.html">שיעור 3 — Genitiv</a><span>›</span>3ג — מילות יחס + Genitiv
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🔗 מילות יחס שדורשות Genitiv</strong>
+    בצ'כית יש יותר מ-15 מילות יחס שתמיד דורשות Genitiv. חלקן תרגומים ישירים לעברית (do=ל-, bez=בלי), וחלקן דורשות תשומת לב מיוחדת (u, od).
+  </div>
+
+  <table class="prep-table">
+    <thead>
+      <tr><th>מילת יחס</th><th>משמעות</th><th>דוגמה + תרגום</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="cz">do</div><div class="he">ל-, לתוך (כיוון/כניסה)</div></td>
+        <td>מבטאת כיוון אל תוך מקום. שונה מ-na שמבטאת כיוון אל מוסד</td>
+        <td><div class="ex">Jdu do školy. · Jdu do práce. · Jdu do obchodu.</div><div class="exhe">אני הולך/ת לבית ספר / לעבודה / לחנות</div></td>
+      </tr>
+      <tr>
+        <td><div class="cz">z / ze</div><div class="he">מ-, מתוך, מ-</div></td>
+        <td>הכיוון ההפוך של do. ze = לפני שתי עיצורים (ze školy, ze dne)</td>
+        <td><div class="ex">Jsem z Izraele. · Přicházím ze školy. · Vyjel z garáže.</div><div class="exhe">אני מישראל / אני בא/ה מבית הספר / יצא מהמוסך</div></td>
+      </tr>
+      <tr>
+        <td><div class="cz">od</div><div class="he">מ- (מאדם), מאצל, החל מ-</div></td>
+        <td>משמש כשמדברים על מרחק מאדם, מתנה מ-, החל מזמן מסוים</td>
+        <td><div class="ex">Mám dopis od kamaráda. · Od pondělí pracuju.</div><div class="exhe">יש לי מכתב מחבר / החל מיום שני אני עובד/ת</div></td>
+      </tr>
+      <tr>
+        <td><div class="cz">u</div><div class="he">אצל, ליד, בביתו של</div></td>
+        <td>מבטא מיקום ליד אדם או מקום. u kamaráda = אצל חבר (בביתו)</td>
+        <td><div class="ex">Bydlím u kamaráda. · Seděla u okna. · U lékaře.</div><div class="exhe">אני גר/ה אצל חבר / ישבה ליד החלון / אצל הרופא</div></td>
+      </tr>
+      <tr>
+        <td><div class="cz">bez</div><div class="he">בלי, ללא</div></td>
+        <td>תמיד Genitiv. קל לזכור — כמו "without" באנגלית</td>
+        <td><div class="ex">Káva bez cukru. · Bez problémů. · Bez tebe.</div><div class="exhe">קפה בלי סוכר / בלי בעיות / בלעדייך</div></td>
+      </tr>
+      <tr>
+        <td><div class="cz">kolem</div><div class="he">סביב, בערך, ליד</div></td>
+        <td>מבטא מיקום סביב משהו, או כמות משוערת</td>
+        <td><div class="ex">Jdu kolem parku. · Přišel kolem třetí.</div><div class="exhe">אני הולך/ת ליד הגן / הוא בא בערך בשלוש</div></td>
+      </tr>
+      <tr>
+        <td><div class="cz">vedle</div><div class="he">ליד, לצד</div></td>
+        <td>ממש לצד משהו. שונה מ-u שיכול להיות "אצל" ברחב יותר</td>
+        <td><div class="ex">Sedím vedle Petry. · Vedle nádraží je hotel.</div><div class="exhe">אני יושב/ת לצד פטרה / ליד התחנה יש מלון</div></td>
+      </tr>
+      <tr>
+        <td><div class="cz">kvůli</div><div class="he">בגלל, בשביל</div></td>
+        <td>סיבה — בגלל מה? חשוב: kvůli + Genitiv (לא Dativ!)</td>
+        <td><div class="ex">Kvůli počasí jsme zůstali doma. · Kvůli tebe.</div><div class="exhe">בגלל מזג האוויר נשארנו בבית / בגללך</div></td>
+      </tr>
+      <tr>
+        <td><div class="cz">podle</div><div class="he">לפי, לדעת</div></td>
+        <td>לפי כלל / לפי דעת מישהו</td>
+        <td><div class="ex">Podle mapy jsme tady. · Podle mě to není pravda.</div><div class="exhe">לפי המפה אנחנו כאן / לדעתי זה לא נכון</div></td>
+      </tr>
+      <tr>
+        <td><div class="cz">místo</div><div class="he">במקום (של)</div></td>
+        <td>במקום X — substitution</td>
+        <td><div class="ex">Šel místo mě. · Místo kávy piju čaj.</div><div class="exhe">הוא הלך במקומי / במקום קפה אני שותה תה</div></td>
+      </tr>
+      <tr>
+        <td><div class="cz">během</div><div class="he">במהלך, בזמן</div></td>
+        <td>טווח זמן שבמהלכו משהו קורה</td>
+        <td><div class="ex">Během léta jsem hodně cestoval. · Během týdne.</div><div class="exhe">במהלך הקיץ נסעתי הרבה / במהלך השבוע</div></td>
+      </tr>
+      <tr>
+        <td><div class="cz">blízko</div><div class="he">קרוב ל-</div></td>
+        <td>קרבה גיאוגרפית</td>
+        <td><div class="ex">Bydlím blízko centra. · Blízko nádraží.</div><div class="exhe">אני גר/ה קרוב למרכז / קרוב לתחנה</div></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip amber">
+    <strong>⚠️ do לעומת na — מתי לכל אחת?</strong>
+    <b>do + Genitiv</b> = כניסה פיזית לתוך מקום: <span class="cz-phrase">jdu do obchodu, do banky, do lesa</span><br>
+    <b>na + Akuzativ</b> = הגעה למוסד/אירוע/מקום פתוח: <span class="cz-phrase">jdu na poštu, na koncert, na nádraží</span><br>
+    <em>כלל אצבע: ערים ומדינות → do (do Prahy, do Izraele). אירועים ומקומות פתוחים → na.</em>
+  </div>
+
+  <p class="stitle">דוגמאות לשמיעה</p>
+
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jdu do práce.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Jdu do <span class="hl">práce</span>.</span>
+    <span class="ex-he">אני הולך/ת לעבודה</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jsem z Izraele.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Jsem z <span class="hl">Izraele</span>.</span>
+    <span class="ex-he">אני מישראל</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Bydlím u kamaráda.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Bydlím u <span class="hl">kamaráda</span>.</span>
+    <span class="ex-he">אני גר/ה אצל חבר</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Káva bez cukru, prosím.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Káva bez <span class="hl">cukru</span>, prosím.</span>
+    <span class="ex-he">קפה בלי סוכר, בבקשה</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Podle mě to není pravda.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Podle <span class="hl">mě</span> to není pravda.</span>
+    <span class="ex-he">לדעתי זה לא נכון</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Během léta jsem hodně cestoval.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Během <span class="hl">léta</span> jsem hodně cestoval.</span>
+    <span class="ex-he">במהלך הקיץ נסעתי הרבה</span>
+  </div>
+
+  <div class="tip green">
+    <strong>🎯 הדרך הכי קלה לזכור</strong>
+    כל פעם שיש מילת יחס שמבטאת <em>שייכות, מקור, הרחקה, סביבה, או סיבה</em> — סביר שזה Genitiv.
+    הכי חשובות לשינון: <span class="cz-phrase">do · z · od · u · bez · podle</span>
+  </div>
+
+  <div class="step-nav">
+    <a href="b1-lesson3b.html" class="btn-back">→ 3ב — Genitiv יחיד</a>
+    <a href="b1-lesson3d.html" class="btn-next">3ד — Genitiv רבים ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson3c">
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#11457E;">🔗 מילות יחס + Genitiv</strong>
+    <div style="font-size:12px;line-height:2.2;color:#16385f;">
+      <b>do</b> — ל-, לתוך<br>
+      <b>z / ze</b> — מ-, מתוך<br>
+      <b>od</b> — מ- (מאדם), החל מ-<br>
+      <b>u</b> — אצל, ליד<br>
+      <b>bez</b> — בלי, ללא<br>
+      <b>kolem</b> — סביב, בערך<br>
+      <b>vedle</b> — ליד, לצד<br>
+      <b>kvůli</b> — בגלל<br>
+      <b>podle</b> — לפי, לדעת<br>
+      <b>místo</b> — במקום<br>
+      <b>během</b> — במהלך<br>
+      <b>blízko</b> — קרוב ל-
+    </div>
+  </div>
+  <div style="background:var(--amber-light);border:1px solid rgba(245,158,11,.2);border-radius:var(--rs);padding:14px;font-size:12.5px;color:#92400e;">
+    <strong style="display:block;margin-bottom:6px;">⚠️ do לעומת na:</strong>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;">do</span> + Gen = כניסה לתוך<br>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;">na</span> + Akuz = מוסדות/אירועים
+  </div>
+</aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+function speak(t){
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='cs-CZ';u.rate=0.85;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>

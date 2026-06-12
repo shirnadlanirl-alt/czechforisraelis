@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 6ג — chtít (רוצה) | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === The formula === */
+    .formula-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:24px;text-align:center;margin-bottom:20px;}
+    .formula-box .formula{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--green);direction:ltr;unicode-bidi:isolate;margin-bottom:8px;line-height:1.5;}
+    .formula-box .formula-he{font-size:13.5px;color:var(--muted);}
+    .formula-box .formula-example{font-family:'Nunito',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-top:14px;direction:ltr;unicode-bidi:isolate;line-height:1.6;}
+    .formula-box .formula-example b{color:var(--green);}
+
+    /* === Conjugation table === */
+    .forms-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .forms-table{width:100%;border-collapse:collapse;font-size:14px;}
+    .forms-table th{text-align:right;padding:10px 12px;background:var(--gl);color:var(--gd);font-weight:700;font-size:12.5px;border-bottom:2px solid var(--gm);}
+    .forms-table td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+    .forms-table tr:last-child td{border-bottom:none;}
+    .forms-table .he-col{color:var(--muted);font-size:13px;width:22%;}
+    .forms-table .modal-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--green);direction:ltr;text-align:left;font-size:15px;}
+    .forms-table .modal-cz.special{color:#7c3aed;}
+    .forms-table .play-cell{width:32px;text-align:center;}
+    .forms-table tr:hover td{background:var(--bg);}
+
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;margin:0 auto;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* === Examples list === */
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:var(--green);}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    /* === Past box === */
+    .past-box{background:#f5f3ff;border:1px solid rgba(124,58,237,.2);border-inline-start:5px solid #7c3aed;border-radius:var(--rs);padding:14px 18px;margin-bottom:14px;}
+    .past-box strong{display:block;color:#5b21b6;margin-bottom:6px;font-size:14px;}
+    .past-box .past-content{font-size:13.5px;color:#16385f;line-height:1.7;}
+    .past-box .past-content b.cz{font-family:'Nunito',sans-serif;color:#5b21b6;direction:ltr;unicode-bidi:isolate;display:inline-block;}
+
+    /* === Special-form warning === */
+    .warning-box{background:#fef2f2;border:2px solid #dc2626;border-radius:var(--r);padding:18px 22px;margin-bottom:14px;}
+    .warning-box strong{display:block;color:#991b1b;font-size:15px;font-weight:800;margin-bottom:8px;}
+    .warning-box .content{font-size:14px;color:#991b1b;line-height:1.75;}
+    .warning-box b.cz{font-family:'Nunito',sans-serif;color:#991b1b;direction:ltr;unicode-bidi:isolate;display:inline-block;font-weight:800;}
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson6.html">שיעור 6</a><span>›</span>
+  6ג — chtít (רוצה)
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    הפועל השלישי: <span class="cz-phrase">chtít</span> (רוצה). אותה נוסחה שאתם כבר מכירים — מודאלי + אינפיניטיב. אבל לפועל הזה יש <b>הטיה חריגה</b> — בגוף שלישי רבים ובכל צורת העבר ה-<b>c</b> הופך ל-<b>t</b>. נראה את זה בדיוק.
+  </div>
+
+  <!-- ========== THE FORMULA REMINDER ========== -->
+  <div class="stitle">תזכורת מהירה — הנוסחה</div>
+
+  <div class="formula-box">
+    <div class="formula">chtít (מותאם לגוף) + פועל ראשי באינפיניטיב</div>
+    <div class="formula-he">בדיוק כמו <span class="cz-phrase">moct</span> ו-<span class="cz-phrase">muset</span>. הפועל המודאלי משתנה לפי הגוף, הראשי נשאר במקור.</div>
+    <div class="formula-example">Chci + spát = <b>Chci spát.</b> (אני רוצה לישון.)</div>
+  </div>
+
+  <!-- ========== CHTÍT CONJUGATION ========== -->
+  <div class="stitle">הטיית chtít בהווה</div>
+
+  <div class="forms-block">
+    <table class="forms-table">
+      <tr><th>גוף</th><th>צורה</th><th>תרגום</th><th></th></tr>
+      <tr>
+        <td class="he-col">אני</td>
+        <td class="modal-cz">chci</td>
+        <td class="he-col">אני רוצה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('chci')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">את/ה</td>
+        <td class="modal-cz">chceš</td>
+        <td class="he-col">את/ה רוצה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('chceš')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הוא/היא</td>
+        <td class="modal-cz">chce</td>
+        <td class="he-col">הוא/היא רוצה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('chce')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אנחנו</td>
+        <td class="modal-cz">chceme</td>
+        <td class="he-col">אנחנו רוצים/ות</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('chceme')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אתם/ן</td>
+        <td class="modal-cz">chcete</td>
+        <td class="he-col">אתם/ן רוצים/ות</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('chcete')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הם/הן</td>
+        <td class="modal-cz special">chtějí</td>
+        <td class="he-col">הם/הן רוצים/ות</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('chtějí')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ========== THE BIG QUIRK ========== -->
+  <div class="stitle">⚠️ החריגה — c ↔ t</div>
+
+  <div class="warning-box">
+    <strong>⚠️ שימו לב: chtít מחליף c ל-t בשני מקומות</strong>
+    <div class="content">
+      בכל הצורות הרגילות יש <b>c</b>: <b class="cz">chci, chceš, chce, chceme, chcete</b>.<br><br>
+      אבל בגוף <b>שלישי רבים</b> (הם/הן) הצורה היא <b class="cz">chtějí</b> ולא <b class="cz">chcejí</b> ❌.<br>
+      וגם בכל <b>צורת העבר</b>: <b class="cz">chtěl / chtěla</b> ולא <b class="cz">chcel</b> ❌.<br><br>
+      <b>הכלל:</b> בהווה (חוץ מגוף שלישי רבים) — <b class="cz">c</b>. בכל מקום אחר — <b class="cz">t</b>.
+    </div>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 איך לזכור</strong>
+    תחשבו על האינפיניטיב עצמו: <span class="cz-phrase">chtít</span> — הוא מתחיל עם <b>cht-</b>. הצורות "החריגות" (chtějí, chtěl) שומרות על ה-<b>cht-</b> המקורי. הצורות ה"רגילות" (chci, chce…) הן אלה שירדו ל-<b>chc-</b>. אם תזכרו את הפועל הבסיסי <span class="cz-phrase">chtít</span> → קל לחזור ל-<span class="cz-phrase">chtěl</span>.
+  </div>
+
+  <!-- ========== EXAMPLES ========== -->
+  <div class="stitle">דוגמאות בחיוב — רצון</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Chci jíst pizzu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Chci</b> jíst pizzu.</span>
+    <span class="ex-he">אני רוצה לאכול פיצה.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Chceš kávu?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Chceš</b> kávu?</span>
+    <span class="ex-he">את/ה רוצה קפה?</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Chceme jet do Brna.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Chceme</b> jet do Brna.</span>
+    <span class="ex-he">אנחנו רוצים לנסוע לברנו.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Studenti chtějí spát.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Studenti <b>chtějí</b> spát.</span>
+    <span class="ex-he">סטודנטים רוצים לישון.</span>
+  </div>
+
+  <!-- ========== NEGATION ========== -->
+  <div class="stitle">שלילה — לא רוצה</div>
+
+  <div class="tip green">
+    <strong>✅ הוספה פשוטה של ne-</strong>
+    שלילת <span class="cz-phrase">chtít</span> היא רגילה לחלוטין: מוסיפים <b class="cz-phrase">ne-</b> לפני הפועל. אין כאן מלכודות כמו ב-<span class="cz-phrase">muset</span>.<br><br>
+    <b><span class="cz-phrase">nechci</span></b> = "אני לא רוצה" — פשוט וברור.
+  </div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Nechci kávu, chci čaj.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Nechci</b> kávu, <b>chci</b> čaj.</span>
+    <span class="ex-he">אני לא רוצה קפה, אני רוצה תה.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Nechceš jít do kina?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Nechceš</b> jít do kina?</span>
+    <span class="ex-he">את/ה לא רוצה ללכת לקולנוע?</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Děti dnes nechtějí jíst.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Děti dnes <b>nechtějí</b> jíst.</span>
+    <span class="ex-he">הילדים היום לא רוצים לאכול.</span>
+  </div>
+
+  <!-- ========== PAST FORM ========== -->
+  <div class="stitle">chtít בעבר — chtěl / chtěla</div>
+
+  <div class="past-box">
+    <strong>📜 הצורה בעבר</strong>
+    <div class="past-content">
+      <b class="cz">chtít</b> בעבר הוא <b class="cz">chtěl / chtěla</b> (רצה / רצתה).<br>
+      שימו לב — שוב <b>cht-</b>, לא <b>chc-</b>. זה אותו ה-t שראינו ב-<b class="cz">chtějí</b>.<br><br>
+      <b class="cz">Včera jsem chtěl jít domů.</b> (אתמול רציתי ללכת הביתה. — זכר)<br>
+      <b class="cz">Chtěla jsi kávu?</b> (רצית קפה? — נקבה)<br>
+      <b class="cz">Chtěli jsme spát.</b> (רצינו לישון.)
+    </div>
+  </div>
+
+  <!-- ========== POLITE FORM PEEK ========== -->
+  <div class="tip purple">
+    <strong>💎 הצצה: <span class="cz-phrase">chtěl bych</span> — "הייתי רוצה"</strong>
+    בצ׳כית, ממש כמו בעברית ובאנגלית, יש דרך מנומסת יותר להגיד "רוצה" — <b>הייתי רוצה</b> (would like).<br>
+    בצ׳כית זה <b><span class="cz-phrase">Chtěl bych</span></b> (זכר) / <b><span class="cz-phrase">Chtěla bych</span></b> (נקבה).<br>
+    משתמשים בזה בעיקר במסעדה, בחנות, בבקשות מנומסות. למשל: <span class="cz-phrase">Chtěl bych kávu, prosím.</span> = "הייתי רוצה קפה, בבקשה".<br>
+    זה תנאי (kondicionál) — נלמד אותו בעומק ברמה מתקדמת. בינתיים — תזכרו את הביטוי כביטוי קבוע.
+  </div>
+
+  <!-- ========== USEFUL PHRASES ========== -->
+  <div class="stitle">ביטויים שימושיים עם chtít</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Co chceš?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Co chceš?</b></span>
+    <span class="ex-he">מה את/ה רוצה?</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Co si dáte?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Co si dáte?</b></span>
+    <span class="ex-he">מה תרצו (להזמין)? — מנומס במסעדה</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Chci jen vodu, prosím.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Chci</b> jen vodu, prosím.</span>
+    <span class="ex-he">אני רוצה רק מים, בבקשה.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Chceš se mnou jít?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Chceš</b> se mnou jít?</span>
+    <span class="ex-he">את/ה רוצה ללכת איתי?</span>
+  </div>
+
+  <!-- ========== CHECK YOURSELF ========== -->
+  <div class="stitle">בדיקה אישית</div>
+
+  <div class="check-box">
+    <h4>אחרי 6ג את/ה אמור/ה:</h4>
+    <ul class="check-list">
+      <li>לדעת את כל הצורות של <span class="cz-phrase">chtít</span> בהווה (chci, chceš, chce, chceme, chcete, chtějí)</li>
+      <li>לזכור את ההחלפה c↔t — <span class="cz-phrase">chtějí</span> בגוף שלישי רבים</li>
+      <li>לבנות שלילה בלי הפתעות: <span class="cz-phrase">nechci, nechceš…</span></li>
+      <li>לזכור את צורת העבר: <span class="cz-phrase">chtěl / chtěla</span></li>
+      <li>להבין שהביטוי המנומס <span class="cz-phrase">Chtěl/a bych</span> הוא "הייתי רוצה"</li>
+      <li>להגיד 3 משפטים: מה את/ה רוצה ומה לא רוצה לעשות היום</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson6b.html" class="btn-back">→ חזרה ל-6ב</a>
+    <a href="a2-lesson6d.html" class="btn-next">6ד — smět + דיאלוגים ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson6c"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

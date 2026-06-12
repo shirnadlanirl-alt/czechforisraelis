@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 3א — מה Genitiv עושה? | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:#f5f3ff;color:#4c1d95;border:1px solid rgba(109,40,217,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .use-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:14px;}
+    .use-card .uc-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gd);color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;margin-bottom:10px;float:right;margin-left:12px;}
+    .use-card .uc-title{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--gd);margin-bottom:6px;}
+    .use-card .uc-rule{font-size:13.5px;line-height:1.7;color:var(--text);margin-bottom:10px;}
+    .use-card .uc-exs{display:flex;flex-direction:column;gap:5px;}
+    .uc-ex{background:#fafaf8;border-radius:var(--rs);padding:7px 12px;font-size:13px;}
+    .uc-ex .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:14px;color:var(--gd);}
+    .uc-ex .he{color:var(--muted);}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:28px;height:28px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl{color:var(--green);font-weight:900;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson3.html">שיעור 3 — Genitiv</a><span>›</span>3א — מה Genitiv עושה?
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🔑 Genitiv — ארבעה שימושים עיקריים</strong>
+    Genitiv היא יחסה 2 בצ'כית. השאלות שמזהות אותה: <b>״של מי? / של מה?״</b> (koho? čeho?)<br>
+    היא מופיעה בארבעה מצבים שונים לגמרי — חשוב להכיר את כולם.
+  </div>
+
+  <div class="use-card">
+    <div class="uc-num">1</div>
+    <div class="uc-title">שלילה — negace</div>
+    <div class="uc-rule">
+      כשמשלילים פועל עם <b>ne-</b>, המושא הישיר עובר מ-Akuzativ ל-<b>Genitiv</b>.<br>
+      <span class="cz-phrase" style="font-size:13px;">Mám čas.</span> (= Akuzativ) → <span class="cz-phrase" style="font-size:13px;">Nemám <b>čas</b>.</span> (= Genitiv — הצורה זהה, אבל בנקבות ונטרל רואים שינוי)<br>
+      <span class="cz-phrase" style="font-size:13px;">Mám kamaráda.</span> → <span class="cz-phrase" style="font-size:13px;">Nemám <b>kamaráda</b>.</span> (זכר חי — Genitiv = Akuzativ, אין הבדל)<br>
+      <span class="cz-phrase" style="font-size:13px;">Mám auto.</span> → <span class="cz-phrase" style="font-size:13px;">Nemám <b>auta</b>.</span> (נטרל — Genitiv: auto → auta)
+    </div>
+    <div class="uc-exs">
+      <div class="uc-ex"><span class="cz">Nemám čas.</span> <span class="he">— אין לי זמן</span></div>
+      <div class="uc-ex"><span class="cz">Nevidím problém.</span> <span class="he">— אני לא רואה בעיה (problém = זכר דומם)</span></div>
+      <div class="uc-ex"><span class="cz">Nemám peníze.</span> <span class="he">— אין לי כסף (peníze = רבים)</span></div>
+    </div>
+  </div>
+
+  <div class="use-card">
+    <div class="uc-num">2</div>
+    <div class="uc-title">שייכות — possession (של)</div>
+    <div class="uc-rule">
+      בצ'כית אין מילה נפרדת ל-"של". השייכות מתבטאת ע"י Genitiv של השם הבעלים, שמגיע <b>אחרי</b> הדבר שנשאל עליו.<br>
+      <span class="cz-phrase" style="font-size:13px;">kniha Petra</span> = הספר של פטר (Petr → Petra = Genitiv)<br>
+      <span class="cz-phrase" style="font-size:13px;">auto maminky</span> = האוטו של אמא (maminka → maminky = Genitiv)
+    </div>
+    <div class="uc-exs">
+      <div class="uc-ex"><span class="cz">Kde je taška Kateřiny?</span> <span class="he">— איפה התיק של קטז'ינה?</span></div>
+      <div class="uc-ex"><span class="cz">To je byt mého bratra.</span> <span class="he">— זו הדירה של אחי</span></div>
+      <div class="uc-ex"><span class="cz">Jméno ulice je Wenceslasovo náměstí.</span> <span class="he">— שם הרחוב הוא כיכר ונצסלס</span></div>
+    </div>
+  </div>
+
+  <div class="use-card">
+    <div class="uc-num">3</div>
+    <div class="uc-title">כמות — quantity</div>
+    <div class="uc-rule">
+      אחרי מילות כמות — המילה הנמדדת תמיד ב-Genitiv (רבים או יחיד, תלוי בהקשר).<br>
+      מילות כמות: <span class="cz-phrase" style="font-size:13px;">hodně, málo, trochu, dost, kilo, litr, sklenička, šálek, spousta, moc</span>
+    </div>
+    <div class="uc-exs">
+      <div class="uc-ex"><span class="cz">Sklenička vína.</span> <span class="he">— כוסית יין (víno → vína = Genitiv יחיד)</span></div>
+      <div class="uc-ex"><span class="cz">Hodně práce.</span> <span class="he">— הרבה עבודה (práce → Genitiv יחיד ללא שינוי)</span></div>
+      <div class="uc-ex"><span class="cz">Kilo jablek.</span> <span class="he">— קילו תפוחים (jablko → jablek = Genitiv רבים)</span></div>
+      <div class="uc-ex"><span class="cz">Moc lidí.</span> <span class="he">— הרבה אנשים (lidí = Genitiv רבים של lidé)</span></div>
+    </div>
+  </div>
+
+  <div class="use-card">
+    <div class="uc-num">4</div>
+    <div class="uc-title">מילות יחס — prepositions</div>
+    <div class="uc-rule">
+      מספר רב של מילות יחס נפוצות דורשות Genitiv. הנפוצות ביותר:
+      <span class="cz-phrase" style="font-size:13px;">do (ל-), z/ze (מ-), od (מ-/מאצל), u (אצל), bez (בלי), kolem (סביב/בערך), vedle (ליד), kvůli (בגלל), podle (לפי), místo (במקום), během (במהלך)</span>
+    </div>
+    <div class="uc-exs">
+      <div class="uc-ex"><span class="cz">Jdu do práce.</span> <span class="he">— אני הולך/ת לעבודה</span></div>
+      <div class="uc-ex"><span class="cz">Jsem z Izraele.</span> <span class="he">— אני מישראל</span></div>
+      <div class="uc-ex"><span class="cz">Bydlím u kamaráda.</span> <span class="he">— אני גר/ה אצל חבר</span></div>
+      <div class="uc-ex"><span class="cz">Káva bez cukru.</span> <span class="he">— קפה בלי סוכר</span></div>
+    </div>
+  </div>
+
+  <p class="stitle">דוגמאות לשמיעה</p>
+
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Nemám čas.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Nemám <span class="hl">čas</span>.</span>
+    <span class="ex-he">אין לי זמן</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Kde je taška Kateřiny?')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Kde je taška <span class="hl">Kateřiny</span>?</span>
+    <span class="ex-he">איפה התיק של קטז'ינה?</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Sklenička vína, prosím.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Sklenička <span class="hl">vína</span>, prosím.</span>
+    <span class="ex-he">כוסית יין, בבקשה</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jdu do práce.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Jdu do <span class="hl">práce</span>.</span>
+    <span class="ex-he">אני הולך/ת לעבודה</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Bydlím u kamaráda.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Bydlím u <span class="hl">kamaráda</span>.</span>
+    <span class="ex-he">אני גר/ה אצל חבר</span>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ שלילה: לא תמיד רואים את השינוי!</strong>
+    זכר חי ב-Akuzativ כבר נראה כמו Genitiv (studenta/kamaráda). לכן שלילה נראית זהה לחיוב.<br>
+    אבל: <span class="cz-phrase">Mám <b>auto</b></span> (Akuz) → <span class="cz-phrase">Nemám <b>auta</b></span> (Gen) — בנטרל רואים את ההבדל!
+  </div>
+
+  <div class="step-nav">
+    <a href="b1-lesson3.html" class="btn-back">→ חזרה לשיעור 3</a>
+    <a href="b1-lesson3b.html" class="btn-next">3ב — Genitiv יחיד ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson3a">
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#11457E;">🔑 4 שימושי Genitiv</strong>
+    <div style="font-size:12.5px;line-height:2.3;color:#16385f;">
+      <b>1. שלילה:</b> Nemám <i>čas</i><br>
+      <b>2. שייכות:</b> kniha <i>Petra</i><br>
+      <b>3. כמות:</b> hodně <i>práce</i><br>
+      <b>4. מילות יחס:</b> do · z · od · u · bez…
+    </div>
+  </div>
+  <div style="background:var(--amber-light);border:1px solid rgba(245,158,11,.2);border-radius:var(--rs);padding:14px;font-size:12.5px;color:#92400e;">
+    <strong style="display:block;margin-bottom:6px;">השאלה המזהה:</strong>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;">koho? čeho?</span><br>
+    <span style="color:var(--muted);">של מי? / של מה?</span>
+  </div>
+</aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+function speak(t){
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='cs-CZ';u.rate=0.85;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>

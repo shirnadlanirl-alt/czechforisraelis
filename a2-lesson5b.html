@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 5ב — Jak dlouho? כמה זמן? | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === Question highlight === */
+    .question-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:22px;text-align:center;margin-bottom:20px;}
+    .question-box .q-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+    .question-box .q-word{font-family:'Nunito',sans-serif;font-size:32px;font-weight:800;color:var(--green);direction:ltr;margin-bottom:6px;}
+    .question-box .q-he{font-size:14px;color:var(--muted);}
+    .question-box .play-q{margin-top:10px;width:36px;height:36px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .15s;}
+    .question-box .play-q:hover{background:var(--gm);}
+    .question-box .play-q svg{width:12px;height:12px;fill:var(--gd);margin-right:-1px;}
+
+    /* === Time/vocab grid === */
+    .time-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px;}
+    .time-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rs);padding:14px 16px;display:flex;align-items:center;gap:12px;transition:border-color .15s;}
+    .time-card:hover{border-color:var(--gm);}
+    .time-cz{font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;color:var(--gd);direction:ltr;flex:1;}
+    .time-he{font-size:12.5px;color:var(--muted);text-align:left;}
+    .play-mini{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .play-mini:hover{background:var(--gm);}
+    .play-mini svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* === Group card === */
+    .group-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:14px;}
+    .group-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+    .group-icon{font-size:24px;}
+    .group-title{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);}
+    .group-sub{font-size:12.5px;color:var(--muted);margin-top:2px;}
+
+    /* === Pattern showcase === */
+    .pattern-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:18px;text-align:center;margin-bottom:14px;}
+    .pattern-line{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;color:var(--green);direction:ltr;unicode-bidi:isolate;margin-bottom:6px;}
+    .pattern-he{font-size:13px;color:var(--muted);}
+
+    /* === Examples list === */
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:var(--green);}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    /* === Comparison table === */
+    .compare-table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;table-layout:fixed;margin-bottom:14px;}
+    .compare-table th{padding:10px 12px;background:var(--gl);color:var(--gd);font-weight:700;font-size:12px;text-align:center;border-bottom:1px solid var(--border);}
+    .compare-table td{padding:11px 12px;text-align:center;font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;border-bottom:1px solid var(--border);}
+    .compare-table tr:last-child td{border-bottom:none;}
+    .compare-table .he-col{font-family:'Heebo',sans-serif;direction:rtl;color:var(--muted);font-weight:400;font-size:13px;}
+    .compare-table .kdy{color:#1e40af;}
+    .compare-table .jak-dlouho{color:var(--green);}
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .time-grid{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson5.html">שיעור 5</a><span>›</span>
+  5ב — Jak dlouho?
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    איך לשאול ולענות על <span class="cz-phrase">Jak dlouho?</span> (כמה זמן?) — שאלה על <b>משך</b> של פעולה, לא על נקודה ספציפית. שתי תבניות פשוטות: יחידת זמן <b>בלי v</b> (<span class="cz-phrase">hodinu, týden</span>), או <span class="cz-phrase">od ... do ...</span> (מ-... עד-...).
+  </div>
+
+  <!-- ========== THE QUESTION ========== -->
+  <div class="stitle">השאלה עצמה</div>
+
+  <div class="question-box">
+    <div class="q-label">השאלה</div>
+    <div class="q-word">Jak dlouho?</div>
+    <div class="q-he">כמה זמן? (משך)</div>
+    <button class="play-q" onclick="speak('Jak dlouho?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 ההבדל הקריטי מ-Kdy?</strong>
+    <span class="cz-phrase">Kdy?</span> (5א) שואל <b>מתי</b> משהו קרה / יקרה — נקודה.<br>
+    <span class="cz-phrase">Jak dlouho?</span> שואל <b>כמה זמן</b> — משך.<br>
+    התשובה ל-Kdy צריכה <span class="cz-phrase">v/ve</span>. התשובה ל-Jak dlouho — <b>בלי</b>!
+  </div>
+
+  <!-- ========== PATTERN 1: SIMPLE DURATION ========== -->
+  <div class="stitle">תבנית 1 — משך פשוט (בלי מילת יחס)</div>
+
+  <div class="pattern-box">
+    <div class="pattern-line">[יחידת זמן] — בלי v</div>
+    <div class="pattern-he">פשוט מציינים את יחידת הזמן. כמה הרבה זמן זה לקח / יקח.</div>
+  </div>
+
+  <div class="group-card">
+    <div class="group-head">
+      <div class="group-icon">⏱️</div>
+      <div>
+        <div class="group-title">תשובות נפוצות על משך</div>
+        <div class="group-sub">שמרו לעצמכם — אלה אותן מילים שתשתמשו בהן הכי הרבה.</div>
+      </div>
+    </div>
+    <div class="time-grid">
+      <div class="time-card">
+        <button class="play-mini" onclick="speak('hodinu')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="time-cz">hodinu</span>
+        <span class="time-he">שעה</span>
+      </div>
+      <div class="time-card">
+        <button class="play-mini" onclick="speak('dvě hodiny')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="time-cz">dvě hodiny</span>
+        <span class="time-he">שעתיים</span>
+      </div>
+      <div class="time-card">
+        <button class="play-mini" onclick="speak('celý den')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="time-cz">celý den</span>
+        <span class="time-he">יום שלם / כל היום</span>
+      </div>
+      <div class="time-card">
+        <button class="play-mini" onclick="speak('týden')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="time-cz">týden</span>
+        <span class="time-he">שבוע</span>
+      </div>
+      <div class="time-card">
+        <button class="play-mini" onclick="speak('měsíc')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="time-cz">měsíc</span>
+        <span class="time-he">חודש</span>
+      </div>
+      <div class="time-card">
+        <button class="play-mini" onclick="speak('rok')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="time-cz">rok</span>
+        <span class="time-he">שנה</span>
+      </div>
+      <div class="time-card">
+        <button class="play-mini" onclick="speak('pět minut')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="time-cz">pět minut</span>
+        <span class="time-he">חמש דקות</span>
+      </div>
+      <div class="time-card">
+        <button class="play-mini" onclick="speak('chvíli')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="time-cz">chvíli</span>
+        <span class="time-he">רגע / זמן קצר</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ הדבר שהכי קשה לישראלים</strong>
+    בעברית אומרים "אני <b>ב</b>פראג שבוע" — עם "ב".<br>
+    בצ׳כית אומרים <span class="cz-phrase">Jsem v Praze týden</span> — <b>בלי</b> שום מילה לפני <span class="cz-phrase">týden</span>.<br>
+    היחידה <span class="cz-phrase">v</span> כאן היא לפני <span class="cz-phrase">Praze</span> (איפה), לא לפני <span class="cz-phrase">týden</span> (כמה זמן).
+  </div>
+
+  <!-- ========== PATTERN 2: OD...DO === -->
+  <div class="stitle">תבנית 2 — מ-... עד-... (od ... do ...)</div>
+
+  <div class="pattern-box">
+    <div class="pattern-line">od + נקודת התחלה + do + נקודת סיום</div>
+    <div class="pattern-he">לציין טווח זמן — ממתי עד מתי משהו נמשך.</div>
+  </div>
+
+  <div class="group-card">
+    <div class="group-head">
+      <div class="group-icon">📏</div>
+      <div>
+        <div class="group-title">טווחי זמן נפוצים</div>
+        <div class="group-sub">השעות / הימים / החודשים אחרי <span class="cz-phrase">od/do</span> משנים צורה — שמרו את הביטויים כשלמים.</div>
+      </div>
+    </div>
+    <div class="time-grid">
+      <div class="time-card">
+        <button class="play-mini" onclick="speak('od osmi do pěti')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="time-cz">od osmi do pěti</span>
+        <span class="time-he">מ-8 עד 5</span>
+      </div>
+      <div class="time-card">
+        <button class="play-mini" onclick="speak('od pondělí do pátku')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="time-cz">od pondělí do pátku</span>
+        <span class="time-he">מיום ב' עד יום ו'</span>
+      </div>
+      <div class="time-card">
+        <button class="play-mini" onclick="speak('od rána do večera')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="time-cz">od rána do večera</span>
+        <span class="time-he">מהבוקר עד הערב</span>
+      </div>
+      <div class="time-card">
+        <button class="play-mini" onclick="speak('od ledna do června')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="time-cz">od ledna do června</span>
+        <span class="time-he">מינואר עד יוני</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip green">
+    <strong>✨ קסם של od/do</strong>
+    שמתם לב? <span class="cz-phrase">od</span> ו-<span class="cz-phrase">do</span> מקבילים בדיוק ל-"מ-" ול-"עד" בעברית. המבנה זהה: <b>מ-X עד-Y</b>.<br>
+    היחידה: בצ׳כית המילים אחרי <span class="cz-phrase">od/do</span> משנות צורה (זה היחס "גניטיב" שנלמד בשיעור 7). בינתיים — לזכור אותן כביטויים שלמים: <span class="cz-phrase">od pondělí do pátku</span> = פשוט נשמע ככה תמיד.
+  </div>
+
+  <!-- ========== KDY VS JAK DLOUHO ========== -->
+  <div class="stitle">השוואה — Kdy? מול Jak dlouho?</div>
+
+  <table class="compare-table">
+    <tr><th>שאלה</th><th>תשובה</th><th>משמעות</th></tr>
+    <tr>
+      <td class="kdy">Kdy?</td>
+      <td class="kdy">v sedm</td>
+      <td class="he-col">בשבע (נקודה)</td>
+    </tr>
+    <tr>
+      <td class="jak-dlouho">Jak dlouho?</td>
+      <td class="jak-dlouho">sedm hodin</td>
+      <td class="he-col">שבע שעות (משך)</td>
+    </tr>
+    <tr>
+      <td class="kdy">Kdy?</td>
+      <td class="kdy">v pondělí</td>
+      <td class="he-col">ביום שני (נקודה)</td>
+    </tr>
+    <tr>
+      <td class="jak-dlouho">Jak dlouho?</td>
+      <td class="jak-dlouho">týden</td>
+      <td class="he-col">שבוע (משך)</td>
+    </tr>
+    <tr>
+      <td class="kdy">Kdy?</td>
+      <td class="kdy">v lednu</td>
+      <td class="he-col">בינואר (נקודה)</td>
+    </tr>
+    <tr>
+      <td class="jak-dlouho">Jak dlouho?</td>
+      <td class="jak-dlouho">měsíc</td>
+      <td class="he-col">חודש (משך)</td>
+    </tr>
+  </table>
+
+  <div class="tip purple">
+    <strong>🎯 הכלל הזהב</strong>
+    אם בעברית אומרים "ב..." (במקום, בזמן ספציפי) — בצ׳כית זה <b class="cz-phrase">v + מילה</b>.<br>
+    אם בעברית אומרים סתם "שעה / שבוע / חודש" (במובן של משך) — בצ׳כית זה <b>בלי כלום</b>, פשוט המילה.
+  </div>
+
+  <!-- ========== EXAMPLES ========== -->
+  <div class="stitle">דוגמאות במשפט</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Jak dlouho budeš v Praze?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Jak dlouho</b> budeš v Praze?</span>
+    <span class="ex-he">כמה זמן תהיה/תהיי בפראג?</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Budu tady týden.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Budu tady <b>týden</b>.</span>
+    <span class="ex-he">אהיה כאן שבוע.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Jak dlouho jsi studoval česky?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Jak dlouho</b> jsi studoval česky?</span>
+    <span class="ex-he">כמה זמן למדת צ׳כית?</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Studoval jsem dva roky.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Studoval jsem <b>dva roky</b>.</span>
+    <span class="ex-he">למדתי שנתיים.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Pracuju od osmi do pěti.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Pracuju <b>od osmi do pěti</b>.</span>
+    <span class="ex-he">אני עובד/ת מ-8 עד 5.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Čekala jsem celý den.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Čekala jsem <b>celý den</b>.</span>
+    <span class="ex-he">חיכיתי כל היום.</span>
+  </div>
+
+  <!-- ========== CHECK YOURSELF ========== -->
+  <div class="stitle">בדיקה אישית</div>
+
+  <div class="check-box">
+    <h4>אחרי 5ב את/ה אמור/ה:</h4>
+    <ul class="check-list">
+      <li>לזהות ש-<span class="cz-phrase">Jak dlouho?</span> שואל על משך, לא על נקודה בזמן</li>
+      <li>לדעת שהתשובה <b>לא צריכה</b> <span class="cz-phrase">v</span> — פשוט <span class="cz-phrase">hodinu, týden, měsíc</span></li>
+      <li>להשתמש ב-<span class="cz-phrase">od ... do ...</span> לציון טווח</li>
+      <li>להבדיל בין <span class="cz-phrase">v sedm</span> (בשבע) ל-<span class="cz-phrase">sedm hodin</span> (שבע שעות)</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson5a.html" class="btn-back">→ חזרה ל-5א</a>
+    <a href="a2-lesson5c.html" class="btn-next">5ג — Za jak dlouho? ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson5b"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

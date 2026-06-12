@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 12ה — תרגול מסכם | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    /* Score bar */
+    .score-bar{position:sticky;top:60px;z-index:90;background:var(--white);border-bottom:1px solid var(--border);padding:10px 40px;display:flex;align-items:center;gap:16px;}
+    .score-label{font-size:13px;font-weight:700;color:var(--muted);}
+    .score-track{flex:1;height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden;}
+    .score-fill{height:100%;background:var(--green);border-radius:4px;width:0%;transition:width .4s;}
+    .score-num{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--gd);min-width:50px;text-align:left;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .section-title{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;color:var(--text);margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--border);}
+    .section-title:first-child{margin-top:0;}
+    .section-title span{font-size:13px;font-weight:400;color:var(--muted);margin-right:10px;}
+
+    /* Question card */
+    .qcard{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:14px;transition:border-color .2s;}
+    .qcard.correct{border-color:#86efac;}
+    .qcard.wrong{border-color:#fca5a5;}
+    .qnum{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+    .qtext{font-size:15.5px;font-weight:700;color:var(--text);margin-bottom:14px;line-height:1.55;}
+    .qtext .cz{font-family:'Nunito',sans-serif;color:var(--gd);direction:ltr;unicode-bidi:isolate;display:inline;}
+    .choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .choices.four-col{grid-template-columns:1fr 1fr;}
+    .choice-btn{padding:10px 14px;border-radius:var(--rs);border:1.5px solid var(--border);background:var(--white);color:var(--text);font-family:'Heebo',sans-serif;font-size:13.5px;font-weight:600;cursor:pointer;text-align:right;transition:all .15s;line-height:1.4;}
+    .choice-btn:hover:not(:disabled){border-color:var(--gm);background:var(--gl);}
+    .choice-btn:disabled{cursor:default;}
+    .choice-btn.correct-ans{background:#dcfce7;border-color:#86efac;color:#166534;}
+    .choice-btn.wrong-ans{background:#fee2e2;border-color:#fca5a5;color:#991b1b;}
+    .choice-btn .cz-opt{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;}
+    .feedback{margin-top:12px;font-size:13.5px;padding:10px 14px;border-radius:var(--rs);line-height:1.6;display:none;}
+    .feedback.show{display:block;}
+    .feedback.ok{background:#dcfce7;color:#166534;}
+    .feedback.err{background:#fee2e2;color:#991b1b;}
+
+    /* Complete box */
+    .complete-box{background:linear-gradient(135deg,#085041 0%,#1D9E75 100%);border-radius:var(--r);padding:30px 28px;text-align:center;color:white;margin-top:36px;display:none;}
+    .complete-box.show{display:block;}
+    .complete-box h2{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;margin-bottom:8px;}
+    .complete-box p{font-size:14.5px;opacity:.92;margin-bottom:20px;line-height:1.65;}
+    .complete-score{font-family:'Nunito',sans-serif;font-size:38px;font-weight:800;margin-bottom:6px;}
+    .complete-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+    .c-link{padding:11px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .c-link.white{background:white;color:var(--gd);}
+    .c-link.white:hover{opacity:.9;}
+    .c-link.outline{border:2px solid rgba(255,255,255,.6);color:white;}
+    .c-link.outline:hover{background:rgba(255,255,255,.15);}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:30px;padding-top:22px;border-top:1px solid var(--border);}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{grid-template-columns:1fr;padding:20px;}.score-bar{padding:10px 20px;}.choices{grid-template-columns:1fr;}}
+    .btn-back{padding:10px 20px;border-radius:20px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;text-decoration:none;display:inline-block;}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{padding:10px 24px;border-radius:20px;background:var(--green);color:white;border:none;font-size:14px;font-weight:700;cursor:pointer;transition:opacity .15s;display:inline-flex;align-items:center;gap:6px;text-decoration:none;}
+    .btn-next:hover{opacity:.88;}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="a2.html">A2</a><span>›</span><a href="a2-lesson12.html">שיעור 12</a><span>›</span>12ה — תרגול מסכם
+</div>
+
+<div class="score-bar">
+  <span class="score-label">התקדמות</span>
+  <div class="score-track"><div class="score-fill" id="score-fill"></div></div>
+  <span class="score-num" id="score-num">0 / 20</span>
+</div>
+
+<div class="layout">
+<div>
+
+  <!-- SECTION 1 -->
+  <div class="section-title">חלק א׳ — בחר את הפועל הנכון <span>שאלות 1–4</span></div>
+
+  <!-- Q1 -->
+  <div class="qcard" data-correct="Baví">
+    <div class="qnum">שאלה 1</div>
+    <div class="qtext">השלם/י: <span class="cz">_____ mě čeština.</span> (הצ׳כית מרתקת אותי.)</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="Baví"><span class="cz-opt">Baví</span></button>
+      <button class="choice-btn" data-val="Líbí se"><span class="cz-opt">Líbí se</span></button>
+      <button class="choice-btn" data-val="Chybí"><span class="cz-opt">Chybí</span></button>
+      <button class="choice-btn" data-val="Vadí"><span class="cz-opt">Vadí</span></button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="qcard" data-correct="Líbí se">
+    <div class="qnum">שאלה 2</div>
+    <div class="qtext">השלם/י: <span class="cz">_____ mi Praha.</span> (פראג מוצאת חן בעיניי.)</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="Baví"><span class="cz-opt">Baví</span></button>
+      <button class="choice-btn" data-val="Líbí se"><span class="cz-opt">Líbí se</span></button>
+      <button class="choice-btn" data-val="Vadí"><span class="cz-opt">Vadí</span></button>
+      <button class="choice-btn" data-val="Těší se"><span class="cz-opt">Těší se</span></button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="qcard" data-correct="Vadí">
+    <div class="qnum">שאלה 3</div>
+    <div class="qtext">השלם/י: <span class="cz">_____ mi hlasitá hudba.</span> (מוזיקה רועשת מפריעה לי.)</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="Baví"><span class="cz-opt">Baví</span></button>
+      <button class="choice-btn" data-val="Těší"><span class="cz-opt">Těší</span></button>
+      <button class="choice-btn" data-val="Vadí"><span class="cz-opt">Vadí</span></button>
+      <button class="choice-btn" data-val="Chybí"><span class="cz-opt">Chybí</span></button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="qcard" data-correct="Chybí">
+    <div class="qnum">שאלה 4</div>
+    <div class="qtext">השלם/י: <span class="cz">_____ mi Tel Aviv.</span> (אני מתגעגע/ת לתל אביב.)</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="Baví"><span class="cz-opt">Baví</span></button>
+      <button class="choice-btn" data-val="Chybí"><span class="cz-opt">Chybí</span></button>
+      <button class="choice-btn" data-val="Líbí se"><span class="cz-opt">Líbí se</span></button>
+      <button class="choice-btn" data-val="Vadí"><span class="cz-opt">Vadí</span></button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section-title">חלק ב׳ — מה המילה החסרה? <span>שאלות 5–8</span></div>
+
+  <!-- Q5 -->
+  <div class="qcard" data-correct="se">
+    <div class="qnum">שאלה 5</div>
+    <div class="qtext">השלם/י: <span class="cz">Bojím _____ výšky.</span> (אני מפחד/ת מגבהים.)</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="se"><span class="cz-opt">se</span></button>
+      <button class="choice-btn" data-val="si"><span class="cz-opt">si</span></button>
+      <button class="choice-btn" data-val="mě"><span class="cz-opt">mě</span></button>
+      <button class="choice-btn" data-val="mi"><span class="cz-opt">mi</span></button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="qcard" data-correct="o">
+    <div class="qnum">שאלה 6</div>
+    <div class="qtext">השלם/י: <span class="cz">Zajímám se _____ hudbu.</span> (אני מתעניין/ת במוזיקה.)</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="na"><span class="cz-opt">na</span></button>
+      <button class="choice-btn" data-val="o"><span class="cz-opt">o</span></button>
+      <button class="choice-btn" data-val="od"><span class="cz-opt">od</span></button>
+      <button class="choice-btn" data-val="za"><span class="cz-opt">za</span></button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="qcard" data-correct="na">
+    <div class="qnum">שאלה 7</div>
+    <div class="qtext">השלם/י: <span class="cz">Těším se _____ víkend.</span> (אני מצפה לסוף השבוע.)</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="na"><span class="cz-opt">na</span></button>
+      <button class="choice-btn" data-val="o"><span class="cz-opt">o</span></button>
+      <button class="choice-btn" data-val="k"><span class="cz-opt">k</span></button>
+      <button class="choice-btn" data-val="do"><span class="cz-opt">do</span></button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="qcard" data-correct="mi">
+    <div class="qnum">שאלה 8</div>
+    <div class="qtext">השלם/י: <span class="cz">Líbí se _____ Praha.</span> (פראג מוצאת חן בעיניי.)</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="mi"><span class="cz-opt">mi</span></button>
+      <button class="choice-btn" data-val="mě"><span class="cz-opt">mě</span></button>
+      <button class="choice-btn" data-val="já"><span class="cz-opt">já</span></button>
+      <button class="choice-btn" data-val="mně"><span class="cz-opt">mně</span></button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section-title">חלק ג׳ — איך אומרים את זה? <span>שאלות 9–12</span></div>
+
+  <!-- Q9 -->
+  <div class="qcard" data-correct="Chybíš mi.">
+    <div class="qnum">שאלה 9</div>
+    <div class="qtext">איך אומרים: ״אני מתגעגע/ת אליך״?</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="Chybíš mi."><span class="cz-opt">Chybíš mi.</span></button>
+      <button class="choice-btn" data-val="Chybí mi ty."><span class="cz-opt">Chybí mi ty.</span></button>
+      <button class="choice-btn" data-val="Chybím ti."><span class="cz-opt">Chybím ti.</span></button>
+      <button class="choice-btn" data-val="Bojím se tě."><span class="cz-opt">Bojím se tě.</span></button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="qcard" data-correct="Rád jsem tě poznal.">
+    <div class="qnum">שאלה 10</div>
+    <div class="qtext">איך אומר גבר: ״שמחתי להכיר אותך״?</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="Rád jsem tě poznal."><span class="cz-opt">Rád jsem tě poznal.</span></button>
+      <button class="choice-btn" data-val="Ráda jsem tě poznala."><span class="cz-opt">Ráda jsem tě poznala.</span></button>
+      <button class="choice-btn" data-val="Znám tě rád."><span class="cz-opt">Znám tě rád.</span></button>
+      <button class="choice-btn" data-val="Líbí se mi ty."><span class="cz-opt">Líbí se mi ty.</span></button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="qcard" data-correct="Nemůžu to najít.">
+    <div class="qnum">שאלה 11</div>
+    <div class="qtext">איך אומרים: ״אני לא מוצא/ת את זה״?</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="Nemůžu to hledat."><span class="cz-opt">Nemůžu to hledat.</span></button>
+      <button class="choice-btn" data-val="Nemůžu to najít."><span class="cz-opt">Nemůžu to najít.</span></button>
+      <button class="choice-btn" data-val="Nezajímám se o to."><span class="cz-opt">Nezajímám se o to.</span></button>
+      <button class="choice-btn" data-val="Nevím to."><span class="cz-opt">Nevím to.</span></button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="qcard" data-correct="Koho baví sport?">
+    <div class="qnum">שאלה 12</div>
+    <div class="qtext">איך שואלים: ״מי אוהב/ת ספורט?״ (מי מרוצה מספורט)</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="Koho baví sport?"><span class="cz-opt">Koho baví sport?</span></button>
+      <button class="choice-btn" data-val="Co baví sport?"><span class="cz-opt">Co baví sport?</span></button>
+      <button class="choice-btn" data-val="Kdo líbí se sport?"><span class="cz-opt">Kdo líbí se sport?</span></button>
+      <button class="choice-btn" data-val="Kdo vadí sport?"><span class="cz-opt">Kdo vadí sport?</span></button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section-title">חלק ד׳ — תרגמו לעברית <span>שאלות 13–16</span></div>
+
+  <!-- Q13 -->
+  <div class="qcard" data-correct="אני מתעניין/ת בהיסטוריה">
+    <div class="qnum">שאלה 13</div>
+    <div class="qtext">מה פירוש: <span class="cz">Zajímám se o historii.</span>?</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="אני מתעניין/ת בהיסטוריה">אני מתעניין/ת בהיסטוריה</button>
+      <button class="choice-btn" data-val="אני אוהב/ת היסטוריה">אני אוהב/ת היסטוריה</button>
+      <button class="choice-btn" data-val="אני לומד/ת היסטוריה">אני לומד/ת היסטוריה</button>
+      <button class="choice-btn" data-val="אני מפחד/ת מהיסטוריה">אני מפחד/ת מהיסטוריה</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="qcard" data-correct="אני מתגעגע/ת למשפחה">
+    <div class="qnum">שאלה 14</div>
+    <div class="qtext">מה פירוש: <span class="cz">Chybí mi rodina.</span>?</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="המשפחה מפחידה אותי">המשפחה מפחידה אותי</button>
+      <button class="choice-btn" data-val="אני מתגעגע/ת למשפחה">אני מתגעגע/ת למשפחה</button>
+      <button class="choice-btn" data-val="המשפחה מרתקת אותי">המשפחה מרתקת אותי</button>
+      <button class="choice-btn" data-val="אני מוצא/ת משפחה">אני מוצא/ת משפחה</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="qcard" data-correct="אני מצפה לחופשה">
+    <div class="qnum">שאלה 15</div>
+    <div class="qtext">מה פירוש: <span class="cz">Těším se na dovolenou.</span>?</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="אני מפחד/ת מהחופשה">אני מפחד/ת מהחופשה</button>
+      <button class="choice-btn" data-val="אני מוצא/ת חופשה">אני מוצא/ת חופשה</button>
+      <button class="choice-btn" data-val="אני מצפה לחופשה">אני מצפה לחופשה</button>
+      <button class="choice-btn" data-val="החופשה מפריעה לי">החופשה מפריעה לי</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="qcard" data-correct="איפה הכרתם (אחד את השני)?">
+    <div class="qnum">שאלה 16</div>
+    <div class="qtext">מה פירוש: <span class="cz">Kde jste se poznali?</span>?</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="איפה הכרתם (אחד את השני)?">איפה הכרתם (אחד את השני)?</button>
+      <button class="choice-btn" data-val="מה אתם מכירים?">מה אתם מכירים?</button>
+      <button class="choice-btn" data-val="מתי הכרתם?">מתי הכרתם?</button>
+      <button class="choice-btn" data-val="למה הכרתם?">למה הכרתם?</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section-title">חלק ה׳ — אתגר <span>שאלות 17–20</span></div>
+
+  <!-- Q17 -->
+  <div class="qcard" data-correct="baví = מרתק, líbí se = מוצא חן">
+    <div class="qnum">שאלה 17</div>
+    <div class="qtext">מה ההבדל בין <span class="cz">baví mě</span> לבין <span class="cz">líbí se mi</span>?</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="שניהם זהים לגמרי">שניהם זהים לגמרי</button>
+      <button class="choice-btn" data-val="baví = מרתק, líbí se = מוצא חן">baví = מרתק, líbí se = מוצא חן</button>
+      <button class="choice-btn" data-val="baví = מפריע, líbí se = חסר">baví = מפריע, líbí se = חסר</button>
+      <button class="choice-btn" data-val="שניהם = אהבה עמוקה">שניהם = אהבה עמוקה</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="qcard" data-correct="יחסה 2 (גניטיב)">
+    <div class="qnum">שאלה 18</div>
+    <div class="qtext">אחרי <span class="cz">bojím se</span> — איזו יחסה באה?</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="יחסה 1 (נומינטיב)">יחסה 1 (נומינטיב)</button>
+      <button class="choice-btn" data-val="יחסה 2 (גניטיב)">יחסה 2 (גניטיב)</button>
+      <button class="choice-btn" data-val="יחסה 4 (אקוזטיב)">יחסה 4 (אקוזטיב)</button>
+      <button class="choice-btn" data-val="יחסה 7 (אינסטרומנטל)">יחסה 7 (אינסטרומנטל)</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="qcard" data-correct="לא נורא / בסדר">
+    <div class="qnum">שאלה 19</div>
+    <div class="qtext">מה פירוש <span class="cz">Nevadí</span>? (ביטוי שכיח מאוד)</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="לא מדאיג">לא מדאיג</button>
+      <button class="choice-btn" data-val="לא נורא / בסדר">לא נורא / בסדר</button>
+      <button class="choice-btn" data-val="לא מפחיד">לא מפחיד</button>
+      <button class="choice-btn" data-val="לא מעניין">לא מעניין</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="qcard" data-correct="אני מאוד מצפה לפגוש אותך!">
+    <div class="qnum">שאלה 20</div>
+    <div class="qtext">מה פירוש: <span class="cz">Moc se těším na tebe!</span>?</div>
+    <div class="choices">
+      <button class="choice-btn" data-val="אני מאוד מפחד/ת ממך!">אני מאוד מפחד/ת ממך!</button>
+      <button class="choice-btn" data-val="אני מאוד מתגעגע/ת אליך!">אני מאוד מתגעגע/ת אליך!</button>
+      <button class="choice-btn" data-val="אני מאוד מצפה לפגוש אותך!">אני מאוד מצפה לפגוש אותך!</button>
+      <button class="choice-btn" data-val="אני לא אוהב/ת אותך!">אני לא אוהב/ת אותך!</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <!-- COMPLETE BOX -->
+  <div class="complete-box" id="complete-box">
+    <div class="complete-score" id="final-score"></div>
+    <h2 id="complete-title">מסיימים את שיעור 12!</h2>
+    <p id="complete-msg"></p>
+    <div class="complete-links">
+      <a href="a2.html" class="c-link white">← חזרה לדף A2</a>
+      <a href="a2-lesson12.html" class="c-link outline">חזרה לשיעור 12 →</a>
+    </div>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson12d.html" class="btn-back">→ חזרה ל-12ד: דיאלוגים</a>
+    <a href="a2.html" class="btn-next">סיימתי A2 ←</a>
+  </div>
+
+</div><!-- /.main-col -->
+<aside class="sidebar" data-page="a2-lesson12e"></aside>
+</div><!-- /.layout -->
+
+<script>
+const feedbacks={
+  "Baví":"✓ נכון! baví mě = מרתק אותי / כיף לי. הנושא (čeština) הוא מה שמרתק.",
+  "Líbí se":"✓ נכון! líbí se mi = מוצא חן בעיניי. הצורה: líbí se mi + שם עצם.",
+  "Vadí":"✓ נכון! vadí mi = מפריע לי. הנושא (hudba) הוא מה שמפריע.",
+  "Chybí":"✓ נכון! chybí mi = מתגעגע/ת ל- / חסר לי. הנושא הוא מה שחסר.",
+  "se":"✓ נכון! bojím se = אני מפחד/ת. se הוא חלק מהפועל המורכב bát se.",
+  "o":"✓ נכון! zajímat se o = להתעניין ב-. תמיד o + יחסה 4.",
+  "na":"✓ נכון! těšit se na = לצפות ל-. תמיד na + יחסה 4.",
+  "mi":"✓ נכון! líbí se mi = מוצא חן בעיניי. mi = לי (יחסה 3).",
+  "Chybíš mi.":"✓ נכון! כשמתגעגעים לאדם ספציפי, הפועל מתאים לנושא: ty → chybíš mi.",
+  "Rád jsem tě poznal.":"✓ נכון! Rád (זכר) jsem tě poznal. אישה תאמר: Ráda jsem tě poznala.",
+  "Nemůžu to najít.":"✓ נכון! najít = למצוא. hledat = לחפש (תהליך). כאן מדובר על חוסר מציאה.",
+  "Koho baví sport?":"✓ נכון! koho = את מי (יחסה 4) — כי baví לוקח את האדם ביחסה 4.",
+  "אני מתעניין/ת בהיסטוריה":"✓ נכון! zajímat se o = להתעניין ב-.",
+  "אני מתגעגע/ת למשפחה":"✓ נכון! chybí mi rodina = אני מתגעגע/ת למשפחה / המשפחה חסרה לי.",
+  "אני מצפה לחופשה":"✓ נכון! těším se na dovolenou = אני מצפה לחופשה.",
+  "איפה הכרתם (אחד את השני)?":"✓ נכון! poznat se = להכיר אחד את השני. kde = איפה.",
+  "baví = מרתק, líbí se = מוצא חן":"✓ נכון! baví mě = מרתק/מעניין אותי. líbí se mi = מוצא חן / אני אוהב/ת את זה.",
+  "יחסה 2 (גניטיב)":"✓ נכון! bojím se + יחסה 2 (גניטיב). לדוגמה: bojím se psů, tmy, výšky.",
+  "לא נורא / בסדר":"✓ נכון! nevadí = ״לא נורא״ / ״בסדר״ / ״לא משנה״ — ביטוי יומיומי מאוד.",
+  "אני מאוד מצפה לפגוש אותך!":"✓ נכון! těším se na tebe = אני מצפה לפגוש אותך. Moc = מאוד."
+};
+
+const errFeedbacks={
+  "Baví":"✗ לא נכון. baví mě = מרתק אותי (הנושא הוא מה שמרתק, לא האדם).",
+  "Líbí se":"✗ לא נכון. líbí se mi = מוצא חן בעיניי — הנושא הוא מה שמוצא חן.",
+  "Vadí":"✗ לא נכון. vadí mi = מפריע לי (שלילי). חשוב לדעת: nevadí = לא נורא!",
+  "Chybí":"✗ לא נכון. chybí mi = מתגעגע/ת ל- / חסר לי. הנושא הוא מה שחסר.",
+  "se":"✗ לא נכון. bát se = הפועל השלם. se הוא חלק קבוע של הפועל.",
+  "o":"✗ לא נכון. zajímat se o = להתעניין ב-. תמיד o, לא מילה אחרת.",
+  "na":"✗ לא נכון. těšit se na = לצפות ל-. תמיד na + יחסה 4.",
+  "mi":"✗ לא נכון. líbí se mi (דטיב — לי). mě = אותי (אקוזטיב). כאן צריך mi.",
+  "Chybíš mi.":"✗ לא נכון. כשהנושא הוא ״אתה/את״ — הפועל הוא chybíš (ולא chybí). mi לא משתנה.",
+  "Rád jsem tě poznal.":"✗ לא נכון. Rád = זכר, Ráda = נקבה. הפועל: poznal (זכר) / poznala (נקבה).",
+  "Nemůžu to najít.":"✗ לא נכון. najít = למצוא (פועל שלם). hledat = לחפש (תהליך). כאן חסרה המציאה.",
+  "Koho baví sport?":"✗ לא נכון. baví לוקח את האדם ביחסה 4 = koho. kdo הוא יחסה 1.",
+  "אני מתעניין/ת בהיסטוריה":"✗ לא נכון. zajímat se o = להתעניין ב-, לא ללמוד או לאהוב.",
+  "אני מתגעגע/ת למשפחה":"✗ לא נכון. chybí mi rodina = המשפחה חסרה לי = אני מתגעגע/ת למשפחה.",
+  "אני מצפה לחופשה":"✗ לא נכון. těšit se na = לצפות ל- (ציפייה חיובית). לא פחד ולא מציאה.",
+  "איפה הכרתם (אחד את השני)?":"✗ לא נכון. kde = איפה. poznat se = להכיר אחד את השני.",
+  "baví = מרתק, líbí se = מוצא חן":"✗ לא נכון. ההבדל: baví = מרתק/מעניין/כיף. líbí se = מוצא חן / אהוב.",
+  "יחסה 2 (גניטיב)":"✗ לא נכון. bojím se + יחסה 2. זה אחד הפעלים הנדירים שלוקחים גניטיב.",
+  "לא נורא / בסדר":"✗ לא נכון. nevadí = ״לא נורא / בסדר / לא משנה״. ביטוי חיוני לחיי היום-יום!",
+  "אני מאוד מצפה לפגוש אותך!":"✗ לא נכון. těšit se na = לצפות ל- (ציפייה חיובית לפגישה). moc = מאוד."
+};
+
+let answered=0,score=0;
+const total=20;
+
+document.querySelectorAll('.qcard').forEach(card=>{
+  const correct=card.dataset.correct;
+  const buttons=card.querySelectorAll('.choice-btn');
+  const fb=card.querySelector('.feedback');
+
+  buttons.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      if(card.classList.contains('correct')||card.classList.contains('wrong'))return;
+      const val=btn.dataset.val;
+      buttons.forEach(b=>b.disabled=true);
+
+      if(val===correct){
+        btn.classList.add('correct-ans');
+        card.classList.add('correct');
+        fb.textContent=feedbacks[correct]||'✓ נכון!';
+        fb.className='feedback ok show';
+        score++;
+      } else {
+        btn.classList.add('wrong-ans');
+        card.classList.add('wrong');
+        // highlight correct
+        buttons.forEach(b=>{if(b.dataset.val===correct)b.classList.add('correct-ans');});
+        fb.textContent=errFeedbacks[correct]||'✗ לא נכון. התשובה הנכונה מסומנת בירוק.';
+        fb.className='feedback err show';
+      }
+
+      answered++;
+      updateScore();
+      if(answered===total)setTimeout(showComplete,600);
+    });
+  });
+});
+
+function updateScore(){
+  const pct=Math.round((score/total)*100);
+  document.getElementById('score-fill').style.width=pct+'%';
+  document.getElementById('score-num').textContent=score+' / '+total;
+}
+
+function showComplete(){
+  const box=document.getElementById('complete-box');
+  const pct=Math.round((score/total)*100);
+  document.getElementById('final-score').textContent=score+'/'+total+' ('+pct+'%)';
+  let title,msg;
+  if(score===20){title='מושלם! 20/20! 🎉';msg='ניקוד מלא! פעלי הרגש שלך ברמה מעולה. סיימת את שיעור 12 ואת רמת A2 בכבוד גדול — כל הכבוד!';}
+  else if(score>=16){title='מצוין! 💪';msg='תוצאה גבוהה מאוד. עברתם בהצלחה את שיעור 12! כדאי לחזור על השאלות שפספסתם.';}
+  else if(score>=12){title='כמעט! עוד קצת... 📚';msg='תוצאה טובה. חזרו על 12א–12ג לחזק את החלקים שהתקשיתם בהם.';}
+  else{title='ממשיכים להתאמן! 💡';msg='כדאי לחזור על הדפים הקודמים לפני שממשיכים. לא נורא — Nevadí! חזרה היא חלק מהלמידה.';}
+  document.getElementById('complete-title').textContent=title;
+  document.getElementById('complete-msg').textContent=msg;
+  box.classList.add('show');
+  box.scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

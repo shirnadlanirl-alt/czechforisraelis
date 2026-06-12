@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 3ד — Genitiv רבים | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .end-table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13.5px;}
+    .end-table th{text-align:center;background:var(--gd);color:white;font-weight:700;padding:9px 14px;font-size:11.5px;}
+    .end-table th:first-child{border-radius:0 var(--rs) 0 0;}
+    .end-table th:last-child{border-radius:var(--rs) 0 0 0;}
+    .end-table td{padding:9px 14px;border:1px solid var(--border);line-height:1.5;vertical-align:top;}
+    .end-table td .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:14px;color:var(--gd);}
+    .end-table td .end-badge{display:inline-block;background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;direction:ltr;unicode-bidi:isolate;padding:1px 7px;border-radius:6px;margin-right:4px;}
+    .end-table td .end-badge.amber{background:#fef3c7;color:#b45309;}
+    .end-table td .end-badge.blue{background:#eff6ff;color:#1d4ed8;}
+    .end-table td .end-badge.red{background:#fee2e2;color:#b91c1c;}
+    .end-table tr:nth-child(even) td{background:#fafaf8;}
+    .end-table .section-row td{background:#f1f5f9;font-weight:700;font-size:12px;letter-spacing:.05em;color:var(--muted);padding:6px 14px;}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:28px;height:28px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl{color:var(--green);font-weight:900;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}}
+      .end-table td[class],.prep-table td[class]{text-align:center;}
+    </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson3.html">שיעור 3 — Genitiv</a><span>›</span>3ד — Genitiv רבים
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🔑 Genitiv רבים — הצורה הכי קשה בצ'כית</strong>
+    Genitiv רבים נחשב לקשה כי לנקבות ולנטרלים יש <b>סיומת אפס</b> — כלומר המילה מקבל עיצורים גולמיים בלי סיומת. לעתים מוכנסת תנועה לשם. זכרים מקבלים -ů שהוא יחסית קל.
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ מה זו "סיומת אפס"?</strong>
+    בצורה הרגילה: <span class="cz-phrase">žena</span> (נקבה). Nominativ רבים: <span class="cz-phrase">žen<b>y</b></span>. Genitiv רבים: <span class="cz-phrase">žen</span> — ללא סיומת כלל!<br>
+    <span class="cz-phrase">Hodně <b>žen</b></span> = הרבה נשים. <span class="cz-phrase">Pět <b>měst</b></span> = חמש ערים.
+  </div>
+
+  <table class="end-table">
+    <thead>
+      <tr><th>סוג המילה</th><th>Gen רבים</th><th>Nom יחיד → Gen רבים</th><th>דוגמה</th></tr>
+    </thead>
+    <tbody>
+      <tr class="section-row"><td colspan="4">🔵 זכר — -ů (הקל ביותר!)</td></tr>
+      <tr>
+        <td>זכר חי ודומם (כמעט כולם)</td>
+        <td><div class="end-badge">-ů</div></td>
+        <td><div class="cz">kamarád → kamarádů<br>student → studentů<br>park → parků<br>hotel → hotelů</div></td>
+        <td><span class="cz-phrase">hodně kamarádů · pět parků</span></td>
+      </tr>
+      <tr>
+        <td>זכר רך (-č/-š/-ž/-ř)</td>
+        <td><div class="end-badge">-ů</div></td>
+        <td><div class="cz">muž → mužů<br>lékař → lékařů<br>klíč → klíčů</div></td>
+        <td><span class="cz-phrase">hodně lékařů · pět klíčů</span></td>
+      </tr>
+      <tr class="section-row"><td colspan="4">🔴 נקבה — סיומת אפס (∅) + לעתים תנועה מוכנסת</td></tr>
+      <tr>
+        <td>נקבה -a קשה<br><span style="font-size:11px;color:var(--muted)">רוב הנקבות ב-a</span></td>
+        <td><div class="end-badge red">∅ (ללא סיומת)</div></td>
+        <td><div class="cz">žena → žen<br>škola → škol<br>Praha → Prah (נדיר)</div></td>
+        <td><span class="cz-phrase">hodně žen · pět škol</span></td>
+      </tr>
+      <tr>
+        <td>נקבה -a רכה — עם תנועה מוכנסת<br><span style="font-size:11px;color:var(--muted)">כשמסתיים בעיצורים</span></td>
+        <td><div class="end-badge amber">∅ + e מוכנסת</div></td>
+        <td><div class="cz">kavárna → kaváren<br>restaurace → restaurací*<br>vesnice → vesnic</div></td>
+        <td><span class="cz-phrase">hodně kaváren · pět vesnic</span></td>
+      </tr>
+      <tr>
+        <td>נקבה -e / -ce</td>
+        <td><div class="end-badge blue">-í</div></td>
+        <td><div class="cz">restaurace → restaurací<br>ulice → ulic*<br>práce → prací</div></td>
+        <td><span class="cz-phrase">hodně restaurací · pět prací</span></td>
+      </tr>
+      <tr>
+        <td>נקבה עיצור בסוף</td>
+        <td><div class="end-badge blue">-í</div></td>
+        <td><div class="cz">věc → věcí<br>radost → radostí<br>noc → nocí</div></td>
+        <td><span class="cz-phrase">hodně věcí · pět nocí</span></td>
+      </tr>
+      <tr class="section-row"><td colspan="4">⚪ נטרל — סיומת אפס (∅) + לעתים תנועה מוכנסת</td></tr>
+      <tr>
+        <td>נטרל -o קשה</td>
+        <td><div class="end-badge red">∅ (ללא סיומת)</div></td>
+        <td><div class="cz">město → měst<br>auto → aut<br>slovo → slov</div></td>
+        <td><span class="cz-phrase">pět měst · deset aut</span></td>
+      </tr>
+      <tr>
+        <td>נטרל -o עם תנועה מוכנסת</td>
+        <td><div class="end-badge amber">∅ + e מוכנסת</div></td>
+        <td><div class="cz">okno → oken<br>jablko → jablek<br>vejce → vajec</div></td>
+        <td><span class="cz-phrase">kilo jablek · deset vajec</span></td>
+      </tr>
+      <tr>
+        <td>נטרל -um</td>
+        <td><div class="end-badge blue">-í</div></td>
+        <td><div class="cz">muzeum → muzeí<br>centrum → center*</div></td>
+        <td><span class="cz-phrase">pět muzeí</span></td>
+      </tr>
+      <tr>
+        <td>נטרל -í</td>
+        <td><div class="end-badge blue">-í (ללא שינוי)</div></td>
+        <td><div class="cz">náměstí → náměstí<br>nádraží → nádraží</div></td>
+        <td><span class="cz-phrase">pět náměstí</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip blue">
+    <strong>💡 מספרים + Genitiv רבים</strong>
+    המספרים 5 ומעלה דורשים <b>Genitiv רבים</b>:<br>
+    <span class="cz-phrase">jeden kamarád · dva kamarádi · pět <b>kamarádů</b></span><br>
+    <span class="cz-phrase">jedna žena · dvě ženy · pět <b>žen</b></span><br>
+    <span class="cz-phrase">jedno město · dvě města · pět <b>měst</b></span>
+  </div>
+
+  <p class="stitle">דוגמאות לשמיעה</p>
+
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Mám hodně kamarádů.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Mám hodně <span class="hl">kamarádů</span>.</span>
+    <span class="ex-he">יש לי הרבה חברים</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('V Česku je hodně měst.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">V Česku je hodně <span class="hl">měst</span>.</span>
+    <span class="ex-he">בצ'כיה יש הרבה ערים</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Praha má hodně kaváren.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Praha má hodně <span class="hl">kaváren</span>.</span>
+    <span class="ex-he">לפראג יש הרבה בתי קפה</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Kilo jablek, prosím.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Kilo <span class="hl">jablek</span>, prosím.</span>
+    <span class="ex-he">קילו תפוחים, בבקשה</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Mám pět hodin práce.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Mám pět hodin <span class="hl">práce</span>.</span>
+    <span class="ex-he">יש לי חמש שעות עבודה</span>
+  </div>
+
+  <div class="tip green">
+    <strong>🎯 שלוש הדוגמאות לזכור</strong>
+    <span class="cz-phrase">pět <b>kamarádů</b></span> (זכר → -ů) ·
+    <span class="cz-phrase">pět <b>žen</b></span> (נקבה -a → ∅) ·
+    <span class="cz-phrase">pět <b>měst</b></span> (נטרל → ∅)
+  </div>
+
+  <div class="step-nav">
+    <a href="b1-lesson3c.html" class="btn-back">→ 3ג — מילות יחס</a>
+    <a href="b1-lesson3e.html" class="btn-next">3ה — תרגול מסכם ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson3d">
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#11457E;">📋 Genitiv רבים — סיכום</strong>
+    <div style="font-size:12px;line-height:2.4;color:#16385f;">
+      <span style="background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;padding:1px 7px;border-radius:5px;direction:ltr;display:inline-block;">-ů</span> — כל הזכרים<br>
+      <span style="background:#fee2e2;color:#b91c1c;font-family:'Nunito',sans-serif;font-weight:800;padding:1px 7px;border-radius:5px;direction:ltr;display:inline-block;">∅</span> — נקבה -a + נטרל -o<br>
+      <span style="background:#fef3c7;color:#b45309;font-family:'Nunito',sans-serif;font-weight:800;padding:1px 7px;border-radius:5px;direction:ltr;display:inline-block;">∅+e</span> — כשיוצרים צרור עיצורים<br>
+      <span style="background:#eff6ff;color:#1d4ed8;font-family:'Nunito',sans-serif;font-weight:800;padding:1px 7px;border-radius:5px;direction:ltr;display:inline-block;">-í</span> — נקבה -ce/-í, נטרל -um
+    </div>
+  </div>
+  <div style="background:var(--amber-light);border:1px solid rgba(245,158,11,.2);border-radius:var(--rs);padding:14px;font-size:12.5px;color:#92400e;">
+    <strong style="display:block;margin-bottom:5px;">מספרים 5+:</strong>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;">pět, šest, sedm, osm, devět, deset…</span><br>
+    + Genitiv רבים תמיד!
+  </div>
+</aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+function speak(t){
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='cs-CZ';u.rate=0.85;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>

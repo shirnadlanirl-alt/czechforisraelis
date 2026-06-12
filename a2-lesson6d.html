@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 6ד — smět + דיאלוגים | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === Conjugation table === */
+    .forms-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .forms-table{width:100%;border-collapse:collapse;font-size:14px;}
+    .forms-table th{text-align:right;padding:10px 12px;background:var(--gl);color:var(--gd);font-weight:700;font-size:12.5px;border-bottom:2px solid var(--gm);}
+    .forms-table td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+    .forms-table tr:last-child td{border-bottom:none;}
+    .forms-table .he-col{color:var(--muted);font-size:13px;width:22%;}
+    .forms-table .modal-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--green);direction:ltr;text-align:left;font-size:15px;}
+    .forms-table .play-cell{width:32px;text-align:center;}
+    .forms-table tr:hover td{background:var(--bg);}
+
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;margin:0 auto;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* === Examples list === */
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:var(--green);}
+    .ex-cz .red{color:#dc2626;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    /* === Critical warning box === */
+    .warning-box{background:#fef2f2;border:2px solid #dc2626;border-radius:var(--r);padding:18px 22px;margin-bottom:14px;}
+    .warning-box strong{display:block;color:#991b1b;font-size:15px;font-weight:800;margin-bottom:8px;}
+    .warning-box .content{font-size:14px;color:#991b1b;line-height:1.75;}
+    .warning-box b.cz{font-family:'Nunito',sans-serif;color:#991b1b;direction:ltr;unicode-bidi:isolate;display:inline-block;font-weight:800;}
+
+    /* === Compare table — nemusím vs nesmím === */
+    .compare-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .compare-table{width:100%;border-collapse:collapse;font-size:13.5px;}
+    .compare-table th{text-align:right;padding:10px 12px;font-weight:700;font-size:12.5px;color:var(--text);border-bottom:2px solid var(--gm);}
+    .compare-table th.cz-col{font-family:'Nunito',sans-serif;color:var(--green);direction:ltr;text-align:left;font-size:14px;}
+    .compare-table th.cz-col.red{color:#dc2626;}
+    .compare-table td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6;}
+    .compare-table tr:last-child td{border-bottom:none;}
+    .compare-table .role{color:var(--muted);font-size:12.5px;width:22%;}
+
+    /* === Past box === */
+    .past-box{background:#f5f3ff;border:1px solid rgba(124,58,237,.2);border-inline-start:5px solid #7c3aed;border-radius:var(--rs);padding:14px 18px;margin-bottom:14px;}
+    .past-box strong{display:block;color:#5b21b6;margin-bottom:6px;font-size:14px;}
+    .past-box .past-content{font-size:13.5px;color:#16385f;line-height:1.7;}
+    .past-box .past-content b.cz{font-family:'Nunito',sans-serif;color:#5b21b6;direction:ltr;unicode-bidi:isolate;display:inline-block;}
+
+    /* === Dialogue === */
+    .dlg-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:16px;}
+    .dlg-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:10px;border-bottom:1px dashed var(--border);}
+    .dlg-title{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);}
+    .dlg-title .num{color:var(--green);}
+    .dlg-meta{font-size:11px;color:var(--muted);font-weight:600;}
+    .dlg-play-all{padding:6px 14px;border-radius:18px;background:var(--gl);border:1px solid var(--gm);color:var(--gd);font-size:12px;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;display:inline-flex;align-items:center;gap:5px;}
+    .dlg-play-all:hover{background:var(--gm);}
+    .dlg-play-all .ico{font-size:9px;}
+    .dlg-line{display:grid;grid-template-columns:auto 28px 1fr 1fr;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);}
+    .dlg-line:last-child{border-bottom:none;}
+    .dlg-speaker{font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:700;color:var(--muted);min-width:50px;}
+    .dlg-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);direction:ltr;line-height:1.5;}
+    .dlg-cz .modal{color:var(--green);}
+    .dlg-cz .modal-warn{color:#dc2626;}
+    .dlg-cz .verb{color:#7c3aed;}
+    .dlg-he{font-size:12.5px;color:var(--muted);line-height:1.5;}
+    .dlg-legend{font-size:11.5px;color:var(--muted);margin-top:10px;padding-top:8px;border-top:1px dashed var(--border);display:flex;flex-wrap:wrap;gap:14px;}
+    .dlg-legend .swatch{display:inline-flex;align-items:center;gap:4px;}
+    .dlg-legend .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .dlg-line{grid-template-columns:auto 28px 1fr;}
+      .dlg-he{grid-column:3;font-size:12px;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson6.html">שיעור 6</a><span>›</span>
+  6ד — smět + דיאלוגים
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    הפועל הרביעי והאחרון: <span class="cz-phrase">smět</span> (רשאי / מותר). הוא ה-<b>היפוך</b> של ההפתעה שראינו ב-6ב — כאן <span class="cz-phrase">nesmím</span> כן אומר "אסור לי". ובסוף הדף — 3 דיאלוגים שמשלבים את כל 4 הפעלים המודאליים יחד (<span class="cz-phrase">moct, muset, chtít, smět</span>).
+  </div>
+
+  <!-- ========== SMĚT CONJUGATION ========== -->
+  <div class="stitle">הטיית smět בהווה</div>
+
+  <div class="forms-block">
+    <table class="forms-table">
+      <tr><th>גוף</th><th>צורה</th><th>תרגום</th><th></th></tr>
+      <tr>
+        <td class="he-col">אני</td>
+        <td class="modal-cz">smím</td>
+        <td class="he-col">מותר לי / אני רשאי/ת</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('smím')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">את/ה</td>
+        <td class="modal-cz">smíš</td>
+        <td class="he-col">מותר לך</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('smíš')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הוא/היא</td>
+        <td class="modal-cz">smí</td>
+        <td class="he-col">מותר לו/לה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('smí')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אנחנו</td>
+        <td class="modal-cz">smíme</td>
+        <td class="he-col">מותר לנו</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('smíme')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אתם/ן</td>
+        <td class="modal-cz">smíte</td>
+        <td class="he-col">מותר לכם/ן</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('smíte')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הם/הן</td>
+        <td class="modal-cz">smějí</td>
+        <td class="he-col">מותר להם/הן</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('smějí')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="tip green">
+    <strong>✨ שמתם לב?</strong>
+    הסיומות של <span class="cz-phrase">smět</span> זהות בדיוק לאלה של <span class="cz-phrase">muset</span> — <b>-ím / -íš / -í / -íme / -íte</b>. ההבדל הקטן: בגוף שלישי רבים <span class="cz-phrase">smějí</span> (ולא <span class="cz-phrase">smí</span> כמו ב-muset). זה דומה ל-<span class="cz-phrase">chtějí</span> שראינו ב-6ג.
+  </div>
+
+  <!-- ========== THE BIG NEGATION FLIP ========== -->
+  <div class="stitle">⚠️ שלילה — הפעם זה כן "אסור"</div>
+
+  <div class="warning-box">
+    <strong>⚠️ <span class="cz-phrase">nesmím</span> = "אסור לי!" — כאן השלילה <b>כן</b> נותנת איסור</strong>
+    <div class="content">
+      זוכרים את ההפתעה מ-6ב? <b class="cz">nemusím</b> זה <b>לא חייב</b>, לא "אסור".<br>
+      אבל עם <b class="cz">smět</b> — השלילה היא בדיוק "אסור"!<br><br>
+      <b class="cz">nesmím kouřit</b> = "<b>אסור לי</b> לעשן" (לא "אני לא רשאי" באופן רך — זה ממש "אסור").<br><br>
+      זה הניגוד החי של <b class="cz">nemusím</b>:<br>
+      • <b class="cz">nemusím</b> kouřit = "אני לא חייב/ת לעשן" (אם בא לי — כן).<br>
+      • <b class="cz">nesmím</b> kouřit = "<b>אסור לי</b> לעשן".
+    </div>
+  </div>
+
+  <!-- ========== THE COMPARE TABLE ========== -->
+  <div class="stitle">השוואה — nemusím מול nesmím</div>
+
+  <div class="compare-block">
+    <table class="compare-table">
+      <tr>
+        <th></th>
+        <th class="cz-col">nemusím</th>
+        <th class="cz-col red">nesmím</th>
+      </tr>
+      <tr>
+        <td class="role">פועל בסיסי</td>
+        <td><span class="cz-phrase">muset</span> = חייב</td>
+        <td><span class="cz-phrase">smět</span> = רשאי / מותר</td>
+      </tr>
+      <tr>
+        <td class="role">משמעות</td>
+        <td><b>לא חייב</b> (יכול אם רוצה)</td>
+        <td><b>אסור</b> (אין רשות)</td>
+      </tr>
+      <tr>
+        <td class="role">דוגמה</td>
+        <td><span class="cz-phrase">Dneska nemusím pracovat.</span><br><span style="color:var(--muted);font-size:12px;">היום לא חייב/ת לעבוד (יום חופש אופציונלי).</span></td>
+        <td><span class="cz-phrase">Tady nesmím parkovat.</span><br><span style="color:var(--muted);font-size:12px;">פה אסור לי לחנות (חוקית).</span></td>
+      </tr>
+      <tr>
+        <td class="role">משמעות מילולית</td>
+        <td>"לא בחובה"</td>
+        <td>"לא רשאי"</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 איך לזכור</strong>
+    תחשבו על שלטים — <b>"אסור לחנות"</b>, <b>"אסור לעשן"</b>, <b>"אסור להיכנס"</b>. כל מה ששלט אדום אומר — זה תחום של <span class="cz-phrase">smět</span> בשלילה: <span class="cz-phrase">nesmíte parkovat / kouřit / vejít</span>.
+  </div>
+
+  <!-- ========== EXAMPLES ========== -->
+  <div class="stitle">דוגמאות — רשות וגם איסור</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Smím vejít?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Smím</b> vejít?</span>
+    <span class="ex-he">מותר לי להיכנס?</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Děti smějí jíst zmrzlinu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Děti <b>smějí</b> jíst zmrzlinu.</span>
+    <span class="ex-he">מותר לילדים לאכול גלידה.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Tady nesmíš kouřit.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Tady <span class="red">nesmíš</span> kouřit.</span>
+    <span class="ex-he">פה אסור לך לעשן.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Nesmíme jezdit rychle.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><span class="red">Nesmíme</span> jezdit rychle.</span>
+    <span class="ex-he">אסור לנו לנסוע מהר.</span>
+  </div>
+
+  <!-- ========== PAST FORM ========== -->
+  <div class="stitle">smět בעבר — směl / směla</div>
+
+  <div class="past-box">
+    <strong>📜 הצורה בעבר</strong>
+    <div class="past-content">
+      <b class="cz">smět</b> בעבר הוא <b class="cz">směl / směla</b> (היה רשאי / היתה רשאית).<br><br>
+      <b class="cz">Když jsem byla malá, nesměla jsem koukat na televizi pozdě.</b><br>
+      <span style="font-size:12.5px;color:var(--muted);">(כשהייתי קטנה, לא היה מותר לי לצפות בטלוויזיה מאוחר. — נקבה)</span><br><br>
+      <b class="cz">Směli jste odejít dřív?</b> <span style="font-size:12.5px;color:var(--muted);">(היה לכם מותר לעזוב מוקדם?)</span>
+    </div>
+  </div>
+
+  <!-- ========== DIALOGUES ========== -->
+  <div class="stitle">🎭 דיאלוגים — כל 4 המודאליים יחד</div>
+
+  <div class="tip purple">
+    <strong>👀 איך לקרוא את הדיאלוגים</strong>
+    בכל שורה — <b style="color:var(--green);">ירוק = פועל מודאלי בחיוב</b>, <b style="color:#dc2626;">אדום = פועל מודאלי בשלילה</b>, <b style="color:#7c3aed;">סגול = הפועל הראשי באינפיניטיב</b>. לחצו על ▶ ליד שורה להאזנה, או על "השמע את כל הדיאלוג" לרצף שלם.
+  </div>
+
+  <!-- DIALOGUE 1 — בקפה -->
+  <div class="dlg-block">
+    <div class="dlg-head">
+      <div class="dlg-title"><span class="num">1.</span> בקפה — אנחנו רוצים, אבל…</div>
+      <button class="dlg-play-all" onclick="speakDialogue('dlg1')">▶ השמע הכל</button>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg1" data-cz="Co chceš pít?">
+      <span class="dlg-speaker">Eva:</span>
+      <button class="ex-btn-sm" onclick="speak('Co chceš pít?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Co <span class="modal">chceš</span> <span class="verb">pít</span>?</span>
+      <span class="dlg-he">מה את רוצה לשתות?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg1" data-cz="Chci kávu, ale nemůžu. Musím řídit.">
+      <span class="dlg-speaker">David:</span>
+      <button class="ex-btn-sm" onclick="speak('Chci kávu, ale nemůžu. Musím řídit.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz"><span class="modal">Chci</span> kávu, ale <span class="modal-warn">nemůžu</span>. <span class="modal">Musím</span> <span class="verb">řídit</span>.</span>
+      <span class="dlg-he">אני רוצה קפה, אבל לא יכול. אני חייב לנהוג.</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg1" data-cz="Po kávě nemůžeš řídit?">
+      <span class="dlg-speaker">Eva:</span>
+      <button class="ex-btn-sm" onclick="speak('Po kávě nemůžeš řídit?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Po kávě <span class="modal-warn">nemůžeš</span> <span class="verb">řídit</span>?</span>
+      <span class="dlg-he">אחרי קפה את/ה לא יכול/ה לנהוג?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg1" data-cz="Můžu, ale potom nemůžu spát. Dám si čaj.">
+      <span class="dlg-speaker">David:</span>
+      <button class="ex-btn-sm" onclick="speak('Můžu, ale potom nemůžu spát. Dám si čaj.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz"><span class="modal">Můžu</span>, ale potom <span class="modal-warn">nemůžu</span> <span class="verb">spát</span>. Dám si čaj.</span>
+      <span class="dlg-he">יכול, אבל אחר כך לא יכול לישון. אזמין תה.</span>
+    </div>
+
+    <div class="dlg-legend">
+      <span class="swatch"><span class="dot" style="background:var(--green);"></span> מודאלי חיובי</span>
+      <span class="swatch"><span class="dot" style="background:#dc2626;"></span> מודאלי בשלילה</span>
+      <span class="swatch"><span class="dot" style="background:#7c3aed;"></span> אינפיניטיב</span>
+    </div>
+  </div>
+
+  <!-- DIALOGUE 2 — במשרד -->
+  <div class="dlg-block">
+    <div class="dlg-head">
+      <div class="dlg-title"><span class="num">2.</span> במשרד — חובות ורשות</div>
+      <button class="dlg-play-all" onclick="speakDialogue('dlg2')">▶ השמע הכל</button>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg2" data-cz="Smím tady kouřit?">
+      <span class="dlg-speaker">Petr:</span>
+      <button class="ex-btn-sm" onclick="speak('Smím tady kouřit?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz"><span class="modal">Smím</span> tady <span class="verb">kouřit</span>?</span>
+      <span class="dlg-he">מותר לי לעשן פה?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg2" data-cz="Ne, tady nesmíte. Musíte jít ven.">
+      <span class="dlg-speaker">Anna:</span>
+      <button class="ex-btn-sm" onclick="speak('Ne, tady nesmíte. Musíte jít ven.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Ne, tady <span class="modal-warn">nesmíte</span>. <span class="modal">Musíte</span> <span class="verb">jít</span> ven.</span>
+      <span class="dlg-he">לא, פה אסור. אתם חייבים לצאת החוצה.</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg2" data-cz="A musím dnes pracovat dlouho?">
+      <span class="dlg-speaker">Petr:</span>
+      <button class="ex-btn-sm" onclick="speak('A musím dnes pracovat dlouho?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">A <span class="modal">musím</span> dnes <span class="verb">pracovat</span> dlouho?</span>
+      <span class="dlg-he">ואני חייב לעבוד היום הרבה זמן?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg2" data-cz="Ne, nemusíš. Můžeš jít domů ve čtyři.">
+      <span class="dlg-speaker">Anna:</span>
+      <button class="ex-btn-sm" onclick="speak('Ne, nemusíš. Můžeš jít domů ve čtyři.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Ne, <span class="modal-warn">nemusíš</span>. <span class="modal">Můžeš</span> <span class="verb">jít</span> domů ve čtyři.</span>
+      <span class="dlg-he">לא, לא חייב. אתה יכול ללכת הביתה בארבע.</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg2" data-cz="Skvěle, chci jít brzo. Mám plány.">
+      <span class="dlg-speaker">Petr:</span>
+      <button class="ex-btn-sm" onclick="speak('Skvěle, chci jít brzo. Mám plány.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Skvěle, <span class="modal">chci</span> <span class="verb">jít</span> brzo. Mám plány.</span>
+      <span class="dlg-he">מצוין, אני רוצה ללכת מוקדם. יש לי תוכניות.</span>
+    </div>
+
+    <div class="dlg-legend">
+      <span class="swatch"><span class="dot" style="background:var(--green);"></span> מודאלי חיובי</span>
+      <span class="swatch"><span class="dot" style="background:#dc2626;"></span> מודאלי בשלילה</span>
+      <span class="swatch"><span class="dot" style="background:#7c3aed;"></span> אינפיניטיב</span>
+    </div>
+  </div>
+
+  <!-- DIALOGUE 3 — אצל הרופאה -->
+  <div class="dlg-block">
+    <div class="dlg-head">
+      <div class="dlg-title"><span class="num">3.</span> אצל הרופאה — מה מותר ומה אסור</div>
+      <button class="dlg-play-all" onclick="speakDialogue('dlg3')">▶ השמע הכל</button>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg3" data-cz="Pane doktore, můžu pít kávu?">
+      <span class="dlg-speaker">Pacient:</span>
+      <button class="ex-btn-sm" onclick="speak('Pane doktore, můžu pít kávu?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Pane doktore, <span class="modal">můžu</span> <span class="verb">pít</span> kávu?</span>
+      <span class="dlg-he">דוקטור, אני יכול לשתות קפה?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg3" data-cz="Můžete, ale nesmíte pít víno. A musíte hodně spát.">
+      <span class="dlg-speaker">Doktor:</span>
+      <button class="ex-btn-sm" onclick="speak('Můžete, ale nesmíte pít víno. A musíte hodně spát.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz"><span class="modal">Můžete</span>, ale <span class="modal-warn">nesmíte</span> <span class="verb">pít</span> víno. A <span class="modal">musíte</span> hodně <span class="verb">spát</span>.</span>
+      <span class="dlg-he">אתה יכול, אבל אסור לך לשתות יין. ואתה חייב לישון הרבה.</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg3" data-cz="Chci sportovat. Smím?">
+      <span class="dlg-speaker">Pacient:</span>
+      <button class="ex-btn-sm" onclick="speak('Chci sportovat. Smím?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz"><span class="modal">Chci</span> <span class="verb">sportovat</span>. <span class="modal">Smím</span>?</span>
+      <span class="dlg-he">אני רוצה להתאמן. מותר?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg3" data-cz="Ano, smíte, ale nemusíte hned. Příští týden.">
+      <span class="dlg-speaker">Doktor:</span>
+      <button class="ex-btn-sm" onclick="speak('Ano, smíte, ale nemusíte hned. Příští týden.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Ano, <span class="modal">smíte</span>, ale <span class="modal-warn">nemusíte</span> hned. Příští týden.</span>
+      <span class="dlg-he">כן, מותר, אבל אתה לא חייב מיד. שבוע הבא.</span>
+    </div>
+
+    <div class="dlg-legend">
+      <span class="swatch"><span class="dot" style="background:var(--green);"></span> מודאלי חיובי</span>
+      <span class="swatch"><span class="dot" style="background:#dc2626;"></span> מודאלי בשלילה</span>
+      <span class="swatch"><span class="dot" style="background:#7c3aed;"></span> אינפיניטיב</span>
+    </div>
+  </div>
+
+  <!-- ========== CHECK YOURSELF ========== -->
+  <div class="stitle">בדיקה אישית</div>
+
+  <div class="check-box">
+    <h4>אחרי 6ד את/ה אמור/ה:</h4>
+    <ul class="check-list">
+      <li>לדעת את כל הצורות של <span class="cz-phrase">smět</span> בהווה (smím, smíš, smí, smíme, smíte, smějí)</li>
+      <li>להבין ש-<span class="cz-phrase">nesmím</span> = <b>אסור לי</b> (ולא רק "לא רשאי")</li>
+      <li>להבדיל בבירור בין <span class="cz-phrase">nemusím</span> (לא חייב) ל-<span class="cz-phrase">nesmím</span> (אסור)</li>
+      <li>לזכור את צורת העבר: <span class="cz-phrase">směl / směla</span></li>
+      <li>להבין דיאלוג רגיל ששוזר את כל 4 הפעלים — <span class="cz-phrase">moct, muset, chtít, smět</span></li>
+      <li>לבנות 3 משפטים עם <span class="cz-phrase">smět</span>: מותר לי, אסור לי, ומה היה מותר לי כשהיית/ה ילד/ה</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson6c.html" class="btn-back">→ חזרה ל-6ג</a>
+    <a href="a2-lesson6e.html" class="btn-next">6ה — תרגול מסכם ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson6d"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+
+function speakDialogue(dlgId) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const lines = Array.from(document.querySelectorAll(`.dlg-line[data-dlg="${dlgId}"]`));
+  let i = 0;
+  function next() {
+    if (i >= lines.length) return;
+    const text = lines[i].dataset.cz;
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 700); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

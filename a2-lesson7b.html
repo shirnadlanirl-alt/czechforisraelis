@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 7ב — שייכות + כמויות | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === Possession showcase === */
+    .poss-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+    .poss-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rs);padding:14px 16px;position:relative;}
+    .poss-card .he-side{font-size:13px;color:var(--muted);margin-bottom:6px;}
+    .poss-card .cz-side{font-family:'Nunito',sans-serif;font-weight:700;color:var(--text);direction:ltr;font-size:15px;display:flex;align-items:center;gap:8px;}
+    .poss-card .cz-side b.gen{color:var(--green);}
+    .poss-card .note{font-size:11.5px;color:var(--muted);margin-top:4px;}
+
+    /* === Quantity table === */
+    .qty-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:14px;}
+    .qty-block h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:12px;}
+    .qty-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--border);font-size:13.5px;}
+    .qty-row:last-child{border-bottom:none;}
+    .qty-row .play-cell{flex-shrink:0;}
+    .qty-row .cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--green);direction:ltr;min-width:180px;font-size:14.5px;}
+    .qty-row .he{font-size:13px;color:var(--text);}
+    .qty-row .meta{font-size:11.5px;color:var(--muted);margin-right:auto;}
+
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .poss-grid{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson7.html">שיעור 7</a><span>›</span>
+  7ב — שייכות + כמויות
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    שני השימושים שהכי קרובים לשם <b>"יחסת קניין"</b>: <b>(1) שייכות</b> ("הספר של פטר") ו<b>(2) כמויות</b> ("כוס קפה", "הרבה אנשים"). שניהם משתמשים בגניטיב — בלי מילת יחס בכלל. בשני הדפים הבאים נראה שגניטיב מופעל גם אחרי <b>מילות יחס</b> מסוימות.
+  </div>
+
+  <!-- ========== POSSESSION ========== -->
+  <div class="stitle">📌 חלק 1 — שייכות (״של מי״)</div>
+
+  <div class="tip green">
+    <strong>✨ בעברית "של", בצ׳כית — סדר הפוך</strong>
+    בעברית: "הספר <b>של פטר</b>". בצ׳כית: <span class="cz-phrase">kniha Petra</span> — מילולית "ספר פטר", בלי המילה "של". <b>שם החפץ ראשון, הבעלים אחריו, וצורת הבעלים עוברת לגניטיב.</b>
+  </div>
+
+  <div class="poss-grid">
+    <div class="poss-card">
+      <div class="he-side">הספר של פטר</div>
+      <div class="cz-side">
+        <button class="ex-btn-sm" onclick="speak('kniha Petra')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span>kniha <b class="gen">Petra</b></span>
+      </div>
+      <div class="note">Petr → Petra (זכר חי)</div>
+    </div>
+    <div class="poss-card">
+      <div class="he-side">המכונית של אווה</div>
+      <div class="cz-side">
+        <button class="ex-btn-sm" onclick="speak('auto Evy')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span>auto <b class="gen">Evy</b></span>
+      </div>
+      <div class="note">Eva → Evy (נקבה ב-a)</div>
+    </div>
+    <div class="poss-card">
+      <div class="he-side">החתול של החברה</div>
+      <div class="cz-side">
+        <button class="ex-btn-sm" onclick="speak('kočka kamarádky')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span>kočka <b class="gen">kamarádky</b></span>
+      </div>
+      <div class="note">kamarádka → kamarádky</div>
+    </div>
+    <div class="poss-card">
+      <div class="he-side">המורה של דוד</div>
+      <div class="cz-side">
+        <button class="ex-btn-sm" onclick="speak('učitel Davida')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span>učitel <b class="gen">Davida</b></span>
+      </div>
+      <div class="note">David → Davida (זכר חי)</div>
+    </div>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 ולמילים שלך?</strong>
+    אם רוצים להגיד "שלי", "שלך", "שלו" — לא משתמשים בגניטיב אלא בכינויי שייכות שלמדתם ב-A1 שיעור 10 (<span class="cz-phrase">můj, tvůj, jeho</span>...). הגניטיב נכנס רק כששואלים "של מי?" עם שם פרטי או שם עצם.
+  </div>
+
+  <!-- ========== QUANTITY ========== -->
+  <div class="stitle">📌 חלק 2 — כמויות ומנות</div>
+
+  <div class="tip green">
+    <strong>✨ מנה / כוס / כמות + מה שיש בתוך</strong>
+    כשאומרים "כוס קפה", "מנת אורז", "הרבה אנשים" — המילה שמציינת את הכמות נשארת כרגיל, ומה שיש בתוכה <b>עובר לגניטיב</b>. בעברית זה מורגש כ"של" סמוי: "כוס (של) קפה" = <span class="cz-phrase">šálek kávy</span>.
+  </div>
+
+  <div class="qty-block">
+    <h4>☕ מנות ושתייה</h4>
+    <div class="qty-row">
+      <button class="ex-btn-sm" onclick="speak('šálek kávy')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz">šálek <b style="color:#7c3aed;">kávy</b></span>
+      <span class="he">כוס קפה</span>
+      <span class="meta">káva → kávy</span>
+    </div>
+    <div class="qty-row">
+      <button class="ex-btn-sm" onclick="speak('sklenice vody')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz">sklenice <b style="color:#7c3aed;">vody</b></span>
+      <span class="he">כוס מים</span>
+      <span class="meta">voda → vody</span>
+    </div>
+    <div class="qty-row">
+      <button class="ex-btn-sm" onclick="speak('kus chleba')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz">kus <b style="color:#7c3aed;">chleba</b></span>
+      <span class="he">פרוסת לחם</span>
+      <span class="meta">chléb → chleba</span>
+    </div>
+    <div class="qty-row">
+      <button class="ex-btn-sm" onclick="speak('láhev vína')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz">láhev <b style="color:#7c3aed;">vína</b></span>
+      <span class="he">בקבוק יין</span>
+      <span class="meta">víno → vína</span>
+    </div>
+    <div class="qty-row">
+      <button class="ex-btn-sm" onclick="speak('litr mléka')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz">litr <b style="color:#7c3aed;">mléka</b></span>
+      <span class="he">ליטר חלב</span>
+      <span class="meta">mléko → mléka</span>
+    </div>
+  </div>
+
+  <div class="qty-block">
+    <h4>📊 כמויות גדולות / שאלה</h4>
+    <div class="qty-row">
+      <button class="ex-btn-sm" onclick="speak('hodně lidí')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz">hodně <b style="color:#7c3aed;">lidí</b></span>
+      <span class="he">הרבה אנשים</span>
+      <span class="meta">lidé → lidí (רבים)</span>
+    </div>
+    <div class="qty-row">
+      <button class="ex-btn-sm" onclick="speak('málo času')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz">málo <b style="color:#7c3aed;">času</b></span>
+      <span class="he">מעט זמן</span>
+      <span class="meta">čas → času</span>
+    </div>
+    <div class="qty-row">
+      <button class="ex-btn-sm" onclick="speak('trochu cukru')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz">trochu <b style="color:#7c3aed;">cukru</b></span>
+      <span class="he">קצת סוכר</span>
+      <span class="meta">cukr → cukru</span>
+    </div>
+    <div class="qty-row">
+      <button class="ex-btn-sm" onclick="speak('kolik peněz?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz">kolik <b style="color:#7c3aed;">peněz</b>?</span>
+      <span class="he">כמה כסף?</span>
+      <span class="meta">peníze → peněz</span>
+    </div>
+    <div class="qty-row">
+      <button class="ex-btn-sm" onclick="speak('spousta práce')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz">spousta <b style="color:#7c3aed;">práce</b></span>
+      <span class="he">המון עבודה</span>
+      <span class="meta">práce → práce (לא משתנה)</span>
+    </div>
+  </div>
+
+  <div class="tip purple">
+    <strong>💎 ביטוי חשוב — <span class="cz-phrase">Kolik to stojí?</span></strong>
+    "כמה זה עולה?" — בתשובה הצ׳כים אומרים: <span class="cz-phrase">stojí to padesát korun</span> = "זה עולה 50 קרונות". <b>korun</b> זה גניטיב של <b>koruna</b>. עם מספרים גדולים מ-4, המטבע עובר לגניטיב רבים: <span class="cz-phrase">pět korun, deset korun, sto korun</span>.
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson7a.html" class="btn-back">→ חזרה ל-7א</a>
+    <a href="a2-lesson7c.html" class="btn-next">7ג — bez + z/ze ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson7b">
+
+  <div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-radius:var(--r);padding:16px;border-inline-start:5px solid #11457E;">
+    <strong style="display:block;margin-bottom:6px;color:#11457E;font-size:14px;">💡 הסיומות בגניטיב</strong>
+    <span style="font-size:12px;color:#16385f;line-height:1.6;display:block;margin-bottom:6px;">איך סוף המילה משתנה לפי המין:</span>
+    <span style="font-size:12.5px;color:#16385f;line-height:1.7;">
+      נקבה ב-a <span style="color:var(--muted);">→ הופך ל-</span><b class="cz-phrase" style="color:#11457E;">y</b><br>
+      <span style="color:var(--muted);font-size:11.5px;">(káva → kávy)</span><br>
+      זכר דומם <span style="color:var(--muted);">→ מוסיף</span> <b class="cz-phrase" style="color:#11457E;">u</b><br>
+      <span style="color:var(--muted);font-size:11.5px;">(park → parku)</span><br>
+      זכר חי / נטרל <span style="color:var(--muted);">→ מוסיף/הופך ל-</span><b class="cz-phrase" style="color:#11457E;">a</b><br>
+      <span style="color:var(--muted);font-size:11.5px;">(Petr → Petra)</span><br>
+      נקבה ב-e <span style="color:var(--muted);">→</span> <b style="color:#11457E;">נשאר אותו דבר</b><br>
+      <span style="color:var(--muted);font-size:11.5px;">(práce → práce)</span>
+    </span>
+  </div>
+
+  <div style="background:var(--amber-light);border:1px solid rgba(245,158,11,.25);border-radius:var(--r);padding:16px;border-inline-start:5px solid #f59e0b;">
+    <strong style="display:block;margin-bottom:6px;color:#92400e;font-size:14px;">💬 משפט היום</strong>
+    <span style="font-size:13px;color:#78350f;line-height:1.7;">
+      <b class="cz-phrase" style="color:#92400e;">Kolik to stojí?</b><br>
+      <span style="font-size:12px;">"כמה זה עולה?" — שאלה שתשמעו ותגידו הכי הרבה ברחוב.</span>
+    </span>
+  </div>
+
+</aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 8ד — דיאלוגים | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* legend */
+    .legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding:12px 16px;background:var(--white);border:1px solid var(--border);border-radius:var(--rs);}
+    .legend-item{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--text);}
+    .legend-dot{width:10px;height:10px;border-radius:50%;}
+    .dot-orange{background:#c2410c;}
+    .dot-purple{background:#7c3aed;}
+    .dot-blue{background:#1d4ed8;}
+    .dot-teal{background:#0d9488;}
+
+    /* dialog box */
+    .dialog-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:20px;}
+    .dialog-header{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+    .dialog-header h3{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);}
+    .dialog-header .play-all{padding:7px 16px;border-radius:20px;background:var(--green);color:white;border:none;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;transition:opacity .15s;}
+    .dialog-header .play-all:hover{opacity:.88;}
+    .dialog-body{padding:16px 20px;}
+    .d-line{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);}
+    .d-line:last-child{border-bottom:none;}
+    .d-speaker{min-width:52px;font-size:12px;font-weight:700;color:var(--muted);padding-top:2px;flex-shrink:0;}
+    .d-text{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;flex:1;direction:ltr;line-height:1.55;}
+    .d-he{font-size:12px;color:var(--muted);font-family:'Heebo',sans-serif;direction:rtl;line-height:1.5;}
+    .d-play{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;margin-top:2px;}
+    .d-play:hover{background:var(--gm);}
+    .d-play svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* highlighting */
+    .hl-orange{color:#c2410c;}      /* jít / půjdu */
+    .hl-purple{color:#7c3aed;}      /* chodit / budu chodit */
+    .hl-blue{color:#1d4ed8;}        /* do / na */
+    .hl-teal{color:#0d9488;}        /* ביטויי זמן */
+
+    /* vocab note */
+    .vocab-note{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:16px;}
+    .vocab-note h4{font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px;}
+    .vn-row{display:flex;gap:10px;flex-wrap:wrap;}
+    .vn-item{font-size:13px;}
+    .vn-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);direction:ltr;unicode-bidi:isolate;display:inline-block;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson8.html">שיעור 8</a><span>›</span>
+  8ד — דיאלוגים
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 שלושה דיאלוגים — הכל ביחד</strong>
+    כל הרכיבים מ-8א, 8ב, ו-8ג — jít/chodit, do/na, ועתיד — בשיחות אמיתיות. ההדגשות: <span style="color:#c2410c;font-family:'Nunito',sans-serif;font-weight:800;">כתום</span> = jít (כיווני) · <span style="color:#7c3aed;font-family:'Nunito',sans-serif;font-weight:800;">סגול</span> = chodit (הרגל) · <span style="color:#1d4ed8;font-family:'Nunito',sans-serif;font-weight:800;">כחול</span> = do/na (יעד).
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot dot-orange"></div> jít/půjdu — כיווני</div>
+    <div class="legend-item"><div class="legend-dot dot-purple"></div> chodit/budu chodit — הרגל</div>
+    <div class="legend-item"><div class="legend-dot dot-blue"></div> do / na — יעד</div>
+    <div class="legend-item"><div class="legend-dot dot-teal"></div> ביטויי זמן</div>
+  </div>
+
+  <!-- ========== DIALOG 1 ========== -->
+  <div class="stitle">דיאלוג 1 — תכניות לערב</div>
+
+  <div class="dialog-box">
+    <div class="dialog-header">
+      <h3>📞 Adam ו-Eva מדברים על הערב</h3>
+      <button class="play-all" onclick="playAll('d1')">▶ השמע הכל</button>
+    </div>
+    <div class="dialog-body">
+      <div class="d-line">
+        <span class="d-speaker">Adam:</span>
+        <div>
+          <div class="d-text" id="d1-1"><span class="hl-teal">Dnes večer</span> <span class="hl-orange">jdu</span> <span class="hl-blue">na koncert</span>. Jdeš se mnou?</div>
+          <div class="d-he">הערב אני הולך לקונצרט. אתה/את בא/ה איתי?</div>
+        </div>
+        <button class="d-play" onclick="speak('Dnes večer jdu na koncert. Jdeš se mnou.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Eva:</span>
+        <div>
+          <div class="d-text" id="d1-2">Bohužel ne. <span class="hl-teal">Dnes</span> <span class="hl-orange">jdu</span> <span class="hl-blue">do kina</span> s Lucií.</div>
+          <div class="d-he">לצערי לא. היום אני הולכת לקולנוע עם לוציה.</div>
+        </div>
+        <button class="d-play" onclick="speak('Bohužel ne. Dnes jdu do kina s Lucií.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Adam:</span>
+        <div>
+          <div class="d-text" id="d1-3"><span class="hl-purple">Chodíš</span> <span class="hl-blue">do kina</span> <span class="hl-teal">hodně</span>?</div>
+          <div class="d-he">אתה/את הולך/ת לקולנוע הרבה?</div>
+        </div>
+        <button class="d-play" onclick="speak('Chodíš do kina hodně.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Eva:</span>
+        <div>
+          <div class="d-text" id="d1-4">Ano, <span class="hl-purple">chodím</span> <span class="hl-blue">do kina</span> <span class="hl-teal">každý týden</span>. Mám to ráda.</div>
+          <div class="d-he">כן, אני הולכת לקולנוע כל שבוע. אני אוהבת את זה.</div>
+        </div>
+        <button class="d-play" onclick="speak('Ano, chodím do kina každý týden. Mám to ráda.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Adam:</span>
+        <div>
+          <div class="d-text" id="d1-5">Pak <span class="hl-orange">půjdeme</span> <span class="hl-blue">na kávu</span> <span class="hl-teal">příští týden</span>?</div>
+          <div class="d-he">אז אולי נלך לקפה השבוע הבא?</div>
+        </div>
+        <button class="d-play" onclick="speak('Pak půjdeme na kávu příští týden.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Eva:</span>
+        <div>
+          <div class="d-text" id="d1-6">Určitě! <span class="hl-orange">Půjdeme</span> <span class="hl-blue">do kavárny</span> u náměstí.</div>
+          <div class="d-he">בטח! נלך לבית הקפה ליד הכיכר.</div>
+        </div>
+        <button class="d-play" onclick="speak('Určitě! Půjdeme do kavárny u náměstí.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== DIALOG 2 ========== -->
+  <div class="stitle">דיאלוג 2 — שגרת שבוע</div>
+
+  <div class="dialog-box">
+    <div class="dialog-header">
+      <h3>🏋️ Tomáš מספר על השגרה שלו</h3>
+      <button class="play-all" onclick="playAll('d2')">▶ השמע הכל</button>
+    </div>
+    <div class="dialog-body">
+      <div class="d-line">
+        <span class="d-speaker">Jana:</span>
+        <div>
+          <div class="d-text" id="d2-1">Tomáši, <span class="hl-purple">chodíš</span> <span class="hl-blue">do posilovny</span>?</div>
+          <div class="d-he">תומש, אתה הולך לחדר כושר?</div>
+        </div>
+        <button class="d-play" onclick="speak('Tomáši, chodíš do posilovny.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Tomáš:</span>
+        <div>
+          <div class="d-text" id="d2-2">Ano, <span class="hl-purple">chodím</span> <span class="hl-teal">třikrát týdně</span> — <span class="hl-teal">v pondělí, ve středu a v pátek</span>.</div>
+          <div class="d-he">כן, אני הולך שלוש פעמים בשבוע — בשני, ברביעי ובשישי.</div>
+        </div>
+        <button class="d-play" onclick="speak('Ano, chodím třikrát týdně. V pondělí, ve středu a v pátek.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Jana:</span>
+        <div>
+          <div class="d-text" id="d2-3">A <span class="hl-teal">dnes</span>? <span class="hl-orange">Jdeš</span> <span class="hl-blue">do posilovny</span>?</div>
+          <div class="d-he">ואיום? אתה הולך לחדר כושר?</div>
+        </div>
+        <button class="d-play" onclick="speak('A dnes? Jdeš do posilovny.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Tomáš:</span>
+        <div>
+          <div class="d-text" id="d2-4">Ne, <span class="hl-teal">dnes</span> <span class="hl-orange">jdu</span> <span class="hl-blue">na procházku</span> <span class="hl-blue">do parku</span>.</div>
+          <div class="d-he">לא, היום אני הולך לטיול ברגל בפארק.</div>
+        </div>
+        <button class="d-play" onclick="speak('Ne, dnes jdu na procházku do parku.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Jana:</span>
+        <div>
+          <div class="d-text" id="d2-5">Skvělé! A <span class="hl-teal">od příštího měsíce</span> <span class="hl-purple">budu chodit</span> taky.</div>
+          <div class="d-he">מצוין! ומהחודש הבא אני אתחיל ללכת גם.</div>
+        </div>
+        <button class="d-play" onclick="speak('Skvělé! A od příštího měsíce budu chodit taky.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== DIALOG 3 ========== -->
+  <div class="stitle">דיאלוג 3 — הזמנה לאירוע</div>
+
+  <div class="dialog-box">
+    <div class="dialog-header">
+      <h3>🎭 Lucie מזמינה את Petra לתיאטרון</h3>
+      <button class="play-all" onclick="playAll('d3')">▶ השמע הכל</button>
+    </div>
+    <div class="dialog-body">
+      <div class="d-line">
+        <span class="d-speaker">Lucie:</span>
+        <div>
+          <div class="d-text" id="d3-1"><span class="hl-teal">V sobotu</span> <span class="hl-orange">jdeme</span> <span class="hl-blue">do divadla</span>. Chceš jít?</div>
+          <div class="d-he">בשבת אנחנו הולכים לתיאטרון. רוצה לבוא?</div>
+        </div>
+        <button class="d-play" onclick="speak('V sobotu jdeme do divadla. Chceš jít.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Petr:</span>
+        <div>
+          <div class="d-text" id="d3-2"><span class="hl-purple">Chodím</span> <span class="hl-blue">do divadla</span> <span class="hl-teal">jen někdy</span>. Co se hraje?</div>
+          <div class="d-he">אני הולך לתיאטרון רק לפעמים. מה משחקים?</div>
+        </div>
+        <button class="d-play" onclick="speak('Chodím do divadla jen někdy. Co se hraje.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Lucie:</span>
+        <div>
+          <div class="d-text" id="d3-3">Hamlet. A <span class="hl-teal">po představení</span> <span class="hl-orange">půjdeme</span> <span class="hl-blue">na víno</span>.</div>
+          <div class="d-he">המלט. ואחרי ההצגה נלך לשתות יין.</div>
+        </div>
+        <button class="d-play" onclick="speak('Hamlet. A po představení půjdeme na víno.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Petr:</span>
+        <div>
+          <div class="d-text" id="d3-4">Super! Pak <span class="hl-orange">jdu</span> určitě. <span class="hl-teal">V kolik</span> začíná?</div>
+          <div class="d-he">סבבה! אז אני בטח בא. בכמה מתחיל?</div>
+        </div>
+        <button class="d-play" onclick="speak('Super! Pak jdu určitě. V kolik začíná.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Lucie:</span>
+        <div>
+          <div class="d-text" id="d3-5"><span class="hl-teal">V sedm</span>. <span class="hl-orange">Půjdeme</span> <span class="hl-teal">v šest</span> <span class="hl-blue">do restaurace</span> nejdřív.</div>
+          <div class="d-he">בשבע. בשש נלך קודם למסעדה.</div>
+        </div>
+        <button class="d-play" onclick="speak('V sedm. Půjdeme v šest do restaurace nejdřív.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="d-line">
+        <span class="d-speaker">Petr:</span>
+        <div>
+          <div class="d-text" id="d3-6">Výborně! <span class="hl-teal">Od teď</span> <span class="hl-purple">budu chodit</span> <span class="hl-blue">do divadla</span> <span class="hl-teal">častěji</span>.</div>
+          <div class="d-he">מצוין! מעכשיו אני אלך לתיאטרון יותר לעתים קרובות.</div>
+        </div>
+        <button class="d-play" onclick="speak('Výborně! Od teď budu chodit do divadla častěji.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== VOCAB NOTES ========== -->
+  <div class="stitle">מילים חדשות מהדיאלוגים</div>
+  <div class="vocab-note">
+    <h4>אוצר מילים מורחב</h4>
+    <div class="vn-row">
+      <div class="vn-item"><span class="vn-cz">bohužel</span> — לצערי</div>
+      <div class="vn-item"><span class="vn-cz">určitě</span> — בטח / בוודאי</div>
+      <div class="vn-item"><span class="vn-cz">kavárna</span> — בית קפה</div>
+      <div class="vn-item"><span class="vn-cz">posilovna</span> — חדר כושר</div>
+      <div class="vn-item"><span class="vn-cz">třikrát týdně</span> — שלוש פעמים בשבוע</div>
+      <div class="vn-item"><span class="vn-cz">skvělé</span> — מצוין / סבבה</div>
+      <div class="vn-item"><span class="vn-cz">divadlo</span> — תיאטרון</div>
+      <div class="vn-item"><span class="vn-cz">představení</span> — הצגה</div>
+      <div class="vn-item"><span class="vn-cz">po představení</span> — אחרי ההצגה</div>
+      <div class="vn-item"><span class="vn-cz">začíná</span> — מתחיל/ה</div>
+      <div class="vn-item"><span class="vn-cz">nejdřív</span> — קודם (כל)</div>
+      <div class="vn-item"><span class="vn-cz">výborně</span> — מצוין!</div>
+      <div class="vn-item"><span class="vn-cz">častěji</span> — יותר לעתים קרובות</div>
+      <div class="vn-item"><span class="vn-cz">od teď</span> — מעכשיו</div>
+    </div>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 שימו לב — jít + לאן + hned/nejdřív</strong>
+    בדיאלוג 3: <span class="cz-phrase">Půjdeme v šest do restaurace nejdřív.</span> — אפשר לשים את hiếu (nejdřív) בסוף. הצ׳כים מרבים לשים ביטויי זמן בסוף המשפט.
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson8c.html" class="btn-back">→ חזרה ל-8ג</a>
+    <a href="a2-lesson8e.html" class="btn-next">8ה — תרגול מסכם ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson8d">
+  <div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-radius:var(--r);padding:16px;border-inline-start:5px solid #11457E;">
+    <strong style="display:block;margin-bottom:8px;color:#11457E;font-size:14px;">📋 מקרא</strong>
+    <div style="font-size:13px;color:#16385f;line-height:2;">
+      <span style="color:#c2410c;font-family:'Nunito',sans-serif;font-weight:800;">כתום</span> — jít/půjdu<br>
+      <span style="color:#7c3aed;font-family:'Nunito',sans-serif;font-weight:800;">סגול</span> — chodit/budu chodit<br>
+      <span style="color:#1d4ed8;font-family:'Nunito',sans-serif;font-weight:800;">כחול</span> — do/na (יעד)<br>
+      <span style="color:#0d9488;font-family:'Nunito',sans-serif;font-weight:800;">ירוק-כחול</span> — ביטויי זמן
+    </div>
+  </div>
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;">
+    <h3 style="font-size:14px;font-weight:700;color:#16385f;margin-bottom:10px;">ביטויי שיחה שימושיים</h3>
+    <div style="font-size:13px;line-height:1.9;color:#16385f;">
+      <span style="font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;display:block;">Jdeš se mnou?</span>
+      <span style="font-size:12px;color:var(--muted);">אתה/את בא/ה איתי?</span>
+      <span style="font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;display:block;margin-top:6px;">Chceš jít?</span>
+      <span style="font-size:12px;color:var(--muted);">רוצה לבוא?</span>
+      <span style="font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;display:block;margin-top:6px;">Bohužel ne.</span>
+      <span style="font-size:12px;color:var(--muted);">לצערי לא.</span>
+    </div>
+  </div>
+</aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+
+const dialogLines = {
+  d1: [
+    'Dnes večer jdu na koncert. Jdeš se mnou.',
+    'Bohužel ne. Dnes jdu do kina s Lucií.',
+    'Chodíš do kina hodně.',
+    'Ano, chodím do kina každý týden. Mám to ráda.',
+    'Pak půjdeme na kávu příští týden.',
+    'Určitě! Půjdeme do kavárny u náměstí.'
+  ],
+  d2: [
+    'Tomáši, chodíš do posilovny.',
+    'Ano, chodím třikrát týdně. V pondělí, ve středu a v pátek.',
+    'A dnes? Jdeš do posilovny.',
+    'Ne, dnes jdu na procházku do parku.',
+    'Skvělé! A od příštího měsíce budu chodit taky.'
+  ],
+  d3: [
+    'V sobotu jdeme do divadla. Chceš jít.',
+    'Chodím do divadla jen někdy. Co se hraje.',
+    'Hamlet. A po představení půjdeme na víno.',
+    'Super! Pak jdu určitě. V kolik začíná.',
+    'V sedm. Půjdeme v šest do restaurace nejdřív.',
+    'Výborně! Od teď budu chodit do divadla častěji.'
+  ]
+};
+
+function playAll(dialogId) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const lines = dialogLines[dialogId];
+  let i = 0;
+  function next() {
+    if (i >= lines.length) return;
+    const u = new SpeechSynthesisUtterance(lines[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 700); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

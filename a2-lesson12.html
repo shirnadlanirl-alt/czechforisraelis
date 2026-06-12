@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 12 — פעלים עם רגש | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}
+    .logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;margin-bottom:4px;}
+    .page-header h1 .green{color:var(--green);}
+    .page-header p{font-size:14px;color:var(--muted);}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:14px 18px;font-size:14px;color:var(--gd);line-height:1.7;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+
+    .sub-wrap{max-width:1060px;margin:0 auto;padding:24px 40px 40px;display:grid;grid-template-columns:1fr 290px;gap:24px;}
+    .sub-main{min-width:0;}
+    .sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;}
+    .sub-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px;text-decoration:none;color:var(--text);transition:all .2s;display:flex;flex-direction:column;gap:8px;position:relative;}
+    .sub-card:hover{border-color:var(--gm);transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,158,117,.1);}
+    .sub-num{position:absolute;top:18px;left:18px;width:32px;height:32px;border-radius:50%;background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;}
+    .sub-title{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--text);padding-right:42px;}
+    .sub-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+    .sub-meta{display:flex;gap:10px;margin-top:auto;padding-top:10px;font-size:11px;color:var(--green);font-weight:600;}
+    .sub-meta .dot{width:4px;height:4px;background:var(--muted);border-radius:50%;align-self:center;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    /* verb preview chips */
+    .verb-preview{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+    .vchip{padding:7px 16px;border-radius:20px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;direction:ltr;unicode-bidi:isolate;display:flex;flex-direction:column;align-items:center;gap:2px;}
+    .vchip .he{font-family:'Heebo',sans-serif;font-size:11px;font-weight:400;}
+    .vchip.pink{background:#fce7f3;color:#9d174d;}
+    .vchip.blue{background:#eff6ff;color:#1d4ed8;}
+    .vchip.amber{background:#fef3c7;color:#b45309;}
+    .vchip.purple{background:#f5f3ff;color:#6d28d9;}
+    .vchip.green{background:var(--gl);color:var(--gd);}
+
+    .tip-row{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--r);padding:18px 22px;font-size:14px;color:var(--gd);line-height:1.7;}
+    .tip-row strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+
+    /* A2 complete badge */
+    .a2-badge{background:linear-gradient(135deg,var(--green) 0%,#0d8a64 100%);color:white;border-radius:var(--r);padding:18px 22px;margin-bottom:18px;display:flex;align-items:center;gap:14px;}
+    .a2-badge .badge-icon{font-size:32px;flex-shrink:0;}
+    .a2-badge-text{font-size:14px;line-height:1.6;}
+    .a2-badge-text strong{display:block;font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;margin-bottom:3px;}
+
+    .lesson-nav{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
+    .lesson-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .lesson-nav .ln-prev{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .lesson-nav .ln-prev:hover{border-color:var(--green);color:var(--green);}
+    .lesson-nav .ln-next{background:var(--green);color:white;}
+    .lesson-nav .ln-next:hover{opacity:.88;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb,.page-header{padding-right:20px;padding-left:20px;}
+      .sub-wrap{padding:18px 20px 30px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .sub-grid{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  שיעור 12 — פעלים עם רגש
+</div>
+
+<div class="page-header">
+  <h1>שיעור 12: <span class="green">פעלים עם רגש</span></h1>
+  <p>השיעור האחרון של A2 — פעלים שמדברים על רגשות ויחסים. <span class="cz-phrase">Baví mě · Líbí se mi · Těším se na · Bojím se · Chybí mi.</span></p>
+</div>
+
+<div class="sub-wrap">
+  <div class="sub-main">
+
+  <div class="a2-badge">
+    <div class="badge-icon">💛</div>
+    <div class="a2-badge-text">
+      <strong>שיעור הסיום של A2</strong>
+      אחרי השיעור הזה — סיימת את כל רמת A2. שנים-עשר שיעורים, עשרות פעלים, וכבר יכול/ה לנהל שיחה אמיתית בצ׳כית. זה שיעור שנוגע ב-״רגש״ — פעלים שמסבירים מה נחמד לי, ממה אני מפחד/ת, ומה אני מתגעגע/ת אליו.
+    </div>
+  </div>
+
+  <div class="why-box">
+    <strong>🔑 למה השיעור הזה חשוב?</strong>
+    הפעלים האלה הם שונים — הם לא בונים על הנוסחה הרגילה. במקום ״אני אוהב״, בצ׳כית אומרים ״זה מוצא חן בעיניי״ — <span class="cz-phrase">Líbí se mi.</span> במקום ״אני נהנה מ...״ — <span class="cz-phrase">Baví mě.</span> אחרי שתלמד/י אותם — תישמע/י בדיוק כמו דובר/ת ילידי.
+  </div>
+
+  <div class="verb-preview">
+    <div class="vchip pink">baví mě <span class="he">כיפי לי / נהנה/ת מ-</span></div>
+    <div class="vchip blue">líbí se mi <span class="he">אהוב/ה עליי / מוצא/ת חן</span></div>
+    <div class="vchip amber">vadí mi <span class="he">מפריע לי</span></div>
+    <div class="vchip green">těším se na <span class="he">מצפה/מתרגש/ת לקראת</span></div>
+    <div class="vchip purple">bojím se <span class="he">מפחד/ת מ-</span></div>
+    <div class="vchip pink">chybí mi <span class="he">מתגעגע/ת ל-</span></div>
+  </div>
+
+  <div class="sub-grid">
+    <a href="a2-lesson12a.html" class="sub-card">
+      <div class="sub-num">12א</div>
+      <div class="sub-title">baví mě · líbí se mi · vadí mi</div>
+      <div class="sub-desc">פעלים ״הפוכים״ — הנושא הוא הדבר, לא אני. <span class="cz-phrase">Baví mě</span> (כיפי לי), <span class="cz-phrase">líbí se mi</span> (אהוב עליי), <span class="cz-phrase">vadí mi</span> (מפריע לי).</div>
+      <div class="sub-meta">⏱ 13 דקות <span class="dot"></span> מבנה הפוך, גוף, דוגמאות</div>
+    </a>
+    <a href="a2-lesson12b.html" class="sub-card">
+      <div class="sub-num">12ב</div>
+      <div class="sub-title">těším se · bojím se · zajímám se</div>
+      <div class="sub-desc"><span class="cz-phrase">Těším se na</span> (מצפה ל-) + יחסה 4. <span class="cz-phrase">Bojím se</span> (מפחד/ת מ-) + יחסה 2. <span class="cz-phrase">Zajímám se o</span> (מתעניין/ת ב-) + יחסה 4.</div>
+      <div class="sub-meta">⏱ 12 דקות <span class="dot"></span> יחסות, מבנה, שיחה</div>
+    </a>
+    <a href="a2-lesson12c.html" class="sub-card">
+      <div class="sub-num">12ג</div>
+      <div class="sub-title">poznat · najít · chybí mi</div>
+      <div class="sub-desc"><span class="cz-phrase">Poznat</span> = להכיר לראשונה / לזהות. <span class="cz-phrase">Najít</span> = למצוא. <span class="cz-phrase">Chybí mi</span> = מתגעגע/ת ל-. שלושה פעלים שנוגעים לקשרים בין אנשים.</div>
+      <div class="sub-meta">⏱ 12 דקות <span class="dot"></span> קשרים, רגש, שיחה</div>
+    </a>
+    <a href="a2-lesson12d.html" class="sub-card">
+      <div class="sub-num">12ד</div>
+      <div class="sub-title">דיאלוגים + סיכום A2</div>
+      <div class="sub-desc">שלושה דיאלוגים מלאים עם כל הפעלים, ואז — חגיגת סיום A2: מה למדת, מה אתה/את כבר יכול/ה להגיד.</div>
+      <div class="sub-meta">⏱ 14 דקות <span class="dot"></span> שיחה, סיום, המשך</div>
+    </a>
+    <a href="a2-lesson12e.html" class="sub-card">
+      <div class="sub-num">12ה</div>
+      <div class="sub-title">תרגול מסכם</div>
+      <div class="sub-desc">20 שאלות על כל פעלי השיעור — בחירת פועל, מבנה משפט, ושאלות הבחנה.</div>
+      <div class="sub-meta">⏱ 14 דקות <span class="dot"></span> 20 שאלות</div>
+    </a>
+  </div>
+
+  <div class="tip-row">
+    <strong>🎯 בקיצור</strong>
+    <span class="cz-phrase">Baví mě cestování.</span> (כיפי לי לטייל) · <span class="cz-phrase">Líbí se mi Praha.</span> (פראג אהובה עליי) · <span class="cz-phrase">Vadí mi hluk.</span> (רעש מפריע לי) · <span class="cz-phrase">Těším se na prázdniny.</span> (אני מצפה לחופשה) · <span class="cz-phrase">Chybí mi rodina.</span> (אני מתגעגע/ת למשפחה). חמישה משפטים — ולב שלם.
+  </div>
+
+  <div class="lesson-nav">
+    <a href="a2-lesson11.html" class="ln-prev">→ שיעור 11: ZNÁT / VĚDĚT / UMĚT</a>
+    <a href="a2-lesson12a.html" class="ln-next">התחל ב-12א ←</a>
+  </div>
+
+  </div><!-- /.sub-main -->
+  <aside class="sidebar" data-page="a2-lesson12"></aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

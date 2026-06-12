@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 8ב — NA vs DO: לאן? | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* prep-spot box */
+    .prep-spot{background:var(--white);border:2px solid var(--border);border-radius:var(--r);padding:20px 24px;margin-bottom:16px;}
+    .prep-spot.do-spot{border-color:rgba(29,158,117,.4);}
+    .prep-spot.na-spot{border-color:rgba(245,158,11,.4);}
+    .ps-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+    .ps-cz{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;direction:ltr;}
+    .ps-cz.green-c{color:var(--green);}
+    .ps-cz.amber-c{color:#b45309;}
+    .ps-he{font-size:13.5px;color:var(--text);font-weight:600;}
+    .ps-rule{font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:14px;}
+    .ps-rule b{color:var(--text);}
+
+    /* word cards grid */
+    .wc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;}
+    .wc{background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);padding:10px 12px;text-align:center;}
+    .wc .wc-base{font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--muted);direction:ltr;margin-bottom:2px;}
+    .wc .wc-form{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;direction:ltr;}
+    .wc .wc-form.green-c{color:var(--gd);}
+    .wc .wc-form.amber-c{color:#b45309;}
+    .wc .wc-he{font-size:11.5px;color:var(--muted);margin-top:2px;}
+    .wc-play{width:22px;height:22px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;margin-top:4px;transition:background .15s;}
+    .wc-play:hover{background:var(--gm);}
+    .wc-play svg{width:7px;height:7px;fill:var(--gd);margin-right:-1px;}
+
+    /* compare table */
+    .comp-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:16px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
+    .comp-table th{padding:10px 14px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+    .comp-table th.th-do{background:#f0fdf4;color:var(--gd);}
+    .comp-table th.th-na{background:#fffbeb;color:#92400e;}
+    .comp-table td{padding:9px 14px;border-top:1px solid var(--border);vertical-align:middle;}
+    .comp-table .cz-cell{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;direction:ltr;unicode-bidi:isolate;}
+    .comp-table .cz-cell.green-c{color:var(--gd);}
+    .comp-table .cz-cell.amber-c{color:#b45309;}
+    .comp-table .he-cell{font-size:12.5px;color:var(--muted);}
+    .comp-table .play-cell button{width:24px;height:24px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .15s;}
+    .comp-table .play-cell button:hover{background:var(--gm);}
+    .comp-table .play-cell button svg{width:8px;height:8px;fill:var(--gd);margin-right:-1px;}
+
+    /* recall box */
+    .recall-box{background:#fef3c7;border:1px solid rgba(245,158,11,.25);border-inline-start:5px solid #f59e0b;border-radius:var(--rs);padding:16px 20px;margin-bottom:16px;}
+    .recall-box strong{display:block;color:#92400e;margin-bottom:8px;font-size:15px;}
+    .recall-box .content{font-size:14px;color:#78350f;line-height:1.75;}
+    .recall-box a{color:#92400e;font-weight:700;text-decoration:underline;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .wc-grid{grid-template-columns:repeat(2,1fr);}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson8.html">שיעור 8</a><span>›</span>
+  8ב — NA vs DO: לאן?
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    לאחר שיודעים <b>איזה</b> פועל להשתמש (jít/chodit), צריך לדעת <b>לאן</b>. בצ׳כית יש שתי מילות כיוון עיקריות: <span class="cz-phrase">do</span> ו-<span class="cz-phrase">na</span> — וכל אחת עם מין יחסה שונה.
+  </div>
+
+  <!-- ========== RECALL FROM LESSON 7 ========== -->
+  <div class="recall-box">
+    <strong>👀 תזכורת מ-7ד</strong>
+    <div class="content">
+      בשיעור 7 כבר ראיתם את <span style="font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;display:inline-block;">do</span> עם גניטיב: <b style="font-family:'Nunito',sans-serif;">do parku, do kina, do školy</b>. עכשיו נוסיפים את <b style="font-family:'Nunito',sans-serif;">na</b> לתמונה — ונראה מתי כל אחת.
+    </div>
+  </div>
+
+  <!-- ========== DO + GENITIV ========== -->
+  <div class="stitle">do + גניטיב — למבנים ומוסדות</div>
+
+  <div class="prep-spot do-spot">
+    <div class="ps-head">
+      <span class="ps-cz green-c">do</span>
+      <span class="ps-he">ל- / לתוך (מבנה / מוסד)</span>
+    </div>
+    <div class="ps-rule"><b>הכלל:</b> כשהיעד הוא <b>מקום פיזי שנכנסים אליו</b> — בניין, מוסד, עיר, מדינה — משתמשים ב-<span style="font-family:'Nunito',sans-serif;font-weight:800;">do</span> + גניטיב (כבר למדתם בשיעור 7).</div>
+    <div class="wc-grid">
+      <div class="wc">
+        <div class="wc-base">škola →</div>
+        <div class="wc-form green-c">do školy</div>
+        <div class="wc-he">לבית הספר</div>
+        <button class="wc-play" onclick="speak('do školy')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">kino →</div>
+        <div class="wc-form green-c">do kina</div>
+        <div class="wc-he">לקולנוע</div>
+        <button class="wc-play" onclick="speak('do kina')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">práce →</div>
+        <div class="wc-form green-c">do práce</div>
+        <div class="wc-he">לעבודה</div>
+        <button class="wc-play" onclick="speak('do práce')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">obchod →</div>
+        <div class="wc-form green-c">do obchodu</div>
+        <div class="wc-he">לחנות</div>
+        <button class="wc-play" onclick="speak('do obchodu')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">restaurace →</div>
+        <div class="wc-form green-c">do restaurace</div>
+        <div class="wc-he">למסעדה</div>
+        <button class="wc-play" onclick="speak('do restaurace')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">Praha →</div>
+        <div class="wc-form green-c">do Prahy</div>
+        <div class="wc-he">לפראג</div>
+        <button class="wc-play" onclick="speak('do Prahy')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">nemocnice →</div>
+        <div class="wc-form green-c">do nemocnice</div>
+        <div class="wc-he">לבית החולים</div>
+        <button class="wc-play" onclick="speak('do nemocnice')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">park →</div>
+        <div class="wc-form green-c">do parku</div>
+        <div class="wc-he">לפארק</div>
+        <button class="wc-play" onclick="speak('do parku')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">divadlo →</div>
+        <div class="wc-form green-c">do divadla</div>
+        <div class="wc-he">לתיאטרון</div>
+        <button class="wc-play" onclick="speak('do divadla')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== NA + AKUZATIV ========== -->
+  <div class="stitle">na + אקוזטיב — לאירועים ופעילויות</div>
+
+  <div class="prep-spot na-spot">
+    <div class="ps-head">
+      <span class="ps-cz amber-c">na</span>
+      <span class="ps-he">ל- / אל (אירוע / פעילות)</span>
+    </div>
+    <div class="ps-rule"><b>הכלל:</b> כשהיעד הוא <b>פעילות, אירוע, כנס, ארוחה</b> — משהו שעושים, לא מקום שנכנסים אליו — משתמשים ב-<span style="font-family:'Nunito',sans-serif;font-weight:800;color:#b45309;">na</span> + <b>אקוזטיב</b>.<br><br>
+    <b>אקוזטיב בקצרה:</b> נקבה ב-a: <span style="font-family:'Nunito',sans-serif;font-weight:800;">-u</span> (káva → kávu, procházka → procházku). זכר ורוב השאר: <span style="font-family:'Nunito',sans-serif;font-weight:800;">לא משתנה</span> (oběd, koncert, výlet).</div>
+    <div class="wc-grid">
+      <div class="wc">
+        <div class="wc-base">oběd →</div>
+        <div class="wc-form amber-c">na oběd</div>
+        <div class="wc-he">לצהריים</div>
+        <button class="wc-play" onclick="speak('na oběd')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">káva →</div>
+        <div class="wc-form amber-c">na kávu</div>
+        <div class="wc-he">לקפה</div>
+        <button class="wc-play" onclick="speak('na kávu')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">koncert →</div>
+        <div class="wc-form amber-c">na koncert</div>
+        <div class="wc-he">לקונצרט</div>
+        <button class="wc-play" onclick="speak('na koncert')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">procházka →</div>
+        <div class="wc-form amber-c">na procházku</div>
+        <div class="wc-he">לטיול ברגל</div>
+        <button class="wc-play" onclick="speak('na procházku')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">výlet →</div>
+        <div class="wc-form amber-c">na výlet</div>
+        <div class="wc-he">לטיול</div>
+        <button class="wc-play" onclick="speak('na výlet')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">nákupy →</div>
+        <div class="wc-form amber-c">na nákupy</div>
+        <div class="wc-he">לקניות</div>
+        <button class="wc-play" onclick="speak('na nákupy')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">návštěva →</div>
+        <div class="wc-form amber-c">na návštěvu</div>
+        <div class="wc-he">לביקור</div>
+        <button class="wc-play" onclick="speak('na návštěvu')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">schůzka →</div>
+        <div class="wc-form amber-c">na schůzku</div>
+        <div class="wc-he">לפגישה</div>
+        <button class="wc-play" onclick="speak('na schůzku')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+      <div class="wc">
+        <div class="wc-base">pivo →</div>
+        <div class="wc-form amber-c">na pivo</div>
+        <div class="wc-he">לבירה</div>
+        <button class="wc-play" onclick="speak('na pivo')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== COMPARE TABLE ========== -->
+  <div class="stitle">השוואה מלאה — do מול na בפועל</div>
+
+  <table class="comp-table">
+    <tr>
+      <th class="th-do">jdu do… (מבנה / מוסד)</th>
+      <th class="th-na">jdu na… (פעילות / אירוע)</th>
+    </tr>
+    <tr>
+      <td class="cz-cell green-c">
+        <button style="width:22px;height:22px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;flex-shrink:0;" onclick="speak('Jdu do školy.')"><svg viewBox="0 0 10 10" style="width:8px;height:8px;fill:var(--gd);margin-right:-1px;"><polygon points="2,1 9,5 2,9"/></svg></button>
+        Jdu do školy.
+      </td>
+      <td class="cz-cell amber-c">
+        <button style="width:22px;height:22px;border-radius:50%;background:#fef3c7;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;flex-shrink:0;" onclick="speak('Jdu na oběd.')"><svg viewBox="0 0 10 10" style="width:8px;height:8px;fill:#b45309;margin-right:-1px;"><polygon points="2,1 9,5 2,9"/></svg></button>
+        Jdu na oběd.
+      </td>
+    </tr>
+    <tr>
+      <td class="he-cell">אני הולך/ת לבית הספר.</td>
+      <td class="he-cell">אני הולך/ת לאכול צהריים.</td>
+    </tr>
+    <tr>
+      <td class="cz-cell green-c">
+        <button style="width:22px;height:22px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;" onclick="speak('Chodíme do restaurace.')"><svg viewBox="0 0 10 10" style="width:8px;height:8px;fill:var(--gd);margin-right:-1px;"><polygon points="2,1 9,5 2,9"/></svg></button>
+        Chodíme do restaurace.
+      </td>
+      <td class="cz-cell amber-c">
+        <button style="width:22px;height:22px;border-radius:50%;background:#fef3c7;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;" onclick="speak('Chodíme na kávu.')"><svg viewBox="0 0 10 10" style="width:8px;height:8px;fill:#b45309;margin-right:-1px;"><polygon points="2,1 9,5 2,9"/></svg></button>
+        Chodíme na kávu.
+      </td>
+    </tr>
+    <tr>
+      <td class="he-cell">אנחנו הולכים למסעדה.</td>
+      <td class="he-cell">אנחנו הולכים לקפה.</td>
+    </tr>
+    <tr>
+      <td class="cz-cell green-c">
+        <button style="width:22px;height:22px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;" onclick="speak('Petr jde do nemocnice.')"><svg viewBox="0 0 10 10" style="width:8px;height:8px;fill:var(--gd);margin-right:-1px;"><polygon points="2,1 9,5 2,9"/></svg></button>
+        Petr jde do nemocnice.
+      </td>
+      <td class="cz-cell amber-c">
+        <button style="width:22px;height:22px;border-radius:50%;background:#fef3c7;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;" onclick="speak('Petr jde na koncert.')"><svg viewBox="0 0 10 10" style="width:8px;height:8px;fill:#b45309;margin-right:-1px;"><polygon points="2,1 9,5 2,9"/></svg></button>
+        Petr jde na koncert.
+      </td>
+    </tr>
+    <tr>
+      <td class="he-cell">פטר הולך לבית החולים.</td>
+      <td class="he-cell">פטר הולך לקונצרט.</td>
+    </tr>
+  </table>
+
+  <div class="tip amber">
+    <strong>⭐ הכלל הקל לזכור</strong>
+    <b>do</b> = <b>ד</b>לת — <b>נכנסים</b> לבניין. <b>na</b> = <b>פ</b>עילות — <b>עושים</b> משהו. אם אפשר לשאול ״נכנסים לבניין?״ — do. אם אפשר לשאול ״עושים פעילות?״ — na.
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 מה עם המסעדה — do או na?</strong>
+    שניהם אפשריים, אבל הם אומרים דברים שונים:<br>
+    • <span class="cz-phrase">Jdu do restaurace.</span> — אני הולך/ת למסעדה (המקום הפיזי)<br>
+    • <span class="cz-phrase">Jdu na oběd.</span> — אני הולך/ת לאכול צהריים (הפעילות)<br>
+    שניהם נכונים — ברוב ההקשרים תוכלו להשתמש בשניהם לסירוגין.
+  </div>
+
+  <div class="tip green">
+    <strong>✅ לזכור: na + שתיית משקה</strong>
+    <span class="cz-phrase">jít na kávu, na pivo, na víno</span> — לשתות קפה/בירה/יין — תמיד <b>na</b> (זו פעילות חברתית). מאוד שכיח בצ׳כית!
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson8a.html" class="btn-back">→ חזרה ל-8א</a>
+    <a href="a2-lesson8c.html" class="btn-next">8ג — עתיד: půjdu ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson8b">
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;">
+    <h3 style="font-size:14px;font-weight:700;color:#16385f;margin-bottom:12px;">do vs na</h3>
+    <div style="font-size:13px;line-height:1.9;color:#16385f;">
+      <b style="color:#1D9E75;font-family:'Nunito',sans-serif;">do</b> + גניטיב = מבנה / מוסד<br>
+      <span style="font-family:'Nunito',sans-serif;font-size:12.5px;color:var(--muted);direction:ltr;unicode-bidi:isolate;display:block;">do školy, do kina, do práce</span>
+      <br>
+      <b style="color:#b45309;font-family:'Nunito',sans-serif;">na</b> + אקוזטיב = פעילות / אירוע<br>
+      <span style="font-family:'Nunito',sans-serif;font-size:12.5px;color:var(--muted);direction:ltr;unicode-bidi:isolate;display:block;">na oběd, na kávu, na koncert</span>
+    </div>
+  </div>
+  <div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-radius:var(--r);padding:16px;border-inline-start:5px solid #11457E;">
+    <strong style="display:block;margin-bottom:5px;color:#11457E;font-size:14px;">💡 טיפ</strong>
+    <span style="font-size:13px;color:#16385f;line-height:1.75;">נקבה ב-a אחרי na:<br>
+    <span style="font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;display:inline-block;">káva → na kávu</span><br>
+    <span style="font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;display:inline-block;">procházka → na procházku</span></span>
+  </div>
+</aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

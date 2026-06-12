@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A1 — מתחילים | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green:#1D9E75; --gl:#E1F5EE; --gd:#085041; --gm:#5DCAA5;
+      --text:#1a1a1a; --muted:#6b7280; --bg:#fafaf8; --white:#fff;
+      --border:rgba(0,0,0,0.08); --r:16px; --rs:10px;
+      --amber-light:#fef3c7; --blue-light:#eff6ff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}
+    .logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);cursor:pointer;text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:center;}
+    .breadcrumb a{color:var(--muted);text-decoration:none;}
+    .breadcrumb a:hover{color:var(--green);}
+    .breadcrumb span:last-child{color:var(--text);font-weight:500;}
+
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:28px 40px 28px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:30px;font-weight:800;margin-bottom:6px;}
+    .page-header h1 span{color:var(--green);}
+    .page-header p{font-size:14px;color:var(--muted);max-width:600px;line-height:1.7;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.7;margin-bottom:28px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+    .ssection{margin-bottom:32px;}
+
+    .lessons-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .lcard{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;text-decoration:none;color:var(--text);transition:all .2s;position:relative;display:flex;flex-direction:column;gap:6px;}
+    .lcard:hover{border-color:var(--gm);transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,158,117,.1);}
+    .lcard-num{display:inline-flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:2px;}
+    .lcard-num::before{content:'';width:20px;height:2px;background:var(--green);}
+    .lcard-title{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;color:var(--text);margin-bottom:2px;}
+    .lcard-desc{font-size:13px;color:var(--muted);line-height:1.65;flex:1;}
+    .lcard-meta{display:flex;gap:8px;margin-top:10px;font-size:11px;font-weight:600;color:var(--green);}
+    .lcard-new{position:absolute;top:16px;left:16px;background:var(--green);color:white;font-size:10px;font-weight:800;padding:2px 8px;border-radius:10px;letter-spacing:.05em;}
+
+    .repo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .rcard{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;text-decoration:none;color:var(--text);transition:all .2s;display:flex;align-items:center;gap:14px;}
+    .rcard:hover{border-color:var(--gm);background:var(--gl);}
+    .rcard-icon{width:44px;height:44px;border-radius:50%;background:var(--gl);color:var(--gd);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+    .rcard-text{flex:1;}
+    .rcard-title{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);margin-bottom:3px;}
+    .rcard-desc{font-size:13px;color:var(--muted);}
+    .rcard-arrow{color:var(--muted);font-size:14px;}
+
+    .practice-row{display:flex;flex-direction:column;gap:10px;}
+    .pcard{background:var(--white);border:1px solid var(--border);border-radius:var(--rs);padding:14px 18px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:12px;transition:all .15s;}
+    .pcard:hover{border-color:var(--gm);background:var(--gl);}
+    .pcard-icon{width:30px;height:30px;border-radius:50%;background:var(--gl);color:var(--gd);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+    .pcard-text{flex:1;font-size:14px;font-weight:500;color:var(--text);}
+    .pcard-arrow{color:var(--muted);font-size:13px;}
+
+    .sidebar{display:flex;flex-direction:column;gap:16px;}
+    .sbox{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px;}
+    .sbox h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px;}
+    .lesson-list{display:flex;flex-direction:column;gap:6px;}
+    .ll-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);border:1px solid var(--border);font-size:13px;text-decoration:none;color:var(--muted);transition:all .15s;}
+    .ll-item:hover{border-color:var(--gm);color:var(--green);}
+    .ll-num{min-width:22px;height:22px;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;background:var(--border);color:var(--muted);flex-shrink:0;}
+    .ll-icon{min-width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .layout{grid-template-columns:1fr;padding:20px;}.page-header{padding:22px 20px;}
+      .breadcrumb{padding:12px 20px;}
+      .sidebar{display:none;}
+      .lessons-grid,.repo-grid{grid-template-columns:1fr;}
+    }
+  </style>
+<!-- Microsoft Clarity -->
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a>
+  <span>›</span>
+  <span>A1 — מתחילים</span>
+</div>
+
+<div class="page-header">
+  <h1>רמה <span>A1</span> — מתחילים</h1>
+  <p>שיעורים מהפונטיקה ועד שיחה ראשונה. כל שיעור מתחלק לתת-נושאים, עם הסברים, תעתיק עברי מלא והגייה אוטומטית.</p>
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>📍 איפה להתחיל?</strong>
+    אם זו הפעם הראשונה שלכם בצ'כית — התחילו משיעור 1 (פונטיקה). אם אתם כבר יודעים לקרוא — תוכלו לדלג ישירות לשיעור 2 או 3. כל שיעור הוא עצמאי, אבל סדר הלימוד נבנה בהדרגה.
+  </div>
+
+  <!-- LESSONS -->
+  <div class="ssection">
+    <div class="stitle">השיעורים</div>
+    <div class="lessons-grid" id="lessonsGrid"></div>
+  </div>
+
+  <!-- REPOSITORIES -->
+
+
+
+</main>
+
+<aside class="sidebar" data-page="a1">
+
+<div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-inline-start:5px solid #11457E;border-radius:var(--r);padding:18px;font-size:13px;color:#16385f;line-height:1.7;box-shadow:0 6px 18px rgba(17,69,126,.06);">
+  <strong style="display:block;margin-bottom:6px;color:#11457E;">💡 טיפ ראשון</strong>
+    אל תנסו לזכור הכל בבת אחת. כל שיעור מספיק ל-30–45 דקות לימוד. עדיף קצת בכל יום מאשר הרבה פעם בשבוע.
+</div>
+
+</aside>
+</div>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+
+<script>
+// LESSONS DATA — הסוכן המתוזמן מוסיף כאן שורה חדשה בכל יצירה של דף שיעור חדש.
+// סדר הרשימה = סדר התצוגה. שמור על הפורמט הזה בדיוק.
+const lessons = [
+  {num:1, title:"פונטיקה ודקדוק", desc:"הצליל של צ'כית — תנועות קצרות וארוכות, עיצורים מיוחדים, רשמי/לא-רשמי, וסדר מילים בסיסי.", link:"phonetics.html", meta:"4 שלבים · יסוד", emoji:"🔤"},
+  {num:2, title:"ברכות והיכרות", desc:"איך אומרים שלום, איך מציגים את עצמכם, ומתי לבחור בין רשמי ללא-רשמי.", link:"greetings.html", meta:"3 חלקים · שיחה", emoji:"👋"},
+  {num:3, title:"הפועל BÝT", desc:"הפועל \"להיות\" — בסיס הכל בצ'כית. הטיה, שלילה, דיאלוגים ותרגול משולב.", link:"lesson3.html", meta:"4 חלקים · עם תרגול", emoji:"✓"},
+  {num:4, title:"מספרים 0–100", desc:"ללמוד לספור, לקרוא מחירים ולומר גיל. מתחלק ל-4 קבוצות של מספרים.", link:"lesson4.html", meta:"4 חלקים · מספרים", emoji:"🔢"},
+  {num:5, title:"הפועל MÍT", desc:"\"יש לי\" — הפועל השני בחשיבותו אחרי BÝT. הטיה, שלילה, דיאלוגים ותרגול מסכם.", link:"lesson5.html", meta:"4 חלקים · עם תרגול", emoji:"📦"},
+  {num:6, title:"כיוון בעיר", desc:"איך לשאול ולענות על כיוונים, איך להזמין אוטובוס/מטרו, ומספרים גדולים — הכל למצוא את הדרך בפראג.", link:"lesson6.html", meta:"3 חלקים · חדש", emoji:"🧭"},
+  {num:7, title:"הטיה I — DĚLAT", desc:"הפועל הראשון שלא לומדים לבד — לומדים תבנית. -ám/-áš/-á/-áme/-áte/-ají פותחת לכם 5 פעלים נוספים בבת אחת.", link:"lesson7.html", meta:"3 חלקים · עם תרגול", emoji:"🔧"},
+  {num:8, title:"MLUVIT + מסעדה", desc:"תבנית פועל חדשה (-it) דרך MLUVIT \"לדבר\", ובמקביל — אוצר מילים ודיאלוגים מסעדה: להזמין, לבקש, לשלם.", link:"lesson8.html", meta:"4 חלקים · עם תרגול", emoji:"🍽️"},
+  {num:9, title:"STUDOVAT + JÍT/JET", desc:"תבנית -ovat (ללמוד, לעבוד, לטייל) ופעלי תנועה — jít ללכת ברגל, jet לנסוע בכלי רכב. עם do/na ו-Kam jdete?", link:"lesson9.html", meta:"4 חלקים · עם תרגול", emoji:"🚶"},
+  {num:10, title:"כינויי שייכות + משפחה", desc:"״של מי?״ — můj, tvůj, jeho, její, náš, váš, jejich + כל בני המשפחה. לספר על המשפחה שלכם בשיחה אמיתית.", link:"lesson10.html", meta:"4 חלקים · עם תרגול", emoji:"👨‍👩‍👧‍👦"},
+  {num:11, title:"MÍT RÁD + RÁD DĚLAT", desc:"לאהוב דבר ולאהוב לעשות — שני מבנים חשובים עם אוצר מילים של תחביבים, אוכל ושתייה. Mám rád kávu, Rád vařím.", link:"lesson11.html", meta:"4 חלקים · עם תרגול", emoji:"❤️"},
+  {num:12, title:"MINULÝ ČAS — זמן עבר", desc:"לספר מה עשיתם אתמול, איפה הייתם בסוף השבוע ובחופשה. הטיית עבר פשוטה, שאלות, שלילה וביטויי זמן.", link:"lesson12.html", meta:"4 חלקים · חדש", emoji:"⏪", isNew:true}
+];
+
+function render() {
+  document.getElementById("lessonsGrid").innerHTML = lessons.map(l => `
+    <a href="${l.link}" class="lcard">
+      ${l.isNew ? '<span class="lcard-new">חדש</span>' : ''}
+      <div class="lcard-num">שיעור ${l.num}</div>
+      <div class="lcard-title">${l.emoji ? l.emoji + ' ' : ''}${l.title}</div>
+      <div class="lcard-desc">${l.desc}</div>
+      <div class="lcard-meta">${l.meta}</div>
+    </a>`).join("");
+}
+render();
+</script>
+<script src="_shared/sidebar.js"></script>
+</body>
+</html>

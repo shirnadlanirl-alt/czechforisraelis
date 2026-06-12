@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 4ד — תכניות לעתיד | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--red:#dc2626;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;animation:fadeIn .5s ease both;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* DIALOGUE CARD */
+    .dialog{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:14px;animation:fadeIn .5s ease both;}
+    .dialog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px;}
+    .dialog-title{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:10px;}
+    .dialog-scene{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--gl);color:var(--gd);padding:4px 10px;border-radius:12px;}
+    .play-all{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;background:var(--green);color:white;border:none;font-size:12.5px;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;transition:opacity .15s;}
+    .play-all:hover{opacity:.88;}
+    .play-all svg{width:9px;height:9px;fill:white;margin-right:-1px;}
+    .play-all.playing{opacity:.6;}
+
+    .d-line{display:flex;gap:10px;padding:10px 0;align-items:flex-start;border-bottom:1px dashed var(--border);}
+    .d-line:last-child{border-bottom:none;padding-bottom:2px;}
+    .d-line.playing{background:var(--gl);border-radius:var(--rs);padding-left:10px;padding-right:10px;border-bottom-color:transparent;}
+    .d-who{font-size:11px;font-weight:800;color:var(--muted);min-width:22px;letter-spacing:.05em;margin-top:5px;}
+    .d-who.a{color:#1e40af;}
+    .d-who.b{color:#7c3aed;}
+    .d-content{flex:1;direction:ltr;text-align:left;}
+    .d-cz{font-family:'Nunito',sans-serif;font-size:15.5px;font-weight:700;color:var(--text);direction:ltr;line-height:1.6;}
+    .d-he{font-size:12.5px;color:var(--muted);margin-top:2px;direction:rtl;text-align:right;}
+    .d-play{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;margin-top:4px;}
+    .d-play:hover{background:var(--gm);}
+    .d-play svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* highlights inside dialogue */
+    .v-fut{color:var(--green);font-weight:800;}      /* פועל בעתיד */
+    .v-time{color:#1e40af;font-weight:800;}          /* ביטוי זמן */
+
+    /* vocab strip */
+    .vocab-strip{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:14px;}
+    .vocab-strip h4{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:var(--text);margin-bottom:12px;}
+    .vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+    .vocab-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);padding:10px 14px;display:flex;align-items:center;gap:10px;}
+    .vocab-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--gd);direction:ltr;flex:1;}
+    .vocab-he{font-size:12.5px;color:var(--muted);text-align:left;}
+    .play-mini{width:24px;height:24px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .play-mini:hover{background:var(--gm);}
+    .play-mini svg{width:8px;height:8px;fill:var(--gd);margin-right:-1px;}
+
+    /* try yourself — choice template */
+    .choice-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .choice-row{padding:14px 0;border-bottom:1px dashed var(--border);}
+    .choice-row:last-child{border-bottom:none;padding-bottom:6px;}
+    .choice-q{font-size:13.5px;color:var(--muted);margin-bottom:8px;}
+    .choice-opts{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
+    .choice-opt{padding:7px 14px;border-radius:var(--rs);border:1.5px solid var(--border);background:var(--white);font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:700;color:var(--text);cursor:pointer;direction:ltr;transition:all .15s;}
+    .choice-opt:hover{border-color:var(--green);color:var(--green);}
+    .choice-opt.active{background:var(--gl);border-color:var(--green);color:var(--gd);}
+    .choice-preview{display:none;margin-top:6px;padding:10px 14px;background:var(--gl);border:1px solid rgba(29,158,117,.18);border-radius:var(--rs);direction:ltr;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);font-size:14px;align-items:center;gap:10px;}
+    .choice-preview.show{display:flex;}
+    .choice-preview-play{background:none;border:none;cursor:pointer;color:var(--gd);font-size:14px;}
+    .choice-preview-play:hover{color:var(--green);}
+
+    /* NAV */
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:30px;padding-top:22px;border-top:1px solid var(--border);}
+    .btn-back{padding:10px 20px;border-radius:20px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;text-decoration:none;display:inline-block;}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{padding:10px 24px;border-radius:20px;background:var(--green);color:white;border:none;font-size:14px;font-weight:700;cursor:pointer;transition:opacity .15s;display:inline-flex;align-items:center;gap:6px;text-decoration:none;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    .mini-list{font-size:13px;line-height:1.9;color:var(--text);}
+    .mini-list b{font-family:'Nunito',sans-serif;color:#11457E;font-weight:800;}
+    .mini-list .he{color:var(--muted);font-size:12px;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .layout{grid-template-columns:1fr;padding:20px;}
+      .breadcrumb{padding:12px 20px;}
+      aside.sidebar{display:none;}
+      .vocab-grid{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson4.html">שיעור 4</a><span>›</span>
+  4ד — תכניות לעתיד
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>💬 כל מה שלמדנו בשיעור 4 — בשיחה אמיתית</strong>
+    שלושה דיאלוגים שמשלבים <b>הכל יחד</b>: budu + infinitiv (4א), חריגי תנועה <span class="cz-phrase">půjdu/pojedu</span> (4ב), וביטויי זמן עתיד (4ג). דיאלוג קצר על מחר, סוף שבוע, ותכניות גדולות לשנה הבאה.
+  </div>
+
+  <div class="tip blue">
+    <strong>🎨 איך לזהות מה למדנו</strong>
+    <span class="v-fut" style="color:var(--green);">ירוק</span> = פועל עתיד (<span class="cz-phrase">budu, půjdu, pojedu</span>) ·
+    <span class="v-time" style="color:#1e40af;">כחול</span> = ביטוי זמן (<span class="cz-phrase">zítra, příští, za</span>).
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- DIALOG 1: Co budeš dělat zítra? -->
+  <!-- ===================================================================== -->
+  <div class="stitle">דיאלוג 1 — תכניות למחר</div>
+
+  <div class="dialog" id="d1">
+    <div class="dialog-header">
+      <div class="dialog-title">☕ <span>״מה תעשי מחר?״</span> <span class="dialog-scene">לא רשמי</span></div>
+      <button class="play-all" data-dialog="d1"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמע הכל</button>
+    </div>
+
+    <div class="d-line" data-cz="Ahoj, Kláro. Co budeš dělat zítra?">
+      <div class="d-who a">TOMÁŠ</div>
+      <div class="d-content">
+        <div class="d-cz">Ahoj, Kláro. Co <span class="v-fut">budeš dělat</span> <span class="v-time">zítra</span>?</div>
+        <div class="d-he">היי קלרה. מה תעשי מחר?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Ráno budu pracovat doma. Odpoledne půjdu na kávu s kamarádkou.">
+      <div class="d-who b">KLÁRA</div>
+      <div class="d-content">
+        <div class="d-cz"><span class="v-time">Ráno</span> <span class="v-fut">budu pracovat</span> doma. <span class="v-time">Odpoledne</span> <span class="v-fut">půjdu</span> na kávu s kamarádkou.</div>
+        <div class="d-he">בבוקר אעבוד מהבית. אחר הצהריים אלך לקפה עם חברה.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="A večer? Budeš doma?">
+      <div class="d-who a">TOMÁŠ</div>
+      <div class="d-content">
+        <div class="d-cz">A <span class="v-time">večer</span>? <span class="v-fut">Budeš</span> doma?</div>
+        <div class="d-he">ובערב? תהיי בבית?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Ne, půjdu na koncert. A ty?">
+      <div class="d-who b">KLÁRA</div>
+      <div class="d-content">
+        <div class="d-cz">Ne, <span class="v-fut">půjdu</span> na koncert. A ty?</div>
+        <div class="d-he">לא, אלך לקונצרט. ואתה?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Já budu studovat celý den. Pozítří mám zkoušku.">
+      <div class="d-who a">TOMÁŠ</div>
+      <div class="d-content">
+        <div class="d-cz">Já <span class="v-fut">budu studovat</span> celý den. <span class="v-time">Pozítří</span> mám zkoušku.</div>
+        <div class="d-he">אני אלמד כל היום. מחרתיים יש לי מבחן.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+  </div>
+
+  <div class="tip green">
+    <strong>🔍 שווה לשים לב (דיאלוג 1)</strong>
+    שמתם לב? <b>אין הבדל בין זכר לנקבה בעתיד</b>: <span class="cz-phrase">budeš dělat</span> זהה לגבר ולאישה (בניגוד ל-<span class="cz-phrase">dělal/dělala</span> בעבר).<br>
+    שמתם לב גם ל-<span class="cz-phrase">půjdu</span>? לא <span class="cz-phrase">budu jít</span>, אלא הצורה החריגה — בדיוק כמו שראינו ב-4ב.
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- DIALOG 2: Co budete dělat o víkendu? -->
+  <!-- ===================================================================== -->
+  <div class="stitle">דיאלוג 2 — תכניות לסוף השבוע</div>
+
+  <div class="dialog" id="d2">
+    <div class="dialog-header">
+      <div class="dialog-title">🏔️ <span>״מה אתם מתכננים לסוף השבוע?״</span> <span class="dialog-scene" style="background:var(--blue-light);color:#1e40af;">בינוני</span></div>
+      <button class="play-all" data-dialog="d2"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמע הכל</button>
+    </div>
+
+    <div class="d-line" data-cz="Co budete dělat o víkendu?">
+      <div class="d-who a">ANNA</div>
+      <div class="d-content">
+        <div class="d-cz">Co <span class="v-fut">budete dělat</span> <span class="v-time">o víkendu</span>?</div>
+        <div class="d-he">מה תעשו בסוף השבוע?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="V sobotu pojedeme s rodinou na výlet do hor.">
+      <div class="d-who b">PAVEL</div>
+      <div class="d-content">
+        <div class="d-cz"><span class="v-time">V sobotu</span> <span class="v-fut">pojedeme</span> s rodinou na výlet do hor.</div>
+        <div class="d-he">בשבת ניסע עם המשפחה לטיול בהרים.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="To je super! Jak dlouho tam budete?">
+      <div class="d-who a">ANNA</div>
+      <div class="d-content">
+        <div class="d-cz">To je super! Jak dlouho tam <span class="v-fut">budete</span>?</div>
+        <div class="d-he">זה מעולה! כמה זמן תהיו שם?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Budeme tam dva dny. V neděli večer se vrátíme domů.">
+      <div class="d-who b">PAVEL</div>
+      <div class="d-content">
+        <div class="d-cz"><span class="v-fut">Budeme</span> tam dva dny. <span class="v-time">V neděli večer</span> se vrátíme domů.</div>
+        <div class="d-he">נהיה שם יומיים. ביום ראשון בערב נחזור הביתה.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="A co budete dělat tam?">
+      <div class="d-who a">ANNA</div>
+      <div class="d-content">
+        <div class="d-cz">A co <span class="v-fut">budete dělat</span> tam?</div>
+        <div class="d-he">ומה תעשו שם?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Budeme chodit, fotit a večer půjdeme do restaurace.">
+      <div class="d-who b">PAVEL</div>
+      <div class="d-content">
+        <div class="d-cz"><span class="v-fut">Budeme chodit</span>, <span class="v-fut">fotit</span> a <span class="v-time">večer</span> <span class="v-fut">půjdeme</span> do restaurace.</div>
+        <div class="d-he">נטייל ברגל, נצלם, ובערב נלך למסעדה.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="A ty, Anno? Co budeš dělat?">
+      <div class="d-who b">PAVEL</div>
+      <div class="d-content">
+        <div class="d-cz">A ty, Anno? Co <span class="v-fut">budeš dělat</span>?</div>
+        <div class="d-he">ואת, אנה? מה תעשי?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Budu doma. Budu vařit a uklízet. Není to tak zajímavé.">
+      <div class="d-who a">ANNA</div>
+      <div class="d-content">
+        <div class="d-cz"><span class="v-fut">Budu</span> doma. <span class="v-fut">Budu vařit</span> a <span class="v-fut">uklízet</span>. Není to tak zajímavé.</div>
+        <div class="d-he">אהיה בבית. אבשל ואסדר. זה לא כל-כך מעניין.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚡ נקודה לשים אליה לב — חיבור פעלים</strong>
+    כש-pavel אמר "<span class="cz-phrase">Budeme chodit, fotit a večer půjdeme...</span>" — מספיק להגיד <span class="cz-phrase">budeme</span> <b>פעם אחת</b>, ואז להוסיף כמה פעלים באינפיניטיב.<br>
+    <span class="cz-phrase">Budu vařit a uklízet</span> = אבשל ואסדר (budu אחד, שני פעלים אחריו).
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- DIALOG 3: Příští rok -->
+  <!-- ===================================================================== -->
+  <div class="stitle">דיאלוג 3 — תכניות גדולות לשנה הבאה</div>
+
+  <div class="dialog" id="d3">
+    <div class="dialog-header">
+      <div class="dialog-title">🌍 <span>״מה תעשה השנה הבאה?״</span> <span class="dialog-scene" style="background:var(--purple-light);color:#5b21b6;">תכנון ארוך</span></div>
+      <button class="play-all" data-dialog="d3"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמע הכל</button>
+    </div>
+
+    <div class="d-line" data-cz="Davide, co budeš dělat příští rok?">
+      <div class="d-who a">LUCIE</div>
+      <div class="d-content">
+        <div class="d-cz">Davide, co <span class="v-fut">budeš dělat</span> <span class="v-time">příští rok</span>?</div>
+        <div class="d-he">דוד, מה תעשה השנה הבאה?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Příští rok budu studovat v Praze. Budu bydlet v centru.">
+      <div class="d-who b">DAVID</div>
+      <div class="d-content">
+        <div class="d-cz"><span class="v-time">Příští rok</span> <span class="v-fut">budu studovat</span> v Praze. <span class="v-fut">Budu bydlet</span> v centru.</div>
+        <div class="d-he">השנה הבאה אלמד בפראג. אגור במרכז.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="A co budeš studovat?">
+      <div class="d-who a">LUCIE</div>
+      <div class="d-content">
+        <div class="d-cz">A co <span class="v-fut">budeš studovat</span>?</div>
+        <div class="d-he">ומה תלמד?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Ekonomii. Bude to těžké, ale baví mě to.">
+      <div class="d-who b">DAVID</div>
+      <div class="d-content">
+        <div class="d-cz">Ekonomii. <span class="v-fut">Bude</span> to těžké, ale baví mě to.</div>
+        <div class="d-he">כלכלה. זה יהיה קשה, אבל זה מעניין אותי.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="A jak často budeš jezdit domů?">
+      <div class="d-who a">LUCIE</div>
+      <div class="d-content">
+        <div class="d-cz">A jak často <span class="v-fut">budeš jezdit</span> domů?</div>
+        <div class="d-he">וכל כמה זמן תיסע הביתה?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Asi jednou za měsíc. A v létě pojedu na dovolenou do Itálie.">
+      <div class="d-who b">DAVID</div>
+      <div class="d-content">
+        <div class="d-cz">Asi jednou <span class="v-time">za měsíc</span>. A <span class="v-time">v létě</span> <span class="v-fut">pojedu</span> na dovolenou do Itálie.</div>
+        <div class="d-he">בערך פעם בחודש. ובקיץ אסע לחופשה לאיטליה.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="A ty? Co budeš dělat ty?">
+      <div class="d-who b">DAVID</div>
+      <div class="d-content">
+        <div class="d-cz">A ty? Co <span class="v-fut">budeš dělat</span> ty?</div>
+        <div class="d-he">ואת? מה תעשי את?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Já budu pracovat v Brně. Za dva roky pojedu na rok do Izraele.">
+      <div class="d-who a">LUCIE</div>
+      <div class="d-content">
+        <div class="d-cz">Já <span class="v-fut">budu pracovat</span> v Brně. <span class="v-time">Za dva roky</span> <span class="v-fut">pojedu</span> na rok do Izraele.</div>
+        <div class="d-he">אני אעבוד בברנו. בעוד שנתיים אסע לשנה לישראל.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="To je skvělé! Budeš se mít super.">
+      <div class="d-who b">DAVID</div>
+      <div class="d-content">
+        <div class="d-cz">To je skvělé! <span class="v-fut">Budeš se mít</span> super.</div>
+        <div class="d-he">זה נפלא! יהיה לך מצוין.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+  </div>
+
+  <div class="tip purple">
+    <strong>🎯 שלושה דברים שעשינו בלי לשים לב</strong>
+    1. שילבנו עתיד רגיל (<span class="cz-phrase">budu studovat</span>) עם חריגים (<span class="cz-phrase">půjdeme, pojedu</span>) — באותה שיחה.<br>
+    2. השתמשנו ב-<b>שתי משפחות זמן</b> יחד: <span class="cz-phrase">příští rok</span> ו-<span class="cz-phrase">za měsíc</span>.<br>
+    3. בנינו שיחה של 8 משפטים על תכניות גדולות. זה כבר A2 שלם.
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- NEW VOCAB FROM DIALOGUES -->
+  <!-- ===================================================================== -->
+  <div class="stitle">מילים חדשות מהדיאלוגים</div>
+
+  <div class="vocab-strip">
+    <h4>שמרו לעצמכם — נראה אותן שוב</h4>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <button class="play-mini" onclick="speak('výlet')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="vocab-cz">výlet</span>
+        <span class="vocab-he">טיול</span>
+      </div>
+      <div class="vocab-card">
+        <button class="play-mini" onclick="speak('dovolená')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="vocab-cz">dovolená</span>
+        <span class="vocab-he">חופשה</span>
+      </div>
+      <div class="vocab-card">
+        <button class="play-mini" onclick="speak('zkouška')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="vocab-cz">zkouška</span>
+        <span class="vocab-he">מבחן</span>
+      </div>
+      <div class="vocab-card">
+        <button class="play-mini" onclick="speak('koncert')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="vocab-cz">koncert</span>
+        <span class="vocab-he">קונצרט</span>
+      </div>
+      <div class="vocab-card">
+        <button class="play-mini" onclick="speak('hory')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="vocab-cz">hory</span>
+        <span class="vocab-he">הרים</span>
+      </div>
+      <div class="vocab-card">
+        <button class="play-mini" onclick="speak('centrum')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="vocab-cz">centrum</span>
+        <span class="vocab-he">מרכז</span>
+      </div>
+      <div class="vocab-card">
+        <button class="play-mini" onclick="speak('skvělé')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="vocab-cz">skvělé</span>
+        <span class="vocab-he">נפלא</span>
+      </div>
+      <div class="vocab-card">
+        <button class="play-mini" onclick="speak('zajímavé')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="vocab-cz">zajímavé</span>
+        <span class="vocab-he">מעניין</span>
+      </div>
+      <div class="vocab-card">
+        <button class="play-mini" onclick="speak('jednou za měsíc')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="vocab-cz">jednou za měsíc</span>
+        <span class="vocab-he">פעם בחודש</span>
+      </div>
+      <div class="vocab-card">
+        <button class="play-mini" onclick="speak('uklízet')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="vocab-cz">uklízet</span>
+        <span class="vocab-he">לסדר / לנקות</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- TRY IT YOURSELF -->
+  <!-- ===================================================================== -->
+  <div class="stitle">בנו את התשובה שלכם</div>
+
+  <div class="tip blue" style="margin-bottom:14px;">
+    <strong>✍️ נסו לבד</strong>
+    בחרו אופציה אחת לכל שורה — תראו את המשפט המורכב ותוכלו להשמיע אותו. אין כאן ״נכון״ ו״לא נכון״ — רק תרגול בנייה.
+  </div>
+
+  <div class="choice-card" id="builder">
+    <div class="choice-row" data-row="1">
+      <div class="choice-q">שאלה: <span class="cz-phrase">Co budeš dělat zítra?</span> — מה תעשו מחר?</div>
+      <div class="choice-opts">
+        <button class="choice-opt" data-cz="Zítra budu pracovat doma." data-he="מחר אעבוד מהבית.">Zítra budu pracovat doma.</button>
+        <button class="choice-opt" data-cz="Zítra budu studovat celý den." data-he="מחר אלמד כל היום.">Zítra budu studovat celý den.</button>
+        <button class="choice-opt" data-cz="Zítra půjdu na koncert." data-he="מחר אלך לקונצרט.">Zítra půjdu na koncert.</button>
+        <button class="choice-opt" data-cz="Zítra pojedu do Prahy." data-he="מחר אסע לפראג.">Zítra pojedu do Prahy.</button>
+      </div>
+      <div class="choice-preview">
+        <span class="choice-preview-cz"></span>
+        <button class="choice-preview-play">▶</button>
+        <span class="choice-preview-he" style="font-family:'Heebo',sans-serif;font-weight:600;color:var(--gd);font-size:13px;margin-right:auto;direction:rtl;"></span>
+      </div>
+    </div>
+
+    <div class="choice-row" data-row="2">
+      <div class="choice-q">שאלה: <span class="cz-phrase">A o víkendu?</span> — ובסוף השבוע?</div>
+      <div class="choice-opts">
+        <button class="choice-opt" data-cz="O víkendu budu doma." data-he="בסוף השבוע אהיה בבית.">O víkendu budu doma.</button>
+        <button class="choice-opt" data-cz="O víkendu pojedeme na výlet." data-he="בסוף השבוע ניסע לטיול.">O víkendu pojedeme na výlet.</button>
+        <button class="choice-opt" data-cz="V sobotu půjdu do kina." data-he="בשבת אלך לקולנוע.">V sobotu půjdu do kina.</button>
+        <button class="choice-opt" data-cz="V neděli budu spát celý den." data-he="ביום ראשון אישן כל היום.">V neděli budu spát celý den.</button>
+      </div>
+      <div class="choice-preview">
+        <span class="choice-preview-cz"></span>
+        <button class="choice-preview-play">▶</button>
+        <span class="choice-preview-he" style="font-family:'Heebo',sans-serif;font-weight:600;color:var(--gd);font-size:13px;margin-right:auto;direction:rtl;"></span>
+      </div>
+    </div>
+
+    <div class="choice-row" data-row="3">
+      <div class="choice-q">שאלה: <span class="cz-phrase">A za rok?</span> — ובעוד שנה?</div>
+      <div class="choice-opts">
+        <button class="choice-opt" data-cz="Za rok budu v Izraeli." data-he="בעוד שנה אהיה בישראל.">Za rok budu v Izraeli.</button>
+        <button class="choice-opt" data-cz="Za rok budu studovat v Praze." data-he="בעוד שנה אלמד בפראג.">Za rok budu studovat v Praze.</button>
+        <button class="choice-opt" data-cz="Příští rok pojedu na dovolenou." data-he="השנה הבאה אסע לחופשה.">Příští rok pojedu na dovolenou.</button>
+        <button class="choice-opt" data-cz="Za rok budu mluvit česky perfektně." data-he="בעוד שנה אדבר צ׳כית מצוין.">Za rok budu mluvit česky perfektně.</button>
+      </div>
+      <div class="choice-preview">
+        <span class="choice-preview-cz"></span>
+        <button class="choice-preview-play">▶</button>
+        <span class="choice-preview-he" style="font-family:'Heebo',sans-serif;font-weight:600;color:var(--gd);font-size:13px;margin-right:auto;direction:rtl;"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip green">
+    <strong>✅ סיימתם את 4ד</strong>
+    שיחת ה-״מה תעשה מחר/השבוע הבא/בעתיד״ כבר זמינה לכם בעל-פה. בתרגול המסכם (4ה) תבדקו את עצמכם על כל שיעור 4 — budu, חריגים, וביטויי זמן.
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson4c.html" class="btn-back">→ חזרה ל-4ג: ביטויי זמן</a>
+    <a href="a2-lesson4e.html" class="btn-next">4ה — תרגול מסכם ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson4d">
+
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:18px;">
+    <h3 style="font-size:14px;font-weight:700;color:#11457E;margin-bottom:12px;">ביטויי מפתח מהדיאלוגים</h3>
+    <div class="mini-list" style="color:#16385f;">
+      <div><b>Co budeš dělat zítra?</b> <span class="he">— מה תעשה/תעשי מחר?</span></div>
+      <div><b>Budu pracovat doma.</b> <span class="he">— אעבוד מהבית.</span></div>
+      <div><b>Půjdu na koncert.</b> <span class="he">— אלך לקונצרט.</span></div>
+      <div><b>Pojedeme na výlet.</b> <span class="he">— ניסע לטיול.</span></div>
+      <div><b>Za rok budu v Izraeli.</b> <span class="he">— בעוד שנה אהיה בישראל.</span></div>
+      <div><b>To je skvělé!</b> <span class="he">— זה נפלא!</span></div>
+    </div>
+  </div>
+
+  <div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-inline-start:5px solid #11457E;border-radius:var(--r);padding:16px;margin:0;font-size:13px;color:#16385f;line-height:1.7;box-shadow:0 6px 18px rgba(17,69,126,.06);">
+    <strong style="display:block;margin-bottom:6px;color:#11457E;">🎧 איך לתרגל</strong>
+    שמעו כל דיאלוג פעמיים: פעם תוך קריאה, פעם בעיניים עצומות. אחרי שלושת הדיאלוגים — דמיינו את עצמכם בשיחה אמיתית עם <span class="cz-phrase">Klára</span>, <span class="cz-phrase">Pavel</span> או <span class="cz-phrase">David</span>, וענו בקול רם על השאלה ״<span class="cz-phrase">Co budeš dělat zítra?</span>״.
+  </div>
+
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px;">
+    <h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;">מבט מהיר: הצבעוניות</h3>
+    <div style="font-size:12.5px;color:var(--text);line-height:1.9;">
+      <div><span class="v-fut">ירוק</span> = פועל עתיד (budu, půjdu, pojedu)</div>
+      <div><span class="v-time">כחול</span> = ביטוי זמן (zítra, příští, za)</div>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+
+// לחיצה על ▶ ליד שורה
+document.querySelectorAll('.d-line').forEach(line => {
+  const cz = line.dataset.cz;
+  const playBtn = line.querySelector('.d-play');
+  if (playBtn) {
+    playBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      speak(cz);
+    });
+  }
+});
+
+// השמעת דיאלוג שלם
+document.querySelectorAll('.play-all').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const dialogId = btn.dataset.dialog;
+    const dialog = document.getElementById(dialogId);
+    const lines = Array.from(dialog.querySelectorAll('.d-line'));
+    if (btn.classList.contains('playing')) return;
+    btn.classList.add('playing');
+    btn.textContent = '⏸ משמיע...';
+    playSequence(lines, 0, () => {
+      btn.classList.remove('playing');
+      btn.innerHTML = '<svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמע הכל';
+    });
+  });
+});
+
+function playSequence(lines, idx, done) {
+  if (idx >= lines.length) { done(); return; }
+  lines.forEach(l => l.classList.remove('playing'));
+  const line = lines[idx];
+  line.classList.add('playing');
+  const u = new SpeechSynthesisUtterance(line.dataset.cz);
+  u.lang = 'cs-CZ';
+  u.rate = 0.85;
+  u.onend = () => { setTimeout(() => playSequence(lines, idx + 1, done), 400); };
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+
+// Builder — בנו את התשובה שלכם
+document.querySelectorAll('.choice-row').forEach(row => {
+  const opts = row.querySelectorAll('.choice-opt');
+  const preview = row.querySelector('.choice-preview');
+  const pCz = row.querySelector('.choice-preview-cz');
+  const pHe = row.querySelector('.choice-preview-he');
+  const pPlay = row.querySelector('.choice-preview-play');
+  let currentCz = '';
+
+  opts.forEach(opt => {
+    opt.addEventListener('click', () => {
+      opts.forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+      currentCz = opt.dataset.cz;
+      pCz.textContent = currentCz;
+      pHe.textContent = '— ' + opt.dataset.he;
+      preview.classList.add('show');
+    });
+  });
+
+  pPlay.addEventListener('click', () => {
+    if (currentCz) speak(currentCz);
+  });
+});
+</script>
+<script src="_shared/sidebar.js"></script>
+</body>
+</html>

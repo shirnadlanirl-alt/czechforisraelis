@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 9ה — תרגול מסכם | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--red:#dc2626;--red-light:#fef2f2;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}
+    .logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:20px;animation:fadeIn .5s ease both;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .score-bar{position:sticky;top:60px;z-index:50;background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:14px 20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+    .score-text{font-size:13.5px;color:var(--text);font-weight:600;}
+    .score-text b{color:var(--green);font-family:'Nunito',sans-serif;font-size:16px;}
+    .score-bar-track{flex:1;height:8px;background:var(--gl);border-radius:4px;overflow:hidden;min-width:120px;}
+    .score-bar-fill{height:100%;background:var(--green);transition:width .4s ease;}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:24px 0 12px;display:flex;align-items:center;gap:8px;}
+    .stitle .ex-count{background:var(--gl);color:var(--gd);padding:2px 8px;border-radius:10px;font-size:10px;}
+
+    .qcard{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:10px;animation:fadeIn .4s ease both;}
+    .q-text{font-size:15px;font-weight:600;color:var(--text);margin-bottom:14px;line-height:1.7;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+    .q-text .q-hint{font-size:12.5px;color:var(--muted);font-weight:400;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;}
+    .q-listen{width:32px;height:32px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .q-listen:hover{background:var(--gm);}
+    .q-listen svg{width:11px;height:11px;fill:var(--gd);margin-right:-1px;}
+    .q-opts{display:flex;flex-wrap:wrap;gap:8px;}
+    .q-opt{padding:9px 18px;border-radius:var(--rs);border:1.5px solid var(--border);background:var(--white);font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);cursor:pointer;transition:all .15s;direction:ltr;}
+    .q-opt.he-text{font-family:'Heebo',sans-serif;direction:rtl;}
+    .q-opt:hover:not(:disabled){border-color:var(--green);color:var(--green);}
+    .q-opt:disabled{cursor:default;}
+    .q-opt.correct{background:var(--gl);border-color:var(--green);color:var(--gd);}
+    .q-opt.wrong{background:#fef2f2;border-color:#dc2626;color:#dc2626;opacity:.7;}
+    .q-feedback{font-size:13.5px;line-height:1.7;margin-top:12px;padding:10px 14px;border-radius:var(--rs);display:none;animation:fadeIn .25s ease both;}
+    .q-feedback.show{display:block;}
+    .q-feedback.ok{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.18);}
+    .q-feedback.no{background:#fef2f2;color:#991b1b;border:1px solid rgba(220,38,38,.18);}
+
+    .complete-box{display:none;background:linear-gradient(135deg,var(--green) 0%,#0d8a64 100%);color:white;border-radius:var(--r);padding:32px 28px;text-align:center;margin-top:20px;animation:fadeIn .6s ease both;}
+    .complete-box.show{display:block;}
+    .complete-box .emoji{font-size:54px;margin-bottom:8px;display:block;}
+    .complete-box h3{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;margin-bottom:10px;}
+    .complete-box p{font-size:14.5px;line-height:1.7;opacity:.95;margin-bottom:20px;max-width:520px;margin-left:auto;margin-right:auto;}
+    .complete-box .stat{display:inline-block;background:rgba(255,255,255,.18);padding:6px 16px;border-radius:20px;font-weight:700;font-family:'Nunito',sans-serif;font-size:15px;margin:0 4px 16px;}
+    .complete-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:6px;}
+    .c-link{padding:9px 20px;border-radius:20px;font-size:13.5px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .c-link.white{background:white;color:var(--gd);}
+    .c-link.outline{background:transparent;color:white;border:1.5px solid rgba(255,255,255,.5);}
+    .c-link.outline:hover{border-color:white;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:30px;padding-top:22px;border-top:1px solid var(--border);}
+    .btn-back{padding:10px 20px;border-radius:20px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;text-decoration:none;display:inline-block;}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{padding:10px 22px;border-radius:20px;background:var(--green);color:#fff;font-size:14px;font-weight:700;text-decoration:none;display:inline-block;transition:opacity .15s;}
+    .btn-next:hover{opacity:.88;}
+
+    .ref-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px;}
+    .ref-box h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px;}
+    .ref-row{display:flex;justify-content:space-between;align-items:baseline;gap:6px;font-size:13px;line-height:1.9;}
+    .ref-cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;}
+    .ref-cz.orange{color:#c2410c;}
+    .ref-cz.blue{color:#1d4ed8;}
+    .ref-cz.green{color:var(--green);}
+    .ref-he{color:var(--muted);font-size:12px;}
+    .ref-divider{border:none;border-top:1px solid var(--border);margin:10px 0;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .layout{grid-template-columns:1fr;padding:20px;}
+      .breadcrumb{padding:12px 20px;}
+      aside.sidebar{display:none;}
+      .score-bar{top:50px;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson9.html">שיעור 9</a><span>›</span>
+  9ה — תרגול מסכם
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 תרגול מסכם — שיעור 9 כולו</strong>
+    20 שאלות מ-5 תרגילים: jedu/jezdím (9א), Čím? אמצעי נסיעה (9ב), עתיד pojedu/budu jezdit (9ג), תרגום, האזנה. בסיידבר — טבלת סיכום וחומר עזר לכל אורך התרגול.
+  </div>
+
+  <!-- SCORE BAR -->
+  <div class="score-bar">
+    <div class="score-text">התקדמות: <b id="scoreNum">0/20</b></div>
+    <div class="score-bar-track"><div class="score-bar-fill" id="scoreFill" style="width:0%"></div></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- EXERCISE 1: jedu vs jezdím                   -->
+  <!-- ============================================ -->
+  <div class="stitle">
+    <span class="ex-count">תרגיל 1</span>
+    jedu או jezdím — מה מתאים?
+  </div>
+
+  <div class="qcard" data-correct="Teď jedu do centra.">
+    <div class="q-text"><span class="q-hint">"עכשיו אני נוסע/ת למרכז."</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Teď jedu do centra.">Teď jedu do centra.</button>
+      <button class="q-opt" data-opt="Teď jezdím do centra.">Teď jezdím do centra.</button>
+      <button class="q-opt" data-opt="Teď jedeš do centra.">Teď jedeš do centra.</button>
+      <button class="q-opt" data-opt="Teď jezdíš do centra.">Teď jezdíš do centra.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Každý den jezdím do práce.">
+    <div class="q-text"><span class="q-hint">"כל יום אני נוסע/ת לעבודה."</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Každý den jedu do práce.">Každý den jedu do práce.</button>
+      <button class="q-opt" data-opt="Každý den jezdím do práce.">Každý den jezdím do práce.</button>
+      <button class="q-opt" data-opt="Každý den jedeme do práce.">Každý den jedeme do práce.</button>
+      <button class="q-opt" data-opt="Každý den jezdíme do práce.">Každý den jezdíme do práce.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="jezdíš">
+    <div class="q-text"><span class="cz-phrase">Pravidelně _____ do školy?</span> <span class="q-hint">— "אתה/את נוסע/ת לבית הספר באופן קבוע?"</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="jedeš">jedeš</button>
+      <button class="q-opt" data-opt="jezdíš">jezdíš</button>
+      <button class="q-opt" data-opt="jedete">jedete</button>
+      <button class="q-opt" data-opt="jezdíte">jezdíte</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="jede">
+    <div class="q-text"><span class="cz-phrase">Zítra Tomáš _____ do Brna.</span> <span class="q-hint">— "מחר תומאש נוסע לברנו."</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="jezdí">jezdí</button>
+      <button class="q-opt" data-opt="jede">jede</button>
+      <button class="q-opt" data-opt="jedu">jedu</button>
+      <button class="q-opt" data-opt="jedeme">jedeme</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- EXERCISE 2: Čím?                             -->
+  <!-- ============================================ -->
+  <div class="stitle">
+    <span class="ex-count">תרגיל 2</span>
+    Čím? — בחרו את אמצעי הנסיעה הנכון
+  </div>
+
+  <div class="qcard" data-correct="metrem">
+    <div class="q-text"><span class="cz-phrase">Jezdím do práce _____.</span> <span class="q-hint">— "אני נוסע/ת לעבודה במטרו." (metro)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="metro">metro</button>
+      <button class="q-opt" data-opt="metrem">metrem</button>
+      <button class="q-opt" data-opt="metros">metros</button>
+      <button class="q-opt" data-opt="metrou">metrou</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="vlakem">
+    <div class="q-text"><span class="cz-phrase">Jedu do Brna _____.</span> <span class="q-hint">— "אני נוסע/ת לברנו ברכבת." (vlak)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="vlak">vlak</button>
+      <button class="q-opt" data-opt="vlaku">vlaku</button>
+      <button class="q-opt" data-opt="vlakem">vlakem</button>
+      <button class="q-opt" data-opt="vlaky">vlaky</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="tramvají">
+    <div class="q-text"><span class="cz-phrase">Obvykle jezdím _____.</span> <span class="q-hint">— "בדרך כלל אני נוסע/ת בטרם." (tramvaj)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="tramvaj">tramvaj</button>
+      <button class="q-opt" data-opt="tramvajem">tramvajem</button>
+      <button class="q-opt" data-opt="tramvají">tramvají</button>
+      <button class="q-opt" data-opt="tramvajou">tramvajou</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="autem">
+    <div class="q-text"><span class="cz-phrase">Jedeme na výlet _____.</span> <span class="q-hint">— "אנחנו נוסעים לטיול ברכב." (auto)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="auto">auto</button>
+      <button class="q-opt" data-opt="autem">autem</button>
+      <button class="q-opt" data-opt="autou">autou</button>
+      <button class="q-opt" data-opt="auta">auta</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- EXERCISE 3: jednotlivý vs budu jezdit        -->
+  <!-- ============================================ -->
+  <div class="stitle">
+    <span class="ex-count">תרגיל 3</span>
+    pojedu או budu jezdit — עתיד חד-פעמי או הרגלי?
+  </div>
+
+  <div class="qcard" data-correct="Zítra pojedu do Prahy.">
+    <div class="q-text"><span class="q-hint">"מחר אסע לפראג." (פעם אחת)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Zítra pojedu do Prahy.">Zítra pojedu do Prahy.</button>
+      <button class="q-opt" data-opt="Zítra budu jezdit do Prahy.">Zítra budu jezdit do Prahy.</button>
+      <button class="q-opt" data-opt="Zítra jedu do Prahy.">Zítra jedu do Prahy.</button>
+      <button class="q-opt" data-opt="Zítra jezdím do Prahy.">Zítra jezdím do Prahy.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Od příštího měsíce budu jezdit metrem.">
+    <div class="q-text"><span class="q-hint">"מהחודש הבא אסע במטרו." (הרגל עתידי)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Od příštího měsíce pojedu metrem.">Od příštího měsíce pojedu metrem.</button>
+      <button class="q-opt" data-opt="Od příštího měsíce budu jezdit metrem.">Od příštího měsíce budu jezdit metrem.</button>
+      <button class="q-opt" data-opt="Od příštího měsíce jedu metrem.">Od příštího měsíce jedu metrem.</button>
+      <button class="q-opt" data-opt="Od příštího měsíce jezdím metrem.">Od příštího měsíce jezdím metrem.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="pojedu">
+    <div class="q-text"><span class="cz-phrase">V sobotu _____ na výlet autobusem.</span> <span class="q-hint">— "בשבת אסע לטיול באוטובוס." (פעם אחת)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="budu jezdit">budu jezdit</button>
+      <button class="q-opt" data-opt="pojedu">pojedu</button>
+      <button class="q-opt" data-opt="jedu">jedu</button>
+      <button class="q-opt" data-opt="jezdím">jezdím</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="budu jezdit">
+    <div class="q-text"><span class="cz-phrase">Každý den _____ do školy vlakem.</span> <span class="q-hint">— "כל יום אסע לבית הספר ברכבת." (הרגל עתידי)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="pojedu">pojedu</button>
+      <button class="q-opt" data-opt="budu jezdit">budu jezdit</button>
+      <button class="q-opt" data-opt="jezdím">jezdím</button>
+      <button class="q-opt" data-opt="jedu">jedu</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- EXERCISE 4: Translation                      -->
+  <!-- ============================================ -->
+  <div class="stitle">
+    <span class="ex-count">תרגיל 4</span>
+    תרגום — מה הפירוש?
+  </div>
+
+  <div class="qcard" data-correct="כל יום אני נוסע/ת באוטובוס לעבודה.">
+    <div class="q-text">
+      <button class="q-listen" onclick="speak('Každý den jezdím autobusem do práce.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz-phrase">Každý den jezdím autobusem do práce.</span>
+    </div>
+    <div class="q-opts">
+      <button class="q-opt he-text" data-opt="כל יום אני נוסע/ת באוטובוס לעבודה.">כל יום אני נוסע/ת באוטובוס לעבודה.</button>
+      <button class="q-opt he-text" data-opt="עכשיו אני נוסע/ת באוטובוס לעבודה.">עכשיו אני נוסע/ת באוטובוס לעבודה.</button>
+      <button class="q-opt he-text" data-opt="מחר אסע באוטובוס לעבודה.">מחר אסע באוטובוס לעבודה.</button>
+      <button class="q-opt he-text" data-opt="אני אוהב/ת לנסוע באוטובוס.">אני אוהב/ת לנסוע באוטובוס.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="שבוע הבא נסע לווינה ברכבת.">
+    <div class="q-text">
+      <button class="q-listen" onclick="speak('Příští týden pojedeme do Vídně vlakem.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz-phrase">Příští týden pojedeme do Vídně vlakem.</span>
+    </div>
+    <div class="q-opts">
+      <button class="q-opt he-text" data-opt="שבוע הבא נסע לווינה ברכבת.">שבוע הבא נסע לווינה ברכבת.</button>
+      <button class="q-opt he-text" data-opt="כל שבוע אנחנו נוסעים לווינה ברכבת.">כל שבוע אנחנו נוסעים לווינה ברכבת.</button>
+      <button class="q-opt he-text" data-opt="אנחנו נוסעים לווינה עכשיו ברכבת.">אנחנו נוסעים לווינה עכשיו ברכבת.</button>
+      <button class="q-opt he-text" data-opt="אנחנו רוצים לנסוע לווינה.">אנחנו רוצים לנסוע לווינה.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Čím jedeš?">
+    <div class="q-text"><span class="q-hint">"במה אתה/את נוסע/ת?" (עכשיו)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Čím jedeš?">Čím jedeš?</button>
+      <button class="q-opt" data-opt="Kam jedeš?">Kam jedeš?</button>
+      <button class="q-opt" data-opt="Čím jezdíš?">Čím jezdíš?</button>
+      <button class="q-opt" data-opt="Jak jedeš?">Jak jedeš?</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="מהחודש הבא אסע (תמיד) במטרו.">
+    <div class="q-text">
+      <button class="q-listen" onclick="speak('Od příštího měsíce budu jezdit metrem.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="cz-phrase">Od příštího měsíce budu jezdit metrem.</span>
+    </div>
+    <div class="q-opts">
+      <button class="q-opt he-text" data-opt="מהחודש הבא אסע (תמיד) במטרו.">מהחודש הבא אסע (תמיד) במטרו.</button>
+      <button class="q-opt he-text" data-opt="החודש אני נוסע/ת במטרו.">החודש אני נוסע/ת במטרו.</button>
+      <button class="q-opt he-text" data-opt="בחודש הבא אסע פעם אחת במטרו.">בחודש הבא אסע פעם אחת במטרו.</button>
+      <button class="q-opt he-text" data-opt="כל יום אני נוסע/ת במטרו.">כל יום אני נוסע/ת במטרו.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- EXERCISE 5: Listening                        -->
+  <!-- ============================================ -->
+  <div class="stitle">
+    <span class="ex-count">תרגיל 5</span>
+    האזנה — מה נאמר?
+  </div>
+
+  <div class="qcard" data-correct="Jedu teď autobusem do školy.">
+    <div class="q-text">
+      <button class="q-listen" onclick="speak('Jedu teď autobusem do školy.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span style="font-size:13px;color:var(--muted);font-weight:400;">לחצו על ▶ והאזינו</span>
+    </div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Jedu teď autobusem do školy.">Jedu teď autobusem do školy.</button>
+      <button class="q-opt" data-opt="Jezdím každý den autobusem do školy.">Jezdím každý den autobusem do školy.</button>
+      <button class="q-opt" data-opt="Pojedu autobusem do školy.">Pojedu autobusem do školy.</button>
+      <button class="q-opt" data-opt="Budu jezdit autobusem do školy.">Budu jezdit autobusem do školy.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Každý týden jezdíme vlakem do Brna.">
+    <div class="q-text">
+      <button class="q-listen" onclick="speak('Každý týden jezdíme vlakem do Brna.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span style="font-size:13px;color:var(--muted);font-weight:400;">לחצו על ▶ והאזינו</span>
+    </div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Teď jedeme vlakem do Brna.">Teď jedeme vlakem do Brna.</button>
+      <button class="q-opt" data-opt="Každý týden jezdíme vlakem do Brna.">Každý týden jezdíme vlakem do Brna.</button>
+      <button class="q-opt" data-opt="Příští týden pojedeme vlakem do Brna.">Příští týden pojedeme vlakem do Brna.</button>
+      <button class="q-opt" data-opt="Budeme jezdit vlakem do Brna.">Budeme jezdit vlakem do Brna.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="V pátek pojedu letadlem do Izraele.">
+    <div class="q-text">
+      <button class="q-listen" onclick="speak('V pátek pojedu letadlem do Izraele.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span style="font-size:13px;color:var(--muted);font-weight:400;">לחצו על ▶ והאזינו</span>
+    </div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="V pátek jezdím letadlem do Izraele.">V pátek jezdím letadlem do Izraele.</button>
+      <button class="q-opt" data-opt="Každý pátek jedu letadlem do Izraele.">Každý pátek jedu letadlem do Izraele.</button>
+      <button class="q-opt" data-opt="V pátek pojedu letadlem do Izraele.">V pátek pojedu letadlem do Izraele.</button>
+      <button class="q-opt" data-opt="Budu jezdit letadlem do Izraele.">Budu jezdit letadlem do Izraele.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Čím obvykle jezdíš do práce?">
+    <div class="q-text">
+      <button class="q-listen" onclick="speak('Čím obvykle jezdíš do práce?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span style="font-size:13px;color:var(--muted);font-weight:400;">לחצו על ▶ והאזינו</span>
+    </div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Čím teď jedeš do práce?">Čím teď jedeš do práce?</button>
+      <button class="q-opt" data-opt="Kam obvykle jezdíš?">Kam obvykle jezdíš?</button>
+      <button class="q-opt" data-opt="Čím obvykle jezdíš do práce?">Čím obvykle jezdíš do práce?</button>
+      <button class="q-opt" data-opt="Čím pojedeš do práce?">Čím pojedeš do práce?</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <!-- COMPLETE BOX -->
+  <div class="complete-box" id="completeBox">
+    <span class="emoji">🚆</span>
+    <h3>שיעור 9 הושלם!</h3>
+    <p>עכשיו אתם יודעים להבחין בין <b>jedu</b> (נסיעה עכשיו) ל-<b>jezdím</b> (הרגל), לענות על <b>Čím?</b> (במה?) עם אמצעי הנסיעה הנכון, ולדבר על נסיעות בעתיד עם <b>pojedu</b> ו-<b>budu jezdit</b>.</p>
+    <div>
+      <span class="stat" id="finalScore"></span>
+      <span class="stat">שיעור 9 ✓</span>
+    </div>
+    <p style="font-size:13px;opacity:.8;">שיעור 10 — <b>Spojky</b> — מילות קישור: když, ale, protože, který. בניית משפטים מורכבים!</p>
+    <div class="complete-links">
+      <a href="a2-lesson9.html" class="c-link white">← חזרה לסקירה</a>
+      <a href="a2.html" class="c-link outline">כל שיעורי A2</a>
+    </div>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson9d.html" class="btn-back">→ חזרה ל-9ד</a>
+    <a href="a2-lesson10.html" class="btn-next">שיעור 10 — Spojky — מילות קישור ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson9e">
+  <div class="ref-box">
+    <h3>📋 סיכום שיעור 9</h3>
+    <table style="width:100%;font-size:12.5px;border-collapse:collapse;margin-bottom:10px;">
+      <thead>
+        <tr>
+          <th style="background:var(--bg);padding:6px;border:1px solid var(--border);font-size:11px;color:var(--muted);"></th>
+          <th style="background:#fff7ed;padding:6px;border:1px solid var(--border);color:#c2410c;font-family:'Nunito',sans-serif;text-align:center;">כיווני</th>
+          <th style="background:#eff6ff;padding:6px;border:1px solid var(--border);color:#1d4ed8;font-family:'Nunito',sans-serif;text-align:center;">הרגלי</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:6px;border:1px solid var(--border);color:var(--muted);font-size:11px;">הווה</td>
+          <td style="padding:6px;border:1px solid var(--border);font-family:'Nunito',sans-serif;font-weight:800;color:#c2410c;text-align:center;">jedu</td>
+          <td style="padding:6px;border:1px solid var(--border);font-family:'Nunito',sans-serif;font-weight:800;color:#1d4ed8;text-align:center;">jezdím</td>
+        </tr>
+        <tr>
+          <td style="padding:6px;border:1px solid var(--border);color:var(--muted);font-size:11px;">עתיד</td>
+          <td style="padding:6px;border:1px solid var(--border);font-family:'Nunito',sans-serif;font-weight:800;color:#c2410c;text-align:center;">pojedu</td>
+          <td style="padding:6px;border:1px solid var(--border);font-family:'Nunito',sans-serif;font-weight:800;color:#1d4ed8;text-align:center;">budu jezdit</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr class="ref-divider">
+    <div style="font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:700;letter-spacing:.04em;">Čím? — אמצעי נסיעה</div>
+    <div class="ref-row"><span class="ref-cz green">metrem</span><span class="ref-he">במטרו</span></div>
+    <div class="ref-row"><span class="ref-cz green">autobusem</span><span class="ref-he">באוטובוס</span></div>
+    <div class="ref-row"><span class="ref-cz green">tramvají</span><span class="ref-he">בטרם</span></div>
+    <div class="ref-row"><span class="ref-cz green">vlakem</span><span class="ref-he">ברכבת</span></div>
+    <div class="ref-row"><span class="ref-cz green">letadlem</span><span class="ref-he">במטוס</span></div>
+    <div class="ref-row"><span class="ref-cz green">autem</span><span class="ref-he">ברכב</span></div>
+    <div class="ref-row"><span class="ref-cz green">kolem</span><span class="ref-he">באופניים</span></div>
+    <div class="ref-row"><span class="ref-cz green">pěšky</span><span class="ref-he">ברגל</span></div>
+  </div>
+</aside>
+</div>
+
+<script>
+// --- SPEECH ---
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ'; u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+
+// --- QUIZ ENGINE ---
+const TOTAL = 20;
+let correct = 0;
+
+const feedbackTexts = {
+  // Exercise 1
+  "Teď jedu do centra.": "✅ נכון! <b>teď</b> = עכשיו → jet (כיווני)",
+  "Každý den jezdím do práce.": "✅ נכון! <b>každý den</b> = כל יום → jezdit (הרגל)",
+  "jezdíš": "✅ נכון! <b>pravidelně</b> = באופן קבוע → jezdit. אתה/את אחד: <b>jezdíš</b>",
+  "jede": "✅ נכון! <b>zítra</b> = מחר → jet. הוא/היא: <b>jede</b>",
+  // Exercise 2
+  "metrem": "✅ נכון! metro → <b>metrem</b>. סיומת -em לאמצעי תחבורה.",
+  "vlakem": "✅ נכון! vlak → <b>vlakem</b>. +em.",
+  "tramvají": "✅ נכון! tramvaj (נקבה) → <b>tramvají</b>. סיומת שונה!",
+  "autem": "✅ נכון! auto → <b>autem</b>. +em.",
+  // Exercise 3
+  "Zítra pojedu do Prahy.": "✅ נכון! <b>zítra</b> = מחר, פעם אחת → <b>pojedu</b>",
+  "Od příštího měsíce budu jezdit metrem.": "✅ נכון! <b>od příštího měsíce + הרגל</b> → <b>budu jezdit</b>",
+  "pojedu": "✅ נכון! <b>v sobotu</b> = בשבת, פעם אחת → <b>pojedu</b>",
+  "budu jezdit": "✅ נכון! <b>každý den</b> = כל יום, הרגל עתידי → <b>budu jezdit</b>",
+  // Exercise 4
+  "כל יום אני נוסע/ת באוטובוס לעבודה.": "✅ נכון! každý den + jezdím = הרגל",
+  "שבוע הבא נסע לווינה ברכבת.": "✅ נכון! příští týden + pojedeme = עתיד חד-פעמי",
+  "Čím jedeš?": "✅ נכון! Čím = במה, jedeš = אתה/את נוסע/ת עכשיו",
+  "מהחודש הבא אסע (תמיד) במטרו.": "✅ נכון! od příštího měsíce + budu jezdit = הרגל עתידי",
+  // Exercise 5
+  "Jedu teď autobusem do školy.": "✅ נכון! jedu + teď = נסיעה עכשיו",
+  "Každý týden jezdíme vlakem do Brna.": "✅ נכון! každý týden + jezdíme = הרגל שבועי",
+  "V pátek pojedu letadlem do Izraele.": "✅ נכון! v pátek + pojedu = עתיד חד-פעמי",
+  "Čím obvykle jezdíš do práce?": "✅ נכון! Čím + obvykle + jezdíš = שאלת הרגל"
+};
+
+function goStep(btn, card) {
+  const chosen = btn.getAttribute('data-opt');
+  const correct_ans = card.getAttribute('data-correct');
+  const feedback = card.querySelector('.q-feedback');
+  const opts = card.querySelectorAll('.q-opt');
+  opts.forEach(o => {
+    o.disabled = true;
+    if (o.getAttribute('data-opt') === correct_ans) o.classList.add('correct');
+    else if (o === btn && chosen !== correct_ans) o.classList.add('wrong');
+  });
+  const isCorrect = chosen === correct_ans;
+  if (isCorrect) {
+    correct++;
+    feedback.className = 'q-feedback show ok';
+    feedback.innerHTML = feedbackTexts[correct_ans] || '✅ נכון!';
+  } else {
+    feedback.className = 'q-feedback show no';
+    feedback.innerHTML = `❌ לא בדיוק. התשובה הנכונה: <b style="font-family:'Nunito',sans-serif;direction:ltr;unicode-bidi:isolate;">${correct_ans}</b>`;
+  }
+  updateScore();
+  const answered = document.querySelectorAll('.q-opt[disabled]').length;
+  const totalOpts = document.querySelectorAll('.q-opt').length;
+  if (answered === totalOpts) showComplete();
+}
+
+function updateScore() {
+  const answered = document.querySelectorAll('.q-opt[disabled]').length / 4;
+  document.getElementById('scoreNum').textContent = `${correct}/${TOTAL}`;
+  document.getElementById('scoreFill').style.width = `${(answered/TOTAL)*100}%`;
+}
+
+function showComplete() {
+  const box = document.getElementById('completeBox');
+  box.classList.add('show');
+  document.getElementById('finalScore').textContent = `${correct}/${TOTAL} נכון`;
+  box.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+document.querySelectorAll('.q-opt').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.qcard');
+    if (card.querySelector('.q-opt[disabled]')) return;
+    goStep(this, card);
+  });
+});
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 2א — מה זה Lokál? | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .recall-box{background:#f5f3ff;border:1px solid rgba(109,40,217,.18);border-radius:var(--rs);padding:14px 18px;font-size:13.5px;color:#4c1d95;line-height:1.7;margin-bottom:22px;}
+    .recall-box strong{font-weight:700;display:block;margin-bottom:4px;}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px;}
+    .compare-card{border-radius:var(--rs);padding:16px 18px;}
+    .compare-card.left{background:#fef3c7;border:1px solid rgba(245,158,11,.25);}
+    .compare-card.right{background:var(--gl);border:1px solid rgba(29,158,117,.2);}
+    .compare-card .cc-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+    .compare-card.left .cc-label{color:#b45309;}
+    .compare-card.right .cc-label{color:var(--gd);}
+    .compare-card .cc-ex{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;direction:ltr;unicode-bidi:isolate;margin-bottom:6px;}
+    .compare-card.left .cc-ex{color:#92400e;}
+    .compare-card.right .cc-ex{color:var(--gd);}
+    .compare-card .cc-he{font-size:13px;color:var(--muted);}
+    .compare-card .cc-rule{font-size:12px;margin-top:8px;font-weight:600;}
+    .prep-table{width:100%;border-collapse:collapse;margin-bottom:22px;font-size:14px;}
+    .end-table th{text-align:center;background:var(--gd);color:white;font-weight:700;padding:9px 14px;font-size:11.5px;}
+    .prep-table th:first-child{border-radius:0 var(--rs) 0 0;}
+    .prep-table th:last-child{border-radius:var(--rs) 0 0 0;}
+    .prep-table td{padding:10px 14px;border:1px solid var(--border);vertical-align:top;line-height:1.6;}
+    .prep-table td .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:15px;color:var(--gd);}
+    .prep-table td .he{font-size:12.5px;color:var(--muted);}
+    .prep-table tr:nth-child(even) td{background:#fafaf8;}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:28px;height:28px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .hl{color:var(--green);font-weight:900;}
+    .hl-amber{color:#b45309;font-weight:900;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.compare-grid{grid-template-columns:1fr;}}
+      .end-table td[class],.prep-table td[class]{text-align:center;}
+    </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson2.html">שיעור 2 — Lokál</a><span>›</span>2א — מה זה Lokál?
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="recall-box">
+    <strong>💜 זוכרים מ-A2?</strong>
+    למדנו שצ'כית משתמשת ב<b>יחסות</b> — הסיומת של המילה משתנה לפי תפקידה במשפט. עד כה למדנו Nominativ (מי עושה) ו-Akuzativ (את מה/מי). עכשיו מגיע <b>Lokál</b> — היחסה שמתארת <em>איפה</em> משהו קורה.
+  </div>
+
+  <div class="why-box">
+    <strong>📍 מה Lokál עושה?</strong>
+    Lokál = יחסת המיקום. השאלה שמזהה אותה: <strong>״איפה? / על מה? / על מי?״</strong> (kde? / o čem? / o kom?)<br>
+    חוק ברזל: <b>Lokál לא מופיע לעולם לבד</b> — תמיד אחרי אחת מחמש מילות היחס: <span class="cz-phrase">v/ve, na, o, při, po.</span>
+  </div>
+
+  <p class="stitle">ההבחנה הגדולה — na + Akuzativ לעומת na + Lokál</p>
+
+  <div class="compare-grid">
+    <div class="compare-card left">
+      <div class="cc-label">⬅️ na + Akuzativ — לאן?</div>
+      <div class="cc-ex">Jdu na <b>koncert</b>.</div>
+      <div class="cc-he">אני הולך/ת לקונצרט</div>
+      <div class="cc-rule">na + Akuzativ = כיוון, תנועה, לאן?<br>koncert לא משתנה (זכר דומם)</div>
+    </div>
+    <div class="compare-card right">
+      <div class="cc-label">📍 na + Lokál — איפה?</div>
+      <div class="cc-ex">Jsem na <b>koncertě</b>.</div>
+      <div class="cc-he">אני בקונצרט (נמצא שם)</div>
+      <div class="cc-rule">na + Lokál = מיקום, איפה?<br>koncert → koncertě (סיומת Lokál)</div>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ זה הדבר שהכי מבלבל!</strong>
+    <span class="cz-phrase">na</span> יכולה ללכת גם עם Akuzativ וגם עם Lokál — לפי <b>המשמעות</b>:<br>
+    <span class="cz-phrase">Jdu <b>na</b> poštu</span> (הולך לדואר = כיוון = Akuzativ) ←→ <span class="cz-phrase">Jsem <b>na</b> poště</span> (אני בדואר = מיקום = Lokál).<br>
+    אותה מילת יחס, יחסות שונות, סיומות שונות.
+  </div>
+
+  <p class="stitle">חמש מילות היחס של Lokál</p>
+
+  <table class="prep-table">
+    <thead>
+      <tr><th>מילת יחס</th><th>משמעות</th><th>דוגמה</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="cz">v / ve</div></div></td>
+        <td>בתוך, ב- (מיקום סגור)</td>
+        <td><span class="cz-phrase">v Praze · ve škole · v bytě</span><br><span style="font-size:12px;color:var(--muted)">בפראג · בבית ספר · בדירה</span></td>
+      </tr>
+      <tr>
+        <td><div class="cz">na</div></td>
+        <td>על, ב- (מיקום פתוח / מוסדות)</td>
+        <td><span class="cz-phrase">na stole · na poště · na univerzitě</span><br><span style="font-size:12px;color:var(--muted)">על השולחן · בדואר · באוניברסיטה</span></td>
+      </tr>
+      <tr>
+        <td><div class="cz">o</div></td>
+        <td>על (נושא שיחה, חשיבה)</td>
+        <td><span class="cz-phrase">mluvit o práci · přemýšlet o životě</span><br><span style="font-size:12px;color:var(--muted)">לדבר על העבודה · לחשוב על החיים</span></td>
+      </tr>
+      <tr>
+        <td><div class="cz">při</div></td>
+        <td>בזמן, בעת, ליד (בהקשר)</td>
+        <td><span class="cz-phrase">při jídle · při práci · při škole</span><br><span style="font-size:12px;color:var(--muted)">בזמן אכילה · בעת עבודה · ליד בית הספר</span></td>
+      </tr>
+      <tr>
+        <td><div class="cz">po</div></td>
+        <td>על פני (תנועה על פני שטח), בכל</td>
+        <td><span class="cz-phrase">chodit po městě · jezdit po Evropě</span><br><span style="font-size:12px;color:var(--muted)">להסתובב בעיר · לנסוע ברחבי אירופה</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="stitle">דוגמאות לשמיעה</p>
+
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Bydlím v Praze.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Bydlím v <span class="hl">Praze</span>.</span>
+    <span class="ex-he">אני גר/ה בפראג</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Kniha leží na stole.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Kniha leží na <span class="hl">stole</span>.</span>
+    <span class="ex-he">הספר מונח על השולחן</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Mluvíme o práci.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Mluvíme o <span class="hl">práci</span>.</span>
+    <span class="ex-he">אנחנו מדברים על העבודה</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Studuju na univerzitě.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Studuju na <span class="hl">univerzitě</span>.</span>
+    <span class="ex-he">אני לומד/ת באוניברסיטה</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Chodíme po městě.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Chodíme po <span class="hl">městě</span>.</span>
+    <span class="ex-he">אנחנו מסתובבים בעיר</span>
+  </div>
+
+  <div class="tip green">
+    <strong>🔑 הטריק להבחין: v לעומת na</strong>
+    <b>v/ve</b> = מקומות סגורים, ערים, מדינות: <span class="cz-phrase">v Praze, v bytě, v Česku</span><br>
+    <b>na</b> = שטחים פתוחים, מוסדות פומביים, אירועים: <span class="cz-phrase">na poště, na nádraží, na koncertě, na náměstí</span><br>
+    <em>חריגים קיימים — ומוסדות כמו <span class="cz-phrase">škola</span> (ve škole) לוקחים v.</em>
+  </div>
+
+  <div class="step-nav">
+    <a href="b1-lesson2.html" class="btn-back">→ חזרה לשיעור 2</a>
+    <a href="b1-lesson2b.html" class="btn-next">2ב — Lokál יחיד ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson2a">
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#11457E;">📍 5 מילות יחס של Lokál</strong>
+    <div style="font-size:13px;line-height:2.2;color:#16385f;">
+      <b style="font-family:'Nunito',sans-serif;">v/ve</b> — בתוך (ערים, מקומות סגורים)<br>
+      <b style="font-family:'Nunito',sans-serif;">na</b> — על / ב- (מוסדות, שטחים פתוחים)<br>
+      <b style="font-family:'Nunito',sans-serif;">o</b> — על (נושא דיבור/חשיבה)<br>
+      <b style="font-family:'Nunito',sans-serif;">při</b> — בזמן, בעת<br>
+      <b style="font-family:'Nunito',sans-serif;">po</b> — על פני, ברחבי
+    </div>
+  </div>
+  <div style="background:#fef3c7;border:1px solid rgba(245,158,11,.2);border-radius:var(--rs);padding:14px;font-size:12.5px;color:#92400e;">
+    <strong style="display:block;margin-bottom:6px;">⚠️ na — שני שימושים!</strong>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;">na + Akuzativ</span> = לאן? (כיוון)<br>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;">na + Lokál</span> = איפה? (מיקום)
+  </div>
+</aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+function speak(t){
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='cs-CZ';u.rate=0.85;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>

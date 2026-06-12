@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 12א — baví mě · líbí se mi · vadí mi | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--pink-light:#fce7f3;--c-pink:#9d174d;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--pink-light);border:1px solid rgba(157,23,77,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--c-pink);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* Verb block */
+    .verb-block{border-radius:var(--r);padding:22px 24px;margin-bottom:20px;}
+    .verb-block.pink{background:var(--pink-light);border:2px solid rgba(157,23,77,.2);}
+    .verb-block.blue{background:#eff6ff;border:2px solid rgba(29,78,216,.2);}
+    .verb-block.amber{background:#fffbeb;border:2px solid rgba(180,83,9,.2);}
+    .verb-name{font-family:'Nunito',sans-serif;font-size:30px;font-weight:800;direction:ltr;margin-bottom:4px;}
+    .verb-name.pink{color:var(--c-pink);}
+    .verb-name.blue{color:#1d4ed8;}
+    .verb-name.amber{color:#b45309;}
+    .verb-meaning{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px;}
+    .verb-rule{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:14px;}
+
+    /* Person table */
+    .person-table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13.5px;}
+    .person-table th{padding:7px 12px;font-weight:700;font-size:11.5px;text-align:right;}
+    .person-table th.pink{background:var(--c-pink);color:white;}
+    .person-table th.blue{background:#1d4ed8;color:white;}
+    .person-table th.amber{background:#b45309;color:white;}
+    .person-table th:first-child{border-radius:0 var(--rs) 0 0;}
+    .person-table th:last-child{border-radius:var(--rs) 0 0 0;}
+    .person-table td{padding:7px 12px;border:1px solid var(--border);line-height:1.5;}
+    .person-table td .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:14px;}
+    .person-table td .he{font-size:11.5px;color:var(--muted);}
+    .person-table tr:nth-child(even) td{background:#fafaf8;}
+
+    /* Example line */
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.75);margin-bottom:6px;}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:26px;height:26px;border-radius:50%;background:var(--pink-light);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:#fbcfe8;}
+    .ex-btn svg{width:9px;height:9px;fill:var(--c-pink);margin-right:-1px;}
+    .ex-btn.b{background:#eff6ff;}.ex-btn.b:hover{background:#bfdbfe;}
+    .ex-btn.b svg{fill:#1d4ed8;}
+    .ex-btn.a{background:#fef3c7;}.ex-btn.a:hover{background:#fde68a;}
+    .ex-btn.a svg{fill:#b45309;}
+    .hl-pink{color:var(--c-pink);font-weight:900;}
+    .hl-blue{color:#1d4ed8;font-weight:900;}
+    .hl-amber{color:#b45309;font-weight:900;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="a2.html">A2</a><span>›</span><a href="a2-lesson12.html">שיעור 12</a><span>›</span>12א — baví mě · líbí se mi · vadí mi
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    שלושה פעלים ״הפוכים״ — בצ׳כית, <b>הדבר</b> הוא הנושא, לא אני. לא ״אני אוהב טיול״ — אלא ״טיול מוצא חן בעיניי״. המבנה הזה נשמע מוזר בהתחלה, אבל זה בדיוק איך שמדברים בצ׳כית.
+  </div>
+
+  <!-- BAVÍ MĚ -->
+  <div class="verb-block pink">
+    <div class="verb-name pink">baví mě</div>
+    <div class="verb-meaning">כיפי לי / אני נהנה/ת מ- / מעניין אותי</div>
+    <div class="verb-rule">מה <b>mě/tě/ho/ji...</b> baví = מה <b>מענייו/מהנה</b> אותנו. הנושא הוא הדבר המהנה, לא האדם. הפועל <span class="cz-phrase">bavit</span> מתנגד לפי הדבר (לא לפי האדם).</div>
+    <table class="person-table">
+      <thead><tr><th class="pink">מי</th><th class="pink">צ׳כית</th><th class="pink">עברית</th></tr></thead>
+      <tbody>
+        <tr><td>אני</td><td><span class="cz">baví <b>mě</b></span></td><td><span class="he">כיפי לי / נהנה/ת</span></td></tr>
+        <tr><td>אתה/את</td><td><span class="cz">baví <b>tě</b></span></td><td><span class="he">כיפי לך</span></td></tr>
+        <tr><td>הוא</td><td><span class="cz">baví <b>ho</b></span></td><td><span class="he">כיפי לו</span></td></tr>
+        <tr><td>היא</td><td><span class="cz">baví <b>ji</b></span></td><td><span class="he">כיפי לה</span></td></tr>
+        <tr><td>אנחנו</td><td><span class="cz">baví <b>nás</b></span></td><td><span class="he">כיפי לנו</span></td></tr>
+      </tbody>
+    </table>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Baví mě cestování.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Baví <span class="hl-pink">mě</span> cestování.</span>
+      <span class="ex-he">כיפי לי לטייל / אני נהנה/ת מטיולים.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Baví tě čeština?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Baví <span class="hl-pink">tě</span> čeština?</span>
+      <span class="ex-he">כיפי לך ללמוד צ׳כית? (=אתה/את נהנה/ת מצ׳כית?)</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Mě baví fotbal, ale jeho nebaví.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Mě baví fotbal, ale jeho ne<span class="hl-pink">baví</span>.</span>
+      <span class="ex-he">לי כיפי כדורגל, אבל לו לא.</span>
+    </div>
+  </div>
+
+  <!-- LÍBÍ SE MI -->
+  <div class="verb-block blue">
+    <div class="verb-name blue">líbí se mi</div>
+    <div class="verb-meaning">אהוב עליי / מוצא/ת חן בעיניי / אני אוהב/ת</div>
+    <div class="verb-rule">מה <b>se mi/ti/mu/jí...</b> líbí = מה <b>מוצא חן</b> אצלי. בעברית נאמר ״אני אוהב/ת״, בצ׳כית ״X מוצא חן בעיניי״. לאחר הנושא — הפועל מסכים עם הנושא (לא עם האדם).</div>
+    <table class="person-table">
+      <thead><tr><th class="blue">מי</th><th class="blue">צ׳כית</th><th class="blue">עברית</th></tr></thead>
+      <tbody>
+        <tr><td>אני</td><td><span class="cz">líbí se <b>mi</b></span></td><td><span class="he">אהוב/ה עליי</span></td></tr>
+        <tr><td>אתה/את</td><td><span class="cz">líbí se <b>ti</b></span></td><td><span class="he">אהוב/ה עליך</span></td></tr>
+        <tr><td>הוא</td><td><span class="cz">líbí se <b>mu</b></span></td><td><span class="he">אהוב/ה עליו</span></td></tr>
+        <tr><td>היא</td><td><span class="cz">líbí se <b>jí</b></span></td><td><span class="he">אהוב/ה עליה</span></td></tr>
+        <tr><td>אנחנו</td><td><span class="cz">líbí se <b>nám</b></span></td><td><span class="he">אהוב/ה עלינו</span></td></tr>
+      </tbody>
+    </table>
+    <div class="ex-line">
+      <button class="ex-btn b" onclick="speak('Líbí se mi Praha.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Líbí se <span class="hl-blue">mi</span> Praha.</span>
+      <span class="ex-he">אני אוהב/ת את פראג. (=פראג מוצאת חן בעיניי)</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn b" onclick="speak('Líbí se ti tento film?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Líbí se <span class="hl-blue">ti</span> tento film?</span>
+      <span class="ex-he">אתה/את אוהב/ת את הסרט הזה?</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn b" onclick="speak('Nelíbí se mi tady.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Ne<span class="hl-blue">líbí</span> se mi tady.</span>
+      <span class="ex-he">לא אהוב עליי כאן / לא אהבתי כאן.</span>
+    </div>
+  </div>
+
+  <!-- VADÍ MI -->
+  <div class="verb-block amber">
+    <div class="verb-name amber">vadí mi</div>
+    <div class="verb-meaning">מפריע/ת לי / מטריד/ה אותי</div>
+    <div class="verb-rule">מה <b>mi/ti/mu/jí...</b> vadí = מה <b>מפריע</b> לי. זה ההיפך של <span class="cz-phrase">líbí se</span>. משמש להביע אי-נוחות קלה (לא כעס חריף).</div>
+    <div class="ex-line">
+      <button class="ex-btn a" onclick="speak('Vadí mi hluk.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Vadí <span class="hl-amber">mi</span> hluk.</span>
+      <span class="ex-he">רעש מפריע לי.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn a" onclick="speak('Vadí ti, když kouřím?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Vadí <span class="hl-amber">ti</span>, když kouřím?</span>
+      <span class="ex-he">מפריע לך אם אני מעשן/ת?</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn a" onclick="speak('Nevadí mi to.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Ne<span class="hl-amber">vadí</span> mi to.</span>
+      <span class="ex-he">זה לא מפריע לי. (= ״לא נורא״ בשיחה יומיומית)</span>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ הטעות הנפוצה — מי הנושא?</strong>
+    בעברית: ״<b>אני</b> אוהב/ת קפה״ — אני הנושא.<br>
+    בצ׳כית: ״Líbí se <b>mi</b> káva״ — <b>קפה</b> הוא הנושא (líbí se = מוצאת חן), ואני = <b>mi</b> (מושא עקיף, יחסה 3).<br>
+    לכן הפועל מסכים עם הקפה, לא איתי: <span class="cz-phrase">Líbí se mi <b>tyto</b> fotky.</span> (התמונות האלה מוצאות חן בעיניי) — <b>tyto fotky</b> ברבים → הפועל נשאר <b>líbí se</b> (לא משתנה הרבה ברמת A2).
+  </div>
+
+  <div class="tip green">
+    <strong>💡 nevadí — ביטוי מאוד שכיח!</strong>
+    <span class="cz-phrase">Nevadí.</span> = ״לא נורא / לא משנה / בסדר.״<br>
+    זהו אחד הביטויים השכיחים ביותר בצ׳כית יומיומית — כמו ״אין בעיה״ בעברית.<br>
+    <span class="cz-phrase">Promiňte!</span> — <span class="cz-phrase">Nevadí.</span> = ״סליחה!״ — ״לא נורא.״
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson12.html" class="btn-back">→ חזרה לשיעור 12</a>
+    <a href="a2-lesson12b.html" class="btn-next">12ב — těším se · bojím se ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="a2-lesson12a">
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px;">
+    <strong style="display:block;margin-bottom:12px;font-size:14px;">💛 פעלים עם רגש</strong>
+    <div style="font-size:13px;line-height:2.3;">
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;color:var(--c-pink);">baví mě</span><span style="color:var(--muted);font-size:12px;"> — כיפי לי</span><br>
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#1d4ed8;">líbí se mi</span><span style="color:var(--muted);font-size:12px;"> — אהוב עליי</span><br>
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#b45309;">vadí mi</span><span style="color:var(--muted);font-size:12px;"> — מפריע לי</span>
+    </div>
+    <hr style="border:none;border-top:1px solid var(--border);margin:12px 0;">
+    <div style="font-size:12px;color:var(--muted);line-height:1.9;">
+      <b>mě / tě / ho / ji / nás</b><br>
+      (יחסה 4 — אקוזטיב)<br><br>
+      <b>mi / ti / mu / jí / nám</b><br>
+      (יחסה 3 — דטיב)
+    </div>
+  </div>
+</aside>
+</div>
+
+<script>
+function speak(text){if(!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

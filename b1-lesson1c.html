@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 1ג — כינויי גוף ב-Akuzativ | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .recall-box{background:#f5f3ff;border:1px solid rgba(109,40,217,.18);border-radius:var(--rs);padding:14px 18px;font-size:13.5px;color:#4c1d95;line-height:1.7;margin-bottom:22px;}
+    .recall-box strong{font-weight:700;display:block;margin-bottom:4px;}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px;}
+    .compare-card{border-radius:var(--rs);padding:16px 18px;}
+    .compare-card.left{background:#fef3c7;border:1px solid rgba(245,158,11,.25);}
+    .compare-card.right{background:var(--gl);border:1px solid rgba(29,158,117,.2);}
+    .compare-card .cc-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+    .compare-card.left .cc-label{color:#b45309;}
+    .compare-card.right .cc-label{color:var(--gd);}
+    .compare-card .cc-ex{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;direction:ltr;unicode-bidi:isolate;margin-bottom:4px;}
+    .compare-card.left .cc-ex{color:#92400e;}
+    .compare-card.right .cc-ex{color:var(--gd);}
+    .compare-card .cc-he{font-size:13px;color:var(--muted);}
+    .end-table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13.5px;}
+    .end-table th{text-align:center;background:var(--gd);color:white;font-weight:700;padding:9px 14px;font-size:11.5px;}
+    .end-table th:first-child{border-radius:0 var(--rs) 0 0;}
+    .end-table th:last-child{border-radius:var(--rs) 0 0 0;}
+    .end-table td{padding:9px 14px;border:1px solid var(--border);line-height:1.5;vertical-align:top;}
+    .end-table td .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:14px;color:var(--gd);}
+    .end-table td .orig{font-family:'Nunito',sans-serif;font-weight:600;direction:ltr;unicode-bidi:isolate;font-size:13px;color:var(--muted);}
+    .end-table td .end-badge{display:inline-block;background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;direction:ltr;unicode-bidi:isolate;padding:1px 7px;border-radius:6px;margin-right:4px;}
+    .end-table td .end-badge.blue{background:#eff6ff;color:#1d4ed8;}
+    .end-table td .end-badge.amber{background:#fef3c7;color:#b45309;}
+    .end-table tr:nth-child(even) td{background:#fafaf8;}
+    .end-table .section-row td{background:#f1f5f9;font-weight:700;font-size:12px;letter-spacing:.05em;color:var(--muted);padding:6px 14px;}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:28px;height:28px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl{color:var(--green);font-weight:900;}
+    .hl-amber{color:#b45309;font-weight:900;}
+    .quiz-wrap{margin-bottom:24px;}
+    .q-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:12px;}
+    .q-num{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.06em;}
+    .q-text{font-size:15px;font-weight:600;margin-bottom:12px;line-height:1.5;}
+    .q-cz{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;direction:ltr;unicode-bidi:isolate;color:var(--text);margin-bottom:10px;display:block;}
+    .options{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .opt{padding:10px 14px;border-radius:var(--rs);border:1.5px solid var(--border);background:var(--white);font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-align:right;direction:ltr;transition:all .15s;}
+    .opt:hover{border-color:var(--gm);background:var(--gl);}
+    .opt.correct{background:#dcfce7;border-color:#16a34a;color:#15803d;}
+    .opt.wrong{background:#fee2e2;border-color:#dc2626;color:#dc2626;}
+    .q-feedback{margin-top:10px;font-size:13px;line-height:1.6;display:none;padding:10px 14px;border-radius:var(--rs);}
+    .q-feedback.show{display:block;}
+    .q-feedback.ok{background:#dcfce7;color:#15803d;}
+    .q-feedback.err{background:#fee2e2;color:#dc2626;}
+    .score-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:22px;text-align:center;margin-top:20px;display:none;}
+    .score-box.show{display:block;}
+    .score-num{font-family:'Nunito',sans-serif;font-size:48px;font-weight:800;color:var(--green);}
+    .score-label{font-size:16px;color:var(--muted);margin-top:4px;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.options{grid-template-columns:1fr;}}
+      .end-table td[class],.prep-table td[class]{text-align:center;}
+    </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson1.html">שיעור 1</a><span>›</span>1ג — כינויי גוף ב-Akuzativ
+</div>
+<div class="layout">
+<main>
+
+  <div class="recall-box">
+    <strong>📚 זוכרים מ-1א–1ב — Akuzativ שמות עצם</strong>
+    עכשיו עוברים לכינויי הגוף — מה הצורה של ״אותי / אותך / אותו / אותה...״ ב-Akuzativ?
+    בצ׳כית לכל כינוי יש שתי צורות: <strong>קצרה</strong> ו<strong>ארוכה</strong>. נלמד מתי להשתמש בכל אחת.
+  </div>
+
+  <div class="why-box">
+    <strong>🎯 כינויי גוף ב-Akuzativ — למה יש שתי צורות?</strong>
+    בצ׳כית יש לכמה כינויי גוף שתי גרסאות:<br>
+    <strong>קצרה (ריכוכת)</strong> — <span class="cz-phrase">mě, tě, ho, ji</span> — בדרך כלל בתוך המשפט, לא בהדגשה.<br>
+    <strong>ארוכה (מודגשת)</strong> — <span class="cz-phrase">mne, tebe, jeho, ji</span> — לאחר מילות יחס, ובהדגשה.<br>
+    ברוב השיחה — הצורה הקצרה היא הנפוצה.
+  </div>
+
+  <div class="stitle">טבלת כינויי גוף — Akuzativ</div>
+
+  <table class="end-table">
+    <thead>
+      <tr>
+        <th>כינוי</th>
+        <th>Nominativ</th>
+        <th>Akuzativ קצר</th>
+        <th>Akuzativ ארוך</th>
+        <th>דוגמה</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>אני</td>
+        <td><span class="cz">já</span></td>
+        <td><span class="end-badge">mě</span></td>
+        <td><span class="cz">mne</span></td>
+        <td>
+          <button class="ex-btn" onclick="speak('Vidí mě. Čeká na mne.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+          <span class="cz">Vidí <span class="hl">mě</span>. / Čeká na <span class="hl">mne</span>.</span>
+        </td>
+      </tr>
+      <tr>
+        <td>אתה/את</td>
+        <td><span class="cz">ty</span></td>
+        <td><span class="end-badge">tě</span></td>
+        <td><span class="cz">tebe</span></td>
+        <td>
+          <button class="ex-btn" onclick="speak('Mám tě ráda. Myslím na tebe.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+          <span class="cz">Mám <span class="hl">tě</span> ráda. / Myslím na <span class="hl">tebe</span>.</span>
+        </td>
+      </tr>
+      <tr>
+        <td>הוא / זה</td>
+        <td><span class="cz">on / ono</span></td>
+        <td><span class="end-badge">ho</span></td>
+        <td><span class="cz">jeho / jej</span></td>
+        <td>
+          <button class="ex-btn" onclick="speak('Znám ho. Čekám na něj.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+          <span class="cz">Znám <span class="hl">ho</span>. / Čekám na <span class="hl">něj</span>.</span>
+        </td>
+      </tr>
+      <tr>
+        <td>היא</td>
+        <td><span class="cz">ona</span></td>
+        <td><span class="end-badge">ji</span></td>
+        <td><span class="cz">ji / jí</span></td>
+        <td>
+          <button class="ex-btn" onclick="speak('Vidím ji. Čekám na ni.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+          <span class="cz">Vidím <span class="hl">ji</span>. / Čekám na <span class="hl">ni</span>.</span>
+        </td>
+      </tr>
+      <tr>
+        <td>אנחנו</td>
+        <td><span class="cz">my</span></td>
+        <td><span class="end-badge">nás</span></td>
+        <td><span class="cz">nás</span></td>
+        <td>
+          <button class="ex-btn" onclick="speak('Vidí nás. Čeká na nás.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+          <span class="cz">Vidí <span class="hl">nás</span>. / Čeká na <span class="hl">nás</span>.</span>
+        </td>
+      </tr>
+      <tr>
+        <td>אתם/אתן</td>
+        <td><span class="cz">vy</span></td>
+        <td><span class="end-badge">vás</span></td>
+        <td><span class="cz">vás</span></td>
+        <td>
+          <button class="ex-btn" onclick="speak('Znám vás. Čekám na vás.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+          <span class="cz">Znám <span class="hl">vás</span>. / Čekám na <span class="hl">vás</span>.</span>
+        </td>
+      </tr>
+      <tr>
+        <td>הם/הן</td>
+        <td><span class="cz">oni / ony / ona</span></td>
+        <td><span class="end-badge">je</span></td>
+        <td><span class="cz">je</span></td>
+        <td>
+          <button class="ex-btn" onclick="speak('Znám je. Čekám na ně.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+          <span class="cz">Znám <span class="hl">je</span>. / Čekám na <span class="hl">ně</span>.</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip amber">
+    <strong>⚠️ אחרי מילת יחס — הצורה משתנה!</strong>
+    אחרי מילות יחס כמו <span class="cz-phrase">na, pro, za, přes</span> — הכינוי מקבל <strong>n-</strong בתחילתו:<br>
+    <span class="cz-phrase">on → na <b>něj</b></span> (לא: na jeho) · <span class="cz-phrase">ona → na <b>ni</b></span> (לא: na ji) · <span class="cz-phrase">oni → na <b>ně</b></span> (לא: na je)<br>
+    לעומת זאת: <span class="cz-phrase">já, ty, my, vy</span> — לא משתנים אחרי מילת יחס.
+  </div>
+
+  <div class="stitle">מיקום כינויי הגוף הקצרים במשפט</div>
+
+  <div class="tip blue">
+    <strong>💡 הכלל — כינויים קצרים תמיד במיקום שני</strong>
+    הכינויים הקצרים (<span class="cz-phrase">mě, tě, ho, ji, nás, vás, je</span>) לא יכולים לעמוד ראשונים במשפט.
+    הם תמיד בא אחרי המילה הראשונה (או הקבוצה הראשונה).<br>
+    <span class="cz-phrase">Petr <b>mě</b> vidí.</span> ✓ · <span class="cz-phrase"><b>Mě</b> vidí Petr.</span> ✗<br>
+    <span class="cz-phrase">Každý den <b>tě</b> slyším.</span> ✓ (כל יום = קבוצה ראשונה)
+  </div>
+
+  <div class="stitle">דוגמאות שלמות — עם השמעה</div>
+
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Mám tě ráda.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Mám <span class="hl">tě</span> ráda.</span>
+    <span class="ex-he">אני אוהבת אותך. (דוברת נקבה)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Petr mě nezná.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Petr <span class="hl">mě</span> nezná.</span>
+    <span class="ex-he">פטר לא מכיר אותי.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Znám ho osobně.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Znám <span class="hl">ho</span> osobně.</span>
+    <span class="ex-he">אני מכיר/ה אותו אישית.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Čekám na ni u metra.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Čekám na <span class="hl">ni</span> u metra.</span>
+    <span class="ex-he">אני מחכה/ת לה ליד המטרו. (ni = אחרי מילת יחס)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Vidí nás každý den.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Vidí <span class="hl">nás</span> každý den.</span>
+    <span class="ex-he">הוא/היא רואה אותנו כל יום.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Mám je ráda, jsou moji kamarádi.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Mám <span class="hl">je</span> ráda, jsou moji kamarádi.</span>
+    <span class="ex-he">אני אוהבת אותם, הם החברים שלי.</span>
+  </div>
+
+  <div class="tip green">
+    <strong>💡 סיכום מהיר</strong>
+    <span class="cz-phrase">mě · tě · ho · ji · nás · vás · je</span> — הצורות הקצרות, לשימוש רגיל במשפט.<br>
+    אחרי מילת יחס: <span class="cz-phrase">na něj / na ni / na ně</span> (מקבלים n- בהתחלה).<br>
+    הכינוי הקצר תמיד במיקום שני במשפט — אף פעם לא ראשון.
+  </div>
+
+  <div class="step-nav">
+    <a href="b1-lesson1b.html" class="btn-back">→ 1ב — Akuzativ רבים</a>
+    <a href="b1-lesson1d.html" class="btn-next">1ד — פעלים ומילות יחס ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson1c">
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#11457E;">📋 כינויים ב-Akuzativ</strong>
+    <div style="font-size:12.5px;line-height:2.2;color:#16385f;">
+      já → <span style="font-family:'Nunito',sans-serif;font-weight:800;">mě</span> (אותי)<br>
+      ty → <span style="font-family:'Nunito',sans-serif;font-weight:800;">tě</span> (אותך)<br>
+      on/ono → <span style="font-family:'Nunito',sans-serif;font-weight:800;">ho</span> (אותו)<br>
+      ona → <span style="font-family:'Nunito',sans-serif;font-weight:800;">ji</span> (אותה)<br>
+      my → <span style="font-family:'Nunito',sans-serif;font-weight:800;">nás</span> (אותנו)<br>
+      vy → <span style="font-family:'Nunito',sans-serif;font-weight:800;">vás</span> (אתכם)<br>
+      oni → <span style="font-family:'Nunito',sans-serif;font-weight:800;">je</span> (אותם)
+    </div>
+  </div>
+  <div style="background:var(--amber-light);border:1px solid rgba(245,158,11,.2);border-radius:var(--rs);padding:14px;font-size:12.5px;color:#92400e;">
+    <strong style="display:block;margin-bottom:6px;">אחרי מילת יחס:</strong>
+    ho → <span style="font-family:'Nunito',sans-serif;font-weight:700;">na něj</span><br>
+    ji → <span style="font-family:'Nunito',sans-serif;font-weight:700;">na ni</span><br>
+    je → <span style="font-family:'Nunito',sans-serif;font-weight:700;">na ně</span>
+  </div>
+</aside>
+</div>
+
+<script>
+function speak(text){if(!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 7ד — do + vedle + kolem + דיאלוגים | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === Preposition spotlight === */
+    .prep-spot{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:20px 24px;margin-bottom:14px;}
+    .prep-spot .head{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;flex-wrap:wrap;}
+    .prep-spot .word{font-family:'Nunito',sans-serif;font-size:32px;font-weight:800;color:var(--green);direction:ltr;}
+    .prep-spot .he-word{font-size:16px;font-weight:700;color:var(--text);}
+    .prep-spot .desc{font-size:14px;color:var(--text);line-height:1.7;}
+    .prep-spot .desc b{color:var(--green);}
+
+    /* === Examples list === */
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:var(--green);}
+    .ex-cz .change{color:#7c3aed;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* === Compare 3 prepositions table === */
+    .compare-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .compare-block h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:12px;}
+    .compare-table{width:100%;border-collapse:collapse;font-size:13.5px;}
+    .compare-table th{text-align:right;padding:10px 12px;font-weight:700;font-size:12.5px;color:var(--text);border-bottom:2px solid var(--gm);}
+    .compare-table th.cz-col{font-family:'Nunito',sans-serif;color:var(--green);direction:ltr;text-align:left;font-size:15px;}
+    .compare-table td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6;}
+    .compare-table tr:last-child td{border-bottom:none;}
+    .compare-table .role{color:var(--muted);font-size:12.5px;width:22%;}
+
+    /* === Dialogue === */
+    .dlg-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:16px;}
+    .dlg-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:10px;border-bottom:1px dashed var(--border);}
+    .dlg-title{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);}
+    .dlg-title .num{color:var(--green);}
+    .dlg-play-all{padding:6px 14px;border-radius:18px;background:var(--gl);border:1px solid var(--gm);color:var(--gd);font-size:12px;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;display:inline-flex;align-items:center;gap:5px;}
+    .dlg-play-all:hover{background:var(--gm);}
+    .dlg-line{display:grid;grid-template-columns:auto 28px 1fr 1fr;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);}
+    .dlg-line:last-child{border-bottom:none;}
+    .dlg-speaker{font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:700;color:var(--muted);min-width:50px;}
+    .dlg-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);direction:ltr;line-height:1.5;}
+    .dlg-cz .prep{color:var(--green);}
+    .dlg-cz .gen{color:#7c3aed;}
+    .dlg-he{font-size:12.5px;color:var(--muted);line-height:1.5;}
+    .dlg-legend{font-size:11.5px;color:var(--muted);margin-top:10px;padding-top:8px;border-top:1px dashed var(--border);display:flex;flex-wrap:wrap;gap:14px;}
+    .dlg-legend .swatch{display:inline-flex;align-items:center;gap:4px;}
+    .dlg-legend .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .dlg-line{grid-template-columns:auto 28px 1fr;}
+      .dlg-he{grid-column:3;font-size:12px;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson7.html">שיעור 7</a><span>›</span>
+  7ד — do + vedle + kolem + דיאלוגים
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    שלוש מילות יחס של <b>"לכיוון" ו"מיקום"</b>: <span class="cz-phrase">do</span> = לתוך / ל-, <span class="cz-phrase">vedle</span> = ליד, <span class="cz-phrase">kolem</span> = מסביב. ואז 3 דיאלוגים שמשלבים <b>הכל</b> ממה שראינו בשיעור 7 — שייכות, כמויות, ו-5 מילות היחס.
+  </div>
+
+  <!-- ========== DO ========== -->
+  <div class="stitle">📌 חלק 1 — <span class="cz-phrase">do</span> (ל- / לתוך)</div>
+
+  <div class="prep-spot">
+    <div class="head">
+      <span class="word">do</span>
+      <span class="he-word">ל- / לתוך</span>
+    </div>
+    <p class="desc">המילה השכיחה ביותר לתנועה <b>לכיוון מקום</b>. השימוש המרכזי: <b>"אני הולך/ת ל..."</b> — חנות, בית ספר, פארק, עיר. בעצם, רוב המקומות הסגורים והערים מקבלים <span class="cz-phrase">do</span>.</p>
+  </div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Jdu do parku.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Jdu <b>do</b> <span class="change">parku</span>.</span>
+    <span class="ex-he">אני הולך/ת לפארק. <span style="color:var(--muted);font-size:11.5px;">(park → parku, זכר דומם)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Jdu do školy.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Jdu <b>do</b> <span class="change">školy</span>.</span>
+    <span class="ex-he">אני הולך/ת לבית הספר. <span style="color:var(--muted);font-size:11.5px;">(škola → školy, נקבה ב-a)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Jdu do kina.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Jdu <b>do</b> <span class="change">kina</span>.</span>
+    <span class="ex-he">אני הולך/ת לקולנוע. <span style="color:var(--muted);font-size:11.5px;">(kino → kina, נטרל)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Jedu do Prahy.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Jedu <b>do</b> <span class="change">Prahy</span>.</span>
+    <span class="ex-he">אני נוסע/ת לפראג. <span style="color:var(--muted);font-size:11.5px;">(Praha → Prahy, נקבה ב-a)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Musím do práce.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Musím <b>do</b> <span class="change">práce</span>.</span>
+    <span class="ex-he">אני חייב/ת ללכת לעבודה. <span style="color:var(--muted);font-size:11.5px;">(práce → práce, נקבה ב-e — לא משתנה)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Pojď do obchodu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Pojď <b>do</b> <span class="change">obchodu</span>.</span>
+    <span class="ex-he">בוא/י לחנות. <span style="color:var(--muted);font-size:11.5px;">(obchod → obchodu, זכר דומם)</span></span>
+  </div>
+
+  <div class="tip purple">
+    <strong>💎 ביטויי <span class="cz-phrase">do</span> שכיחים</strong>
+    <span class="cz-phrase">do města</span> (לעיר) · <span class="cz-phrase">do restaurace</span> (למסעדה) · <span class="cz-phrase">do banky</span> (לבנק) · <span class="cz-phrase">do nemocnice</span> (לבית חולים) · <span class="cz-phrase">do Brna</span> (לברנו) · <span class="cz-phrase">do České republiky</span> (לצ'כיה).
+  </div>
+
+  <!-- ========== VEDLE ========== -->
+  <div class="stitle">📌 חלק 2 — <span class="cz-phrase">vedle</span> (ליד)</div>
+
+  <div class="prep-spot">
+    <div class="head">
+      <span class="word">vedle</span>
+      <span class="he-word">ליד</span>
+    </div>
+    <p class="desc">משמשת לתיאור <b>מיקום סטטי</b> ליד משהו או מישהו — בית ליד בנק, אדם ליד אדם אחר, חנות ליד הקפה. בניגוד ל-<span class="cz-phrase">do</span>, היא לא מציינת תנועה, אלא <b>איפה</b>.</p>
+  </div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Bydlím vedle banky.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Bydlím <b>vedle</b> <span class="change">banky</span>.</span>
+    <span class="ex-he">אני גר/ה ליד הבנק. <span style="color:var(--muted);font-size:11.5px;">(banka → banky, נקבה ב-a)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Sedím vedle Petra.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Sedím <b>vedle</b> <span class="change">Petra</span>.</span>
+    <span class="ex-he">אני יושב/ת ליד פטר. <span style="color:var(--muted);font-size:11.5px;">(Petr → Petra, זכר חי)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Obchod je vedle školy.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Obchod je <b>vedle</b> <span class="change">školy</span>.</span>
+    <span class="ex-he">החנות נמצאת ליד בית הספר. <span style="color:var(--muted);font-size:11.5px;">(škola → školy)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Kavárna vedle muzea.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Kavárna <b>vedle</b> <span class="change">muzea</span>.</span>
+    <span class="ex-he">בית קפה ליד המוזיאון. <span style="color:var(--muted);font-size:11.5px;">(muzeum → muzea, נטרל)</span></span>
+  </div>
+
+  <!-- ========== KOLEM ========== -->
+  <div class="stitle">📌 חלק 3 — <span class="cz-phrase">kolem</span> (מסביב / סביב)</div>
+
+  <div class="prep-spot">
+    <div class="head">
+      <span class="word">kolem</span>
+      <span class="he-word">מסביב / סביב</span>
+    </div>
+    <p class="desc">משמשת לתיאור <b>מסביב</b> — לטייל מסביב לעיר, אנשים יושבים מסביב לשולחן, גן מסביב לבית.</p>
+  </div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Procházka kolem města.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Procházka <b>kolem</b> <span class="change">města</span>.</span>
+    <span class="ex-he">טיול מסביב לעיר. <span style="color:var(--muted);font-size:11.5px;">(město → města, נטרל)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Sedíme kolem stolu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Sedíme <b>kolem</b> <span class="change">stolu</span>.</span>
+    <span class="ex-he">אנחנו יושבים מסביב לשולחן. <span style="color:var(--muted);font-size:11.5px;">(stůl → stolu, זכר דומם — שימו לב לשינוי ů→o!)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Zahrada kolem domu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Zahrada <b>kolem</b> <span class="change">domu</span>.</span>
+    <span class="ex-he">גן מסביב לבית. <span style="color:var(--muted);font-size:11.5px;">(dům → domu, שינוי ů→o)</span></span>
+  </div>
+
+  <!-- ========== COMPARE TABLE ========== -->
+  <div class="stitle">השוואה — מתי להשתמש בכל אחת?</div>
+
+  <div class="compare-block">
+    <h4>📊 שלוש מילות יחס, שלושה סוגי שימוש</h4>
+    <table class="compare-table">
+      <tr>
+        <th></th>
+        <th class="cz-col"><div align="right">do</div></th>
+        <th class="cz-col"><div align="right">vedle</div></th>
+        <th class="cz-col"><div align="right">kolem</div></th>
+      </tr>
+      <tr>
+        <td class="role">משמעות</td>
+        <td>תנועה <b>לתוך</b></td>
+        <td>מיקום <b>ליד</b></td>
+        <td>תנועה/מיקום <b>מסביב</b></td>
+      </tr>
+      <tr>
+        <td class="role">סוג פעולה</td>
+        <td>דינמית (תזוזה)</td>
+        <td>סטטית</td>
+        <td>שתיהן</td>
+      </tr>
+      <tr>
+        <td class="role">דוגמה</td>
+        <td><span class="cz-phrase">jdu do parku</span></td>
+        <td><span class="cz-phrase">jsem vedle parku</span></td>
+        <td><span class="cz-phrase">procházka kolem parku</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ========== DIALOGUES ========== -->
+  <div class="stitle">🎭 דיאלוגים — שיעור 7 כולו במשפט אחד</div>
+
+  <div class="tip blue">
+    <strong>👀 איך לקרוא את הדיאלוגים</strong>
+    בכל שורה — <b style="color:var(--green);">ירוק = מילת יחס</b> (bez / z / do / vedle / kolem), <b style="color:#7c3aed;">סגול = שם עצם שעבר לגניטיב</b>. לחצו על ▶ ליד שורה להאזנה, או על "השמע הכל" לרצף שלם.
+  </div>
+
+  <!-- DIALOGUE 1 — בקפה -->
+  <div class="dlg-block">
+    <div class="dlg-head">
+      <div class="dlg-title"><span class="num">1.</span> בקפה — מזמינים</div>
+      <button class="dlg-play-all" onclick="speakDialogue('dlg1')">▶ השמע הכל</button>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg1" data-cz="Dobrý den, co si dáte?">
+      <span class="dlg-speaker">Číšník:</span>
+      <button class="ex-btn-sm" onclick="speak('Dobrý den, co si dáte?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Dobrý den, co si dáte?</span>
+      <span class="dlg-he">שלום, מה תרצו (להזמין)?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg1" data-cz="Šálek kávy bez cukru, prosím.">
+      <span class="dlg-speaker">Eva:</span>
+      <button class="ex-btn-sm" onclick="speak('Šálek kávy bez cukru, prosím.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Šálek <span class="gen">kávy</span> <span class="prep">bez</span> <span class="gen">cukru</span>, prosím.</span>
+      <span class="dlg-he">כוס קפה בלי סוכר, בבקשה.</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg1" data-cz="A pro mě sklenici vody a kus chleba.">
+      <span class="dlg-speaker">David:</span>
+      <button class="ex-btn-sm" onclick="speak('A pro mě sklenici vody a kus chleba.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">A pro mě sklenici <span class="gen">vody</span> a kus <span class="gen">chleba</span>.</span>
+      <span class="dlg-he">ובשבילי כוס מים ופרוסת לחם.</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg1" data-cz="Kolik to stojí?">
+      <span class="dlg-speaker">Eva:</span>
+      <button class="ex-btn-sm" onclick="speak('Kolik to stojí?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Kolik to stojí?</span>
+      <span class="dlg-he">כמה זה עולה?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg1" data-cz="Sto dvacet korun.">
+      <span class="dlg-speaker">Číšník:</span>
+      <button class="ex-btn-sm" onclick="speak('Sto dvacet korun.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Sto dvacet <span class="gen">korun</span>.</span>
+      <span class="dlg-he">120 קרונות.</span>
+    </div>
+
+    <div class="dlg-legend">
+      <span class="swatch"><span class="dot" style="background:var(--green);"></span> מילת יחס</span>
+      <span class="swatch"><span class="dot" style="background:#7c3aed;"></span> גניטיב</span>
+    </div>
+  </div>
+
+  <!-- DIALOGUE 2 — תכנון יום בעיר -->
+  <div class="dlg-block">
+    <div class="dlg-head">
+      <div class="dlg-title"><span class="num">2.</span> מתכננים יום בעיר</div>
+      <button class="dlg-play-all" onclick="speakDialogue('dlg2')">▶ השמע הכל</button>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg2" data-cz="Kam jdeš dnes?">
+      <span class="dlg-speaker">Petr:</span>
+      <button class="ex-btn-sm" onclick="speak('Kam jdeš dnes?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Kam jdeš dnes?</span>
+      <span class="dlg-he">לאן את/ה הולך/ת היום?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg2" data-cz="Nejdřív do banky, potom do obchodu.">
+      <span class="dlg-speaker">Anna:</span>
+      <button class="ex-btn-sm" onclick="speak('Nejdřív do banky, potom do obchodu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Nejdřív <span class="prep">do</span> <span class="gen">banky</span>, potom <span class="prep">do</span> <span class="gen">obchodu</span>.</span>
+      <span class="dlg-he">קודם לבנק, אחר כך לחנות.</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg2" data-cz="Obchod je vedle restaurace, že?">
+      <span class="dlg-speaker">Petr:</span>
+      <button class="ex-btn-sm" onclick="speak('Obchod je vedle restaurace, že?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Obchod je <span class="prep">vedle</span> <span class="gen">restaurace</span>, že?</span>
+      <span class="dlg-he">החנות ליד המסעדה, נכון?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg2" data-cz="Ano. A večer jdu do kina.">
+      <span class="dlg-speaker">Anna:</span>
+      <button class="ex-btn-sm" onclick="speak('Ano. A večer jdu do kina.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Ano. A večer jdu <span class="prep">do</span> <span class="gen">kina</span>.</span>
+      <span class="dlg-he">כן. ובערב אני הולכת לקולנוע.</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg2" data-cz="Je to daleko od tady?">
+      <span class="dlg-speaker">Petr:</span>
+      <button class="ex-btn-sm" onclick="speak('Je to daleko od tady?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Je to daleko od tady?</span>
+      <span class="dlg-he">זה רחוק מפה?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg2" data-cz="Ne, kino je vedle parku.">
+      <span class="dlg-speaker">Anna:</span>
+      <button class="ex-btn-sm" onclick="speak('Ne, kino je vedle parku.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Ne, kino je <span class="prep">vedle</span> <span class="gen">parku</span>.</span>
+      <span class="dlg-he">לא, הקולנוע ליד הפארק.</span>
+    </div>
+
+    <div class="dlg-legend">
+      <span class="swatch"><span class="dot" style="background:var(--green);"></span> מילת יחס</span>
+      <span class="swatch"><span class="dot" style="background:#7c3aed;"></span> גניטיב</span>
+    </div>
+  </div>
+
+  <!-- DIALOGUE 3 — במסעדה -->
+  <div class="dlg-block">
+    <div class="dlg-head">
+      <div class="dlg-title"><span class="num">3.</span> במסעדה — הזמנה לזוג</div>
+      <button class="dlg-play-all" onclick="speakDialogue('dlg3')">▶ השמע הכל</button>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg3" data-cz="Máte rezervaci?">
+      <span class="dlg-speaker">Číšnice:</span>
+      <button class="ex-btn-sm" onclick="speak('Máte rezervaci?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Máte rezervaci?</span>
+      <span class="dlg-he">יש לכם הזמנה?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg3" data-cz="Ano, na jméno Eli, kolem sedmé.">
+      <span class="dlg-speaker">Tomáš:</span>
+      <button class="ex-btn-sm" onclick="speak('Ano, na jméno Eli, kolem sedmé.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Ano, na jméno Eli, <span class="prep">kolem</span> <span class="gen">sedmé</span>.</span>
+      <span class="dlg-he">כן, על השם כהן, בערך בשבע.</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg3" data-cz="Skvěle. Co si dáte?">
+      <span class="dlg-speaker">Číšnice:</span>
+      <button class="ex-btn-sm" onclick="speak('Skvěle. Co si dáte?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Skvěle. Co si dáte?</span>
+      <span class="dlg-he">מצוין. מה תרצו?</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg3" data-cz="Pizzu bez masa pro mě a láhev vína pro nás.">
+      <span class="dlg-speaker">Tomáš:</span>
+      <button class="ex-btn-sm" onclick="speak('Pizzu bez masa pro mě a láhev vína pro nás.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">Pizzu <span class="prep">bez</span> <span class="gen">masa</span> pro mě a láhev <span class="gen">vína</span> pro nás.</span>
+      <span class="dlg-he">פיצה בלי בשר בשבילי ובקבוק יין בשבילנו.</span>
+    </div>
+
+    <div class="dlg-line" data-dlg="dlg3" data-cz="A pro mě sklenici vody, prosím.">
+      <span class="dlg-speaker">Lucie:</span>
+      <button class="ex-btn-sm" onclick="speak('A pro mě sklenici vody, prosím.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="dlg-cz">A pro mě sklenici <span class="gen">džusu</span>, prosím.</span>
+      <span class="dlg-he">ובשבילי כוס מיץ, בבקשה.</span>
+    </div>
+
+    <div class="dlg-legend">
+      <span class="swatch"><span class="dot" style="background:var(--green);"></span> מילת יחס</span>
+      <span class="swatch"><span class="dot" style="background:#7c3aed;"></span> גניטיב</span>
+    </div>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson7c.html" class="btn-back">→ חזרה ל-7ג</a>
+    <a href="a2-lesson7e.html" class="btn-next">7ה — תרגול מסכם ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson7d">
+
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px;">
+    <h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px;">5 מילות היחס</h3>
+    <div style="font-size:13px;line-height:1.9;">
+      <div style="display:flex;justify-content:space-between;"><span class="cz-phrase" style="color:var(--green);">bez</span><span style="color:var(--muted);font-size:12px;">בלי</span></div>
+      <div style="display:flex;justify-content:space-between;"><span class="cz-phrase" style="color:var(--green);">z / ze</span><span style="color:var(--muted);font-size:12px;">מ-</span></div>
+      <div style="display:flex;justify-content:space-between;"><span class="cz-phrase" style="color:var(--green);">do</span><span style="color:var(--muted);font-size:12px;">ל-</span></div>
+      <div style="display:flex;justify-content:space-between;"><span class="cz-phrase" style="color:var(--green);">vedle</span><span style="color:var(--muted);font-size:12px;">ליד</span></div>
+      <div style="display:flex;justify-content:space-between;"><span class="cz-phrase" style="color:var(--green);">kolem</span><span style="color:var(--muted);font-size:12px;">מסביב</span></div>
+    </div>
+  </div>
+
+  <div style="background:var(--amber-light);border:1px solid rgba(245,158,11,.25);border-radius:var(--r);padding:16px;border-inline-start:5px solid #f59e0b;">
+    <strong style="display:block;margin-bottom:6px;color:#92400e;font-size:14px;">⭐ בונוס — <span class="cz-phrase" style="color:#92400e;">kolem</span> = "בערך"</strong>
+    <span style="font-size:12.5px;color:#78350f;line-height:1.7;">
+      בשפה היומיומית, <span class="cz-phrase" style="color:#92400e;">kolem</span> משמשת גם לזמן/כמות מקורבת:<br>
+      • <span class="cz-phrase" style="color:#92400e;">kolem deváté</span> = בערך 9<br>
+      • <span class="cz-phrase" style="color:#92400e;">kolem dvaceti lidí</span> = בערך 20 אנשים<br>
+      <span style="font-size:11.5px;">כדאי לזהות, גם בלי לבנות בעצמכם.</span>
+    </span>
+  </div>
+
+</aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+
+function speakDialogue(dlgId) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const lines = Array.from(document.querySelectorAll(`.dlg-line[data-dlg="${dlgId}"]`));
+  let i = 0;
+  function next() {
+    if (i >= lines.length) return;
+    const text = lines[i].dataset.cz;
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 700); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

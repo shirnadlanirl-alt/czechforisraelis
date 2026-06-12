@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C1 — שליטה | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green:#1D9E75; --gl:#E1F5EE; --gd:#085041; --gm:#5DCAA5;
+      --indigo:#6366f1; --il:#ede9fe; --id:#3730a3; --im:#818cf8;
+      --text:#1a1a1a; --muted:#6b7280; --bg:#fafaf8; --white:#fff;
+      --border:rgba(0,0,0,0.08); --r:16px; --rs:10px;
+      --amber-light:#fef3c7; --blue-light:#eff6ff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}
+    .logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);cursor:pointer;text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .ltab:hover:not(.active){border-color:var(--indigo);color:var(--indigo);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--indigo);border-color:var(--indigo);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:center;}
+    .breadcrumb a{color:var(--muted);text-decoration:none;}
+    .breadcrumb a:hover{color:var(--indigo);}
+    .breadcrumb span:last-child{color:var(--text);font-weight:500;}
+
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:28px 40px 28px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:30px;font-weight:800;margin-bottom:6px;}
+    .page-header h1 span{color:var(--indigo);}
+    .page-header p{font-size:14px;color:var(--muted);max-width:600px;line-height:1.7;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.7;margin-bottom:28px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+    .ssection{margin-bottom:32px;}
+
+    .phase-header{font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--id);margin:22px 0 12px;display:flex;align-items:center;gap:10px;}
+    .phase-header::before{content:'';width:24px;height:2px;background:var(--im);}
+    .phase-header:first-child{margin-top:0;}
+
+    .lessons-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .lcard{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;text-decoration:none;color:var(--text);transition:all .2s;position:relative;display:flex;flex-direction:column;gap:6px;}
+    .lcard:hover{border-color:var(--im);transform:translateY(-2px);box-shadow:0 8px 24px rgba(99,102,241,.1);}
+    .lcard.soon{opacity:.55;pointer-events:none;}
+    .lcard.soon:hover{transform:none;box-shadow:none;}
+    .lcard-num{display:inline-flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);margin-bottom:2px;}
+    .lcard-num::before{content:'';width:20px;height:2px;background:var(--indigo);}
+    .lcard-title{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;color:var(--text);margin-bottom:2px;}
+    .lcard-desc{font-size:13px;color:var(--muted);line-height:1.65;flex:1;}
+    .lcard-meta{display:flex;gap:8px;margin-top:10px;font-size:11px;font-weight:600;color:var(--indigo);}
+    .lcard-new{position:absolute;top:16px;left:16px;background:var(--indigo);color:white;font-size:10px;font-weight:800;padding:2px 8px;border-radius:10px;letter-spacing:.05em;}
+    .lcard-soon{position:absolute;top:16px;left:16px;background:#f3f4f6;color:#6b7280;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;letter-spacing:.05em;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--id);}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .layout{grid-template-columns:1fr;padding:20px;}.page-header{padding:22px 20px;}
+      .breadcrumb{padding:12px 20px;}
+      aside.sidebar{display:none;}
+      .lessons-grid{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a>
+  <span>›</span>
+  <span>C1 — שליטה</span>
+</div>
+
+<div class="page-header">
+  <h1>רמה <span>C1</span> — שליטה</h1>
+  <p>סיימתם B2 — כבר מבינים את המערכת וחריגיה. ב-C1 תדברו בשטף, תכירו סגנונות שונים, תקראו טקסטים מורכבים ותשלטו בניואנסים שהופכים את הצ'כית לשלכם. הסילבוס מבוסס על Čeština pro život.</p>
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>📍 מה ב-C1?</strong>
+    10 שיעורים בשלושה שלבים: <strong>שלב 1</strong> — דקדוק מתקדם (תארי שייכות, ביטויי זמן, תחיליות, תחביר, ניבים). <strong>שלב 2</strong> — שפה בהקשר (מדיה, סושיאל מדיה, תחבורה). <strong>שלב 3</strong> — ניואנס ובניית סגנון אישי. ב-C1 הכל בצ'כית — הגדרות, תרגילים, שיחה.
+  </div>
+
+  <div class="ssection">
+    <div class="stitle">השיעורים</div>
+    <div id="lessonsContainer"></div>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="c1">
+<div style="background:#ede9fe;border:1px solid rgba(99,102,241,.22);border-inline-start:5px solid #6366f1;border-radius:var(--r);padding:18px;font-size:13px;color:#3730a3;line-height:1.7;box-shadow:0 6px 18px rgba(99,102,241,.06);">
+  <strong style="display:block;margin-bottom:6px;color:#4f46e5;">💡 מה מייחד את C1?</strong>
+  ב-B2 למדתם מה נכון. ב-C1 תלמדו מה <em>טבעי, אלגנטי ומדויק</em>. המטרה היא לא לדבר ללא שגיאות — אלא לדבר כמו שמדברים.
+</div>
+</aside>
+</div>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+const phases = [
+  {
+    title: "שלב 1 · דקדוק מתקדם",
+    lessons: [
+      {num:1, title:"תארי שייכות + חופשה", desc:"otcův kabát · matčin hlas · Novákovo auto. תארי שייכות בכל היחסות — הצורות שתמיד בלבלו אתכם.", link:"c1-lesson1.html", meta:"5 חלקים · דקדוק + שיחה", emoji:"🏖️"},
+      {num:2, title:"ביטויי זמן + עונות", desc:"od jara do podzimu · za deštivého počasí · s přibývajícím věkem. ביטויי זמן ברמת שליטה.", link:"c1-lesson2.html", meta:"5 חלקים · דקדוק + שיחה", emoji:"🌦️"},
+      {num:3, title:"תחיליות פועל מתקדמות", desc:"přečíst × dočíst × načíst · rozběhnout se × doběhnout. כל תחילית = כיוון ומשמעות שונה.", link:"c1-lesson3.html", meta:"5 חלקים · דקדוק + שיחה", emoji:"⏰"},
+      {num:4, title:"תחביר מורכב + טלוויזיה", desc:"Nevím, zda přijde · za předpokladu, že · Kondicionál בשלושה הקשרים.", link:"c1-lesson4.html", meta:"5 חלקים · דקדוק + שיחה", emoji:"📺"}
+    ]
+  },
+  {
+    title: "שלב 2 · שפה בהקשר",
+    lessons: [
+      {num:5, title:"ניבים + חגים וברכות", desc:"být jako ryba ve vodě · zabít dvě mouchy · Všechno nejlepší! ניבים, ביטויים קבועים, ברכות.", link:"c1-lesson5.html", meta:"6 חלקים · ניבים + שיחה", emoji:"🎉"},
+      {num:6, title:"פסיב + מדיה ותקשורת", desc:"Bylo oznámeno, že · uvádí se, že · nicméně · přesto. שפת התקשורת — איך מדברים חדשות.", link:"c1-lesson6.html", meta:"5 חלקים · דקדוק + שיחה", emoji:"📱"},
+      {num:7, title:"Kondicionál עבר + סושיאל", desc:"Byl bych si přál · Kdybych to věděl dříve · Kéž by. תנאי בלתי-ריאלי עבר + עולם הדייטינג הדיגיטלי.", link:"c1-lesson7.html", meta:"5 חלקים · דקדוק + שיחה", emoji:"💬"},
+      {num:8, title:"צירופי מילים + תחבורה", desc:"záviset na · spoléhat se na · dbát na. פעלים שמחייבים מילת יחס — הטעויות הנפוצות ביותר.", link:"c1-lesson8.html", meta:"5 חלקים · דקדוק + שיחה", emoji:"🚆"}
+    ]
+  },
+  {
+    title: "שלב 3 · ניואנס וסגנון",
+    lessons: [
+      {num:9, title:"נטיות מתקדמות + בית", desc:"na předměstí · v centru · zástavba, infrastruktura. Lokativ של שמות מקום + ויכוח עיר/כפר.", link:"c1-lesson9.html", meta:"5 חלקים · דקדוק + שיחה", emoji:"🏘️"},
+      {num:10, title:"סגנון שפה + בריאות", desc:"hovorový × odborný × knižní. spatřovat × vidět. Nominalizace. סיכום C1 — לדבר כמו שמדברים.", link:"c1-lesson10.html", meta:"5 חלקים · סגנון + שיחה", emoji:"🧘"}
+    ]
+  }
+];
+
+function render() {
+  const container = document.getElementById("lessonsContainer");
+  container.innerHTML = phases.map(phase => `
+    <div class="phase-header">${phase.title}</div>
+    <div class="lessons-grid">
+      ${phase.lessons.map(l => `
+        <a href="${l.isSoon ? '#' : l.link}" class="lcard${l.isSoon ? ' soon' : ''}">
+          ${l.isNew ? '<span class="lcard-new">חדש</span>' : ''}
+          ${l.isSoon ? '<span class="lcard-soon">בקרוב</span>' : ''}
+          <div class="lcard-num">שיעור ${l.num}</div>
+          <div class="lcard-title">${l.emoji ? l.emoji + ' ' : ''}${l.title}</div>
+          <div class="lcard-desc">${l.desc}</div>
+          <div class="lcard-meta">${l.meta}</div>
+        </a>
+      `).join('')}
+    </div>
+  `).join('');
+}
+render();
+</script>
+<script src="_shared/sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 1ד — תבנית -ovat | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    .pattern-intro{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:24px;text-align:center;margin-bottom:20px;}
+    .pattern-intro .label{font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+    .pattern-intro .formula{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--green);direction:ltr;unicode-bidi:isolate;margin-bottom:8px;}
+    .pattern-intro .formula-he{font-size:13.5px;color:var(--muted);line-height:1.6;}
+
+    /* === Special: comparison table for -ovat present vs past === */
+    .compare-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:14px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;table-layout:fixed;}
+    .compare-table th{text-align:center;padding:10px 14px;background:var(--gl);color:var(--gd);font-weight:700;font-size:12px;border-bottom:1px solid var(--border);}
+    .compare-table td{padding:11px 14px;border-bottom:1px solid var(--border);text-align:center;font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;}
+    .compare-table tr:last-child td{border-bottom:none;}
+    .compare-table .cz-inf{color:var(--text);}
+    .compare-table .cz-pres{color:#1e40af;}
+    .compare-table .cz-past{color:var(--green);}
+
+    .verb-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:12px;transition:border-color .15s;}
+    .verb-card:hover{border-color:var(--gm);}
+    .verb-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+    .verb-cz{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;color:var(--text);direction:ltr;}
+    .verb-arrow{color:var(--muted);font-size:18px;font-weight:300;}
+    .verb-past{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;color:var(--green);direction:ltr;}
+    .verb-he{font-size:13px;color:var(--muted);margin-right:auto;}
+    .play-btn{width:32px;height:32px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .play-btn:hover{background:var(--gm);}
+    .play-btn svg{width:11px;height:11px;fill:var(--gd);margin-right:-1px;}
+
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:var(--green);}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .verb-head{flex-wrap:wrap;}
+      .verb-he{margin-right:0;flex-basis:100%;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson1.html">שיעור 1</a><span>›</span>
+  1ד — תבנית -ovat
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    הקבוצה השלישית של פעלים רגילים — אלה שהאינפיניטיב שלהם מסתיים ב-<span class="cz-phrase">-ovat</span>. יש להם תכונה מעניינת שמבלבלת הרבה תלמידים: <b>הם משנים צורה בהווה אבל חוזרים לעצמם בעבר</b>.
+  </div>
+
+  <!-- ========== PATTERN INTRO ========== -->
+  <div class="stitle">איך מזהים פועל בתבנית -ovat?</div>
+
+  <div class="pattern-intro">
+    <div class="label">תבנית III</div>
+    <div class="formula">infinitiv: -ovat &nbsp;→&nbsp; past: -oval</div>
+    <div class="formula-he">פועל שמסתיים באינפיניטיב ב-<span class="cz-phrase">-ovat</span> הופך בעבר ל-<span class="cz-phrase">-oval</span>.</div>
+  </div>
+
+  <!-- ========== KEY INSIGHT ========== -->
+  <div class="tip blue">
+    <strong>💡 הסימן המזהה בהווה</strong>
+    בגוף ראשון בהווה, הפעלים האלה מסתיימים ב-<span class="cz-phrase">-uju</span>:<br>
+    <span class="cz-phrase">studuju</span> (אני לומד/ת) · <span class="cz-phrase">pracuju</span> (אני עובד/ת) · <span class="cz-phrase">cestuju</span> (אני מטייל/ת).<br><br>
+    זוהי תבנית III — למדתם אותה בשיעור 9 ב-A1 דרך הפועל <span class="cz-phrase">studovat</span>.
+  </div>
+
+  <!-- ========== SPECIAL TIP: THE TRICKY THING === -->
+  <div class="stitle">הדבר המעניין: הצורה משתנה בהווה, חוזרת בעבר</div>
+
+  <div class="tip amber">
+    <strong>⚠️ תשומת לב — הסימן ש"נעלם" בהווה</strong>
+    בהווה, פעלי <span class="cz-phrase">-ovat</span> "מאבדים" את ה-<span class="cz-phrase">ova</span> והוא הופך ל-<span class="cz-phrase">u</span>:<br>
+    <span class="cz-phrase">stud<u>ova</u>t → stud<u>u</u>ju</span>.<br><br>
+    אבל <b>בעבר זה חוזר!</b> מורידים את ה-<span class="cz-phrase">-t</span> מהאינפיניטיב, ומקבלים <span class="cz-phrase">studoval</span>. כלומר: בעבר לא צריך לחשוב על מה שקורה בהווה — פשוט חוזרים לאינפיניטיב.
+  </div>
+
+  <table class="compare-table">
+    <tr><th>אינפיניטיב</th><th>הווה (אני)</th><th>עבר</th></tr>
+    <tr>
+      <td class="cz-inf">studovat</td>
+      <td class="cz-pres">studuju</td>
+      <td class="cz-past">studoval</td>
+    </tr>
+    <tr>
+      <td class="cz-inf">pracovat</td>
+      <td class="cz-pres">pracuju</td>
+      <td class="cz-past">pracoval</td>
+    </tr>
+    <tr>
+      <td class="cz-inf">cestovat</td>
+      <td class="cz-pres">cestuju</td>
+      <td class="cz-past">cestoval</td>
+    </tr>
+  </table>
+
+  <!-- ========== VERB 1: STUDOVAT ========== -->
+  <div class="stitle">ארבעה פעלים שימושיים בתבנית -ovat</div>
+
+  <div class="verb-card">
+    <div class="verb-head">
+      <span class="verb-cz">studovat</span>
+      <span class="verb-arrow">→</span>
+      <span class="verb-past">studoval</span>
+      <button class="play-btn" onclick="speak('studovat, studoval')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="verb-he">ללמוד (במוסד / תחום לימודים)</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Loni jsem studoval ekonomii.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Loni jsem <b>studoval</b> ekonomii.</span>
+      <span class="ex-he">בשנה שעברה למדתי כלכלה. ♂</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Studovala jsem v Praze tři roky.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><b>Studovala</b> jsem v Praze tři roky.</span>
+      <span class="ex-he">למדתי בפראג שלוש שנים. ♀</span>
+    </div>
+  </div>
+
+  <!-- ========== VERB 2: PRACOVAT ========== -->
+  <div class="verb-card">
+    <div class="verb-head">
+      <span class="verb-cz">pracovat</span>
+      <span class="verb-arrow">→</span>
+      <span class="verb-past">pracoval</span>
+      <button class="play-btn" onclick="speak('pracovat, pracoval')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="verb-he">לעבוד</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Včera jsem pracovala do desíti večer.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Včera jsem <b>pracovala</b> do desíti večer.</span>
+      <span class="ex-he">אתמול עבדתי עד עשר בערב. ♀</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Kde jsi pracoval předtím?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Kde jsi <b>pracoval</b> předtím?</span>
+      <span class="ex-he">איפה עבדת קודם? ♂</span>
+    </div>
+  </div>
+
+  <!-- ========== VERB 3: CESTOVAT ========== -->
+  <div class="verb-card">
+    <div class="verb-head">
+      <span class="verb-cz">cestovat</span>
+      <span class="verb-arrow">→</span>
+      <span class="verb-past">cestoval</span>
+      <button class="play-btn" onclick="speak('cestovat, cestoval')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="verb-he">לטייל / לנסוע</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('V létě jsme cestovali po Evropě.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">V létě jsme <b>cestovali</b> po Evropě.</span>
+      <span class="ex-he">בקיץ טיילנו באירופה.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Cestovala jsi někdy do Izraele?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><b>Cestovala</b> jsi někdy do Izraele?</span>
+      <span class="ex-he">טיילת פעם לישראל? ♀</span>
+    </div>
+  </div>
+
+  <!-- ========== VERB 4: NAKUPOVAT ========== -->
+  <div class="verb-card">
+    <div class="verb-head">
+      <span class="verb-cz">nakupovat</span>
+      <span class="verb-arrow">→</span>
+      <span class="verb-past">nakupoval</span>
+      <button class="play-btn" onclick="speak('nakupovat, nakupoval')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="verb-he">לקנות (לעשות קניות)</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('V sobotu jsem nakupovala v supermarketu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">V sobotu jsem <b>nakupovala</b> v supermarketu.</span>
+      <span class="ex-he">בשבת עשיתי קניות בסופרמרקט. ♀</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn-sm" onclick="speak('Nakupoval jsi něco zajímavého?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><b>Nakupoval</b> jsi něco zajímavého?</span>
+      <span class="ex-he">קנית משהו מעניין? ♂</span>
+    </div>
+  </div>
+
+  <div class="tip green">
+    <strong>✨ סיימנו את שלוש התבניות הרגילות</strong>
+    עכשיו אתם מכירים את כל שלוש הקבוצות של פעלים רגילים בעבר:<br>
+    <b>I (-át → -al)</b> · <b>II (-it → -il, -et → -el)</b> · <b>III (-ovat → -oval)</b>.<br><br>
+    בתת-העמוד הבא (1ה) — תרגול שמערבב את כולם. שם נראה האם זה באמת נכנס.
+  </div>
+
+  <!-- ========== CHECK YOURSELF ========== -->
+  <div class="stitle">בדיקה אישית</div>
+
+  <div class="check-box">
+    <h4>אחרי 1ד את/ה אמור/ה:</h4>
+    <ul class="check-list">
+      <li>לזהות פועל מתבנית <span class="cz-phrase">-ovat</span> לפי האינפיניטיב או הסיומת <span class="cz-phrase">-uju</span> בהווה</li>
+      <li>לדעת שבעבר חוזרים לצורת האינפיניטיב — <span class="cz-phrase">studuju → studoval</span></li>
+      <li>לדעת לפחות 4 פעלים מהתבנית: <span class="cz-phrase">studovat, pracovat, cestovat, nakupovat</span></li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson1c.html" class="btn-back">→ חזרה ל-1ג</a>
+    <a href="a2-lesson1e.html" class="btn-next">1ה — תרגול מסכם ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson1d"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 2ב — Lokál יחיד | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .end-table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13.5px;}
+    .end-table th{text-align:center;background:var(--gd);color:white;font-weight:700;padding:9px 14px;font-size:11.5px;}
+    .end-table th:first-child{border-radius:0 var(--rs) 0 0;}
+    .end-table th:last-child{border-radius:var(--rs) 0 0 0;}
+    .end-table td{padding:9px 14px;border:1px solid var(--border);line-height:1.5;vertical-align:top;}
+    .end-table td .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:14px;color:var(--gd);}
+    .end-table td .orig{font-family:'Nunito',sans-serif;font-weight:600;direction:ltr;unicode-bidi:isolate;font-size:13px;color:var(--muted);}
+    .end-table td .end-badge{display:inline-block;background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;direction:ltr;unicode-bidi:isolate;padding:1px 7px;border-radius:6px;margin-right:4px;}
+    .end-table td .end-badge.amber{background:#fef3c7;color:#b45309;}
+    .end-table td .end-badge.blue{background:#eff6ff;color:#1d4ed8;}
+    .end-table tr:nth-child(even) td{background:#fafaf8;}
+    .end-table .section-row td{background:#f1f5f9;font-weight:700;font-size:12px;letter-spacing:.05em;color:var(--muted);padding:6px 14px;}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:28px;height:28px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl{color:var(--green);font-weight:900;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}}
+      .end-table td[class],.prep-table td[class]{text-align:center;}
+    </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson2.html">שיעור 2 — Lokál</a><span>›</span>2ב — Lokál יחיד
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>📍 Lokál יחיד — הסיומות</strong>
+    בניגוד ל-Akuzativ, כאן יש שינויים לכל המינים. הסיומות תלויות ב<b>מין</b> (זכר/נקבה/נטרל), ב<b>סיומת הבסיס</b> של המילה (קשה/רכה), ולפעמים במילת היחס.
+  </div>
+
+  <table class="end-table">
+    <thead>
+      <tr><th>סוג המילה</th><th>סיומת Lokál</th><th>Nominativ → Lokál</th><th>דוגמה בהקשר</th></tr>
+    </thead>
+    <tbody>
+      <tr class="section-row"><td colspan="4">🔵 זכר (Masculine)</td></tr>
+      <tr>
+        <td>זכר קשה — דומם<br><span style="font-size:11px;color:var(--muted)">-k/-g/-h/-ch/-r</span></td>
+        <td><div class="end-badge">-u</div> (לרוב)</td>
+        <td><div class="cz">park → parku<br>hotel → hotelu<br>byt → bytě</div></td>
+        <td><span class="cz-phrase">v parku · v hotelu · v bytě</span></td>
+      </tr>
+      <tr>
+        <td>זכר קשה — דומם<br><span style="font-size:11px;color:var(--muted)">-d/-t/-n</span></td>
+        <td><div class="end-badge amber">-ě/-e</div></td>
+        <td><div class="cz">obchod → obchodě<br>student → studentu</div></td>
+        <td><span class="cz-phrase">v obchodě</span></td>
+      </tr>
+      <tr>
+        <td>זכר רך — דומם<br><span style="font-size:11px;color:var(--muted)">-č/-š/-ž/-ř/-c/-j</span></td>
+        <td><div class="end-badge blue">-i</div></td>
+        <td><div class="cz">počítač → počítači<br>nůž → noži</div></td>
+        <td><span class="cz-phrase">na počítači</span></td>
+      </tr>
+      <tr>
+        <td>זכר חי (אנימטי)<br><span style="font-size:11px;color:var(--muted)">אנשים, בעלי חיים</span></td>
+        <td><div class="end-badge">-ovi</div> / <div class="end-badge blue">-i</div></td>
+        <td><div class="cz">Petr → Petrovi<br>kamarád → kamarádovi<br>otec → otci</div></td>
+        <td><span class="cz-phrase">mluvím o Petrovi</span></td>
+      </tr>
+      <tr class="section-row"><td colspan="4">🔴 נקבה (Feminine)</td></tr>
+      <tr>
+        <td>נקבה -a (קשה)</td>
+        <td><div class="end-badge">-ě / -e</div></td>
+        <td><div class="cz">škola → škole<br>žena → ženě<br>Praha → Praze</div></td>
+        <td><span class="cz-phrase">ve škole · v Praze</span></td>
+      </tr>
+      <tr>
+        <td>נקבה -a (רכה — k/g/h/ch)</td>
+        <td><div class="end-badge amber">-e + שינוי עיצור</div></td>
+        <td><div class="cz">banka → bance<br>Praha → Praze<br>kavárna → kavárně</div></td>
+        <td><span class="cz-phrase">v bance · v kavárně</span></td>
+      </tr>
+      <tr>
+        <td>נקבה -e / -ce (רכה)</td>
+        <td><div class="end-badge blue">-i</div></td>
+        <td><div class="cz">restaurace → restauraci<br>ulice → ulici<br>práce → práci</div></td>
+        <td><span class="cz-phrase">v restauraci · o práci</span></td>
+      </tr>
+      <tr>
+        <td>נקבה עם עיצור בסוף</td>
+        <td><div class="end-badge blue">-i</div></td>
+        <td><div class="cz">věc → věci<br>radost → radosti</div></td>
+        <td><span class="cz-phrase">o věci</span></td>
+      </tr>
+      <tr class="section-row"><td colspan="4">⚪ נטרל (Neuter)</td></tr>
+      <tr>
+        <td>נטרל -o (קשה)</td>
+        <td><div class="end-badge">-ě / -e</div></td>
+        <td><div class="cz">město → městě<br>okno → okně<br>auto → autě</div></td>
+        <td><span class="cz-phrase">ve městě · v autě</span></td>
+      </tr>
+      <tr>
+        <td>נטרל -um</td>
+        <td><div class="end-badge">-u</div></td>
+        <td><div class="cz">muzeum → muzeu<br>centrum → centru</div></td>
+        <td><span class="cz-phrase">v muzeu · v centru</span></td>
+      </tr>
+      <tr>
+        <td>נטרל -í (רך)</td>
+        <td><div class="end-badge blue">ללא שינוי</div></td>
+        <td><div class="cz">náměstí → náměstí<br>nádraží → nádraží</div></td>
+        <td><span class="cz-phrase">na náměstí · na nádraží</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip amber">
+    <strong>⚠️ שינויי עיצורים לפני -ě</strong>
+    כאשר הסיומת היא <b>-ě</b>, חלק מהעיצורים שלפניה משתנים:<br>
+    <span class="cz-phrase">k → c</span> (banka → bance, Praha → Praze)<br>
+    <span class="cz-phrase">h → z</span> (Praha → Praze, noha → noze)<br>
+    <span class="cz-phrase">ch → š</span> (strach → straše)<br>
+    <span class="cz-phrase">r → ř</span> (sestra → sestře)<br>
+    <span class="cz-phrase">d → ď / t → ť / n → ň</span> (před -ě: obchod → obchodě)
+  </div>
+
+  <p class="stitle">דוגמאות לשמיעה</p>
+
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Bydlím ve městě.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Bydlím ve <span class="hl">městě</span>.</span>
+    <span class="ex-he">אני גר/ה בעיר</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Pracuji v bance.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Pracuji v <span class="hl">bance</span>.</span>
+    <span class="ex-he">אני עובד/ת בבנק</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jsem v restauraci.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Jsem v <span class="hl">restauraci</span>.</span>
+    <span class="ex-he">אני במסעדה</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Kniha je na stole.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Kniha je na <span class="hl">stole</span>.</span>
+    <span class="ex-he">הספר על השולחן</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Mluvíme o Petrovi.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Mluvíme o <span class="hl">Petrovi</span>.</span>
+    <span class="ex-he">אנחנו מדברים על פטר</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Čekám na nádraží.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Čekám na <span class="hl">nádraží</span>.</span>
+    <span class="ex-he">אני מחכה בתחנה</span>
+  </div>
+
+  <div class="tip green">
+    <strong>🎯 שלוש הדוגמאות שצריך לזכור</strong>
+    <span class="cz-phrase">v <b>Praze</b></span> (Praha — נקבה -a, k→z לפני -ě) ·
+    <span class="cz-phrase">ve <b>škole</b></span> (škola — נקבה -a קשה, -ě) ·
+    <span class="cz-phrase">v <b>restauraci</b></span> (restaurace — נקבה רכה -ce, -i)
+  </div>
+
+  <div class="step-nav">
+    <a href="b1-lesson2a.html" class="btn-back">→ 2א — מה זה Lokál?</a>
+    <a href="b1-lesson2c.html" class="btn-next">2ג — פעלים עם Lokál ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson2b">
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#11457E;">📋 Lokál יחיד — סיכום</strong>
+    <div style="font-size:12px;line-height:2.2;color:#16385f;">
+      <b>זכר דומם (k/g/h/r):</b> -u<br>
+      <b>זכר דומם (d/t/n):</b> -ě<br>
+      <b>זכר רך:</b> -i<br>
+      <b>זכר חי:</b> -ovi / -i<br>
+      <b>נקבה -a קשה:</b> -ě / -e<br>
+      <b>נקבה -a רכה (k/g):</b> -ce / -ze<br>
+      <b>נקבה -e/-ce:</b> -i<br>
+      <b>נקבה עיצור:</b> -i<br>
+      <b>נטרל -o:</b> -ě<br>
+      <b>נטרל -um:</b> -u<br>
+      <b>נטרל -í:</b> ללא שינוי
+    </div>
+  </div>
+  <div style="background:var(--amber-light);border:1px solid rgba(245,158,11,.2);border-radius:var(--rs);padding:14px;font-size:12.5px;color:#92400e;">
+    <strong style="display:block;margin-bottom:6px;">שינויי עיצורים לפני -ě:</strong>
+    k→c · g→z · h→z · ch→š · r→ř
+  </div>
+</aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+function speak(t){
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='cs-CZ';u.rate=0.85;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>

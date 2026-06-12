@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 3ה — תרגול מסכם | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--red:#dc2626;--red-light:#fef2f2;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}
+    .logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:20px;animation:fadeIn .5s ease both;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .score-bar{position:sticky;top:60px;z-index:50;background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:14px 20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+    .score-text{font-size:13.5px;color:var(--text);font-weight:600;}
+    .score-text b{color:var(--green);font-family:'Nunito',sans-serif;font-size:16px;}
+    .score-bar-track{flex:1;height:8px;background:var(--gl);border-radius:4px;overflow:hidden;min-width:120px;}
+    .score-bar-fill{height:100%;background:var(--green);transition:width .4s ease;}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:24px 0 12px;display:flex;align-items:center;gap:8px;}
+    .stitle .ex-count{background:var(--gl);color:var(--gd);padding:2px 8px;border-radius:10px;font-size:10px;}
+
+    .qcard{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:10px;animation:fadeIn .4s ease both;}
+    .q-text{font-size:15px;font-weight:600;color:var(--text);margin-bottom:14px;line-height:1.7;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+    .q-text .q-hint{font-size:12.5px;color:var(--muted);font-weight:400;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;}
+    .q-listen{width:32px;height:32px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .q-listen:hover{background:var(--gm);}
+    .q-listen svg{width:11px;height:11px;fill:var(--gd);margin-right:-1px;}
+    .q-opts{display:flex;flex-wrap:wrap;gap:8px;}
+    .q-opt{padding:9px 18px;border-radius:var(--rs);border:1.5px solid var(--border);background:var(--white);font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);cursor:pointer;transition:all .15s;direction:ltr;}
+    .q-opt.he-text{font-family:'Heebo',sans-serif;direction:rtl;}
+    .q-opt:hover:not(:disabled){border-color:var(--green);color:var(--green);}
+    .q-opt:disabled{cursor:default;}
+    .q-opt.correct{background:var(--gl);border-color:var(--green);color:var(--gd);}
+    .q-opt.wrong{background:#fef2f2;border-color:#dc2626;color:#dc2626;opacity:.7;}
+    .q-feedback{font-size:13.5px;line-height:1.7;margin-top:12px;padding:10px 14px;border-radius:var(--rs);display:none;animation:fadeIn .25s ease both;}
+    .q-feedback.show{display:block;}
+    .q-feedback.ok{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.18);}
+    .q-feedback.no{background:#fef2f2;color:#991b1b;border:1px solid rgba(220,38,38,.18);}
+
+    .complete-box{display:none;background:linear-gradient(135deg,var(--green) 0%,#0d8a64 100%);color:white;border-radius:var(--r);padding:32px 28px;text-align:center;margin-top:20px;animation:fadeIn .6s ease both;}
+    .complete-box.show{display:block;}
+    .complete-box .emoji{font-size:54px;margin-bottom:8px;display:block;}
+    .complete-box h3{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;margin-bottom:10px;}
+    .complete-box p{font-size:14.5px;line-height:1.7;opacity:.95;margin-bottom:20px;max-width:520px;margin-left:auto;margin-right:auto;}
+    .complete-box .stat{display:inline-block;background:rgba(255,255,255,.18);padding:6px 16px;border-radius:20px;font-weight:700;font-family:'Nunito',sans-serif;font-size:15px;margin:0 4px 16px;}
+    .complete-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:6px;}
+    .c-link{padding:9px 20px;border-radius:20px;font-size:13.5px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .c-link.white{background:white;color:var(--gd);}
+    .c-link.outline{background:transparent;color:white;border:1.5px solid rgba(255,255,255,.5);}
+    .c-link.outline:hover{border-color:white;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:30px;padding-top:22px;border-top:1px solid var(--border);}
+    .btn-back{padding:10px 20px;border-radius:20px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;text-decoration:none;display:inline-block;}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{padding:10px 24px;border-radius:20px;background:var(--green);color:white;border:none;font-size:14px;font-weight:700;cursor:pointer;transition:opacity .15s;display:inline-flex;align-items:center;gap:6px;text-decoration:none;}
+    .btn-next:hover{opacity:.88;}
+
+    .ref-table{font-size:13px;line-height:1.9;}
+    .ref-table .row{display:flex;justify-content:space-between;align-items:baseline;}
+    .ref-table .pos{color:var(--green);font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;}
+    .ref-table .he{color:var(--muted);font-size:12px;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .layout{grid-template-columns:1fr;padding:20px;}
+      .breadcrumb{padding:12px 20px;}
+      aside.sidebar{display:none;}
+      .score-bar{top:50px;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson3.html">שיעור 3</a><span>›</span>
+  3ה — תרגול מסכם
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 תרגול מסכם — שיעור 3 כולו</strong>
+    20 שאלות מ-5 תרגילים: מיקום <span class="cz-phrase">jsem</span> במשפט, פעלים רפלקסיביים, סיפורי ילדות, תרגום מעברית, והאזנה. אם תקועים — הסיידבר מציג את כללי שיעור 3 בקצרה.
+  </div>
+
+  <!-- SCORE BAR -->
+  <div class="score-bar">
+    <div class="score-text">התקדמות: <b id="scoreNum">0/20</b></div>
+    <div class="score-bar-track"><div class="score-bar-fill" id="scoreFill" style="width:0%"></div></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- EXERCISE 1: מיקום JSEM/JSI                   -->
+  <!-- ============================================ -->
+  <div class="stitle">
+    <span class="ex-count">תרגיל 1</span>
+    מיקום <span class="cz-phrase">jsem</span> / <span class="cz-phrase">jsi</span> — איזה משפט נכון?
+  </div>
+
+  <div class="qcard" data-correct="Včera jsem šel do parku.">
+    <div class="q-text"><span class="q-hint">״אתמול הלכתי לפארק.״ (דובר = גבר)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Včera šel jsem do parku.">Včera šel jsem do parku.</button>
+      <button class="q-opt" data-opt="Včera jsem šel do parku.">Včera jsem šel do parku.</button>
+      <button class="q-opt" data-opt="Včera šel do parku jsem.">Včera šel do parku jsem.</button>
+      <button class="q-opt" data-opt="Jsem šel včera do parku.">Jsem šel včera do parku.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Šla jsem domů.">
+    <div class="q-text"><span class="q-hint">״הלכתי הביתה.״ (דוברת = אישה) — המילה הראשונה במשפט היא הפועל עצמו</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Šla domů jsem.">Šla domů jsem.</button>
+      <button class="q-opt" data-opt="Šla jsem domů.">Šla jsem domů.</button>
+      <button class="q-opt" data-opt="Jsem šla domů.">Jsem šla domů.</button>
+      <button class="q-opt" data-opt="Domů šla jsem.">Domů šla jsem.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Spal jsi dlouho?">
+    <div class="q-text"><span class="q-hint">״ישנת הרבה זמן?״ (פונים לגבר)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Spal dlouho jsi?">Spal dlouho jsi?</button>
+      <button class="q-opt" data-opt="Jsi spal dlouho?">Jsi spal dlouho?</button>
+      <button class="q-opt" data-opt="Spal jsi dlouho?">Spal jsi dlouho?</button>
+      <button class="q-opt" data-opt="Dlouho jsi spal?">Dlouho jsi spal?</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Já jsem byla doma.">
+    <div class="q-text"><span class="q-hint">״אני הייתי בבית.״ (דוברת = אישה) — בחירה: לאחר <span class="cz-phrase">já</span> חייב לבוא <span class="cz-phrase">jsem</span></span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Já byla jsem doma.">Já byla jsem doma.</button>
+      <button class="q-opt" data-opt="Já jsem byla doma.">Já jsem byla doma.</button>
+      <button class="q-opt" data-opt="Doma já jsem byla.">Doma já jsem byla.</button>
+      <button class="q-opt" data-opt="Já byla doma jsem.">Já byla doma jsem.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- EXERCISE 2: פעלים רפלקסיביים — איפה se      -->
+  <!-- ============================================ -->
+  <div class="stitle">
+    <span class="ex-count">תרגיל 2</span>
+    פעלים רפלקסיביים — איפה ה-<span class="cz-phrase">se</span>?
+  </div>
+
+  <div class="qcard" data-correct="Dívala jsem se na televizi.">
+    <div class="q-text"><span class="q-hint">״הסתכלתי על הטלוויזיה.״ (דוברת = אישה)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Dívala se jsem na televizi.">Dívala se jsem na televizi.</button>
+      <button class="q-opt" data-opt="Dívala jsem se na televizi.">Dívala jsem se na televizi.</button>
+      <button class="q-opt" data-opt="Jsem dívala se na televizi.">Jsem dívala se na televizi.</button>
+      <button class="q-opt" data-opt="Dívala jsem na televizi se.">Dívala jsem na televizi se.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Učili jsme se česky doma.">
+    <div class="q-text"><span class="q-hint">״למדנו צ׳כית בבית.״ (אנחנו — קבוצה)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Učili se jsme česky doma.">Učili se jsme česky doma.</button>
+      <button class="q-opt" data-opt="Učili jsme česky doma se.">Učili jsme česky doma se.</button>
+      <button class="q-opt" data-opt="Jsme učili se česky doma.">Jsme učili se česky doma.</button>
+      <button class="q-opt" data-opt="Učili jsme se česky doma.">Učili jsme se česky doma.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Včera jsem se bavil v kavárně.">
+    <div class="q-text"><span class="q-hint">״אתמול נהניתי בבית קפה.״ (דובר = גבר) — <span class="cz-phrase">se</span> צמוד ל-<span class="cz-phrase">jsem</span></span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Včera bavil jsem se v kavárně.">Včera bavil jsem se v kavárně.</button>
+      <button class="q-opt" data-opt="Včera jsem bavil se v kavárně.">Včera jsem bavil se v kavárně.</button>
+      <button class="q-opt" data-opt="Včera jsem se bavil v kavárně.">Včera jsem se bavil v kavárně.</button>
+      <button class="q-opt" data-opt="Včera se jsem bavil v kavárně.">Včera se jsem bavil v kavárně.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Vrátila se domů pozdě.">
+    <div class="q-text"><span class="q-hint">״היא חזרה הביתה מאוחר.״ (גוף שלישי — בלי <span class="cz-phrase">jsem</span>!) — איפה <span class="cz-phrase">se</span> נכנס?</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Vrátila domů se pozdě.">Vrátila domů se pozdě.</button>
+      <button class="q-opt" data-opt="Vrátila se domů pozdě.">Vrátila se domů pozdě.</button>
+      <button class="q-opt" data-opt="Se vrátila domů pozdě.">Se vrátila domů pozdě.</button>
+      <button class="q-opt" data-opt="Vrátila domů pozdě se.">Vrátila domů pozdě se.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- EXERCISE 3: סיפורי ילדות — השלמת משפט        -->
+  <!-- ============================================ -->
+  <div class="stitle">
+    <span class="ex-count">תרגיל 3</span>
+    סיפורי ילדות — השלימו את החסר
+  </div>
+
+  <div class="qcard" data-correct="byla malá">
+    <div class="q-text"><span class="cz-phrase">Když jsem _____, ráda jsem četla knihy.</span> <span class="q-hint">— כשהייתי קטנה, אהבתי לקרוא ספרים. (דוברת = אישה)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="byl malý">byl malý</button>
+      <button class="q-opt" data-opt="byla malá">byla malá</button>
+      <button class="q-opt" data-opt="je malá">je malá</button>
+      <button class="q-opt" data-opt="byli malí">byli malí</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="nikdy jsem nejedl">
+    <div class="q-text"><span class="cz-phrase">_____ ryby.</span> <span class="q-hint">— מעולם לא אכלתי דגים. (דובר = גבר) — שלילה כפולה עם <span class="cz-phrase">nikdy</span>!</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="nikdy jsem jedl">nikdy jsem jedl</button>
+      <button class="q-opt" data-opt="nikdy jsem nejedl">nikdy jsem nejedl</button>
+      <button class="q-opt" data-opt="vždycky jsem nejedl">vždycky jsem nejedl</button>
+      <button class="q-opt" data-opt="někdy jsem jedl">někdy jsem jedl</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="často jsem">
+    <div class="q-text"><span class="cz-phrase">_____ chodil do parku.</span> <span class="q-hint">— לעתים קרובות הלכתי לפארק. (דובר = גבר)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="často jsem">často jsem</button>
+      <button class="q-opt" data-opt="často se jsem">často se jsem</button>
+      <button class="q-opt" data-opt="jsem často">jsem často</button>
+      <button class="q-opt" data-opt="často byl jsem">často byl jsem</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="vždycky jsem se">
+    <div class="q-text"><span class="cz-phrase">_____ učila ráno.</span> <span class="q-hint">— תמיד למדתי בבוקר. (דוברת = אישה, פועל רפלקסיבי <span class="cz-phrase">učit se</span>)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="vždycky jsem">vždycky jsem</button>
+      <button class="q-opt" data-opt="vždycky se jsem">vždycky se jsem</button>
+      <button class="q-opt" data-opt="vždycky jsem se">vždycky jsem se</button>
+      <button class="q-opt" data-opt="jsem vždycky se">jsem vždycky se</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- EXERCISE 4: תרגום מעברית                    -->
+  <!-- ============================================ -->
+  <div class="stitle">
+    <span class="ex-count">תרגיל 4</span>
+    תרגמו לצ׳כית
+  </div>
+
+  <div class="qcard" data-correct="Včera jsem byla doma.">
+    <div class="q-text"><span class="q-hint">״אתמול הייתי בבית.״ (דוברת = אישה)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Včera jsem byla doma.">Včera jsem byla doma.</button>
+      <button class="q-opt" data-opt="Včera byla jsem doma.">Včera byla jsem doma.</button>
+      <button class="q-opt" data-opt="Včera byla doma jsem.">Včera byla doma jsem.</button>
+      <button class="q-opt" data-opt="Já byla doma včera.">Já byla doma včera.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Díval jsem se na film.">
+    <div class="q-text"><span class="q-hint">״צפיתי בסרט.״ (דובר = גבר, רפלקסיבי <span class="cz-phrase">dívat se</span>)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Díval se jsem na film.">Díval se jsem na film.</button>
+      <button class="q-opt" data-opt="Díval jsem se na film.">Díval jsem se na film.</button>
+      <button class="q-opt" data-opt="Jsem díval se na film.">Jsem díval se na film.</button>
+      <button class="q-opt" data-opt="Díval jsem na film se.">Díval jsem na film se.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Když jsem byl malý, hrál jsem fotbal.">
+    <div class="q-text"><span class="q-hint">״כשהייתי קטן, שיחקתי כדורגל.״ (דובר = גבר)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Když jsem byl malý, hrál jsem fotbal.">Když jsem byl malý, hrál jsem fotbal.</button>
+      <button class="q-opt" data-opt="Když byl jsem malý, hrál jsem fotbal.">Když byl jsem malý, hrál jsem fotbal.</button>
+      <button class="q-opt" data-opt="Když byl malý, hrál fotbal.">Když byl malý, hrál fotbal.</button>
+      <button class="q-opt" data-opt="Když já malý, já hrál fotbal.">Když já malý, já hrál fotbal.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="Bavili jsme se u ohně.">
+    <div class="q-text"><span class="q-hint">״נהנינו ליד המדורה.״ (אנחנו — קבוצה מעורבת, רפלקסיבי <span class="cz-phrase">bavit se</span>)</span></div>
+    <div class="q-opts">
+      <button class="q-opt" data-opt="Bavili se jsme u ohně.">Bavili se jsme u ohně.</button>
+      <button class="q-opt" data-opt="Bavili jsme u ohně se.">Bavili jsme u ohně se.</button>
+      <button class="q-opt" data-opt="Bavili jsme se u ohně.">Bavili jsme se u ohně.</button>
+      <button class="q-opt" data-opt="Jsme se bavili u ohně.">Jsme se bavili u ohně.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- EXERCISE 5: האזנה והבנה                     -->
+  <!-- ============================================ -->
+  <div class="stitle">
+    <span class="ex-count">תרגיל 5</span>
+    שמעו ובחרו את התרגום הנכון
+  </div>
+
+  <div class="qcard" data-correct="אתמול הייתי כל היום בבית." data-cz="Včera jsem byl celý den doma.">
+    <div class="q-text">
+      <button class="q-listen" onclick="speak('Včera jsem byl celý den doma.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="q-hint">הקשיבו ובחרו את התרגום:</span>
+    </div>
+    <div class="q-opts">
+      <button class="q-opt he-text" data-opt="אתמול הייתי כל היום בבית.">אתמול הייתי כל היום בבית.</button>
+      <button class="q-opt he-text" data-opt="אתמול נסעתי הביתה.">אתמול נסעתי הביתה.</button>
+      <button class="q-opt he-text" data-opt="היום אני בבית כל היום.">היום אני בבית כל היום.</button>
+      <button class="q-opt he-text" data-opt="אתמול הלכתי הביתה.">אתמול הלכתי הביתה.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="צפיתי בסרט וקראתי ספר." data-cz="Díval jsem se na film a četl jsem knihu.">
+    <div class="q-text">
+      <button class="q-listen" onclick="speak('Díval jsem se na film a četl jsem knihu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="q-hint">הקשיבו ובחרו את התרגום:</span>
+    </div>
+    <div class="q-opts">
+      <button class="q-opt he-text" data-opt="צפיתי בסרט וקראתי ספר.">צפיתי בסרט וקראתי ספר.</button>
+      <button class="q-opt he-text" data-opt="ראיתי סרט וכתבתי ספר.">ראיתי סרט וכתבתי ספר.</button>
+      <button class="q-opt he-text" data-opt="צפיתי בטלוויזיה וקראתי עיתון.">צפיתי בטלוויזיה וקראתי עיתון.</button>
+      <button class="q-opt he-text" data-opt="הלכתי לסרט וקניתי ספר.">הלכתי לסרט וקניתי ספר.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="כשהייתי קטנה, גרתי בפראג." data-cz="Když jsem byla malá, bydlela jsem v Praze.">
+    <div class="q-text">
+      <button class="q-listen" onclick="speak('Když jsem byla malá, bydlela jsem v Praze.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="q-hint">הקשיבו ובחרו את התרגום:</span>
+    </div>
+    <div class="q-opts">
+      <button class="q-opt he-text" data-opt="כשהייתי קטנה, גרתי בפראג.">כשהייתי קטנה, גרתי בפראג.</button>
+      <button class="q-opt he-text" data-opt="כשהייתי קטן, גרתי בפראג.">כשהייתי קטן, גרתי בפראג.</button>
+      <button class="q-opt he-text" data-opt="כשהייתי בפראג, הייתי קטנה.">כשהייתי בפראג, הייתי קטנה.</button>
+      <button class="q-opt he-text" data-opt="פראג היא קטנה, הייתי שם.">פראג היא קטנה, הייתי שם.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" data-correct="נהנינו ליד המדורה." data-cz="Bavili jsme se u ohně.">
+    <div class="q-text">
+      <button class="q-listen" onclick="speak('Bavili jsme se u ohně.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="q-hint">הקשיבו ובחרו את התרגום:</span>
+    </div>
+    <div class="q-opts">
+      <button class="q-opt he-text" data-opt="נהנינו ליד המדורה.">נהנינו ליד המדורה.</button>
+      <button class="q-opt he-text" data-opt="ראינו את המדורה.">ראינו את המדורה.</button>
+      <button class="q-opt he-text" data-opt="היינו בבית.">היינו בבית.</button>
+      <button class="q-opt he-text" data-opt="עזרנו במטבח.">עזרנו במטבח.</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <!-- COMPLETION -->
+  <div class="complete-box" id="completeBox">
+    <span class="emoji">🎉</span>
+    <h3>סיימתם את שיעור 3 של A2!</h3>
+    <p>
+      <span class="stat" id="finalScore">0/20</span>
+      <br>
+      עכשיו אתם יודעים <b>לספר סיפור שלם בעבר</b> — לא רק משפט בודד. מיקום <span class="cz-phrase">jsem</span>, רפלקסיביים, סיפורי ילדות, דיאלוגים על אתמול — הכל יחד.<br><br>
+      זה הסוף של ״השלב הראשון״ של A2 — המבט לאחור. בשיעור 4 נצא קדימה — <b>עתיד</b> (<span class="cz-phrase">Futurum</span>).
+    </p>
+    <div class="complete-links">
+      <a href="a2-lesson3.html" class="c-link outline">חזרה לשיעור 3</a>
+      <a href="a2-lesson4.html" class="c-link white">שיעור 4 — עתיד ←</a>
+    </div>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson3d.html" class="btn-back">→ חזרה ל-3ד: דיאלוגים</a>
+    <a href="a2-lesson4.html" class="btn-next">שיעור 4 — עתיד ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson3e">
+
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px;">
+    <h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px;">כללי שיעור 3 בקצרה</h3>
+    <div class="ref-table">
+      <div class="row"><span class="pos">2nd position</span><span class="he">jsem במקום השני</span></div>
+      <div class="row"><span class="pos">se + jsem</span><span class="he">צמוד יחד</span></div>
+      <div class="row"><span class="pos">on/ona — ∅</span><span class="he">בלי jsem</span></div>
+      <div class="row"><span class="pos">Když jsem byl/a malý/á</span><span class="he">פתיחה</span></div>
+      <div class="row"><span class="pos">nikdy + ne-</span><span class="he">שלילה כפולה</span></div>
+    </div>
+  </div>
+
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px;">
+    <h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px;">4 פעלים רפלקסיביים</h3>
+    <div class="ref-table">
+      <div class="row"><span class="pos">dívat se</span><span class="he">להסתכל</span></div>
+      <div class="row"><span class="pos">učit se</span><span class="he">ללמוד</span></div>
+      <div class="row"><span class="pos">bavit se</span><span class="he">ליהנות</span></div>
+      <div class="row"><span class="pos">vrátit se</span><span class="he">לחזור</span></div>
+    </div>
+  </div>
+
+  <div style="background:var(--amber-light);border:1px solid rgba(245,158,11,.2);border-radius:var(--r);padding:16px;border-inline-start:5px solid #f59e0b;">
+    <strong style="display:block;margin-bottom:5px;color:#92400e;font-size:14px;">⚡ הדגל האדום</strong>
+    <span style="font-size:13px;color:#78350f;line-height:1.7;">
+      <b style="font-family:'Nunito',sans-serif;">Šel jsem.</b> ✓<br>
+      <b style="font-family:'Nunito',sans-serif;">Jsem šel.</b> ✗<br>
+      <span style="font-size:12px;">(<b>jsem</b> אף פעם לא ראשון!)</span>
+    </span>
+  </div>
+
+  <div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-radius:var(--r);padding:16px;border-inline-start:5px solid #11457E;">
+    <strong style="display:block;margin-bottom:5px;color:#11457E;font-size:14px;">💡 טיפ</strong>
+    <span style="font-size:13px;color:#16385f;line-height:1.7;">אם תקועים — פתחו <a href="a2-lesson3a.html" style="color:#11457E;font-weight:700;">3א</a>, <a href="a2-lesson3b.html" style="color:#11457E;font-weight:700;">3ב</a>, <a href="a2-lesson3c.html" style="color:#11457E;font-weight:700;">3ג</a> או <a href="a2-lesson3d.html" style="color:#11457E;font-weight:700;">3ד</a> בלשונית חדשה.</span>
+  </div>
+
+</aside>
+</div>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+
+const quizState = {};
+const totalQ = document.querySelectorAll('.qcard').length;
+
+document.querySelectorAll('.qcard').forEach((card, idx) => {
+  quizState[idx] = null;
+  card.querySelectorAll('.q-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (quizState[idx] !== null) return;
+      const chosen = btn.dataset.opt;
+      const correct = card.dataset.correct;
+      const fb = card.querySelector('.q-feedback');
+      if (chosen === correct) {
+        btn.classList.add('correct');
+        fb.className = 'q-feedback show ok';
+        fb.textContent = '✓ נכון!';
+        quizState[idx] = true;
+      } else {
+        btn.classList.add('wrong');
+        const correctBtn = card.querySelector(`.q-opt[data-opt="${CSS.escape(correct)}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+        fb.className = 'q-feedback show no';
+        fb.textContent = `התשובה הנכונה: ${correct}`;
+        quizState[idx] = false;
+      }
+      card.querySelectorAll('.q-opt').forEach(b => b.disabled = true);
+      updateScore();
+    });
+  });
+});
+
+function updateScore() {
+  const answered = Object.values(quizState).filter(v => v !== null).length;
+  const correct = Object.values(quizState).filter(v => v === true).length;
+  document.getElementById('scoreNum').textContent = `${answered}/${totalQ}`;
+  document.getElementById('scoreFill').style.width = `${(answered / totalQ) * 100}%`;
+  if (answered === totalQ) {
+    const box = document.getElementById('completeBox');
+    box.classList.add('show');
+    document.getElementById('finalScore').textContent = `ענית נכון על ${correct} מתוך ${totalQ}`;
+  }
+}
+</script>
+<script src="_shared/sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 10ד — který / která / které | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;--purple-mid:#ede9fe;--purple-dark:#6d28d9;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* Gender grid */
+    .gender-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;}
+    .gender-card{border-radius:var(--r);padding:18px 16px;text-align:center;}
+    .gender-card.masc{background:var(--blue-light);border:2px solid rgba(29,78,216,.2);}
+    .gender-card.fem{background:#fce7f3;border:2px solid rgba(219,39,119,.2);}
+    .gender-card.neut{background:var(--purple-light);border:2px solid rgba(124,58,237,.2);}
+    .gc-word{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;margin-bottom:4px;}
+    .gc-word.masc{color:#1d4ed8;}
+    .gc-word.fem{color:#be185d;}
+    .gc-word.neut{color:var(--purple-dark);}
+    .gc-label{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+    .gc-label.masc{color:#1d4ed8;}
+    .gc-label.fem{color:#be185d;}
+    .gc-label.neut{color:var(--purple-dark);}
+    .gc-noun{font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;}
+    .gc-he{font-size:12px;color:var(--muted);}
+
+    /* Example lines */
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:rgba(255,255,255,.7);margin-bottom:0;}
+    .ex-line:hover{background:var(--white);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--purple-mid);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn-sm:hover{background:#ddd6fe;}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--purple-dark);margin-right:-1px;}
+    .hl-purple{color:var(--purple-dark);font-weight:900;}
+    .hl-blue{color:#1d4ed8;font-weight:800;}
+    .hl-pink{color:#be185d;font-weight:800;}
+    .hl-neut{color:var(--purple-dark);font-weight:800;}
+
+    /* Sentence diagram */
+    .sent-diagram{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:20px;}
+    .sent-diagram h3{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;margin-bottom:14px;}
+    .diag-row{display:flex;align-items:stretch;gap:0;margin-bottom:8px;direction:ltr;font-family:'Nunito',sans-serif;}
+    .diag-cell{padding:8px 12px;font-size:13px;font-weight:700;text-align:center;line-height:1.4;}
+    .diag-cell.noun{background:#eff6ff;color:#1d4ed8;border-radius:8px 0 0 8px;min-width:80px;}
+    .diag-cell.comma{background:#f3f4f6;color:var(--muted);padding:8px 4px;font-weight:400;}
+    .diag-cell.conj{background:var(--purple-mid);color:var(--purple-dark);min-width:60px;}
+    .diag-cell.verb{background:var(--gl);color:var(--gd);min-width:80px;}
+    .diag-cell.rest{background:#f3f4f6;color:var(--text);border-radius:0 8px 8px 0;flex:1;}
+    .diag-label{font-size:10px;font-weight:400;display:block;color:inherit;opacity:.7;margin-top:2px;}
+
+    /* Gender blocks */
+    .gender-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:14px;}
+    .gs-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+    .gs-badge{padding:4px 12px;border-radius:20px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;}
+    .gs-badge.masc{background:var(--blue-light);color:#1d4ed8;}
+    .gs-badge.fem{background:#fce7f3;color:#be185d;}
+    .gs-badge.neut{background:var(--purple-light);color:var(--purple-dark);}
+    .gs-title{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;}
+    .gs-examples{display:flex;flex-direction:column;gap:6px;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .gender-grid{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson10.html">שיעור 10</a><span>›</span>
+  10ד — který / která / které
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    <span class="cz-phrase">který / která / které</span> = ״ש...״ בעברית — כלומר משפט זיהוי. ״הגבר <b>ש</b>מדבר עברית״, ״האישה <b>ש</b>גרה בפראג״, ״העיר <b>ש</b>אני אוהב/ת״. בצ׳כית הצורה משתנה לפי מין השם שמדברים עליו.
+  </div>
+
+  <!-- ========== GENDER TABLE ========== -->
+  <div class="stitle">שלוש הצורות — לפי מין</div>
+
+  <div class="gender-grid">
+    <div class="gender-card masc">
+      <div class="gc-word masc">který</div>
+      <div class="gc-label masc">זכר</div>
+      <div class="gc-noun">muž, kamarád, stůl, autobus</div>
+      <div class="gc-he">גבר, חבר, שולחן, אוטובוס</div>
+    </div>
+    <div class="gender-card fem">
+      <div class="gc-word fem">která</div>
+      <div class="gc-label fem">נקבה</div>
+      <div class="gc-noun">žena, kamarádka, ulice, tramvaj</div>
+      <div class="gc-he">אישה, חברה, רחוב, טרמווי</div>
+    </div>
+    <div class="gender-card neut">
+      <div class="gc-word neut">které</div>
+      <div class="gc-label neut">ניטרלי</div>
+      <div class="gc-noun">město, auto, slovo, jméno</div>
+      <div class="gc-he">עיר, מכונית, מילה, שם</div>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>📌 הכלל — התאם למין השם לפניו</strong>
+    מסתכלים על השם שמתארים — ולפיו בוחרים את הצורה. <span class="cz-phrase">muž</span> (זכר) → <span class="cz-phrase">který</span>. <span class="cz-phrase">žena</span> (נקבה) → <span class="cz-phrase">která</span>. <span class="cz-phrase">město</span> (ניטרלי) → <span class="cz-phrase">které</span>. שאלת המין של שמות עצם בצ׳כית — כבר למדנו אותה בשיעורים הקודמים!
+  </div>
+
+  <!-- ========== SENTENCE STRUCTURE ========== -->
+  <div class="stitle">מבנה המשפט</div>
+
+  <div class="sent-diagram">
+    <h3>איך בונים משפט זיהוי? — פירוק של משפט אמיתי</h3>
+
+    <!-- Sentence 1 breakdown -->
+    <div style="direction:ltr;margin-bottom:20px;">
+      <!-- The sentence with colored spans -->
+      <div style="font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;line-height:1.6;margin-bottom:8px;flex-wrap:wrap;display:flex;align-items:baseline;gap:0;">
+        <span style="background:#eff6ff;color:#1d4ed8;padding:4px 8px;border-radius:6px 0 0 6px;border:2px solid #bfdbfe;">To je kamarád</span><span style="background:#f3f4f6;color:var(--muted);padding:4px 2px;border-top:2px solid #e5e7eb;border-bottom:2px solid #e5e7eb;font-weight:400;">,</span><span style="background:var(--purple-mid);color:var(--purple-dark);padding:4px 8px;border:2px solid #ddd6fe;"> který</span><span style="background:var(--gl);color:var(--gd);padding:4px 8px;border:2px solid #a7f3d0;"> mluví hebrejsky</span><span style="background:#f3f4f6;color:var(--muted);padding:4px 6px;border-radius:0 6px 6px 0;border:2px solid #e5e7eb;font-weight:400;">.</span>
+      </div>
+      <!-- Labels under each part -->
+      <div style="display:flex;gap:0;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;flex-wrap:wrap;">
+        <div style="background:#eff6ff;color:#1d4ed8;padding:4px 8px;border-radius:6px 0 0 6px;min-width:120px;">① מה שמדברים עליו</div>
+        <div style="background:#f3f4f6;color:var(--muted);padding:4px 6px;font-weight:400;font-size:11px;text-transform:none;">פסיק</div>
+        <div style="background:var(--purple-mid);color:var(--purple-dark);padding:4px 8px;">② ש... (לפי מין)</div>
+        <div style="background:var(--gl);color:var(--gd);padding:4px 8px;border-radius:0 6px 6px 0;">③ מה שנכון עליו</div>
+      </div>
+      <!-- Hebrew translation -->
+      <div style="margin-top:10px;font-size:14px;color:var(--muted);text-align:right;">
+        זה חבר
+        <span style="color:#1d4ed8;font-weight:700;">①</span>
+        &nbsp;<span style="color:var(--purple-dark);font-weight:700;">ש</span><span style="color:var(--gd);font-weight:700;">מדבר עברית</span>
+        <span style="color:var(--gd);font-weight:700;">③</span>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div style="border-top:1px dashed var(--border);margin-bottom:18px;"></div>
+
+    <!-- Sentence 2 breakdown -->
+    <div style="direction:ltr;margin-bottom:4px;">
+      <div style="font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;line-height:1.6;margin-bottom:8px;display:flex;align-items:baseline;gap:0;flex-wrap:wrap;">
+        <span style="background:#fce7f3;color:#be185d;padding:4px 8px;border-radius:6px 0 0 6px;border:2px solid #fbcfe8;">Mám kamarádku</span><span style="background:#f3f4f6;color:var(--muted);padding:4px 2px;border-top:2px solid #e5e7eb;border-bottom:2px solid #e5e7eb;font-weight:400;">,</span><span style="background:var(--purple-mid);color:var(--purple-dark);padding:4px 8px;border:2px solid #ddd6fe;"> která</span><span style="background:var(--gl);color:var(--gd);padding:4px 8px;border:2px solid #a7f3d0;"> bydlí v Brně</span><span style="background:#f3f4f6;color:var(--muted);padding:4px 6px;border-radius:0 6px 6px 0;border:2px solid #e5e7eb;font-weight:400;">.</span>
+      </div>
+      <div style="display:flex;gap:0;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;flex-wrap:wrap;">
+        <div style="background:#fce7f3;color:#be185d;padding:4px 8px;border-radius:6px 0 0 6px;min-width:120px;">① מה שמדברים עליו</div>
+        <div style="background:#f3f4f6;color:var(--muted);padding:4px 6px;font-weight:400;font-size:11px;text-transform:none;">פסיק</div>
+        <div style="background:var(--purple-mid);color:var(--purple-dark);padding:4px 8px;">② ש... (לפי מין)</div>
+        <div style="background:var(--gl);color:var(--gd);padding:4px 8px;border-radius:0 6px 6px 0;">③ מה שנכון עליו</div>
+      </div>
+      <div style="margin-top:10px;font-size:14px;color:var(--muted);text-align:right;">
+        יש לי חברה
+        <span style="color:#be185d;font-weight:700;">①</span>
+        &nbsp;<span style="color:var(--purple-dark);font-weight:700;">ש</span><span style="color:var(--gd);font-weight:700;">גרה בברנו</span>
+        <span style="color:var(--gd);font-weight:700;">③</span>
+      </div>
+    </div>
+
+    <div style="margin-top:14px;background:#f8fafc;border-radius:var(--rs);padding:10px 14px;font-size:13px;color:var(--muted);text-align:right;line-height:1.8;">
+      💡 שימי/ו לב: <b style="color:#1d4ed8;">který</b> כי kamarád זכר · <b style="color:#be185d;">která</b> כי kamarádka נקבה — הצורה תמיד עוקבת אחרי השם בחלק ①
+    </div>
+  </div>
+
+  <!-- ========== MASCULINE ========== -->
+  <div class="gender-section">
+    <div class="gs-header">
+      <span class="gs-badge masc">který — זכר</span>
+      <span class="gs-title">muž, kamarád, pes, stůl, autobus…</span>
+    </div>
+    <div class="gs-examples">
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('To je kamarád, který mluví hebrejsky.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">To je kamarád, <span class="hl-purple">který</span> mluví <span class="hl-blue">hebrejsky</span>.</span>
+        <span class="ex-he">זה חבר שמדבר עברית.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Vidím muže, který čte knihu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Znám muže, <span class="hl-purple">který</span> pracuje v Praze.</span>
+        <span class="ex-he">אני מכיר/ה גבר שעובד בפראג.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Mám pes, který je velmi hodný.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Mám pes, <span class="hl-purple">který</span> je velmi hodný.</span>
+        <span class="ex-he">יש לי כלב שמאוד טוב.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Autobus, který jedu, je číslo šest.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Autobus, <span class="hl-purple">který</span> jezdím, je číslo 22.</span>
+        <span class="ex-he">האוטובוס שאני נוסע/ת בו הוא מספר 22.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FEMININE ========== -->
+  <div class="gender-section">
+    <div class="gs-header">
+      <span class="gs-badge fem">která — נקבה</span>
+      <span class="gs-title">žena, kamarádka, ulice, tramvaj…</span>
+    </div>
+    <div class="gs-examples">
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('To je žena, která pracuje v nemocnici.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">To je žena, <span class="hl-purple">která</span> pracuje v nemocnici.</span>
+        <span class="ex-he">זאת אישה שעובדת בבית חולים.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Mám kamarádku, která bydlí v Brně.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Mám kamarádku, <span class="hl-purple">která</span> bydlí v Brně.</span>
+        <span class="ex-he">יש לי חברה שגרה בברנו.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Ulice, která vede k náměstí, je dlouhá.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Ulice, <span class="hl-purple">která</span> vede k náměstí, je dlouhá.</span>
+        <span class="ex-he">הרחוב שמוביל לכיכר הוא ארוך.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Tramvaj, která přijela, je plná.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Tramvaj, <span class="hl-purple">která</span> přijela, je plná.</span>
+        <span class="ex-he">הטרמווי שהגיע מלא.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== NEUTER ========== -->
+  <div class="gender-section">
+    <div class="gs-header">
+      <span class="gs-badge neut">které — ניטרלי</span>
+      <span class="gs-title">město, auto, slovo, jméno…</span>
+    </div>
+    <div class="gs-examples">
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('To je město, které znám dobře.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">To je město, <span class="hl-purple">které</span> znám dobře.</span>
+        <span class="ex-he">זאת עיר שאני מכיר/ה היטב.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Mám auto, které nejede dobře.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Mám auto, <span class="hl-purple">které</span> nejede dobře.</span>
+        <span class="ex-he">יש לי מכונית שלא נוסעת טוב.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Slovo, které říkáš, neznám.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Slovo, <span class="hl-purple">které</span> říkáš, neznám.</span>
+        <span class="ex-he">המילה שאתה/את אומר/ת — אני לא מכיר/ה אותה.</span>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Café, které navštěvuji, je blízko.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <span class="ex-cz">Café, <span class="hl-purple">které</span> navštěvuji, je blízko.</span>
+        <span class="ex-he">בית הקפה שאני מבקר/ת בו קרוב.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TIPS ========== -->
+  <div class="tip amber">
+    <strong>📝 פסיק לפני který — תמיד</strong>
+    כמו ב-<span class="cz-phrase">protože</span> ו-<span class="cz-phrase">když</span> — גם לפני <span class="cz-phrase">který / která / které</span> שמים פסיק תמיד. זה כלל בסיסי בפיסוק הצ׳כי.
+  </div>
+
+  <div class="tip purple">
+    <strong>📐 A2 — רק יחסת נושא</strong>
+    בשלב A2 אנחנו לומדים רק את <span class="cz-phrase">který</span> כנושא תת-המשפט — כלומר כשה-״ש-״ מתייחס למי שעושה את הפעולה. בהמשך (B1) נלמד צורות נוספות: <span class="cz-phrase">se kterým</span> (שאיתו), <span class="cz-phrase">o kterém</span> (שעליו) וכו׳.
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 co — גרסה בלתי-מוגדרת</strong>
+    אחרי <span class="cz-phrase">všechno</span> (הכל), <span class="cz-phrase">něco</span> (משהו), <span class="cz-phrase">nic</span> (כלום) — משתמשים ב-<span class="cz-phrase">co</span> במקום <span class="cz-phrase">který</span>: <span class="cz-phrase">Všechno, co říkáš, je pravda.</span> (כל מה שאתה/את אומר/ת הוא אמת.) רק לידיעה — זה לא נדרש עכשיו.
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson10c.html" class="btn-back">→ 10ג — když</a>
+    <a href="a2-lesson10e.html" class="btn-next">10ה — תרגול מסכם ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson10d">
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px;">
+    <strong style="display:block;margin-bottom:12px;font-size:14px;">📌 který — לפי מין</strong>
+    <div style="font-size:13px;line-height:1.9;">
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);">
+        <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#1d4ed8;direction:ltr;unicode-bidi:isolate;min-width:50px;">který</span>
+        <span style="color:var(--muted);font-size:12px;">זכר — muž, pes, stůl</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);">
+        <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#be185d;direction:ltr;unicode-bidi:isolate;min-width:50px;">která</span>
+        <span style="color:var(--muted);font-size:12px;">נקבה — žena, ulice</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 0;">
+        <span style="font-family:'Nunito',sans-serif;font-weight:800;color:var(--purple-dark);direction:ltr;unicode-bidi:isolate;min-width:50px;">které</span>
+        <span style="color:var(--muted);font-size:12px;">ניטרלי — město, auto</span>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted);line-height:1.85;">
+      <div style="margin-bottom:6px;direction:ltr;font-family:'Nunito',sans-serif;font-weight:700;font-size:12.5px;color:var(--text);">kamarád, <span style="color:var(--purple-dark);">který</span> mluví...</div>
+      <div style="margin-bottom:6px;direction:ltr;font-family:'Nunito',sans-serif;font-weight:700;font-size:12.5px;color:var(--text);">žena, <span style="color:var(--purple-dark);">která</span> pracuje...</div>
+      <div style="direction:ltr;font-family:'Nunito',sans-serif;font-weight:700;font-size:12.5px;color:var(--text);">město, <span style="color:var(--purple-dark);">které</span> znám...</div>
+      <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">📝 <b>פסיק לפני který — תמיד</b></div>
+    </div>
+  </div>
+</aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ'; u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

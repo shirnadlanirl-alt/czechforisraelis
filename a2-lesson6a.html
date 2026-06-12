@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 6א — moct (יכול) | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === Concept intro === */
+    .concept-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:24px;margin-bottom:20px;}
+    .concept-title{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--green);margin-bottom:8px;}
+    .concept-text{font-size:14px;color:var(--text);line-height:1.8;}
+    .concept-text b.cz{font-family:'Nunito',sans-serif;color:var(--green);direction:ltr;unicode-bidi:isolate;display:inline-block;}
+
+    /* === The formula === */
+    .formula-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:24px;text-align:center;margin-bottom:20px;}
+    .formula-box .formula{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--green);direction:ltr;unicode-bidi:isolate;margin-bottom:8px;line-height:1.5;}
+    .formula-box .formula-he{font-size:13.5px;color:var(--muted);}
+    .formula-box .formula-example{font-family:'Nunito',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-top:14px;direction:ltr;unicode-bidi:isolate;line-height:1.6;}
+    .formula-box .formula-example b{color:var(--green);}
+
+    /* === Conjugation table === */
+    .forms-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .forms-table{width:100%;border-collapse:collapse;font-size:14px;}
+    .forms-table th{text-align:right;padding:10px 12px;background:var(--gl);color:var(--gd);font-weight:700;font-size:12.5px;border-bottom:2px solid var(--gm);}
+    .forms-table td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+    .forms-table tr:last-child td{border-bottom:none;}
+    .forms-table .he-col{color:var(--muted);font-size:13px;width:22%;}
+    .forms-table .modal-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--green);direction:ltr;text-align:left;font-size:15px;}
+    .forms-table .play-cell{width:32px;text-align:center;}
+    .forms-table tr:hover td{background:var(--bg);}
+
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;margin:0 auto;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* === Examples list === */
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:var(--green);}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    /* === Past form mini box === */
+    .past-box{background:#f5f3ff;border:1px solid rgba(124,58,237,.2);border-inline-start:5px solid #7c3aed;border-radius:var(--rs);padding:14px 18px;margin-bottom:14px;}
+    .past-box strong{display:block;color:#5b21b6;margin-bottom:6px;font-size:14px;}
+    .past-box .past-content{font-size:13.5px;color:#16385f;line-height:1.7;}
+    .past-box .past-content b.cz{font-family:'Nunito',sans-serif;color:#5b21b6;direction:ltr;unicode-bidi:isolate;display:inline-block;}
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson6.html">שיעור 6</a><span>›</span>
+  6א — moct (יכול)
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    שני דברים: <b>מה זה פועל מודאלי</b> וכללי המשחק שלו, וההיכרות עם הפועל הראשון — <span class="cz-phrase">moct</span> (יכול / יכולה). הוא הפועל המודאלי הכי שימושי בשפה.
+  </div>
+
+  <!-- ========== CONCEPT INTRO ========== -->
+  <div class="stitle">מה זה פועל מודאלי?</div>
+
+  <div class="concept-box">
+    <div class="concept-title">פועל שעוזר לפועל אחר</div>
+    <div class="concept-text">
+      בעברית אומרים "אני <b>יכול ללכת</b>" — שתי מילים. הראשונה (יכול) מתארת את היחס שלי לפעולה, והשנייה (ללכת) היא הפעולה עצמה.<br><br>
+      בצ׳כית זה אותו רעיון בדיוק. <b class="cz">Můžu jít</b> = "יכול ללכת". הפועל המודאלי (<span class="cz-phrase">můžu</span>) מצוטט בהווה ומותאם לי, והפועל הראשי (<span class="cz-phrase">jít</span>) נשאר באינפיניטיב (בצורת המקור).<br><br>
+      ארבעת הפעלים המודאליים הם: <b class="cz">moct</b> (יכול), <b class="cz">muset</b> (חייב), <b class="cz">chtít</b> (רוצה), <b class="cz">smět</b> (מותר).
+    </div>
+  </div>
+
+  <!-- ========== THE FORMULA ========== -->
+  <div class="stitle">הנוסחה הכללית — פועל מודאלי + אינפיניטיב</div>
+
+  <div class="formula-box">
+    <div class="formula">פועל מודאלי (מותאם לגוף) + פועל ראשי (אינפיניטיב)</div>
+    <div class="formula-he">פועל מודאלי משתנה לפי "אני / את/ה / הוא ..." — אבל הפועל הראשי נשאר בצורת המקור.</div>
+    <div class="formula-example">Můžu + jít = <b>Můžu jít.</b> (אני יכול ללכת.)</div>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 דמיון לעברית/אנגלית</strong>
+    הפעלים המודאליים פועלים בצ׳כית בדיוק כמו ב<b>אנגלית</b>: "I can <b>go</b>" — שתי מילים, השנייה באינפיניטיב.<br>
+    בעברית זה גם דומה: "אני יכול <b>ללכת</b>" — הפועל "ללכת" בצורת המקור.
+  </div>
+
+  <!-- ========== MOCT CONJUGATION ========== -->
+  <div class="stitle">הפועל הראשון — moct (יכול)</div>
+
+  <div class="forms-block">
+    <table class="forms-table">
+      <tr><th>גוף</th><th>צורה</th><th>תרגום</th><th></th></tr>
+      <tr>
+        <td class="he-col">אני</td>
+        <td class="modal-cz">můžu</td>
+        <td class="he-col">אני יכול/ה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('můžu')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">את/ה</td>
+        <td class="modal-cz">můžeš</td>
+        <td class="he-col">את/ה יכול/ה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('můžeš')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הוא/היא</td>
+        <td class="modal-cz">může</td>
+        <td class="he-col">הוא/היא יכול/ה</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('může')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אנחנו</td>
+        <td class="modal-cz">můžeme</td>
+        <td class="he-col">אנחנו יכולים/ות</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('můžeme')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אתם/ן</td>
+        <td class="modal-cz">můžete</td>
+        <td class="he-col">אתם/ן יכולים/ות</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('můžete')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הם/הן</td>
+        <td class="modal-cz">můžou</td>
+        <td class="he-col">הם/הן יכולים/ות</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('můžou')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="tip green">
+    <strong>✨ שמתם לב לתבנית?</strong>
+    הסיומות של <span class="cz-phrase">moct</span> מוכרות לכם:<br>
+    <b>-u / -eš / -e / -eme / -ete / -ou</b><br>
+    אותן סיומות שראינו אצל <span class="cz-phrase">budu</span> (4א) ואצל <span class="cz-phrase">půjdu/pojedu</span> (4ב)!
+  </div>
+
+  <!-- ========== NEGATION ========== -->
+  <div class="stitle">שלילה — לא יכול</div>
+
+  <div class="formula-box" style="border-color:#dc2626;">
+    <div class="formula" style="color:#dc2626;">ne + פועל מודאלי</div>
+    <div class="formula-he">פשוט מצמידים <b>ne</b> בתחילת הפועל המודאלי.</div>
+    <div class="formula-example">Můžu → <b style="color:#dc2626;">Nemůžu</b> (לא יכול)</div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ נכון — צמוד למילה, לא בנפרד</strong>
+    בצ׳כית כותבים <span class="cz-phrase">nemůžu</span> — מילה אחת.<br>
+    ❌ <span style="text-decoration:line-through;direction:ltr;display:inline-block;font-family:'Nunito';">ne můžu</span> (לא כותבים בנפרד)
+  </div>
+
+  <!-- ========== EXAMPLES ========== -->
+  <div class="stitle">דוגמאות במשפט</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Můžu vám pomoct?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Můžu</b> vám pomoct?</span>
+    <span class="ex-he">אני יכול לעזור לכם?</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Můžeš mluvit pomalu?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Můžeš</b> mluvit pomalu?</span>
+    <span class="ex-he">את/ה יכול/ה לדבר לאט?</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Dneska nemůžu pracovat.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Dneska <b>nemůžu</b> pracovat.</span>
+    <span class="ex-he">היום אני לא יכול/ה לעבוד.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Můžeme jít na kávu?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Můžeme</b> jít na kávu?</span>
+    <span class="ex-he">אנחנו יכולים ללכת לקפה?</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Maminka nemůže přijít.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Maminka <b>nemůže</b> přijít.</span>
+    <span class="ex-he">אמא לא יכולה להגיע.</span>
+  </div>
+
+  <!-- ========== PAST FORM ========== -->
+  <div class="stitle">moct בעבר — mohl / mohla</div>
+
+  <div class="past-box">
+    <strong>📜 הצורה בעבר</strong>
+    <div class="past-content">
+      <b class="cz">moct</b> בעבר הוא <b class="cz">mohl / mohla</b> (יכול היה / יכולה הייתה).<br>
+      הוא הולך בדיוק כמו פעלים חריגים בעבר משיעור 2 — עם <span class="cz-phrase">jsem / jsi</span> בגופים 1-2.<br><br>
+      <b class="cz">Včera jsem nemohl přijít.</b> (אתמול לא יכולתי להגיע. ♂)<br>
+      <b class="cz">Mohla jsi vidět ten film?</b> (יכולת לראות את הסרט הזה? ♀)
+    </div>
+  </div>
+
+  <!-- ========== CHECK YOURSELF ========== -->
+  <div class="stitle">בדיקה אישית</div>
+
+  <div class="check-box">
+    <h4>אחרי 6א את/ה אמור/ה:</h4>
+    <ul class="check-list">
+      <li>להבין מה זה פועל מודאלי + הנוסחה (מודאלי + אינפיניטיב)</li>
+      <li>לדעת את כל הצורות של <span class="cz-phrase">moct</span> בהווה (můžu, můžeš, může...)</li>
+      <li>לבנות שלילה: <span class="cz-phrase">nemůžu, nemůžeš</span>...</li>
+      <li>לזכור את צורת העבר: <span class="cz-phrase">mohl / mohla</span></li>
+      <li>להגיד 3 משפטים: מה את/ה יכול/ה ולא יכול/ה לעשות היום</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson6.html" class="btn-back">→ חזרה לשיעור 6</a>
+    <a href="a2-lesson6b.html" class="btn-next">6ב — muset ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson6a"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

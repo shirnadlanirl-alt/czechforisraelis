@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 8א — JÍT vs CHODIT: ההבחנה | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* Compare block — two columns */
+    .compare-block{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:16px;}
+    .cb-side{padding:18px 20px;}
+    .cb-side.left{background:#fff7ed;border-left:1px solid var(--border);}
+    .cb-side.right{background:#eff6ff;}
+    .cb-head{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;margin-bottom:4px;direction:ltr;}
+    .cb-head.orange{color:#c2410c;}
+    .cb-head.blue{color:#1d4ed8;}
+    .cb-label{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:10px;letter-spacing:.04em;}
+    .cb-rule{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.5;}
+    .cb-signals{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+    .cb-signal{background:rgba(0,0,0,0.06);border-radius:6px;padding:3px 9px;font-size:12px;font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;}
+    .cb-signal.orange{background:#fed7aa;color:#c2410c;}
+    .cb-signal.blue{background:#bfdbfe;color:#1d4ed8;}
+
+    /* Conjugation table */
+    .conj-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+    .conj-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;}
+    .conj-box h4{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;margin-bottom:12px;direction:ltr;}
+    .conj-box h4.orange{color:#c2410c;}
+    .conj-box h4.blue{color:#1d4ed8;}
+    .conj-table{width:100%;border-collapse:collapse;font-size:13.5px;}
+    .conj-table tr{border-bottom:1px solid var(--border);}
+    .conj-table tr:last-child{border-bottom:none;}
+    .conj-table td{padding:8px 6px;vertical-align:middle;}
+    .conj-table .pron{color:var(--muted);font-size:12.5px;direction:ltr;unicode-bidi:isolate;}
+    .conj-table .form{font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;direction:ltr;unicode-bidi:isolate;}
+    .conj-table .form.orange{color:#c2410c;}
+    .conj-table .form.blue{color:#1d4ed8;}
+    .conj-table .play-btn{width:24px;height:24px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .conj-table .play-btn:hover{background:var(--gm);}
+    .conj-table .play-btn svg{width:8px;height:8px;fill:var(--gd);margin-right:-1px;}
+
+    /* Example lines */
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz .hl-orange{color:#c2410c;}
+    .ex-cz .hl-blue{color:#1d4ed8;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* Signal words */
+    .signals-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:14px;}
+    .signals-box h4{font-size:13.5px;font-weight:700;color:var(--text);margin-bottom:12px;}
+    .signals-row{display:flex;flex-wrap:wrap;gap:8px;}
+    .signal-tag{padding:5px 12px;border-radius:8px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;direction:ltr;unicode-bidi:isolate;}
+    .signal-tag.orange{background:#fed7aa;color:#c2410c;}
+    .signal-tag.blue{background:#bfdbfe;color:#1d4ed8;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .compare-block{grid-template-columns:1fr;}
+      .conj-wrap{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson8.html">שיעור 8</a><span>›</span>
+  8א — JÍT vs CHODIT: ההבחנה
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    למה יש שני פעלי הליכה? מה ההבדל ביניהם? הטיות מלאות של שניהם — ואיך יודעים מתי להשתמש בכל אחד.
+  </div>
+
+  <!-- ========== THE BIG IDEA ========== -->
+  <div class="stitle">הרעיון הגדול — שתי שאלות שונות</div>
+
+  <div class="tip purple">
+    <strong>📐 נקודת המוצא</strong>
+    בעברית, ״הולך/ת״ עונה על שתי שאלות שונות בלי להבחין ביניהן:<br>
+    • <b>מה אתה עושה עכשיו?</b> — ״אני הולך לאוניברסיטה.״ (ברגע זה, בדרך)<br>
+    • <b>מה אתה עושה בכלל?</b> — ״אני הולך לאוניברסיטה.״ (כל יום, זה הלוח זמנים שלי)<br><br>
+    בצ׳כית — שני המשפטים האלה הם <b>שני פעלים שונים</b>.
+  </div>
+
+  <div class="compare-block">
+    <div class="cb-side left">
+      <div class="cb-head orange">jít</div>
+      <div class="cb-label">פועל כיווני — "בדרך עכשיו"</div>
+      <div class="cb-rule">תנועה ספציפית, חד-פעמית, שמתרחשת ברגע הזה או בנקודת זמן מוגדרת.</div>
+      <div class="cb-signals">
+        <span class="cb-signal orange">teď</span>
+        <span class="cb-signal orange">zítra</span>
+        <span class="cb-signal orange">právě</span>
+        <span class="cb-signal orange">v pondělí</span>
+      </div>
+    </div>
+    <div class="cb-side right">
+      <div class="cb-head blue">chodit</div>
+      <div class="cb-label">פועל הרגלי — "תמיד / בדרך כלל"</div>
+      <div class="cb-rule">תנועה חוזרת, הרגל, שגרה — מה שנעשה שוב ושוב לאורך זמן.</div>
+      <div class="cb-signals">
+        <span class="cb-signal blue">každý den</span>
+        <span class="cb-signal blue">vždycky</span>
+        <span class="cb-signal blue">obvykle</span>
+        <span class="cb-signal blue">pravidelně</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CONJUGATIONS ========== -->
+  <div class="stitle">הטיות — jít ו-chodit</div>
+
+  <div class="conj-wrap">
+    <div class="conj-box">
+      <h4 class="orange">jít — עכשיו / פעם אחת</h4>
+      <table class="conj-table">
+        <tr>
+          <td class="pron">já</td>
+          <td><span class="form orange">jdu</span></td>
+          <td><button class="play-btn" onclick="speak('jdu')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">ty</td>
+          <td><span class="form orange">jdeš</span></td>
+          <td><button class="play-btn" onclick="speak('jdeš')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">on/ona</td>
+          <td><span class="form orange">jde</span></td>
+          <td><button class="play-btn" onclick="speak('jde')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">my</td>
+          <td><span class="form orange">jdeme</span></td>
+          <td><button class="play-btn" onclick="speak('jdeme')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">vy</td>
+          <td><span class="form orange">jdete</span></td>
+          <td><button class="play-btn" onclick="speak('jdete')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">oni/ony</td>
+          <td><span class="form orange">jdou</span></td>
+          <td><button class="play-btn" onclick="speak('jdou')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+      </table>
+    </div>
+    <div class="conj-box">
+      <h4 class="blue">chodit — הרגל / שגרה</h4>
+      <table class="conj-table">
+        <tr>
+          <td class="pron">já</td>
+          <td><span class="form blue">chodím</span></td>
+          <td><button class="play-btn" onclick="speak('chodím')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">ty</td>
+          <td><span class="form blue">chodíš</span></td>
+          <td><button class="play-btn" onclick="speak('chodíš')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">on/ona</td>
+          <td><span class="form blue">chodí</span></td>
+          <td><button class="play-btn" onclick="speak('chodí')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">my</td>
+          <td><span class="form blue">chodíme</span></td>
+          <td><button class="play-btn" onclick="speak('chodíme')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">vy</td>
+          <td><span class="form blue">chodíte</span></td>
+          <td><button class="play-btn" onclick="speak('chodíte')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+        <tr>
+          <td class="pron">oni/ony</td>
+          <td><span class="form blue">chodí</span></td>
+          <td><button class="play-btn" onclick="speak('chodí')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⭐ שימו לב — chodit תבנית -it!</strong>
+    <span class="cz-phrase">Chodit</span> שייך לתבנית -it שכבר למדתם (כמו <span class="cz-phrase">mluvit, prosit, vařit</span>). סיומות זהות: <span class="cz-phrase">-ím, -íš, -í, -íme, -íte, -í</span>. הפועל <span class="cz-phrase">jít</span> לעומת זאת — חריג לגמרי, צריך לשנן.
+  </div>
+
+  <!-- ========== SIGNAL WORDS ========== -->
+  <div class="stitle">מילות אות — מה מסגיר את הפועל?</div>
+
+  <div class="signals-box">
+    <h4>מילות אות ל-<span style="color:#c2410c;font-family:'Nunito',sans-serif;">jít</span> (כיווני)</h4>
+    <div class="signals-row">
+      <span class="signal-tag orange">teď</span>
+      <span class="signal-tag orange">právě</span>
+      <span class="signal-tag orange">zítra</span>
+      <span class="signal-tag orange">dnes</span>
+      <span class="signal-tag orange">v pondělí</span>
+      <span class="signal-tag orange">příští týden</span>
+    </div>
+  </div>
+
+  <div class="signals-box">
+    <h4>מילות אות ל-<span style="color:#1d4ed8;font-family:'Nunito',sans-serif;">chodit</span> (הרגלי)</h4>
+    <div class="signals-row">
+      <span class="signal-tag blue">každý den</span>
+      <span class="signal-tag blue">každý týden</span>
+      <span class="signal-tag blue">vždycky</span>
+      <span class="signal-tag blue">obvykle</span>
+      <span class="signal-tag blue">pravidelně</span>
+      <span class="signal-tag blue">nikdy</span>
+      <span class="signal-tag blue">někdy</span>
+    </div>
+  </div>
+
+  <!-- ========== EXAMPLE PAIRS ========== -->
+  <div class="stitle">זוגות דוגמה — אותו משפט, שני פעלים</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Teď jdu do práce.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Teď <span class="hl-orange">jdu</span> do práce.</span>
+    <span class="ex-he">עכשיו אני הולך/ת לעבודה. (ברגע זה)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Každý den chodím do práce.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Každý den <span class="hl-blue">chodím</span> do práce.</span>
+    <span class="ex-he">כל יום אני הולך/ת לעבודה. (הרגל)</span>
+  </div>
+
+  <div class="ex-line" style="margin-top:10px;">
+    <button class="ex-btn-sm" onclick="speak('Jdeme na oběd.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><span class="hl-orange">Jdeme</span> na oběd.</span>
+    <span class="ex-he">אנחנו הולכים לאכול צהריים. (עכשיו)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Vždycky chodíme na oběd ve dvanáct.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Vždycky <span class="hl-blue">chodíme</span> na oběd ve dvanáct.</span>
+    <span class="ex-he">תמיד אנחנו אוכלים צהריים בשתים עשרה. (הרגל)</span>
+  </div>
+
+  <div class="ex-line" style="margin-top:10px;">
+    <button class="ex-btn-sm" onclick="speak('Zítra jde Eva do divadla.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Zítra <span class="hl-orange">jde</span> Eva do divadla.</span>
+    <span class="ex-he">מחר אווה הולכת לתיאטרון. (מחר, פעם אחת)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Eva chodí do divadla každý měsíc.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Eva <span class="hl-blue">chodí</span> do divadla každý měsíc.</span>
+    <span class="ex-he">אווה הולכת לתיאטרון כל חודש. (הרגל)</span>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 שאלו את עצמכם</strong>
+    לפני כל משפט, שאלו: ״האם אני מתאר/ת מה קורה <b>עכשיו / פעם אחת</b>?״ — jít. ״האם אני מתאר/ת <b>הרגל / שגרה</b>?״ — chodit. אם יש ספק — חפשו מילת אות.
+  </div>
+
+  <div class="tip green">
+    <strong>✅ מה שנשאר לשיעורים הבאים</strong>
+    עבר של jít — <span class="cz-phrase">šel/šla</span> — כבר ראיתם בשיעור 2 של A2. עתיד — <span class="cz-phrase">půjdu</span> — נראה ב-8ג. בדף הבא (8ב) נלמד <b>לאן</b> הולכים: <span class="cz-phrase">do</span> או <span class="cz-phrase">na</span>?
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson8.html" class="btn-back">→ חזרה לשיעור 8</a>
+    <a href="a2-lesson8b.html" class="btn-next">8ב — NA vs DO ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson8a">
+  <div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-radius:var(--r);padding:16px;border-inline-start:5px solid #11457E;">
+    <strong style="display:block;margin-bottom:8px;color:#11457E;font-size:14px;">🔑 הכלל הזהב</strong>
+    <span style="font-size:13px;color:#16385f;line-height:1.75;">
+      <b style="color:#c2410c;font-family:'Nunito',sans-serif;">jdu</b> — עכשיו / פעם אחת<br>
+      <b style="color:#1d4ed8;font-family:'Nunito',sans-serif;">chodím</b> — הרגל / תמיד<br><br>
+      <b style="color:#11457E;">מילות אות:</b><br>
+      <span style="color:#c2410c;font-family:'Nunito',sans-serif;direction:ltr;unicode-bidi:isolate;display:inline-block;">teď, zítra, dnes</span><br>
+      <span style="color:#1d4ed8;font-family:'Nunito',sans-serif;direction:ltr;unicode-bidi:isolate;display:inline-block;">každý den, vždycky</span>
+    </span>
+  </div>
+</aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

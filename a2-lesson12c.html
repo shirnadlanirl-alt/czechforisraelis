@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 12ג — poznat · najít · chybí mi | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.pink{background:#fdf2f8;color:#9d174d;border:1px solid rgba(236,72,153,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .verb-block{border-radius:var(--r);padding:22px 24px;margin-bottom:20px;}
+    .verb-block.amber{background:#fef3c7;border:2px solid rgba(245,158,11,.3);}
+    .verb-block.blue{background:#eff6ff;border:2px solid rgba(59,130,246,.25);}
+    .verb-block.pink{background:#fdf2f8;border:2px solid rgba(236,72,153,.25);}
+    .verb-name{font-family:'Nunito',sans-serif;font-size:28px;font-weight:800;direction:ltr;margin-bottom:4px;}
+    .verb-name.amber{color:#92400e;}
+    .verb-name.blue{color:#1d4ed8;}
+    .verb-name.pink{color:#be185d;}
+    .verb-meaning{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px;}
+    .verb-rule{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:14px;}
+    .perf-badge{display:inline-block;padding:3px 10px;border-radius:10px;font-size:12px;font-weight:700;margin-right:6px;margin-bottom:10px;}
+    .perf-badge.amber{background:#fde68a;color:#92400e;}
+    .perf-badge.blue{background:#bfdbfe;color:#1e3a8a;}
+    .perf-badge.pink{background:#fce7f3;color:#9d174d;}
+
+    .conj-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+    .conj-cell{background:rgba(255,255,255,.75);border-radius:var(--rs);padding:10px 12px;text-align:center;}
+    .conj-cell-label{font-size:11px;color:var(--muted);margin-bottom:3px;}
+    .conj-cell-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;direction:ltr;unicode-bidi:isolate;}
+    .conj-cell-cz.amber{color:#92400e;}
+    .conj-cell-cz.blue{color:#1d4ed8;}
+    .conj-cell-cz.pink{color:#be185d;}
+
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.75);margin-bottom:6px;}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl-a{color:#92400e;font-weight:900;}
+    .hl-b{color:#1d4ed8;font-weight:900;}
+    .hl-p{color:#be185d;font-weight:900;}
+
+    /* Person table for chybí mi */
+    .person-table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:14px;}
+    .person-table th{background:rgba(255,255,255,.6);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding:8px 10px;text-align:right;border-bottom:1px solid rgba(236,72,153,.15);}
+    .person-table td{padding:9px 10px;border-bottom:1px solid rgba(236,72,153,.1);}
+    .person-table td:first-child{font-size:13px;color:var(--muted);}
+    .person-table td:nth-child(2){font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:#be185d;direction:ltr;unicode-bidi:isolate;}
+    .person-table td:last-child{font-size:13px;color:var(--muted);text-align:left;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.conj-row{grid-template-columns:1fr 1fr;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="a2.html">A2</a><span>›</span><a href="a2-lesson12.html">שיעור 12</a><span>›</span>12ג — poznat · najít · chybí mi
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    שלושה פעלים חשובים מאוד לחיי היום-יום: <span class="cz-phrase">poznat</span> — להכיר מישהו לראשונה, <span class="cz-phrase">najít</span> — למצוא, ו-<span class="cz-phrase">chybí mi</span> — מתגעגע/ת / חסר לי. כולם מופיעים הרבה בשיחות אמיתיות — כדאי לדעת אותם.
+  </div>
+
+  <!-- POZNAT -->
+  <div class="verb-block amber">
+    <div class="verb-name amber">poznat</div>
+    <div class="verb-meaning">להכיר לראשונה / לזהות</div>
+    <span class="perf-badge amber">פועל שלם (perfective)</span>
+    <div class="verb-rule">
+      <span class="cz-phrase">poznat</span> הוא הצורה השלמה של <span class="cz-phrase">znát</span> — כלומר הרגע שבו מכירים מישהו לראשונה, או מזהים מישהו/משהו. אחרי היכרות: <b>Rád/a jsem tě poznal/a.</b> (שמחתי להכיר אותך.)
+    </div>
+
+    <div class="conj-row">
+      <div class="conj-cell"><div class="conj-cell-label">אני</div><div class="conj-cell-cz amber">poznám</div></div>
+      <div class="conj-cell"><div class="conj-cell-label">אתה/את</div><div class="conj-cell-cz amber">poznáš</div></div>
+      <div class="conj-cell"><div class="conj-cell-label">הוא/היא</div><div class="conj-cell-cz amber">pozná</div></div>
+      <div class="conj-cell"><div class="conj-cell-label">אנחנו</div><div class="conj-cell-cz amber">poznáme</div></div>
+      <div class="conj-cell"><div class="conj-cell-label">אתם/ן</div><div class="conj-cell-cz amber">poznáte</div></div>
+      <div class="conj-cell"><div class="conj-cell-label">הם/הן</div><div class="conj-cell-cz amber">poznají</div></div>
+    </div>
+
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Rád jsem tě poznal.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Rád jsem tě <span class="hl-a">poznal</span>.</span>
+      <span class="ex-he">שמחתי להכיר אותך. (זכר)</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Ráda jsem tě poznala.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Ráda jsem tě <span class="hl-a">poznala</span>.</span>
+      <span class="ex-he">שמחתי להכיר אותך. (נקבה)</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Poznám ho hned.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Hned ho <span class="hl-a">poznám</span>.</span>
+      <span class="ex-he">אני אזהה אותו מיד.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Kde jste se poznali?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Kde jste se <span class="hl-a">poznali</span>?</span>
+      <span class="ex-he">איפה הכרתם (אחד את השני)?</span>
+    </div>
+  </div>
+
+  <!-- NAJÍT -->
+  <div class="verb-block blue">
+    <div class="verb-name blue">najít</div>
+    <div class="verb-meaning">למצוא</div>
+    <span class="perf-badge blue">פועל שלם (perfective)</span>
+    <div class="verb-rule">
+      <span class="cz-phrase">najít</span> = למצוא (הצורה השלמה של <span class="cz-phrase">hledat</span> — לחפש). כשמחפשים — <span class="cz-phrase">hledám</span>. כשמוצאים — <span class="cz-phrase">najdu</span>. שימו לב לצירוף: <span class="cz-phrase">Nemůžu to najít.</span> (אני לא מוצא/ת את זה.)
+    </div>
+
+    <div class="conj-row">
+      <div class="conj-cell"><div class="conj-cell-label">אני</div><div class="conj-cell-cz blue">najdu</div></div>
+      <div class="conj-cell"><div class="conj-cell-label">אתה/את</div><div class="conj-cell-cz blue">najdeš</div></div>
+      <div class="conj-cell"><div class="conj-cell-label">הוא/היא</div><div class="conj-cell-cz blue">najde</div></div>
+      <div class="conj-cell"><div class="conj-cell-label">אנחנו</div><div class="conj-cell-cz blue">najdeme</div></div>
+      <div class="conj-cell"><div class="conj-cell-label">אתם/ן</div><div class="conj-cell-cz blue">najdete</div></div>
+      <div class="conj-cell"><div class="conj-cell-label">הם/הן</div><div class="conj-cell-cz blue">najdou</div></div>
+    </div>
+
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Nemůžu to najít.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Nemůžu to <span class="hl-b">najít</span>.</span>
+      <span class="ex-he">אני לא מוצא/ת את זה.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Našel jsem klíče.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><span class="hl-b">Našel</span> jsem klíče.</span>
+      <span class="ex-he">מצאתי את המפתחות. (זכר)</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Kde najdu záchod?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Kde <span class="hl-b">najdu</span> záchod?</span>
+      <span class="ex-he">איפה אמצא שירותים?</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Najdeme řešení.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><span class="hl-b">Najdeme</span> řešení.</span>
+      <span class="ex-he">נמצא פתרון.</span>
+    </div>
+  </div>
+
+  <!-- CHYBÍ MI -->
+  <div class="verb-block pink">
+    <div class="verb-name pink">chybí mi</div>
+    <div class="verb-meaning">מתגעגע/ת ל- / חסר/ה לי</div>
+    <span class="perf-badge pink">+ מה שחסר = נושא המשפט</span>
+    <div class="verb-rule">
+      <span class="cz-phrase">chybí mi</span> פועל בדיוק כמו <span class="cz-phrase">líbí se mi</span> ו-<span class="cz-phrase">baví mě</span> — <b>מה שמתגעגעים אליו הוא הנושא</b>, לא האדם. לכן אומרים: <span class="cz-phrase">Chybí mi Praha.</span> (פראג — נושא) ולא "אני מתגעגעת לפראג" כבעברית.
+    </div>
+
+    <table class="person-table">
+      <thead><tr><th>מי מתגעגע/ת</th><th style="direction:ltr;">הצורה</th><th>תרגום</th></tr></thead>
+      <tbody>
+        <tr><td>אני</td><td>chybí <b>mi</b></td><td>חסר/ה לי / מתגעגע/ת</td></tr>
+        <tr><td>אתה/את</td><td>chybí <b>ti</b></td><td>חסר/ה לך</td></tr>
+        <tr><td>הוא/היא</td><td>chybí <b>mu / jí</b></td><td>חסר/ה לו / לה</td></tr>
+        <tr><td>אנחנו</td><td>chybí <b>nám</b></td><td>חסר/ה לנו</td></tr>
+        <tr><td>אתם/ן</td><td>chybí <b>vám</b></td><td>חסר/ה לכם/ן</td></tr>
+        <tr><td>הם/הן</td><td>chybí <b>jim</b></td><td>חסר/ה להם/ן</td></tr>
+      </tbody>
+    </table>
+
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Chybí mi Praha.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><span class="hl-p">Chybí mi</span> Praha.</span>
+      <span class="ex-he">אני מתגעגע/ת לפראג.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Chybí mi rodina.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><span class="hl-p">Chybí mi</span> rodina.</span>
+      <span class="ex-he">אני מתגעגע/ת למשפחה.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Moc mi chybíš.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz">Moc mi <span class="hl-p">chybíš</span>.</span>
+      <span class="ex-he">אני מאוד מתגעגע/ת אליך.</span>
+    </div>
+    <div class="ex-line">
+      <button class="ex-btn" onclick="speak('Chybí nám sluníčko.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="ex-cz"><span class="hl-p">Chybí nám</span> sluníčko.</span>
+      <span class="ex-he">אנחנו מתגעגעים לשמש.</span>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>💡 poznat לעומת znát</strong>
+    <span class="cz-phrase">znát</span> = להכיר (בצורה כללית, מצב קיים): <span class="cz-phrase">Znám Prahu.</span> (אני מכיר/ה את פראג.)<br>
+    <span class="cz-phrase">poznat</span> = להכיר לראשונה, ברגע ספציפי: <span class="cz-phrase">Kdy jsi ji poznal?</span> (מתי הכרת אותה?)<br>
+    <span class="cz-phrase">poznat</span> גם = לזהות: <span class="cz-phrase">Poznám ho po hlase.</span> (אני מזהה אותו לפי הקול.)
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 hledat לעומת najít</strong>
+    <span class="cz-phrase">hledat</span> = לחפש (תהליך, פועל לא שלם): <span class="cz-phrase">Hledám práci.</span> (אני מחפש/ת עבודה.)<br>
+    <span class="cz-phrase">najít</span> = למצוא (תוצאה, פועל שלם): <span class="cz-phrase">Našel jsem práci!</span> (מצאתי עבודה!)<br>
+    שניהם מופיעים יחד: <span class="cz-phrase">Hledám, ale nemůžu najít.</span> (אני מחפש/ת אבל לא מוצא/ת.)
+  </div>
+
+  <div class="tip pink">
+    <strong>💡 chybíš mi — הצורה החמה</strong>
+    כשמתגעגעים לאדם ספציפי, הפועל משתנה: <span class="cz-phrase">Chybí mi Praha</span> (שם עצם רגיל) ← אך: <span class="cz-phrase">Chybíš mi.</span> (אתה/את חסר/ה לי — ״אני מתגעגע/ת אליך.״)<br>
+    זה כמו: you + chybíš = chybíš mi. ה-mi לא משתנה — רק הפועל מתאים לנושא.
+  </div>
+
+  <div class="tip green">
+    <strong>📝 שלושת הפעלים ביחד</strong>
+    <span class="cz-phrase">Poznali jsme se v Praze. Teď Praha chybí mně i jemu. Nemůžeme najít tak krásné město jinde.</span><br>
+    (הכרנו אחד את השני בפראג. עכשיו פראג חסרה גם לי גם לו. לא נוכל למצוא עיר כל כך יפה במקום אחר.)
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson12b.html" class="btn-back">→ 12ב — těším se · bojím se</a>
+    <a href="a2-lesson12d.html" class="btn-next">12ד — דיאלוגים וסיכום ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson12c">
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px;">
+    <strong style="display:block;margin-bottom:12px;font-size:14px;">💛 שלושת הפעלים</strong>
+    <div style="font-size:13px;line-height:2.4;">
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#92400e;">poznat</span><br>
+      <span style="color:var(--muted);font-size:11.5px;">להכיר לראשונה / לזהות</span><br>
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#1d4ed8;">najít</span><br>
+      <span style="color:var(--muted);font-size:11.5px;">למצוא (najdu/najdeš/najde)</span><br>
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#be185d;">chybí mi</span><br>
+      <span style="color:var(--muted);font-size:11.5px;">מתגעגע/ת — הנושא הוא מה שחסר</span>
+    </div>
+  </div>
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-top:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:13px;">🔑 לשנן</strong>
+    <div style="font-size:13px;line-height:2.0;color:var(--muted);">
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#be185d;">Chybíš mi.</span><br>
+      <span style="font-size:12px;">אני מתגעגע/ת אליך</span><br>
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#92400e;">Rád/a jsem tě poznal/a.</span><br>
+      <span style="font-size:12px;">שמחתי להכיר אותך</span><br>
+      <span style="font-family:'Nunito',sans-serif;font-weight:800;color:#1d4ed8;">Nemůžu to najít.</span><br>
+      <span style="font-size:12px;">אני לא מוצא/ת את זה</span>
+    </div>
+  </div>
+</aside>
+</div>
+
+<script>
+function speak(text){if(!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

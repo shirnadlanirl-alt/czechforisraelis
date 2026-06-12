@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 5ד — תדירות + שילוב | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === Vocab grid === */
+    .time-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px;}
+    .time-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rs);padding:14px 16px;display:flex;align-items:center;gap:12px;transition:border-color .15s;}
+    .time-card:hover{border-color:var(--gm);}
+    .time-cz{font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;color:var(--gd);direction:ltr;flex:1;}
+    .time-he{font-size:12.5px;color:var(--muted);text-align:left;}
+    .play-mini{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .play-mini:hover{background:var(--gm);}
+    .play-mini svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* === Frequency scale === */
+    .scale-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:14px;}
+    .scale-line{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--border);}
+    .scale-line:last-child{border-bottom:none;}
+    .scale-bar{width:120px;height:14px;background:var(--bg);border-radius:7px;overflow:hidden;flex-shrink:0;border:1px solid var(--border);}
+    .scale-fill{height:100%;background:var(--green);border-radius:7px;}
+    .scale-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--gd);direction:ltr;min-width:90px;}
+    .scale-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    /* === Pattern box === */
+    .pattern-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:18px;text-align:center;margin-bottom:14px;}
+    .pattern-line{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;color:var(--green);direction:ltr;unicode-bidi:isolate;margin-bottom:6px;}
+    .pattern-he{font-size:13px;color:var(--muted);line-height:1.6;}
+
+    /* === Dialog === */
+    .dialog{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:14px;}
+    .dialog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px;}
+    .dialog-title{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:10px;}
+    .dialog-scene{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--gl);color:var(--gd);padding:4px 10px;border-radius:12px;}
+    .play-all{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;background:var(--green);color:white;border:none;font-size:12.5px;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;transition:opacity .15s;}
+    .play-all:hover{opacity:.88;}
+    .play-all svg{width:9px;height:9px;fill:white;margin-right:-1px;}
+    .play-all.playing{opacity:.6;}
+
+    .d-line{display:flex;gap:10px;padding:10px 0;align-items:flex-start;border-bottom:1px dashed var(--border);}
+    .d-line:last-child{border-bottom:none;padding-bottom:2px;}
+    .d-line.playing{background:var(--gl);border-radius:var(--rs);padding-left:10px;padding-right:10px;border-bottom-color:transparent;}
+    .d-who{font-size:11px;font-weight:800;color:var(--muted);min-width:22px;letter-spacing:.05em;margin-top:5px;}
+    .d-who.a{color:#1e40af;}
+    .d-who.b{color:#7c3aed;}
+    .d-content{flex:1;direction:ltr;text-align:left;}
+    .d-cz{font-family:'Nunito',sans-serif;font-size:15.5px;font-weight:700;color:var(--text);direction:ltr;line-height:1.6;}
+    .d-he{font-size:12.5px;color:var(--muted);margin-top:2px;direction:rtl;text-align:right;}
+    .d-play{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;margin-top:4px;}
+    .d-play:hover{background:var(--gm);}
+    .d-play svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* highlights */
+    .v-q{color:#7c3aed;font-weight:800;}    /* שאלת זמן */
+    .v-freq{color:var(--green);font-weight:800;}   /* תדירות */
+    .v-time{color:#1e40af;font-weight:800;}  /* ביטוי זמן */
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .time-grid{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson5.html">שיעור 5</a><span>›</span>
+  5ד — תדירות + שילוב
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    שני נושאים שלובים: <b>תדירות</b> (כל כמה זמן משהו קורה — <span class="cz-phrase">obvykle, jednou týdně, dvakrát měsíčně</span>) ו<b>שילוב הכל</b> — דיאלוג שלם שמשתמש בשלוש שאלות הזמן יחד.<br>
+    זה הדף שמחבר את כל מה שראינו בשיעור — Kdy (5א), Jak dlouho (5ב), Za jak dlouho (5ג) — לשיחה אמיתית על שגרה.
+  </div>
+
+  <!-- ========== FREQUENCY SCALE — REVIEW ========== -->
+  <div class="stitle">סולם תדירות — מתמיד עד אף-פעם</div>
+
+  <div class="scale-card">
+    <div class="scale-line">
+      <span class="scale-cz">vždycky</span>
+      <div class="scale-bar"><div class="scale-fill" style="width:100%;"></div></div>
+      <span class="scale-he">תמיד (100%)</span>
+    </div>
+    <div class="scale-line">
+      <span class="scale-cz">obvykle</span>
+      <div class="scale-bar"><div class="scale-fill" style="width:85%;"></div></div>
+      <span class="scale-he">בדרך כלל (~85%)</span>
+    </div>
+    <div class="scale-line">
+      <span class="scale-cz">často</span>
+      <div class="scale-bar"><div class="scale-fill" style="width:70%;"></div></div>
+      <span class="scale-he">לעיתים קרובות (~70%)</span>
+    </div>
+    <div class="scale-line">
+      <span class="scale-cz">občas</span>
+      <div class="scale-bar"><div class="scale-fill" style="width:40%;"></div></div>
+      <span class="scale-he">מדי פעם (~40%)</span>
+    </div>
+    <div class="scale-line">
+      <span class="scale-cz">někdy</span>
+      <div class="scale-bar"><div class="scale-fill" style="width:25%;"></div></div>
+      <span class="scale-he">לפעמים (~25%)</span>
+    </div>
+    <div class="scale-line">
+      <span class="scale-cz">zřídka</span>
+      <div class="scale-bar"><div class="scale-fill" style="width:10%;"></div></div>
+      <span class="scale-he">לעיתים רחוקות (~10%)</span>
+    </div>
+    <div class="scale-line">
+      <span class="scale-cz">nikdy</span>
+      <div class="scale-bar"><div class="scale-fill" style="width:0%;"></div></div>
+      <span class="scale-he">אף פעם (0%)</span>
+    </div>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 חזרה מ-3ג + מילים חדשות</strong>
+    <span class="cz-phrase">vždycky, často, někdy, nikdy</span> — כבר ראיתם בשיעור 3ג (סיפורי ילדות).<br>
+    <span class="cz-phrase">obvykle, občas, zřídka</span> — חדשות. תדירויות שמשתמשים בהן הרבה כשמדברים על שגרה ועל הרגלים.
+  </div>
+
+  <!-- ========== EXACT FREQUENCY ========== -->
+  <div class="stitle">תדירות מדויקת — X פעמים ב-Y</div>
+
+  <div class="pattern-box">
+    <div class="pattern-line">jednou / dvakrát / třikrát + denně / týdně / měsíčně / ročně</div>
+    <div class="pattern-he">כמה פעמים + יחידת זמן בצורת תיאור.<br><span class="cz-phrase">jednou týdně</span> = פעם בשבוע · <span class="cz-phrase">dvakrát měsíčně</span> = פעמיים בחודש</div>
+  </div>
+
+  <div class="time-grid">
+    <div class="time-card">
+      <button class="play-mini" onclick="speak('jednou denně')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="time-cz">jednou denně</span>
+      <span class="time-he">פעם ביום</span>
+    </div>
+    <div class="time-card">
+      <button class="play-mini" onclick="speak('dvakrát denně')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="time-cz">dvakrát denně</span>
+      <span class="time-he">פעמיים ביום</span>
+    </div>
+    <div class="time-card">
+      <button class="play-mini" onclick="speak('jednou týdně')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="time-cz">jednou týdně</span>
+      <span class="time-he">פעם בשבוע</span>
+    </div>
+    <div class="time-card">
+      <button class="play-mini" onclick="speak('třikrát týdně')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="time-cz">třikrát týdně</span>
+      <span class="time-he">שלוש פעמים בשבוע</span>
+    </div>
+    <div class="time-card">
+      <button class="play-mini" onclick="speak('jednou měsíčně')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="time-cz">jednou měsíčně</span>
+      <span class="time-he">פעם בחודש</span>
+    </div>
+    <div class="time-card">
+      <button class="play-mini" onclick="speak('jednou ročně')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="time-cz">jednou ročně</span>
+      <span class="time-he">פעם בשנה</span>
+    </div>
+  </div>
+
+  <div class="tip green">
+    <strong>✨ הגיון בנייה — איך מקבלים "denně/týdně/měsíčně"</strong>
+    מהשמות שלמדנו ב-4ג:<br>
+    <span class="cz-phrase">den</span> (יום) → <span class="cz-phrase">denně</span> (יומי)<br>
+    <span class="cz-phrase">týden</span> (שבוע) → <span class="cz-phrase">týdně</span> (שבועי)<br>
+    <span class="cz-phrase">měsíc</span> (חודש) → <span class="cz-phrase">měsíčně</span> (חודשי)<br>
+    <span class="cz-phrase">rok</span> (שנה) → <span class="cz-phrase">ročně</span> (שנתי)<br>
+    מוסיפים <span class="cz-phrase">-ně</span> או <span class="cz-phrase">-ě</span> ומקבלים את צורת התיאור.
+  </div>
+
+  <!-- ========== HOW OFTEN QUESTION ========== -->
+  <div class="stitle">השאלה — Jak často?</div>
+
+  <div class="pattern-box">
+    <div class="pattern-line">Jak často + פועל?</div>
+    <div class="pattern-he">"כל כמה זמן..." — השאלה שמובילה לתדירות.<br><span class="cz-phrase">Jak často jezdíš do Prahy?</span> = כל כמה זמן את/ה נוסע/ת לפראג?</div>
+  </div>
+
+  <!-- ========== INTEGRATION DIALOG ========== -->
+  <div class="stitle">שילוב — דיאלוג עם כל שאלות הזמן</div>
+
+  <div class="tip purple">
+    <strong>🎨 הצבעים בדיאלוג</strong>
+    <span class="v-q" style="color:#7c3aed;">סגול</span> = שאלת זמן (<span class="cz-phrase">Kdy, Jak dlouho, Za jak dlouho, Jak často</span>) ·
+    <span class="v-freq" style="color:var(--green);">ירוק</span> = תדירות (<span class="cz-phrase">obvykle, jednou týdně</span>) ·
+    <span class="v-time" style="color:#1e40af;">כחול</span> = ביטוי זמן רגיל (<span class="cz-phrase">v sedm, za měsíc</span>).
+  </div>
+
+  <div class="dialog" id="d1">
+    <div class="dialog-header">
+      <div class="dialog-title">🌅 <span>״איך נראית השגרה שלך?״</span> <span class="dialog-scene">חברים</span></div>
+      <button class="play-all" data-dialog="d1"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמע הכל</button>
+    </div>
+
+    <div class="d-line" data-cz="Co děláš obvykle ráno?">
+      <div class="d-who a">EVA</div>
+      <div class="d-content">
+        <div class="d-cz">Co děláš <span class="v-freq">obvykle</span> ráno?</div>
+        <div class="d-he">מה את/ה עושה בדרך כלל בבוקר?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Obvykle vstávám v sedm a snídám doma.">
+      <div class="d-who b">DAVID</div>
+      <div class="d-content">
+        <div class="d-cz"><span class="v-freq">Obvykle</span> vstávám <span class="v-time">v sedm</span> a snídám doma.</div>
+        <div class="d-he">בדרך כלל אני קם בשבע ואוכל ארוחת בוקר בבית.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="A jak často chodíš do parku?">
+      <div class="d-who a">EVA</div>
+      <div class="d-content">
+        <div class="d-cz">A <span class="v-q">jak často</span> chodíš do parku?</div>
+        <div class="d-he">וכל כמה זמן את/ה הולך/ת לפארק?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Chodím tam jednou týdně, v sobotu ráno.">
+      <div class="d-who b">DAVID</div>
+      <div class="d-content">
+        <div class="d-cz">Chodím tam <span class="v-freq">jednou týdně</span>, <span class="v-time">v sobotu ráno</span>.</div>
+        <div class="d-he">אני הולך לשם פעם בשבוע, בשבת בבוקר.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="A jak dlouho tam zůstáváš?">
+      <div class="d-who a">EVA</div>
+      <div class="d-content">
+        <div class="d-cz">A <span class="v-q">jak dlouho</span> tam zůstáváš?</div>
+        <div class="d-he">וכמה זמן את/ה נשאר/ת שם?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Obvykle hodinu nebo dvě. Bavím se tam.">
+      <div class="d-who b">DAVID</div>
+      <div class="d-content">
+        <div class="d-cz"><span class="v-freq">Obvykle</span> hodinu nebo dvě. Bavím se tam.</div>
+        <div class="d-he">בדרך כלל שעה או שתיים. אני נהנה שם.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="A za jak dlouho máš dovolenou?">
+      <div class="d-who a">EVA</div>
+      <div class="d-content">
+        <div class="d-cz">A <span class="v-q">za jak dlouho</span> máš dovolenou?</div>
+        <div class="d-he">ובעוד כמה זמן יש לך חופשה?</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line" data-cz="Za měsíc! Těším se moc.">
+      <div class="d-who b">DAVID</div>
+      <div class="d-content">
+        <div class="d-cz"><span class="v-time">Za měsíc</span>! Těším se moc.</div>
+        <div class="d-he">בעוד חודש! אני מצפה מאוד.</div>
+      </div>
+      <button class="d-play"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚡ שלוש שאלות שונות בדיאלוג אחד</strong>
+    בדיאלוג הזה הופיעו <b>כל שאלות הזמן</b>:<br>
+    <span class="v-q" style="color:#7c3aed;cz-phrase;">Jak často?</span> (כל כמה זמן) → <span class="cz-phrase">jednou týdně</span><br>
+    <span class="v-q" style="color:#7c3aed;cz-phrase;">Jak dlouho?</span> (כמה זמן) → <span class="cz-phrase">hodinu</span><br>
+    <span class="v-q" style="color:#7c3aed;cz-phrase;">Za jak dlouho?</span> (בעוד כמה זמן) → <span class="cz-phrase">za měsíc</span><br>
+    זו שיחה צ׳כית טבעית — אי-אפשר לנהל יום בלי אחת מהן.
+  </div>
+
+  <!-- ========== CHECK YOURSELF ========== -->
+  <div class="stitle">בדיקה אישית</div>
+
+  <div class="check-box">
+    <h4>אחרי 5ד את/ה אמור/ה:</h4>
+    <ul class="check-list">
+      <li>לדעת לפחות 5 תיאורי תדירות (<span class="cz-phrase">vždycky, obvykle, často, někdy, nikdy</span>)</li>
+      <li>לבנות תדירות מדויקת: <span class="cz-phrase">jednou týdně, dvakrát měsíčně</span></li>
+      <li>לזהות בדיאלוג איזה שאלת זמן מתאימה איפה</li>
+      <li>לתאר בעצמך את השגרה: מתי, כל כמה זמן, ולכמה זמן</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson5c.html" class="btn-back">→ חזרה ל-5ג</a>
+    <a href="a2-lesson5e.html" class="btn-next">5ה — תרגול מסכם ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson5d"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+
+// לחיצה על ▶ ליד שורה
+document.querySelectorAll('.d-line').forEach(line => {
+  const cz = line.dataset.cz;
+  const playBtn = line.querySelector('.d-play');
+  if (playBtn) {
+    playBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      speak(cz);
+    });
+  }
+});
+
+// השמעת דיאלוג שלם
+document.querySelectorAll('.play-all').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const dialogId = btn.dataset.dialog;
+    const dialog = document.getElementById(dialogId);
+    const lines = Array.from(dialog.querySelectorAll('.d-line'));
+    if (btn.classList.contains('playing')) return;
+    btn.classList.add('playing');
+    btn.textContent = '⏸ משמיע...';
+    playSequence(lines, 0, () => {
+      btn.classList.remove('playing');
+      btn.innerHTML = '<svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמע הכל';
+    });
+  });
+});
+
+function playSequence(lines, idx, done) {
+  if (idx >= lines.length) { done(); return; }
+  lines.forEach(l => l.classList.remove('playing'));
+  const line = lines[idx];
+  line.classList.add('playing');
+  const u = new SpeechSynthesisUtterance(line.dataset.cz);
+  u.lang = 'cs-CZ';
+  u.rate = 0.85;
+  u.onend = () => { setTimeout(() => playSequence(lines, idx + 1, done), 400); };
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

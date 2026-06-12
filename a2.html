@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A2 — מתקדמים | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green:#1D9E75; --gl:#E1F5EE; --gd:#085041; --gm:#5DCAA5;
+      --text:#1a1a1a; --muted:#6b7280; --bg:#fafaf8; --white:#fff;
+      --border:rgba(0,0,0,0.08); --r:16px; --rs:10px;
+      --amber-light:#fef3c7; --blue-light:#eff6ff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}
+    .logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);cursor:pointer;text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:center;}
+    .breadcrumb a{color:var(--muted);text-decoration:none;}
+    .breadcrumb a:hover{color:var(--green);}
+    .breadcrumb span:last-child{color:var(--text);font-weight:500;}
+
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:28px 40px 28px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:30px;font-weight:800;margin-bottom:6px;}
+    .page-header h1 span{color:var(--green);}
+    .page-header p{font-size:14px;color:var(--muted);max-width:600px;line-height:1.7;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.7;margin-bottom:28px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+    .ssection{margin-bottom:32px;}
+
+    .phase-header{font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--gd);margin:22px 0 12px;display:flex;align-items:center;gap:10px;}
+    .phase-header::before{content:'';width:24px;height:2px;background:var(--gm);}
+    .phase-header:first-child{margin-top:0;}
+
+    .lessons-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .lcard{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;text-decoration:none;color:var(--text);transition:all .2s;position:relative;display:flex;flex-direction:column;gap:6px;}
+    .lcard:hover{border-color:var(--gm);transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,158,117,.1);}
+    .lcard.soon{opacity:.55;pointer-events:none;}
+    .lcard.soon:hover{transform:none;box-shadow:none;}
+    .lcard-num{display:inline-flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:2px;}
+    .lcard-num::before{content:'';width:20px;height:2px;background:var(--green);}
+    .lcard-title{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;color:var(--text);margin-bottom:2px;}
+    .lcard-desc{font-size:13px;color:var(--muted);line-height:1.65;flex:1;}
+    .lcard-meta{display:flex;gap:8px;margin-top:10px;font-size:11px;font-weight:600;color:var(--green);}
+    .lcard-new{position:absolute;top:16px;left:16px;background:var(--green);color:white;font-size:10px;font-weight:800;padding:2px 8px;border-radius:10px;letter-spacing:.05em;}
+    .lcard-soon{position:absolute;top:16px;left:16px;background:#f3f4f6;color:#6b7280;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;letter-spacing:.05em;}
+
+    .sidebar{display:flex;flex-direction:column;gap:16px;}
+    .sbox{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px;}
+    .sbox h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px;}
+    .lesson-list{display:flex;flex-direction:column;gap:6px;}
+    .ll-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);border:1px solid var(--border);font-size:13px;text-decoration:none;color:var(--muted);transition:all .15s;}
+    .ll-item:hover{border-color:var(--gm);color:var(--green);}
+    .ll-num{min-width:22px;height:22px;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;background:var(--border);color:var(--muted);flex-shrink:0;}
+    .ll-icon{min-width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .layout{grid-template-columns:1fr;padding:20px;}.page-header{padding:22px 20px;}
+      .breadcrumb{padding:12px 20px;}
+      .sidebar{display:none;}
+      .lessons-grid{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js?v=2"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a>
+  <span>›</span>
+  <span>A2 — מתקדמים</span>
+</div>
+
+<div class="page-header">
+  <h1>רמה <span>A2</span> — מתקדמים</h1>
+  <p>אחרי שיש לכם את היסודות של A1, הגיע הזמן לספר סיפורים — מה היה אתמול, מה יקרה מחר, ולחבר בין משפטים בצורה טבעית. הסילבוס מבוסס על קורס JLB 101 של אוניברסיטת קרלוב בפראג.</p>
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>📍 מה חדש ב-A2?</strong>
+    ב-A1 למדתם להציג את עצמכם ולתאר מה אתם עושים. ב-A2 תלמדו לספר מה עשיתם ומה תעשו (עבר ועתיד), להגיד מה אתם רוצים/חייבים/יכולים, לעבור על יחסת ה-Genitiv ולחבר משפטים מורכבים. בסוף הרמה — תוכלו לנהל שיחה אמיתית על החיים שלכם.
+  </div>
+
+  <!-- LESSONS -->
+  <div class="ssection">
+    <div class="stitle">השיעורים</div>
+    <div id="lessonsContainer"></div>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2">
+
+<div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-inline-start:5px solid #11457E;border-radius:var(--r);padding:18px;font-size:13px;color:#16385f;line-height:1.7;box-shadow:0 6px 18px rgba(17,69,126,.06);">
+  <strong style="display:block;margin-bottom:6px;color:#11457E;">💡 איך לעבור מ-A1 ל-A2?</strong>
+    אם הבסיס של A1 לא יציב — לא לדלג. עבר ועתיד נשענים על הטיית פעלים שלמדתם בשיעורים 7–9 ב-A1. אם משהו שכוח — עברו עליו שוב, ואז חזרו לכאן.
+</div>
+
+</aside>
+</div>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+// LESSONS DATA — מבנה זהה ל-a1.html. כל שיעור עם isSoon:true עדיין לא נבנה.
+// כשבונים שיעור — מסירים את isSoon ומשנים את הקישור לדף האמיתי.
+// הסדר = סדר ההצגה. שמרו על הפורמט בדיוק.
+const phases = [
+  {
+    title: "שלב 1 · מבט לאחור — זמן עבר",
+    lessons: [
+      {num:1, title:"עבר רגיל — Minulý čas", desc:"איך אומרים מה עשיתם — כל 4 תבניות הפעלים בעבר, ביטויי זמן, ודוגמאות במשפט. הראשון שיוצא מהדרך!", link:"a2-lesson1.html", meta:"4 חלקים · בסיס", emoji:"⏪", isNew:true},
+      {num:2, title:"פעלים חריגים בעבר", desc:"být · mít · jít · jet · jíst · pít · číst · psát — 8 הפעלים השימושיים ביותר שלא הולכים לפי הנוסחה.", link:"a2-lesson2.html", meta:"5 חלקים · עם תרגול", emoji:"📜", isNew:true},
+      {num:3, title:"סיפורים בעבר + מיקום JSEM", desc:"Když jsem byl/a malý/á — לספר על הילדות והסופ\"ש. בנוסף: איפה JSEM נכנס במשפט (קריטי!) ופעלים רפלקסיביים.", link:"a2-lesson3.html", meta:"5 חלקים · שיחה", emoji:"💬", isNew:true}
+    ]
+  },
+  {
+    title: "שלב 2 · מבט קדימה — עתיד ופעלים מודאליים",
+    lessons: [
+      {num:4, title:"עתיד — Futurum", desc:"budu + inf · půjdu · pojedu. איך אומרים מה תעשו מחר, השבוע הבא, ובחיים בכלל.", link:"a2-lesson4.html", meta:"5 חלקים · דקדוק", emoji:"⏩", isNew:true},
+      {num:5, title:"שאלות זמן", desc:"Kdy? Jak dlouho? Za jak dlouho? — שלוש שאלות זמן שמבלבלות הכי הרבה ישראלים. נסדר אותן פעם אחת ולתמיד.", link:"a2-lesson5.html", meta:"5 חלקים · שיחה", emoji:"⏰", isNew:true},
+      {num:6, title:"פעלים מודאליים", desc:"moct (יכול), muset (חייב), chtít (רוצה), smět (מותר). + inf — והכל גם בעבר.", link:"a2-lesson6.html", meta:"5 חלקים · דקדוק", emoji:"🎯", isNew:true}
+    ]
+  },
+  {
+    title: "שלב 3 · תנועה ומקום — Genitiv ופעלי תנועה",
+    lessons: [
+      {num:7, title:"יחסת קניין — Genitiv", desc:"היחסה השנייה שכדאי להכיר. שייכות, כמויות, ו-5 מילות יחס: bez, z/ze, do, vedle, kolem. סיומות לפי מין: -y, -e, -u, -a, -í.", link:"a2-lesson7.html", meta:"5 חלקים · דקדוק", emoji:"📍", isNew:true},
+      {num:8, title:"JÍT vs CHODIT", desc:"הליכה ברגל — כיוונית מול הרגלית. jdu (עכשיו) vs. chodím (תמיד). NA לאירועים, DO למבנים. עתיד: půjdu vs. budu chodit.", link:"a2-lesson8.html", meta:"5 חלקים · דקדוק", emoji:"🚶", isNew:true},
+      {num:9, title:"JET vs JEZDIT", desc:"נסיעה בכלי רכב — אותו הבדל. Jedu metrem (עכשיו) vs. jezdím autem (כל יום). Čím? — אמצעי נסיעה. Pojedu/budu jezdit לעתיד.", link:"a2-lesson9.html", meta:"5 חלקים · דקדוק", emoji:"🚇", isNew:true}
+    ]
+  },
+  {
+    title: "שלב 4 · חיבורים — משפטים מורכבים וידע",
+    lessons: [
+      {num:10, title:"Spojky — מילות קישור", desc:"a · ale · nebo · protože · a proto · když · který. שבע מילים שהופכות משפטים פשוטים למשפטים אמיתיים עם סיבה, ניגוד, תנאי וזיהוי.", link:"a2-lesson10.html", meta:"5 חלקים · דקדוק", emoji:"🔗", isNew:true},
+      {num:11, title:"ZNÁT / VĚDĚT / UMĚT", desc:"שלוש דרכים ל\"לדעת\" שלא קיימות בעברית. znám Prahu · vím, že... · umím vařit. ברגע שמבחינים — לעולם לא מתבלבלים.", link:"a2-lesson11.html", meta:"5 חלקים · דקדוק", emoji:"🧠"},
+      {num:12, title:"פעלים עם רגש", desc:"Baví mě · Těším se na · Bojím se · Poznat · Najít. סגירת A2 עם פעלים שדורשים יחסה ספציפית.", link:"a2-lesson12.html", meta:"5 חלקים · שיחה", emoji:"💛"}
+    ]
+  }
+];
+
+function render() {
+  const container = document.getElementById("lessonsContainer");
+  container.innerHTML = phases.map(phase => `
+    <div class="phase-header">${phase.title}</div>
+    <div class="lessons-grid">
+      ${phase.lessons.map(l => `
+        <a href="${l.isSoon ? '#' : l.link}" class="lcard${l.isSoon ? ' soon' : ''}">
+          ${l.isNew ? '<span class="lcard-new">חדש</span>' : ''}
+          ${l.isSoon ? '<span class="lcard-soon">בקרוב</span>' : ''}
+          <div class="lcard-num">שיעור ${l.num}</div>
+          <div class="lcard-title">${l.emoji ? l.emoji + ' ' : ''}${l.title}</div>
+          <div class="lcard-desc">${l.desc}</div>
+          <div class="lcard-meta">${l.meta}</div>
+        </a>
+      `).join('')}
+    </div>
+  `).join('');
+}
+render();
+</script>
+<script src="_shared/sidebar.js"></script>
+</body>
+</html>

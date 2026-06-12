@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 3ג — Když jsem byl/a malý/á | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === The opening formula highlight === */
+    .formula-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:24px;text-align:center;margin-bottom:20px;}
+    .formula-box .formula{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--green);direction:ltr;unicode-bidi:isolate;margin-bottom:8px;line-height:1.5;}
+    .formula-box .formula-he{font-size:14px;color:var(--muted);line-height:1.6;}
+
+    /* === Story template card === */
+    .template-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .template-row{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:14px 0;border-bottom:1px dashed var(--border);}
+    .template-row:last-child{border-bottom:none;}
+    .template-num{width:28px;height:28px;border-radius:50%;background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .template-content{font-size:14px;line-height:1.8;}
+    .template-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);direction:ltr;display:inline-block;}
+    .template-he{font-size:12.5px;color:var(--muted);margin-top:4px;}
+
+    /* === Gender toggle === */
+    .gender-toggle{display:flex;align-items:center;gap:10px;padding:14px 18px;background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);margin-bottom:16px;flex-wrap:wrap;}
+    .gender-toggle-label{font-size:13.5px;font-weight:600;color:var(--text);}
+    .gender-btns{display:flex;gap:6px;}
+    .gender-btn{padding:6px 14px;background:var(--white);border:1.5px solid var(--border);border-radius:16px;font-family:'Heebo',sans-serif;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s;}
+    .gender-btn:hover{border-color:var(--gm);color:var(--green);}
+    .gender-btn.active{background:var(--green);color:var(--white);border-color:var(--green);}
+    .gender-hint{font-size:12px;color:var(--muted);}
+
+    /* === Interactive select + input === */
+    .template-sentence{direction:ltr;text-align:left;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);font-size:14.5px;line-height:1.9;display:flex;flex-wrap:wrap;align-items:center;gap:4px;}
+    .template-sentence .fixed{color:var(--gd);}
+    .template-sentence .chosen{color:var(--green);background:var(--gl);padding:2px 8px;border-radius:6px;font-weight:800;}
+    .template-select{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;color:var(--green);background:var(--white);border:1.5px dashed var(--gm);border-radius:8px;padding:4px 28px 4px 8px;cursor:pointer;direction:ltr;outline:none;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%231D9E75' d='M0 0l5 6 5-6z'/></svg>");background-repeat:no-repeat;background-position:right 8px center;background-size:9px;min-width:90px;}
+    .template-select:hover,.template-select:focus{border-color:var(--green);border-style:solid;}
+    .template-select.has-value{background-color:var(--gl);color:var(--gd);}
+    .template-input-row{display:flex;align-items:center;gap:8px;margin-top:8px;animation:fadeIn .25s ease both;}
+    .template-input-row.hidden{display:none;}
+    .template-input{font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;color:var(--gd);background:var(--white);border:1.5px solid var(--gm);border-radius:8px;padding:6px 10px;direction:ltr;outline:none;flex:1;min-width:0;}
+    .template-input:focus{border-color:var(--green);background:var(--gl);}
+    .template-listen{display:none;margin-top:8px;align-items:center;gap:6px;font-size:12.5px;color:var(--gd);background:var(--gl);border:1px solid var(--gm);border-radius:14px;padding:5px 12px;font-family:'Heebo',sans-serif;font-weight:600;cursor:pointer;transition:background .15s;}
+    .template-listen.show{display:inline-flex;}
+    .template-listen:hover{background:var(--gm);color:var(--white);}
+    .template-listen svg{width:9px;height:9px;fill:currentColor;}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
+
+    /* === Vocab grid (frequency adverbs) === */
+    .vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px;}
+    .vocab-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rs);padding:14px 16px;display:flex;align-items:center;gap:12px;}
+    .vocab-card:hover{border-color:var(--gm);}
+    .vocab-cz{font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;color:var(--gd);direction:ltr;flex:1;}
+    .vocab-he{font-size:12.5px;color:var(--muted);text-align:left;}
+    .play-mini{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .play-mini:hover{background:var(--gm);}
+    .play-mini svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* === Full story example === */
+    .story-card{background:#f5faff;border:1px solid rgba(59,130,246,.18);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;border-inline-start:5px solid #3b82f6;}
+    .story-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+    .story-avatar{width:36px;height:36px;border-radius:50%;background:#3b82f6;color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .story-name{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:#1e40af;}
+    .story-name .meta{font-family:'Heebo',sans-serif;font-size:12px;font-weight:400;color:#3b82f6;margin-right:8px;}
+    .story-text{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:500;color:#16385f;direction:ltr;line-height:1.85;text-align:left;margin-bottom:8px;}
+    .story-text b{color:#3b82f6;}
+    .story-trans{font-size:13px;color:#16385f;line-height:1.7;font-family:'Heebo',sans-serif;}
+    .story-play{margin-top:10px;display:flex;align-items:center;gap:8px;font-size:12px;color:#1e40af;cursor:pointer;background:none;border:none;font-family:'Heebo',sans-serif;font-weight:600;padding:0;}
+    .story-play:hover{color:#3b82f6;}
+    .story-play svg{width:10px;height:10px;fill:currentColor;}
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .vocab-grid{grid-template-columns:1fr;}
+      .template-row{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson3.html">שיעור 3</a><span>›</span>
+  3ג — Když jsem byl/a malý/á
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    התבנית הקלאסית לסיפור על הילדות שלכם: <span class="cz-phrase">Když jsem byl/a malý/á...</span> ("כשהייתי קטן/קטנה..."). בנוסף, אוצר מילים של תדירות (<span class="cz-phrase">často, někdy, vždycky, nikdy</span>) ותבנית לבניית סיפור שלם — לא רק משפט בודד.
+  </div>
+
+  <!-- ========== THE OPENING FORMULA ========== -->
+  <div class="stitle">המבנה המרכזי</div>
+
+  <div class="formula-box">
+    <div class="formula">Když jsem byl malý, ...<br>Když jsem byla malá, ...</div>
+    <div class="formula-he">"כשהייתי קטן (♂) ... " או "כשהייתי קטנה (♀) ..."<br>זו הפתיחה הסטנדרטית לכל סיפור על הילדות שלכם.</div>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 איך הפתיחה הזו בנויה?</strong>
+    <b class="cz-phrase">Když</b> = "כש-" (מילת קישור)<br>
+    <b class="cz-phrase">jsem</b> = פועל עזר (במקום השני, מיד אחרי když!)<br>
+    <b class="cz-phrase">byl/byla</b> = "הייתי" (לפי המגדר)<br>
+    <b class="cz-phrase">malý/malá</b> = "קטן/קטנה" (גם זה לפי המגדר)<br><br>
+    שמתם לב? גם פה <b class="cz-phrase">jsem</b> במקום השני — אחרי <b class="cz-phrase">když</b>.
+  </div>
+
+  <!-- ========== FREQUENCY VOCAB ========== -->
+  <div class="stitle">תיאורי תדירות — חיוניים לסיפור</div>
+
+  <div class="vocab-grid">
+    <div class="vocab-card">
+      <button class="play-mini" onclick="speak('vždycky')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="vocab-cz">vždycky</span>
+      <span class="vocab-he">תמיד</span>
+    </div>
+    <div class="vocab-card">
+      <button class="play-mini" onclick="speak('často')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="vocab-cz">často</span>
+      <span class="vocab-he">לעיתים קרובות</span>
+    </div>
+    <div class="vocab-card">
+      <button class="play-mini" onclick="speak('někdy')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="vocab-cz">někdy</span>
+      <span class="vocab-he">לפעמים</span>
+    </div>
+    <div class="vocab-card">
+      <button class="play-mini" onclick="speak('nikdy')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="vocab-cz">nikdy</span>
+      <span class="vocab-he">אף פעם לא</span>
+    </div>
+    <div class="vocab-card">
+      <button class="play-mini" onclick="speak('každý den')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="vocab-cz">každý den</span>
+      <span class="vocab-he">כל יום</span>
+    </div>
+    <div class="vocab-card">
+      <button class="play-mini" onclick="speak('o víkendu')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="vocab-cz">o víkendu</span>
+      <span class="vocab-he">בסוף השבוע</span>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ כלל חשוב על "nikdy"</strong>
+    כש-<span class="cz-phrase">nikdy</span> ("אף פעם") מופיע במשפט, הפועל חייב להיות בשלילה:<br>
+    <b class="cz-phrase">Nikdy jsem nepil kávu.</b> — מעולם לא שתיתי קפה.<br>
+    <b>שלילה כפולה</b> בצ׳כית זה בסדר ואפילו הכרחי. כך זה גם ברוסית, פולנית ושאר השפות הסלאביות.
+  </div>
+
+  <!-- ========== STORY TEMPLATE ========== -->
+  <div class="stitle">תבנית לסיפור על הילדות</div>
+
+  <div class="tip blue" style="margin-bottom:14px;">
+    <strong>✨ תרגול: בנו את הסיפור שלכם</strong>
+    בחרו מהתפריט הנפתח, או לחצו "אחר..." כדי לכתוב מילים משלכם (אם יש לכם מקלדת צ׳כית). אחרי שתבחרו — לחצו על ▶ כדי לשמוע את המשפט שלכם.
+  </div>
+
+  <div class="template-card">
+
+    <div class="gender-toggle">
+      <span class="gender-toggle-label">המגדר שלי:</span>
+      <div class="gender-btns">
+        <button type="button" class="gender-btn active" data-gender="m">♂ זכר</button>
+        <button type="button" class="gender-btn" data-gender="f">♀ נקבה</button>
+      </div>
+      <span class="gender-hint">— משנה את כל המשפטים וההשמעות בהתאם</span>
+    </div>
+
+    <div class="template-row">
+      <div class="template-num">1</div>
+      <div class="template-content">
+        <div class="template-sentence" data-prefix-m="Když jsem byl malý, bydlel jsem v " data-prefix-f="Když jsem byla malá, bydlela jsem v " data-suffix=".">
+          <span class="fixed" data-text-m="Když jsem byl malý, bydlel jsem v" data-text-f="Když jsem byla malá, bydlela jsem v">Když jsem byl malý, bydlel jsem v</span>
+          <select class="template-select">
+            <option value="">— בחרו —</option>
+            <option value="Praze">Praze (פראג)</option>
+            <option value="Brně">Brně (ברנו)</option>
+            <option value="Tel Avivu">Tel Avivu (תל אביב)</option>
+            <option value="Jeruzalémě">Jeruzalémě (ירושלים)</option>
+            <option value="Berlíně">Berlíně (ברלין)</option>
+            <option value="__other">אחר (כתוב משלך)...</option>
+          </select>
+          <span class="fixed">.</span>
+        </div>
+        <div class="template-input-row hidden">
+          <input type="text" class="template-input" placeholder="לדוגמה: New Yorku" dir="ltr">
+        </div>
+        <button class="template-listen"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמע את המשפט</button>
+        <div class="template-he">כשהייתי קטן/קטנה, גרתי ב-___.</div>
+      </div>
+    </div>
+
+    <div class="template-row">
+      <div class="template-num">2</div>
+      <div class="template-content">
+        <div class="template-sentence" data-prefix-m="Měl jsem " data-prefix-f="Měla jsem " data-suffix=".">
+          <span class="fixed" data-text-m="Měl jsem" data-text-f="Měla jsem">Měl jsem</span>
+          <select class="template-select">
+            <option value="">— בחרו —</option>
+            <option value="bratra">bratra (אח)</option>
+            <option value="sestru">sestru (אחות)</option>
+            <option value="bratra a sestru">bratra a sestru (אח ואחות)</option>
+            <option value="psa">psa (כלב)</option>
+            <option value="kočku">kočku (חתולה)</option>
+            <option value="__other">אחר (כתוב משלך)...</option>
+          </select>
+          <span class="fixed">.</span>
+        </div>
+        <div class="template-input-row hidden">
+          <input type="text" class="template-input" placeholder="לדוגמה: dva bratry" dir="ltr">
+        </div>
+        <button class="template-listen"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמע את המשפט</button>
+        <div class="template-he">היה לי ___.</div>
+      </div>
+    </div>
+
+    <div class="template-row">
+      <div class="template-num">3</div>
+      <div class="template-content">
+        <div class="template-sentence" data-prefix-m="Rád jsem " data-prefix-f="Ráda jsem " data-suffix=".">
+          <span class="fixed" data-text-m="Rád jsem" data-text-f="Ráda jsem">Rád jsem</span>
+          <select class="template-select">
+            <option value="">— בחרו —</option>
+            <option value="hrál/a fotbal">hrál/a fotbal (שיחקתי כדורגל)</option>
+            <option value="četl/a knihy">četl/a knihy (קראתי ספרים)</option>
+            <option value="kreslil/a obrázky">kreslil/a obrázky (ציירתי תמונות)</option>
+            <option value="zpíval/a písničky">zpíval/a písničky (שרתי שירים)</option>
+            <option value="tancoval/a">tancoval/a (רקדתי)</option>
+            <option value="__other">אחר (כתוב משלך)...</option>
+          </select>
+          <span class="fixed">.</span>
+        </div>
+        <div class="template-input-row hidden">
+          <input type="text" class="template-input" placeholder="לדוגמה: hrál na klavír" dir="ltr">
+        </div>
+        <button class="template-listen"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמע את המשפט</button>
+        <div class="template-he">אהבתי ___ (משחקתי / קראתי / ציירתי...).</div>
+      </div>
+    </div>
+
+    <div class="template-row">
+      <div class="template-num">4</div>
+      <div class="template-content">
+        <div class="template-sentence" data-prefix-m="Často jsem " data-prefix-f="Často jsem " data-suffix=".">
+          <span class="fixed" data-text-m="Často / Vždycky jsem" data-text-f="Často / Vždycky jsem">Často / Vždycky jsem</span>
+          <select class="template-select">
+            <option value="">— בחרו —</option>
+            <option value="chodil/a do parku">chodil/a do parku (הלכתי לפארק)</option>
+            <option value="jedl/a zmrzlinu">jedl/a zmrzlinu (אכלתי גלידה)</option>
+            <option value="pomáhal/a mámě">pomáhal/a mámě (עזרתי לאמא)</option>
+            <option value="díval/a se na televizi">díval/a se na televizi (ראיתי טלוויזיה)</option>
+            <option value="jezdil/a na kole">jezdil/a na kole (רכבתי על אופניים)</option>
+            <option value="__other">אחר (כתוב משלך)...</option>
+          </select>
+          <span class="fixed">.</span>
+        </div>
+        <div class="template-input-row hidden">
+          <input type="text" class="template-input" placeholder="לדוגמה: pekl/a koláče" dir="ltr">
+        </div>
+        <button class="template-listen"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמע את המשפט</button>
+        <div class="template-he">לעיתים קרובות / תמיד ___ (הלכתי, עזרתי, אכלתי).</div>
+      </div>
+    </div>
+
+    <div class="template-row">
+      <div class="template-num">5</div>
+      <div class="template-content">
+        <div class="template-sentence" data-prefix-m="Chodil jsem do školy v " data-prefix-f="Chodila jsem do školy v " data-suffix=".">
+          <span class="fixed" data-text-m="Chodil jsem do školy v" data-text-f="Chodila jsem do školy v">Chodil jsem do školy v</span>
+          <select class="template-select">
+            <option value="">— בחרו —</option>
+            <option value="Tel Avivu">Tel Avivu (תל אביב)</option>
+            <option value="Jeruzalémě">Jeruzalémě (ירושלים)</option>
+            <option value="Haifě">Haifě (חיפה)</option>
+            <option value="Praze">Praze (פראג)</option>
+            <option value="Brně">Brně (ברנו)</option>
+            <option value="__other">אחר (כתוב משלך)...</option>
+          </select>
+          <span class="fixed">.</span>
+        </div>
+        <div class="template-input-row hidden">
+          <input type="text" class="template-input" placeholder="לדוגמה: Bat Yamu" dir="ltr">
+        </div>
+        <button class="template-listen"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמע את המשפט</button>
+        <div class="template-he">הלכתי לבית הספר ב-___.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== EXAMPLE STORIES ========== -->
+  <div class="stitle">דוגמאות לסיפורים אמיתיים</div>
+
+  <div class="story-card">
+    <div class="story-header">
+      <div class="story-avatar">M</div>
+      <div class="story-name">Marta <span class="meta">♀ — מספרת על ילדות בברלין</span></div>
+    </div>
+    <div class="story-text">
+      <b>Když jsem byla malá, bydlela jsem v Berlíně.</b> Měla jsem bratra a kočku. Rádi jsme hráli fotbal na zahradě. Často jsem chodila do parku s kamarádkami. Nerada jsem se učila matematiku, ale musela. Vždycky jsem jedla snídani s tatínkem.
+    </div>
+    <div class="story-trans">
+      כשהייתי קטנה, גרתי בברלין. היה לי אח וחתולה. אהבנו לשחק כדורגל בגינה. לעיתים קרובות הלכתי לפארק עם החברות. לא אהבתי ללמוד מתמטיקה, אבל הייתי חייבת. תמיד אכלתי ארוחת בוקר עם אבא.
+    </div>
+    <button class="story-play" onclick="speak('Když jsem byla malá. bydlela jsem v Berlíně. Měla jsem bratra a kočku. Rádi jsme hráli fotbal na zahradě. Často jsem chodila do parku s kamarádkami. Nerada jsem se učila matematiku, ale musela. Vždycky jsem jedla snídani s tatínkem.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמיעו את הסיפור כולו</button>
+  </div>
+
+  <div class="story-card">
+    <div class="story-header">
+      <div class="story-avatar">J</div>
+      <div class="story-name">Jasper <span class="meta">♂ — מספר על ילדות באיטליה</span></div>
+    </div>
+    <div class="story-text">
+      <b>Když jsem byl malý, bydlel jsem v Itálii.</b> Měl jsem psa. Rád jsem se díval na televizi a hrál na počítači. Nerad jsem uklízel pokoj, ale musel jsem. Někdy jsem cestoval s rodinou do Říma. Nikdy jsem nejedl ryby.
+    </div>
+    <div class="story-trans">
+      כשהייתי קטן, גרתי באיטליה. היה לי כלב. אהבתי לראות טלוויזיה ולשחק במחשב. לא אהבתי לסדר את החדר, אבל הייתי חייב. לפעמים נסעתי עם המשפחה לרומא. אף פעם לא אכלתי דגים.
+    </div>
+    <button class="story-play" onclick="speak('Když jsem byl malý. bydlel jsem v Itálii. Měl jsem psa. Rád jsem se díval na televizi a hrál na počítači. Nerad jsem uklízel pokoj, ale musel jsem. Někdy jsem cestoval s rodinou do Říma. Nikdy jsem nejedl ryby.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> השמיעו את הסיפור כולו</button>
+  </div>
+
+  <div class="tip green">
+    <strong>✨ שמתם לב כמה ידע השתמשו?</strong>
+    כל סיפור משלב את כל מה שלמדנו ב-A2:<br>
+    <b>שיעור 1</b> — פעלי עבר רגילים (<span class="cz-phrase">bydlela, cestoval, uklízel</span>)<br>
+    <b>שיעור 2</b> — פעלים חריגים (<span class="cz-phrase">byla, měla, jedl</span>)<br>
+    <b>שיעור 3א</b> — מיקום JSEM הנכון<br>
+    <b>שיעור 3ב</b> — פעלים רפלקסיביים (<span class="cz-phrase">díval se, učila se</span>)<br>
+    זה הסיכום החי של הכל.
+  </div>
+
+  <!-- ========== CHECK YOURSELF ========== -->
+  <div class="stitle">בדיקה אישית</div>
+
+  <div class="check-box">
+    <h4>אחרי 3ג את/ה אמור/ה:</h4>
+    <ul class="check-list">
+      <li>לבנות פתיחה: <span class="cz-phrase">Když jsem byl/a malý/á</span> + סיפור</li>
+      <li>להשתמש בתיאורי תדירות (<span class="cz-phrase">často, někdy, vždycky, nikdy</span>)</li>
+      <li>לזכור את כלל השלילה הכפולה עם <span class="cz-phrase">nikdy</span></li>
+      <li>לספר בעל-פה סיפור של 5-6 משפטים על הילדות שלכם</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson3b.html" class="btn-back">→ חזרה ל-3ב</a>
+    <a href="a2-lesson3d.html" class="btn-next">3ד — דיאלוגים ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson3c"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+
+// ===== Interactive story template with gender =====
+let currentGender = 'm';
+
+// Convert a value with "X/a" notation to specific gender
+// Examples: "hrál/a fotbal" → masc: "hrál fotbal", fem: "hrála fotbal"
+//           "tancoval/a" → masc: "tancoval", fem: "tancovala"
+function normalizeForGender(value, gender) {
+  if (!value) return '';
+  if (gender === 'f') return value.replace(/\/a/g, 'a');
+  return value.replace(/\/a/g, '');
+}
+
+// Update all visible "fixed" spans to match current gender
+function applyGenderToDOM() {
+  // Update fixed sentence prefixes
+  document.querySelectorAll('.template-sentence .fixed').forEach(span => {
+    const key = currentGender === 'f' ? 'textF' : 'textM';
+    if (span.dataset[key]) span.textContent = span.dataset[key];
+  });
+  // Update dropdown option labels (only for options with /a notation)
+  document.querySelectorAll('.template-select option').forEach(opt => {
+    if (!opt.value || opt.value === '__other') return;
+    if (!opt.value.includes('/a')) return;
+    // First time: cache the Hebrew meaning by parsing the original text
+    if (!opt.dataset.heMeaning) {
+      const match = opt.textContent.match(/^(.+?)\s*\((.+)\)\s*$/);
+      if (match) opt.dataset.heMeaning = match[2];
+    }
+    const cz = normalizeForGender(opt.value, currentGender);
+    const he = opt.dataset.heMeaning || '';
+    opt.textContent = he ? `${cz} (${he})` : cz;
+  });
+}
+
+// Gender toggle buttons
+document.querySelectorAll('.gender-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentGender = btn.dataset.gender;
+    applyGenderToDOM();
+  });
+});
+
+// Run once on load to cache Hebrew meanings (in case default isn't masculine)
+applyGenderToDOM();
+
+// Each template row
+document.querySelectorAll('.template-row').forEach(row => {
+  const sentence = row.querySelector('.template-sentence');
+  const select = row.querySelector('.template-select');
+  const inputRow = row.querySelector('.template-input-row');
+  const input = row.querySelector('.template-input');
+  const listenBtn = row.querySelector('.template-listen');
+  if (!sentence || !select) return;
+
+  function getChosen() {
+    if (select.value === '__other') return input.value.trim();
+    return select.value;
+  }
+
+  function buildSentence() {
+    const prefixKey = currentGender === 'f' ? 'prefixF' : 'prefixM';
+    const prefix = sentence.dataset[prefixKey] || '';
+    const suffix = sentence.dataset.suffix || '';
+    const chosen = normalizeForGender(getChosen(), currentGender);
+    if (!chosen) return '';
+    return prefix + chosen + suffix;
+  }
+
+  function updateListenBtn() {
+    if (getChosen()) listenBtn.classList.add('show');
+    else listenBtn.classList.remove('show');
+  }
+
+  function updateSelectClass() {
+    if (select.value && select.value !== '__other') select.classList.add('has-value');
+    else select.classList.remove('has-value');
+  }
+
+  select.addEventListener('change', () => {
+    if (select.value === '__other') {
+      inputRow.classList.remove('hidden');
+      input.focus();
+    } else {
+      inputRow.classList.add('hidden');
+      input.value = '';
+    }
+    updateSelectClass();
+    updateListenBtn();
+  });
+
+  input.addEventListener('input', updateListenBtn);
+
+  listenBtn.addEventListener('click', () => {
+    const text = buildSentence();
+    if (text) speak(text);
+  });
+});
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

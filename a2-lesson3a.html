@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 3א — מיקום JSEM/JSI | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;--red-light:#fef2f2;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === Step boxes (like 1א) === */
+    .step-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .step-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+    .step-circle{width:36px;height:36px;border-radius:50%;background:var(--green);color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .step-title{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--text);}
+    .step-content{font-size:14.5px;color:var(--text);line-height:1.8;}
+    .step-content b.cz{font-family:'Nunito',sans-serif;color:var(--green);direction:ltr;unicode-bidi:isolate;display:inline-block;}
+
+    /* === Sentence parser visualization === */
+    .sentence-vis{background:var(--bg);border-radius:var(--rs);padding:16px 18px;margin-top:12px;text-align:center;}
+    .sentence-vis .row{display:flex;justify-content:center;gap:6px;direction:ltr;flex-wrap:wrap;align-items:flex-end;margin-bottom:8px;}
+    .sentence-vis .word{font-family:'Nunito',sans-serif;font-weight:700;padding:6px 12px;border-radius:8px;border:1px solid var(--border);background:var(--white);font-size:14.5px;position:relative;}
+    .sentence-vis .word.slot{background:var(--gl);border-color:var(--green);color:var(--gd);}
+    .sentence-vis .word.jsem{background:#fff3c2;border-color:#f59e0b;color:#92400e;}
+    .sentence-vis .word .num{position:absolute;top:-8px;right:50%;transform:translateX(50%);background:var(--green);color:white;font-size:10px;font-weight:800;padding:1px 6px;border-radius:8px;font-family:'Nunito',sans-serif;}
+    .sentence-vis .word.jsem .num{background:#f59e0b;}
+    .sentence-vis .label{font-size:12.5px;color:var(--muted);margin-top:6px;}
+
+    /* === Right vs Wrong examples === */
+    .compare-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+    .compare-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;}
+    .compare-card.right{border-color:rgba(29,158,117,.3);background:var(--gl);}
+    .compare-card.wrong{border-color:rgba(220,38,38,.25);background:var(--red-light);}
+    .compare-card .mark{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px;}
+    .compare-card.right .mark{color:var(--gd);}
+    .compare-card.wrong .mark{color:#991b1b;}
+    .compare-card .sentence{font-family:'Nunito',sans-serif;font-size:15.5px;font-weight:700;direction:ltr;text-align:left;margin-bottom:6px;}
+    .compare-card.right .sentence{color:var(--gd);}
+    .compare-card.wrong .sentence{color:#991b1b;text-decoration:line-through;text-decoration-color:#dc2626;text-decoration-thickness:1.5px;}
+    .compare-card .why{font-size:12.5px;line-height:1.6;}
+    .compare-card.right .why{color:var(--gd);}
+    .compare-card.wrong .why{color:#991b1b;}
+
+    /* === Examples list === */
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:#f59e0b;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .compare-pair{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson3.html">שיעור 3</a><span>›</span>
+  3א — מיקום JSEM/JSI
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    הכלל שמפריד בין מי שיודע "לתפוס" צ׳כית לבין מי שבאמת מדבר אותה: <span class="cz-phrase">jsem</span> ו-<span class="cz-phrase">jsi</span> לא הולכים איפה שאתם חושבים. <b>הם תמיד במקום השני במשפט.</b><br>
+    אחרי הדף הזה, תוכלו לבנות משפטים בעבר עם סדר מילים נכון — כמו צ׳כי אמיתי.
+  </div>
+
+  <!-- ========== STEP 1 ========== -->
+  <div class="stitle">השיטה ב-3 שלבים</div>
+
+  <div class="step-box">
+    <div class="step-head">
+      <div class="step-circle">1</div>
+      <div class="step-title">הכלל: jsem/jsi חייבים להיות במקום השני</div>
+    </div>
+    <div class="step-content">
+      בעברית סדר המילים גמיש: "אתמול עבדתי" או "עבדתי אתמול" — שניהם תקינים.<br>
+      בצ׳כית, <b>פועל העזר</b> <b class="cz">jsem</b> או <b class="cz">jsi</b> חייב להיות במקום <b>השני</b> במשפט. לא חשוב מה במקום הראשון — <b class="cz">jsem</b> תמיד בא אחריו.
+    </div>
+    <div class="sentence-vis">
+      <div class="row">
+        <div class="word slot"><span class="num">1</span>Včera</div>
+        <div class="word jsem"><span class="num">2</span>jsem</div>
+        <div class="word">šel</div>
+        <div class="word">do</div>
+        <div class="word">kina</div>
+      </div>
+      <div class="label">אתמול הלכתי לקולנוע — <b class="cz">Včera</b> במקום 1, <b class="cz">jsem</b> במקום 2.</div>
+    </div>
+  </div>
+
+  <!-- ========== STEP 2 ========== -->
+  <div class="step-box">
+    <div class="step-head">
+      <div class="step-circle">2</div>
+      <div class="step-title">"המקום הראשון" יכול להיות כל דבר</div>
+    </div>
+    <div class="step-content">
+      הדבר המקדים את <b class="cz">jsem</b> משתנה לפי הדגש שאתם רוצים. זה יכול להיות:<br>
+      <b>תיאור זמן</b> (Včera, Loni, Ráno), <b>הפועל הראשי</b> (Šel, Pracoval), <b>שאלה</b> (Co, Kde, Kdy), או <b>הנושא</b> (Marek, Maminka). אבל <b>תמיד</b> משהו אחד לפני <b class="cz">jsem</b>.
+    </div>
+    <div class="sentence-vis">
+      <div class="row">
+        <div class="word slot"><span class="num">1</span>Co</div>
+        <div class="word jsem"><span class="num">2</span>jsi</div>
+        <div class="word">dělala</div>
+        <div class="word">včera?</div>
+      </div>
+      <div class="label">מה עשית אתמול? — שאלה במקום 1, <b class="cz">jsi</b> במקום 2.</div>
+    </div>
+    <div class="sentence-vis">
+      <div class="row">
+        <div class="word slot"><span class="num">1</span>Pracoval</div>
+        <div class="word jsem"><span class="num">2</span>jsem</div>
+        <div class="word">v</div>
+        <div class="word">kavárně.</div>
+      </div>
+      <div class="label">עבדתי בבית קפה — <b class="cz">Pracoval</b> פותח, <b class="cz">jsem</b> מיד אחריו.</div>
+    </div>
+  </div>
+
+  <!-- ========== STEP 3 ========== -->
+  <div class="step-box">
+    <div class="step-head">
+      <div class="step-circle">3</div>
+      <div class="step-title">בגוף שלישי אין jsem — אין בעיה</div>
+    </div>
+    <div class="step-content">
+      ב-<b>הוא / היא / הם / הן</b> אין פועל עזר. אז אין מה לחשוב על המקום שלו. הפועל בעבר (<b class="cz">šel, šla, šli, šly</b>) פשוט הולך איפה שצריך:
+    </div>
+    <div class="sentence-vis">
+      <div class="row">
+        <div class="word slot"><span class="num">1</span>Marek</div>
+        <div class="word">šel</div>
+        <div class="word">do</div>
+        <div class="word">parku.</div>
+      </div>
+      <div class="label">מארק הלך לפארק — אין <b class="cz">jsem</b>, אין מגבלה.</div>
+    </div>
+  </div>
+
+  <!-- ========== RIGHT VS WRONG ========== -->
+  <div class="stitle">דוגמאות: ✅ נכון מול ❌ לא נכון</div>
+
+  <div class="compare-pair">
+    <div class="compare-card right">
+      <div class="mark">✅ נכון</div>
+      <div class="sentence">Včera jsem šel domů.</div>
+      <div class="why"><b>jsem</b> אחרי המילה הראשונה (Včera). מקום 2.</div>
+    </div>
+    <div class="compare-card wrong">
+      <div class="mark">❌ לא נכון</div>
+      <div class="sentence">Včera šel jsem domů.</div>
+      <div class="why"><b>jsem</b> במקום 3 — מאוחר מדי.</div>
+    </div>
+  </div>
+
+  <div class="compare-pair">
+    <div class="compare-card right">
+      <div class="mark">✅ נכון</div>
+      <div class="sentence">Co jsi dělala?</div>
+      <div class="why"><b>jsi</b> אחרי השאלה. מקום 2.</div>
+    </div>
+    <div class="compare-card wrong">
+      <div class="mark">❌ לא נכון</div>
+      <div class="sentence">Co dělala jsi?</div>
+      <div class="why"><b>jsi</b> במקום 3. השאלה והפועל החליפו את המקום.</div>
+    </div>
+  </div>
+
+  <div class="compare-pair">
+    <div class="compare-card right">
+      <div class="mark">✅ נכון</div>
+      <div class="sentence">Pracoval jsem celý den.</div>
+      <div class="why">הפועל פותח, <b>jsem</b> אחריו. מקום 2.</div>
+    </div>
+    <div class="compare-card wrong">
+      <div class="mark">❌ לא נכון</div>
+      <div class="sentence">Pracoval celý den jsem.</div>
+      <div class="why"><b>jsem</b> בסוף. מקום שגוי לחלוטין.</div>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ למה זה כל-כך חשוב</strong>
+    הכלל הזה נקרא בלשונאית "Wackernagel's law" — חוק עתיק שמופיע בהרבה שפות סלאביות. בצ׳כית הוא קריטי. אם תאמרו <span class="cz-phrase">Včera šel jsem</span> — תבינו אתכם, אבל זה ישמע <b>זר ומוזר</b>.<br>
+    זה ההבדל בין "מי שיודע צ׳כית" ל"מי שדיבר צ׳כית עם דובר ילידי".
+  </div>
+
+  <!-- ========== AUDIO EXAMPLES ========== -->
+  <div class="stitle">דוגמאות עם השמעה — שמעו את ה-jsem במקום הנכון</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Včera jsem byla doma.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Včera <b>jsem</b> byla doma.</span>
+    <span class="ex-he">אתמול הייתי בבית. ♀</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Co jsi jedl ráno?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Co <b>jsi</b> jedl ráno?</span>
+    <span class="ex-he">מה אכלת בבוקר? ♂</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Loni jsme byli na dovolené.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Loni <b>jsme</b> byli na dovolené.</span>
+    <span class="ex-he">בשנה שעברה היינו בחופשה.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Včera večer jste pili pivo?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Včera večer <b>jste</b> pili pivo?</span>
+    <span class="ex-he">אתמול בערב שתיתם בירה?</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Včera jsem šla pěšky do práce.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Včera <b>jsem</b> šla pěšky do práce.</span>
+    <span class="ex-he">אתמול הלכתי ברגל לעבודה. ♀</span>
+  </div>
+
+  <div class="tip green">
+    <strong>✨ ה-jsem הצמוד</strong>
+    שמתם לב? כשמדברים מהר, ה-<span class="cz-phrase">jsem</span> כמעט "נמהל" לתוך המילה הקודמת: <span class="cz-phrase">Včerajsem</span> נשמע כמעט כמילה אחת. זה לא מקרי — <span class="cz-phrase">jsem/jsi</span> הם <b>מילים לא מודגשות</b> (קליטיקות) שמתחברות לכל מה שלפניהן.
+  </div>
+
+  <!-- ========== CHECK YOURSELF ========== -->
+  <div class="stitle">בדיקה אישית</div>
+
+  <div class="check-box">
+    <h4>אחרי 3א את/ה אמור/ה:</h4>
+    <ul class="check-list">
+      <li>לדעת ש-<span class="cz-phrase">jsem/jsi/jsme/jste</span> תמיד נמצאים במקום השני במשפט</li>
+      <li>לזהות מה הולך במקום הראשון: תיאור זמן, פועל, שאלה, או נושא</li>
+      <li>לזהות את הטעות "Včera šel jsem" ולתקן ל-"Včera jsem šel"</li>
+      <li>לבנות 3 משפטים נכונים בעבר בלי לטעות במיקום</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson3.html" class="btn-back">→ חזרה לשיעור 3</a>
+    <a href="a2-lesson3b.html" class="btn-next">3ב — פעלים רפלקסיביים ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson3a"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

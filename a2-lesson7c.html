@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 7ג — bez + z/ze (היעדר / יציאה) | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === Preposition spotlight === */
+    .prep-spot{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:20px 24px;margin-bottom:14px;}
+    .prep-spot .head{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;flex-wrap:wrap;}
+    .prep-spot .word{font-family:'Nunito',sans-serif;font-size:32px;font-weight:800;color:var(--green);direction:ltr;}
+    .prep-spot .he-word{font-size:16px;font-weight:700;color:var(--text);}
+    .prep-spot .desc{font-size:14px;color:var(--text);line-height:1.7;}
+    .prep-spot .desc b{color:var(--green);}
+
+    /* === Examples list === */
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:var(--green);}
+    .ex-cz .change{color:#7c3aed;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* === Z↔ZE rule box === */
+    .rule-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin-bottom:14px;}
+    .rule-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:12px;}
+    .rule-block{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;}
+    .rule-block .rule-card{background:var(--bg);border-radius:var(--rs);padding:14px 16px;border:1px solid var(--border);}
+    .rule-block .rule-card .rule-when{font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
+    .rule-block .rule-card .rule-form{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;color:var(--green);direction:ltr;text-align:center;margin:6px 0;}
+    .rule-block .rule-card .rule-ex{font-size:12.5px;color:var(--text);line-height:1.6;}
+    .rule-block .rule-card .rule-ex .cz-phrase{font-size:13.5px;}
+
+    /* === Sentence builder zone === */
+    .builder{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:14px;}
+    .builder h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .builder .b-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--border);font-size:14px;}
+    .builder .b-row:last-child{border-bottom:none;}
+    .builder .b-from{font-family:'Nunito',sans-serif;font-weight:700;color:var(--muted);direction:ltr;min-width:90px;font-size:14.5px;}
+    .builder .b-arrow{font-family:'Nunito',sans-serif;font-weight:800;color:var(--green);}
+    .builder .b-to{font-family:'Nunito',sans-serif;font-weight:800;color:var(--green);direction:ltr;font-size:14.5px;}
+    .builder .b-note{font-size:11.5px;color:var(--muted);margin-right:auto;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .rule-block{grid-template-columns:1fr;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson7.html">שיעור 7</a><span>›</span>
+  7ג — bez + z/ze
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    אחרי שראינו שייכות וכמויות, נצא ל<b>שימוש השלישי</b> של גניטיב — אחרי מילות יחס. נתחיל בשתי מילות יחס של <b>"היעדר ויציאה"</b>: <span class="cz-phrase">bez</span> = בלי משהו, <span class="cz-phrase">z/ze</span> = מ-/מתוך משהו.
+  </div>
+
+  <div class="tip green">
+    <strong>✨ למה ללמוד אותן ביחד?</strong>
+    שתיהן עוסקות בלהיות "מחוץ" למשהו — <span class="cz-phrase">bez</span> זה להיות בלי משהו (היעדר), <span class="cz-phrase">z</span> זה לצאת ממקור. הקרבה הזו עוזרת לזכור שאחרי שתיהן הסיומת היא אותה הסיומת.
+  </div>
+
+  <!-- ========== BEZ ========== -->
+  <div class="stitle">📌 חלק 1 — <span class="cz-phrase">bez</span> (בלי)</div>
+
+  <div class="prep-spot">
+    <div class="head">
+      <span class="word">bez</span>
+      <span class="he-word">בלי</span>
+    </div>
+    <p class="desc">משמשת בדיוק כמו "בלי" בעברית: <b>bez + שם עצם בגניטיב</b>. שכיחה במיוחד עם אוכל ושתייה (קפה בלי סוכר), אבסטרקציות (בלי בעיה), ועם אנשים (בלי משפחה, בלי חברים).</p>
+  </div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Káva bez mléka, prosím.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Káva <b>bez</b> <span class="change">mléka</span>, prosím.</span>
+    <span class="ex-he">קפה בלי חלב, בבקשה. <span style="color:var(--muted);font-size:11.5px;">(mléko → mléka, נטרל)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Čaj bez cukru.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Čaj <b>bez</b> <span class="change">cukru</span>.</span>
+    <span class="ex-he">תה בלי סוכר. <span style="color:var(--muted);font-size:11.5px;">(cukr → cukru, זכר דומם)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Den bez práce.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Den <b>bez</b> <span class="change">práce</span>.</span>
+    <span class="ex-he">יום בלי עבודה. <span style="color:var(--muted);font-size:11.5px;">(práce → práce, נקבה ב-e — לא משתנה)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Pizza bez masa, prosím.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Pizza <b>bez</b> <span class="change">masa</span>, prosím.</span>
+    <span class="ex-he">פיצה בלי בשר, בבקשה. <span style="color:var(--muted);font-size:11.5px;">(maso → masa, נטרל)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Život bez problémů.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Život <b>bez</b> <span class="change">problémů</span>.</span>
+    <span class="ex-he">חיים בלי בעיות. <span style="color:var(--muted);font-size:11.5px;">(problém → problémů, רבים — נסקור בעתיד)</span></span>
+  </div>
+
+  <div class="tip purple">
+    <strong>💎 ביטוי לזכור: <span class="cz-phrase">bez problému</span></strong>
+    זה ביטוי קבוע ופופולרי שאומר <b>"אין בעיה" / "ללא בעיה"</b>, כמו "no problem" באנגלית. ביומיום שומעים אותו כל הזמן: <span class="cz-phrase">— Můžeš mi pomoct? — Bez problému!</span> (יכול לעזור לי? — בלי בעיה!)
+  </div>
+
+  <!-- ========== Z / ZE ========== -->
+  <div class="stitle">📌 חלק 2 — <span class="cz-phrase">z / ze</span> (מ- / מתוך)</div>
+
+  <div class="prep-spot">
+    <div class="head">
+      <span class="word">z / ze</span>
+      <span class="he-word">מ- / מתוך</span>
+    </div>
+    <p class="desc">השימוש הכי שכיח: <b>לאן אני שייך / מאיפה אני בא / מאיפה חוזרים</b>. <span class="cz-phrase">jsem z Izraele</span> (אני מישראל), <span class="cz-phrase">vracím se z práce</span> (אני חוזר/ת מהעבודה).</p>
+  </div>
+
+  <!-- The phonetic rule -->
+  <div class="rule-box">
+    <h4>🔊 מתי <span class="cz-phrase">z</span>, מתי <span class="cz-phrase">ze</span>?</h4>
+
+    <div class="rule-block">
+      <div class="rule-card">
+        <div class="rule-when">ברירת מחדל</div>
+        <div class="rule-form">z</div>
+        <div class="rule-ex">משתמשים ב-<b>z</b> ברוב המקרים — לפני תנועה או לפני רוב העיצורים:<br>
+        <span class="cz-phrase">z Izraele</span> (מישראל)<br>
+        <span class="cz-phrase">z Prahy</span> (מפראג)<br>
+        <span class="cz-phrase">z práce</span> (מהעבודה)</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-when">כשקשה לבטא z+עיצור</div>
+        <div class="rule-form">ze</div>
+        <div class="rule-ex">כשהמילה מתחילה ב-<b>s/z/š/ž</b> (או צירוף קשה לביטוי), מוסיפים <b>e</b> כדי להקל:<br>
+        <span class="cz-phrase">ze školy</span> (מבית הספר)<br>
+        <span class="cz-phrase">ze Slovenska</span> (מסלובקיה)<br>
+        <span class="cz-phrase">ze Spojených států</span> (מארה"ב)</div>
+      </div>
+    </div>
+
+    <div class="tip blue" style="margin-top:6px;margin-bottom:0;">
+      <strong>💡 כמו v↔ve משיעור 5א</strong>
+      בדיוק אותו עיקרון! זוכרים את <span class="cz-phrase">v pondělí</span> אבל <span class="cz-phrase">ve středu</span>? אותה לוגיקה פונטית — מוסיפים <b>e</b> כדי שיהיה נוח להגיד.
+    </div>
+  </div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Jsem z Izraele.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Jsem <b>z</b> <span class="change">Izraele</span>.</span>
+    <span class="ex-he">אני מישראל. <span style="color:var(--muted);font-size:11.5px;">(Izrael → Izraele, זכר דומם)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Petra je z Brna.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Petra je <b>z</b> <span class="change">Brna</span>.</span>
+    <span class="ex-he">פטרה היא מברנו. <span style="color:var(--muted);font-size:11.5px;">(Brno → Brna, נטרל)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Vracím se z práce.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Vracím se <b>z</b> <span class="change">práce</span>.</span>
+    <span class="ex-he">אני חוזר/ת מהעבודה. <span style="color:var(--muted);font-size:11.5px;">(práce → práce, נקבה ב-e — לא משתנה)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Dopis ze Slovenska.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Dopis <b>ze</b> <span class="change">Slovenska</span>.</span>
+    <span class="ex-he">מכתב מסלובקיה. <span style="color:var(--muted);font-size:11.5px;">(Slovensko → Slovenska, נטרל — שימו לב: ze, לא z!)</span></span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Kniha ze školy.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Kniha <b>ze</b> <span class="change">školy</span>.</span>
+    <span class="ex-he">ספר מבית הספר. <span style="color:var(--muted);font-size:11.5px;">(škola → školy, נקבה ב-a)</span></span>
+  </div>
+
+  <!-- ========== BUILDER ========== -->
+  <div class="stitle">בנייה — איך הופכים מילים שראינו ב-A1</div>
+
+  <div class="builder">
+    <h4>🔨 ממילים מ-A1 לצורת גניטיב</h4>
+
+    <div class="b-row">
+      <button class="ex-btn-sm" onclick="speak('káva ... kávy')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="b-from">káva</span>
+      <span class="b-arrow">→</span>
+      <span class="b-to">kávy</span>
+      <span class="b-note">נקבה ב-a (קפה)</span>
+    </div>
+    <div class="b-row">
+      <button class="ex-btn-sm" onclick="speak('voda ... vody')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="b-from">voda</span>
+      <span class="b-arrow">→</span>
+      <span class="b-to">vody</span>
+      <span class="b-note">נקבה ב-a (מים)</span>
+    </div>
+    <div class="b-row">
+      <button class="ex-btn-sm" onclick="speak('čaj ... čaje')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="b-from">čaj</span>
+      <span class="b-arrow">→</span>
+      <span class="b-to">čaje</span>
+      <span class="b-note">זכר דומם — סיים בעיצור רך, סיומת -e (חריג נפוץ)</span>
+    </div>
+    <div class="b-row">
+      <button class="ex-btn-sm" onclick="speak('Praha ... Prahy')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="b-from">Praha</span>
+      <span class="b-arrow">→</span>
+      <span class="b-to">Prahy</span>
+      <span class="b-note">נקבה ב-a (פראג)</span>
+    </div>
+    <div class="b-row">
+      <button class="ex-btn-sm" onclick="speak('Brno ... Brna')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="b-from">Brno</span>
+      <span class="b-arrow">→</span>
+      <span class="b-to">Brna</span>
+      <span class="b-note">נטרל (העיר ברנו)</span>
+    </div>
+    <div class="b-row">
+      <button class="ex-btn-sm" onclick="speak('škola ... školy')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="b-from">škola</span>
+      <span class="b-arrow">→</span>
+      <span class="b-to">školy</span>
+      <span class="b-note">נקבה ב-a (בית ספר)</span>
+    </div>
+    <div class="b-row">
+      <button class="ex-btn-sm" onclick="speak('práce ... práce')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="b-from">práce</span>
+      <span class="b-arrow">→</span>
+      <span class="b-to">práce</span>
+      <span class="b-note">נקבה ב-e — לא משתנה!</span>
+    </div>
+    <div class="b-row">
+      <button class="ex-btn-sm" onclick="speak('restaurace ... restaurace')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+      <span class="b-from">restaurace</span>
+      <span class="b-arrow">→</span>
+      <span class="b-to">restaurace</span>
+      <span class="b-note">נקבה ב-e — לא משתנה!</span>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⭐ הפתעה קטנה — <span class="cz-phrase">čaj → čaje</span></strong>
+    זוכרים שאמרנו "זכר דומם = סיומת <b>-u</b>"? זה נכון לרוב, אבל מילים שמסתיימות ב<b>עיצור רך</b> (j, ž, š, č, ř...) מקבלות <b>-e</b> במקום. <b>בינתיים — תזכרו את <span class="cz-phrase">čaj → čaje</span> כביטוי קבוע.</b> נצלול לכלל הזה ביסודיות ברמת B1.
+  </div>
+
+  <!-- ========== COMBINING ========== -->
+  <div class="stitle">משלבים — <span class="cz-phrase">bez</span> ו-<span class="cz-phrase">z/ze</span> באותו משפט</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Vracím se z práce bez kávy.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Vracím se <b>z</b> <span class="change">práce</span> <b>bez</b> <span class="change">kávy</span>.</span>
+    <span class="ex-he">אני חוזר/ת מהעבודה בלי קפה.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Studentka z Izraele bez kufru.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Studentka <b>z</b> <span class="change">Izraele</span> <b>bez</b> <span class="change">kufru</span>.</span>
+    <span class="ex-he">סטודנטית מישראל בלי מזוודה.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Den bez práce, večer ze školy.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Den <b>bez</b> <span class="change">práce</span>, večer <b>ze</b> <span class="change">školy</span>.</span>
+    <span class="ex-he">יום בלי עבודה, בערב מבית הספר.</span>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson7b.html" class="btn-back">→ חזרה ל-7ב</a>
+    <a href="a2-lesson7d.html" class="btn-next">7ד — do + vedle + kolem ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson7c"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

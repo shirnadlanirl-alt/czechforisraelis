@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 6ב — muset (חייב) | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--purple-light:#f5f3ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip.purple{background:var(--purple-light);color:#5b21b6;border:1px solid rgba(124,58,237,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* === The formula === */
+    .formula-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:24px;text-align:center;margin-bottom:20px;}
+    .formula-box .formula{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--green);direction:ltr;unicode-bidi:isolate;margin-bottom:8px;line-height:1.5;}
+    .formula-box .formula-he{font-size:13.5px;color:var(--muted);}
+    .formula-box .formula-example{font-family:'Nunito',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-top:14px;direction:ltr;unicode-bidi:isolate;line-height:1.6;}
+    .formula-box .formula-example b{color:var(--green);}
+
+    /* === Conjugation table === */
+    .forms-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;}
+    .forms-table{width:100%;border-collapse:collapse;font-size:14px;}
+    .forms-table th{text-align:right;padding:10px 12px;background:var(--gl);color:var(--gd);font-weight:700;font-size:12.5px;border-bottom:2px solid var(--gm);}
+    .forms-table td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+    .forms-table tr:last-child td{border-bottom:none;}
+    .forms-table .he-col{color:var(--muted);font-size:13px;width:22%;}
+    .forms-table .modal-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--green);direction:ltr;text-align:left;font-size:15px;}
+    .forms-table .play-cell{width:32px;text-align:center;}
+    .forms-table tr:hover td{background:var(--bg);}
+
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;margin:0 auto;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+
+    /* === Examples list === */
+    .ex-line{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--rs);background:var(--bg);margin-bottom:6px;}
+    .ex-line:last-child{margin-bottom:0;}
+    .ex-line:hover{background:var(--gl);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-cz b{color:var(--green);}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    /* === Past box === */
+    .past-box{background:#f5f3ff;border:1px solid rgba(124,58,237,.2);border-inline-start:5px solid #7c3aed;border-radius:var(--rs);padding:14px 18px;margin-bottom:14px;}
+    .past-box strong{display:block;color:#5b21b6;margin-bottom:6px;font-size:14px;}
+    .past-box .past-content{font-size:13.5px;color:#16385f;line-height:1.7;}
+    .past-box .past-content b.cz{font-family:'Nunito',sans-serif;color:#5b21b6;direction:ltr;unicode-bidi:isolate;display:inline-block;}
+
+    /* === Critical warning box === */
+    .warning-box{background:#fef2f2;border:2px solid #dc2626;border-radius:var(--r);padding:18px 22px;margin-bottom:14px;}
+    .warning-box strong{display:block;color:#991b1b;font-size:15px;font-weight:800;margin-bottom:8px;}
+    .warning-box .content{font-size:14px;color:#991b1b;line-height:1.75;}
+    .warning-box b.cz{font-family:'Nunito',sans-serif;color:#991b1b;direction:ltr;unicode-bidi:isolate;display:inline-block;font-weight:800;}
+
+    .check-box{background:var(--white);border:1px dashed var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:14px;}
+    .check-box h4{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px;}
+    .check-list{display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.7;color:var(--text);}
+    .check-list li{list-style:none;padding-right:22px;position:relative;}
+    .check-list li::before{content:'✓';position:absolute;right:0;top:0;color:var(--green);font-weight:800;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .btn-next.soon{background:#f3f4f6;color:#6b7280;pointer-events:none;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson6.html">שיעור 6</a><span>›</span>
+  6ב — muset (חייב)
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    הפועל השני: <span class="cz-phrase">muset</span> (חייב/חובה). אותה נוסחה כמו <span class="cz-phrase">moct</span> מ-6א — מודאלי + אינפיניטיב. אבל יש לו <b>הפתעה אחת חשובה</b> בשלילה — שם הוא משנה משמעות לגמרי.
+  </div>
+
+  <!-- ========== THE FORMULA REMINDER ========== -->
+  <div class="stitle">תזכורת מהירה — הנוסחה</div>
+
+  <div class="formula-box">
+    <div class="formula">muset (מותאם לגוף) + פועל ראשי באינפיניטיב</div>
+    <div class="formula-he">אותו דבר כמו <span class="cz-phrase">moct</span>. הפועל המודאלי משתנה לפי הגוף, הראשי נשאר בצורת המקור.</div>
+    <div class="formula-example">Musím + jít = <b>Musím jít.</b> (אני חייב/ת ללכת.)</div>
+  </div>
+
+  <!-- ========== MUSET CONJUGATION ========== -->
+  <div class="stitle">הטיית muset בהווה</div>
+
+  <div class="forms-block">
+    <table class="forms-table">
+      <tr><th>גוף</th><th>צורה</th><th>תרגום</th><th></th></tr>
+      <tr>
+        <td class="he-col">אני</td>
+        <td class="modal-cz">musím</td>
+        <td class="he-col">אני חייב/ת</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('musím')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">את/ה</td>
+        <td class="modal-cz">musíš</td>
+        <td class="he-col">את/ה חייב/ת</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('musíš')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הוא/היא</td>
+        <td class="modal-cz">musí</td>
+        <td class="he-col">הוא/היא חייב/ת</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('musí')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אנחנו</td>
+        <td class="modal-cz">musíme</td>
+        <td class="he-col">אנחנו חייבים/ות</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('musíme')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">אתם/ן</td>
+        <td class="modal-cz">musíte</td>
+        <td class="he-col">אתם/ן חייבים/ות</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('musíte')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+      <tr>
+        <td class="he-col">הם/הן</td>
+        <td class="modal-cz">musí</td>
+        <td class="he-col">הם/הן חייבים/ות</td>
+        <td class="play-cell"><button class="ex-btn-sm" onclick="speak('musí')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="tip green">
+    <strong>✨ שמתם לב?</strong>
+    הסיומות של <span class="cz-phrase">muset</span> הן <b>-ím / -íš / -í / -íme / -íte / -í</b> — בדיוק כמו תבנית II מ-A1 (<span class="cz-phrase">mluvím, bydlím, vařím</span>). זה אומר שאם אתם זוכרים את <span class="cz-phrase">mluvím</span>, אתם כבר יודעים איך להטות את <span class="cz-phrase">muset</span>.<br><br>
+    יש דבר אחד מיוחד: ב<b>גוף שלישי יחיד וגם רבים</b> אותה צורה — <span class="cz-phrase">musí</span>. אין הבדל בין "הוא חייב" ל"הם חייבים".
+  </div>
+
+  <!-- ========== EXAMPLES ========== -->
+  <div class="stitle">דוגמאות בחיוב — חובה</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Musím jít domů.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Musím</b> jít domů.</span>
+    <span class="ex-he">אני חייב/ת ללכת הביתה.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Musíš se učit česky.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Musíš</b> se učit česky.</span>
+    <span class="ex-he">את/ה חייב/ת ללמוד צ'כית.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Musíme pracovat do pěti.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Musíme</b> pracovat do pěti.</span>
+    <span class="ex-he">אנחנו חייבים לעבוד עד 5.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Studenti musí dělat domácí úkoly.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Studenti <b>musí</b> dělat domácí úkoly.</span>
+    <span class="ex-he">סטודנטים חייבים לעשות שיעורי בית.</span>
+  </div>
+
+  <!-- ========== THE BIG NEGATION WARNING ========== -->
+  <div class="stitle">⚠️ שלילה — לא מה שתחשבו</div>
+
+  <div class="warning-box">
+    <strong>⚠️ נקודה קריטית: <span class="cz-phrase">nemusím</span> ≠ "אסור לי"</strong>
+    <div class="content">
+      בעברית "חייב" + שלילה = "אסור": "אסור לי לעבוד". אבל בצ׳כית זה <b>לא</b> ככה!<br><br>
+      <b class="cz">nemusím pracovat</b> = "אני <b>לא חייב/ת</b> לעבוד" (= מותר לי לא לעבוד, אבל אני יכול/ה).<br><br>
+      זה <b>לא</b> אומר "אסור לי לעבוד".<br><br>
+      אם רוצים להגיד "אסור" — צריך מילים אחרות (<span class="cz-phrase">nesmím</span> או <span class="cz-phrase">je zakázáno</span>) — נראה ב-6ד.
+    </div>
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 איך לזכור</strong>
+    תחשבו על המשמעות באנגלית: "<b>don't have to</b>" (לא חייב, אבל אם רוצים — כן). זה בדיוק <span class="cz-phrase">nemusím</span>.<br>
+    מילולית: "אני לא בחובה". אם אני לא בחובה, לא חייב לעשות, אבל אני יכול אם אני רוצה.
+  </div>
+
+  <!-- ========== EXAMPLES WITH NEGATION ========== -->
+  <div class="stitle">דוגמאות בשלילה — אין חובה</div>
+
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Dneska nemusím vstávat brzy.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Dneska <b>nemusím</b> vstávat brzy.</span>
+    <span class="ex-he">היום אני לא חייב/ת לקום מוקדם.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('Nemusíš odpovídat.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz"><b>Nemusíš</b> odpovídat.</span>
+    <span class="ex-he">את/ה לא חייב/ת לענות. (אבל אם רוצה — בבקשה)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn-sm" onclick="speak('O víkendu nemusíme pracovat.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">O víkendu <b>nemusíme</b> pracovat.</span>
+    <span class="ex-he">בסוף השבוע אנחנו לא חייבים לעבוד.</span>
+  </div>
+
+  <!-- ========== PAST FORM ========== -->
+  <div class="stitle">muset בעבר — musel / musela</div>
+
+  <div class="past-box">
+    <strong>📜 הצורה בעבר</strong>
+    <div class="past-content">
+      <b class="cz">muset</b> בעבר הוא <b class="cz">musel / musela</b> (היה חייב / הייתה חייבת).<br>
+      פועל רגיל לחלוטין בעבר — תבנית II מ-A1 (כמו <span class="cz-phrase">mluvil/mluvila</span>).<br><br>
+      <b class="cz">Včera jsem musela pracovat dlouho.</b> (אתמול הייתי חייבת לעבוד הרבה זמן. ♀)<br>
+      <b class="cz">Museli jsme jít pěšky.</b> (היינו חייבים ללכת ברגל.)
+    </div>
+  </div>
+
+  <!-- ========== CHECK YOURSELF ========== -->
+  <div class="stitle">בדיקה אישית</div>
+
+  <div class="check-box">
+    <h4>אחרי 6ב את/ה אמור/ה:</h4>
+    <ul class="check-list">
+      <li>לדעת את כל הצורות של <span class="cz-phrase">muset</span> בהווה (musím, musíš...)</li>
+      <li>להבין ש-<span class="cz-phrase">nemusím</span> = <b>לא חייב</b>, ולא "אסור"</li>
+      <li>לזכור שגוף שלישי יחיד ורבים — אותה צורה (<span class="cz-phrase">musí</span>)</li>
+      <li>לזכור את צורת העבר: <span class="cz-phrase">musel / musela</span></li>
+      <li>להגיד 3 משפטים: מה את/ה חייב/ת ומה לא חייב/ת לעשות השבוע</li>
+    </ul>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson6a.html" class="btn-back">→ חזרה ל-6א</a>
+    <a href="a2-lesson6c.html" class="btn-next">6ג — chtít ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson6b"></aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrases = text.split('.').map(s => s.trim()).filter(Boolean);
+  let i = 0;
+  function next() {
+    if (i >= phrases.length) return;
+    const u = new SpeechSynthesisUtterance(phrases[i]);
+    u.lang = 'cs-CZ';
+    u.rate = 0.85;
+    u.onend = () => { i++; setTimeout(next, 500); };
+    window.speechSynthesis.speak(u);
+  }
+  next();
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

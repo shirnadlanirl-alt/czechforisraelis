@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 11ד — השוואה ומלכודות | A2 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;--c-znat:var(--gd);--c-vedet:#1d4ed8;--c-umet:#b45309;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* Big comparison table */
+    .comp-table{width:100%;border-collapse:collapse;margin-bottom:18px;font-size:13.5px;}
+    .comp-table th{padding:12px 14px;font-weight:700;font-size:13px;text-align:center;}
+    .comp-table th.znat{background:var(--gl);color:var(--c-znat);}
+    .comp-table th.vedet{background:#eff6ff;color:var(--c-vedet);}
+    .comp-table th.umet{background:#fffbeb;color:var(--c-umet);}
+    .comp-table td{padding:10px 14px;border:1px solid var(--border);line-height:1.65;vertical-align:top;}
+    .comp-table tr:nth-child(even) td{background:#fafaf8;}
+    .comp-table td .cz{font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;display:block;}
+    .comp-table td .cz.znat{color:var(--c-znat);}
+    .comp-table td .cz.vedet{color:var(--c-vedet);}
+    .comp-table td .cz.umet{color:var(--c-umet);}
+    .comp-table td .he{font-size:12px;color:var(--muted);}
+    .row-label{background:#f3f4f6;font-size:12px;font-weight:700;color:var(--muted);text-align:center;padding:7px 10px;border:1px solid var(--border);}
+
+    /* Trap cards */
+    .trap-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:12px;}
+    .trap-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+    .trap-icon{width:32px;height:32px;border-radius:50%;background:#fef2f2;color:#dc2626;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .trap-title{font-size:15px;font-weight:700;color:var(--text);}
+    .trap-wrong{font-family:'Nunito',sans-serif;font-size:14px;direction:ltr;unicode-bidi:isolate;color:#dc2626;padding:8px 12px;border-radius:var(--rs);background:#fef2f2;margin-bottom:6px;}
+    .trap-right{font-family:'Nunito',sans-serif;font-size:14px;direction:ltr;unicode-bidi:isolate;color:var(--gd);padding:8px 12px;border-radius:var(--rs);background:var(--gl);}
+    .trap-label{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:3px;}
+    .trap-exp{font-size:13px;color:var(--muted);line-height:1.6;margin-top:8px;}
+
+    /* Dialogue */
+    .dialogue{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:16px;}
+    .dialogue-title{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em;}
+    .d-line{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
+    .d-who{font-size:12px;font-weight:700;color:var(--muted);min-width:28px;margin-top:1px;}
+    .d-speech{flex:1;}
+    .d-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);direction:ltr;unicode-bidi:isolate;}
+    .d-he{font-size:12.5px;color:var(--muted);margin-top:2px;}
+    .d-btn{width:24px;height:24px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+    .d-btn:hover{background:var(--gm);}
+    .d-btn svg{width:8px;height:8px;fill:var(--gd);margin-right:-1px;}
+    .d-hl-znat{color:var(--c-znat);font-weight:900;}
+    .d-hl-vedet{color:var(--c-vedet);font-weight:900;}
+    .d-hl-umet{color:var(--c-umet);font-weight:900;}
+
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .breadcrumb{padding:12px 20px;}
+      .layout{padding:20px;grid-template-columns:1fr;}
+      aside.sidebar{display:none;}
+      .comp-table th,.comp-table td{padding:8px;}
+    }
+  </style>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a2.html">A2</a><span>›</span>
+  <a href="a2-lesson11.html">שיעור 11</a><span>›</span>
+  11ד — השוואה ומלכודות
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 מה נלמד בדף הזה?</strong>
+    שלושת הפעלים יחד — השוואה ישירה, מלכודות נפוצות, ומשפטי שיחה שמשתמשים בשלושתם. הדף הזה הוא ״תמונת המצב המלאה״ לפני התרגול.
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="stitle">טבלת השוואה — znát · vědět · umět</div>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="znat">znát</th>
+        <th class="vedet">vědět</th>
+        <th class="umet">umět</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">משמעות</td>
+        <td><span class="cz znat">להכיר</span><span class="he">היכרות ישירה</span></td>
+        <td><span class="cz vedet">לדעת (עובדה)</span><span class="he">מידע / ידע</span></td>
+        <td><span class="cz umet">לדעת (לעשות)</span><span class="he">יכולת / מיומנות</span></td>
+      </tr>
+      <tr>
+        <td class="row-label">מה בא אחריו</td>
+        <td><span class="he">שם עצם (אדם / מקום / דבר)</span></td>
+        <td><span class="he">že · kde · co · jak · proč + משפט</span></td>
+        <td><span class="he">שם פועל / שם שפה</span></td>
+      </tr>
+      <tr>
+        <td class="row-label">גוף ראשון</td>
+        <td><span class="cz znat">znám</span></td>
+        <td><span class="cz vedet">vím</span></td>
+        <td><span class="cz umet">umím</span></td>
+      </tr>
+      <tr>
+        <td class="row-label">שלילה</td>
+        <td><span class="cz znat">neznám</span></td>
+        <td><span class="cz vedet">nevím</span></td>
+        <td><span class="cz umet">neumím</span></td>
+      </tr>
+      <tr>
+        <td class="row-label">דוגמה</td>
+        <td>
+          <span class="cz znat">Znám Prahu.</span>
+          <span class="he">אני מכיר/ה את פראג.</span>
+        </td>
+        <td>
+          <span class="cz vedet">Vím, kde je Praha.</span>
+          <span class="he">אני יודע/ת איפה פראג.</span>
+        </td>
+        <td>
+          <span class="cz umet">Umím vařit.</span>
+          <span class="he">אני יודע/ת לבשל.</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- TRAPS -->
+  <div class="stitle">מלכודות נפוצות</div>
+
+  <div class="trap-card">
+    <div class="trap-header">
+      <div class="trap-icon">⚠️</div>
+      <div class="trap-title">״אני יודע/ת שהיא גרה בפראג״</div>
+    </div>
+    <div class="trap-label">❌ שגוי:</div>
+    <div class="trap-wrong">Znám, že bydlí v Praze.</div>
+    <div class="trap-label" style="margin-top:6px;">✓ נכון:</div>
+    <div class="trap-right">Vím, že bydlí v Praze.</div>
+    <div class="trap-exp">אחרי <b style="color:var(--c-znat);font-family:'Nunito',sans-serif;">znát</b> לא בא <span style="font-family:'Nunito',sans-serif;font-weight:700;">že</span>. כשיש לך עובדה — השתמש/י ב-<b style="color:var(--c-vedet);font-family:'Nunito',sans-serif;">vědět</b>.</div>
+  </div>
+
+  <div class="trap-card">
+    <div class="trap-header">
+      <div class="trap-icon">⚠️</div>
+      <div class="trap-title">״אני יודע/ת לשחות״</div>
+    </div>
+    <div class="trap-label">❌ שגוי:</div>
+    <div class="trap-wrong">Vím plavat. / Znám plavat.</div>
+    <div class="trap-label" style="margin-top:6px;">✓ נכון:</div>
+    <div class="trap-right">Umím plavat.</div>
+    <div class="trap-exp">יכולת / מיומנות — תמיד <b style="color:var(--c-umet);font-family:'Nunito',sans-serif;">umět</b> + שם פועל.</div>
+  </div>
+
+  <div class="trap-card">
+    <div class="trap-header">
+      <div class="trap-icon">⚠️</div>
+      <div class="trap-title">״אתה/את מכיר/ה את הסרט הזה?״</div>
+    </div>
+    <div class="trap-label">❌ שגוי לרוב:</div>
+    <div class="trap-wrong">Víš tento film?</div>
+    <div class="trap-label" style="margin-top:6px;">✓ נכון:</div>
+    <div class="trap-right">Znáš tento film?</div>
+    <div class="trap-exp">היכרות עם סרט, שיר, ספר — <b style="color:var(--c-znat);font-family:'Nunito',sans-serif;">znát</b>. ״לראות״ ו-״להכיר״ הם לא אותו דבר.</div>
+  </div>
+
+  <div class="trap-card">
+    <div class="trap-header">
+      <div class="trap-icon">⚠️</div>
+      <div class="trap-title">״אני יודע/ת צ׳כית״</div>
+    </div>
+    <div class="trap-label">❌ שגוי:</div>
+    <div class="trap-wrong">Znám češtinu. (לא מדויק)</div>
+    <div class="trap-label" style="margin-top:6px;">✓ נכון:</div>
+    <div class="trap-right">Umím česky.</div>
+    <div class="trap-exp">ידיעת שפה = יכולת = <b style="color:var(--c-umet);font-family:'Nunito',sans-serif;">umět</b>. אפשר גם <b style="color:var(--c-znat);">znám češtinu</b> במובן של ״מכיר/ה את השפה (אבל לא בהכרח מדבר/ת)״ — אך לשיחה יומיומית <span style="font-family:'Nunito',sans-serif;font-weight:700;color:var(--c-umet);">Umím česky</span> הוא הנכון.</div>
+  </div>
+
+  <!-- DIALOGUE -->
+  <div class="stitle">שיחה — שלושת הפעלים בפעולה</div>
+
+  <div class="dialogue">
+    <div class="dialogue-title">📍 שיחה: פגישה ראשונה בבית הקפה</div>
+
+    <div class="d-line">
+      <div class="d-who">A:</div>
+      <div class="d-speech">
+        <div class="d-cz"><span class="d-hl-vedet">Víš</span>, kde je tady dobré místo na oběd?</div>
+        <div class="d-he">אתה/את יודע/ת איפה יש כאן מקום טוב לאכול צהריים?</div>
+      </div>
+      <button class="d-btn" onclick="speak('Víš, kde je tady dobré místo na oběd?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line">
+      <div class="d-who">B:</div>
+      <div class="d-speech">
+        <div class="d-cz"><span class="d-hl-znat">Znám</span> tady pár dobrých restaurací. <span class="d-hl-vedet">Vím</span>, že ta italská je skvělá.</div>
+        <div class="d-he">אני מכיר/ה פה כמה מסעדות טובות. אני יודע/ת שהאיטלקית מעולה.</div>
+      </div>
+      <button class="d-btn" onclick="speak('Znám tady pár dobrých restaurací. Vím, že ta italská je skvělá.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line">
+      <div class="d-who">A:</div>
+      <div class="d-speech">
+        <div class="d-cz">A ty <span class="d-hl-umet">umíš</span> vařit?</div>
+        <div class="d-he">ואתה/את יודע/ת לבשל?</div>
+      </div>
+      <button class="d-btn" onclick="speak('A ty umíš vařit?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line">
+      <div class="d-who">B:</div>
+      <div class="d-speech">
+        <div class="d-cz"><span class="d-hl-umet">Umím</span> trochu, ale nejsem žádný šéfkuchař. <span class="d-hl-vedet">Nevím</span>, jak se dělá knedlík.</div>
+        <div class="d-he">אני יודע/ת קצת, אבל לא שף. אני לא יודע/ת איך מכינים קנדליק (כופתה צ׳כית).</div>
+      </div>
+      <button class="d-btn" onclick="speak('Umím trochu, ale nejsem žádný šéfkuchař. Nevím, jak se dělá knedlík.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line">
+      <div class="d-who">A:</div>
+      <div class="d-speech">
+        <div class="d-cz">Já <span class="d-hl-umet">umím</span>! Moje babička mě naučila. <span class="d-hl-znat">Znáš</span> ji?</div>
+        <div class="d-he">אני יודע/ת! סבתא שלי לימדה אותי. אתה/את מכיר/ה אותה?</div>
+      </div>
+      <button class="d-btn" onclick="speak('Já umím! Moje babička mě naučila. Znáš ji?')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+
+    <div class="d-line">
+      <div class="d-who">B:</div>
+      <div class="d-speech">
+        <div class="d-cz">Ne<span class="d-hl-znat">znám</span>. Ale teď <span class="d-hl-vedet">vím</span>, co chci k obědu!</div>
+        <div class="d-he">אני לא מכיר/ה. אבל עכשיו אני יודע/ת מה אני רוצה לצהריים!</div>
+      </div>
+      <button class="d-btn" onclick="speak('Neznám. Ale teď vím, co chci k obědu!')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    </div>
+  </div>
+
+  <div class="tip blue">
+    <strong>🎯 כלל אצבע סופי</strong>
+    שאל/י את עצמך: <br>
+    ✦ האם אני <b>מכיר/ה</b> את זה? (פגשתי, ראיתי, ביקרתי) → <b style="color:var(--c-znat);font-family:'Nunito',sans-serif;">znát</b><br>
+    ✦ האם אני <b>יודע/ת</b> עובדה? (שמעתי, קראתי) → <b style="color:var(--c-vedet);font-family:'Nunito',sans-serif;">vědět</b><br>
+    ✦ האם אני יודע/ת <b>לעשות</b> משהו? (מיומנות, שפה) → <b style="color:var(--c-umet);font-family:'Nunito',sans-serif;">umět</b>
+  </div>
+
+  <div class="step-nav">
+    <a href="a2-lesson11c.html" class="btn-back">→ 11ג — umět</a>
+    <a href="a2-lesson11e.html" class="btn-next">11ה — תרגול ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="a2-lesson11d">
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px;">
+    <strong style="display:block;margin-bottom:12px;font-size:14px;">🧠 טבלת עזר מהירה</strong>
+    <table style="width:100%;font-size:12.5px;border-collapse:collapse;">
+      <tr>
+        <td style="padding:6px 4px;font-family:'Nunito',sans-serif;font-weight:800;color:var(--gd);">znát</td>
+        <td style="padding:6px 4px;color:var(--muted);">היכרות</td>
+        <td style="padding:6px 4px;font-family:'Nunito',sans-serif;color:var(--gd);">znám</td>
+      </tr>
+      <tr style="background:#f7fdfb;">
+        <td style="padding:6px 4px;font-family:'Nunito',sans-serif;font-weight:800;color:#1d4ed8;">vědět</td>
+        <td style="padding:6px 4px;color:var(--muted);">עובדה</td>
+        <td style="padding:6px 4px;font-family:'Nunito',sans-serif;color:#1d4ed8;">vím</td>
+      </tr>
+      <tr>
+        <td style="padding:6px 4px;font-family:'Nunito',sans-serif;font-weight:800;color:#b45309;">umět</td>
+        <td style="padding:6px 4px;color:var(--muted);">יכולת</td>
+        <td style="padding:6px 4px;font-family:'Nunito',sans-serif;color:#b45309;">umím</td>
+      </tr>
+    </table>
+    <hr style="border:none;border-top:1px solid var(--border);margin:12px 0;">
+    <div style="font-size:12px;color:var(--muted);line-height:1.9;">
+      <b style="color:var(--gd);font-family:'Nunito',sans-serif;">znát</b> + שם עצם<br>
+      <b style="color:#1d4ed8;font-family:'Nunito',sans-serif;">vědět</b> + že / kde / co...<br>
+      <b style="color:#b45309;font-family:'Nunito',sans-serif;">umět</b> + שם פועל / שפה
+    </div>
+  </div>
+</aside>
+</div>
+
+<script>
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'cs-CZ'; u.rate = 0.85;
+  window.speechSynthesis.speak(u);
+}
+</script>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

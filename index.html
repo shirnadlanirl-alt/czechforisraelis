@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>צ'כית בעברית — תלמדו צ'כית מאפס</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1D9E75;
+      --green-light: #E1F5EE;
+      --green-dark: #085041;
+      --green-mid: #5DCAA5;
+      --text: #1a1a1a;
+      --text-muted: #6b7280;
+      --bg: #fafaf8;
+      --white: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo span { color: var(--green); }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      max-width: 680px;
+      margin: 0 auto;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 500px;
+      margin: 0 auto 36px;
+    }
+
+    /* TIPS */
+    .tips-section {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+      animation: fadeUp 0.7s 0.15s ease both;
+    }
+
+    .tips-label {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .tips-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tip-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .tip-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(29,158,117,0.08);
+    }
+
+    .tip-num {
+      min-width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .tip-content h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+    .tip-content p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* CTA */
+    .cta-section {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    .cta-box {
+      background: var(--green);
+      border-radius: var(--radius);
+      padding: 44px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '🇨🇿';
+      position: absolute;
+      font-size: 120px;
+      opacity: 0.07;
+      top: -10px;
+      left: -10px;
+      line-height: 1;
+    }
+
+    .cta-box p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      color: var(--green-dark);
+      font-family: 'Heebo', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .cta-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .cta-btn .arrow {
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover .arrow { transform: translateX(-4px); }
+
+    .levels-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .level-tag {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.7);
+    }
+    .level-tag.active {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* WORD OF THE DAY */
+    .word-of-day {
+      max-width: 680px;
+      margin: 0 auto 60px;
+      padding: 0 24px;
+      animation: fadeUp 0.7s 0.45s ease both;
+    }
+
+    .word-card-big {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .word-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+
+    .word-info { flex: 1; }
+    .word-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .word-czech {
+      font-family: 'Nunito', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+      direction: ltr;
+      unicode-bidi: isolate;
+    }
+    .word-hebrew {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .word-pronounce {
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    .play-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--green-light);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .play-circle:hover { background: var(--green-mid); }
+    .play-circle svg { width: 16px; height: 16px; fill: var(--green-dark); margin-right: -2px; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    footer a { color: var(--green); text-decoration: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero h1 { font-size: 30px; }
+      .cta-box { padding: 32px 20px; }
+      .word-card-big { flex-wrap: wrap; }
+    }
+  </style>
+<!-- Microsoft Clarity -->
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">צ'כית<span>IL</span></a>
+  <div style="display:flex; align-items:center; gap:12px;">
+    <a href="search.html" style="font-size:20px; text-decoration:none; color:var(--text-muted);" title="חיפוש">🔍</a>
+    <a href="a1.html" style="font-size:14px; font-weight:600; text-decoration:none; background:var(--green); color:white; padding:8px 18px; border-radius:20px;">התחל ללמוד</a>
+  </div>
+</nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-badge">🇨🇿 ללמוד צ'כית — בעברית</div>
+      <h1>ברוכים הבאים!<br>מתחילים <em>מאפס</em>.</h1>
+      <p>עברתם לצ'כיה ולא יודעים מאיפה להתחיל? בדיוק בשבילכם. כאן תלמדו צ'כית מאפס, בעברית, בצורה ברורה ומעשית.</p>
+    </section>
+
+    <section class="word-of-day">
+      <div class="word-card-big">
+        <div class="word-icon">✨</div>
+        <div class="word-info">
+          <div class="word-label">המילה של היום</div>
+          <div class="word-czech">Ahoj</div>
+          <div class="word-hebrew">היי / שלום (לא רשמי)</div>
+          <div class="word-pronounce">הגייה: אַהוֹי</div>
+        </div>
+        <button class="play-circle" title="האזן להגייה">
+          <svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="tips-section">
+      <div class="tips-label">לפני שמתחילים — שלושה דברים שכדאי לדעת</div>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-num">1</div>
+          <div class="tip-content">
+            <h3>רשמי מול לא-רשמי — זה לא סתם נימוס</h3>
+            <p>בצ'כית יש הבדל מהותי בין פנייה רשמית לבין שיחה בין חברים. לדעת מתי להשתמש בכל אחד — זה אחד הדברים הראשונים שנלמד.</p>
+          </div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">2</div>
+          <div class="tip-content">
+            <h3>הגייה — חצי מהשפה</h3>
+            <p>בצ'כית לא מספיק לדעת לכתוב מילה — חייבים לדעת להגיד אותה נכון. לכן בכל מילה ומשפט כאן תמצאו גם תעתיק עברי והסבר הגייה.</p>
+          </div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">3</div>
+          <div class="tip-content">
+            <h3>גם "שלום" אחד שווה הרבה</h3>
+            <p>צ'כים מעריכים מאוד כשמישהו מנסה לדבר את שפתם — אפילו ברמה הבסיסית ביותר. כל מילה שתלמדו תפתח דלתות.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-box">
+        <p>עכשיו, אחרי שיש לנו הקשר —<br>בואו נצלול פנימה! הלימוד מחולק לרמות.<br>מתחילים מ-A1, ומשם הולכים יחד.</p>
+        <a href="a1.html" class="cta-btn">
+          <span class="arrow">←</span>
+          בואו נתחיל!
+        </a>
+        <div class="levels-row">
+          <a href="a1.html" class="level-tag active" style="text-decoration:none;">A1</a>
+          <a href="a2.html" class="level-tag" style="text-decoration:none;">A2</a>
+          <a href="b1.html" class="level-tag" style="text-decoration:none;">B1</a>
+          <a href="b2.html" class="level-tag" style="text-decoration:none;">B2</a>
+          <a href="c1.html" class="level-tag" style="text-decoration:none;">C1</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align:center; padding: 12px 24px 24px;">
+      <p style="font-size:15px; color:var(--text-muted);">רוצה רק לתרגל? <a href="academia/index.html" style="color:var(--green); font-weight:600; text-decoration:none;">לאקדמיה ←</a></p>
+    </section>
+
+  </main>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+  <script>
+    // Word of the day — בעתיד יתחבר ל-API
+    const words = [
+      { czech: "Ahoj", hebrew: "היי / שלום (לא רשמי)", pronounce: "אַהוֹי", icon: "👋" },
+      { czech: "Děkuji", hebrew: "תודה", pronounce: "דְיֶקוּיִי", icon: "🙏" },
+      { czech: "Prosím", hebrew: "בבקשה", pronounce: "פְּרוֹסִים", icon: "✨" },
+      { czech: "Dobrý den", hebrew: "שלום (רשמי)", pronounce: "דוֹבְּרִי דֶן", icon: "🎩" },
+      { czech: "Na shledanou", hebrew: "להתראות", pronounce: "נַה סְחְלֶדַנוֹאוּ", icon: "👋" },
+      { czech: "Ano", hebrew: "כן", pronounce: "אָנוֹ", icon: "✅" },
+      { czech: "Ne", hebrew: "לא", pronounce: "נֶה", icon: "❌" },
+      { czech: "Jak se máš?", hebrew: "מה שלומך?", pronounce: "יַאק סֶה מַאש", icon: "😊" },
+      { czech: "Dobře", hebrew: "טוב / בסדר", pronounce: "דוֹבְּרְז'ֶה", icon: "👍" },
+      { czech: "Promiňte", hebrew: "סליחה (רשמי)", pronounce: "פְּרוֹמִינְיְטֶה", icon: "🙇" },
+      { czech: "Nevadí", hebrew: "לא נורא / אין בעיה", pronounce: "נֶבַדִי", icon: "😌" },
+      { czech: "Pomoc!", hebrew: "עזרה!", pronounce: "פּוֹמוֹץ", icon: "🆘" },
+      { czech: "Kde je...?", hebrew: "איפה נמצא...?", pronounce: "קְדֶה יֶה", icon: "📍" },
+      { czech: "Kolik to stojí?", hebrew: "כמה זה עולה?", pronounce: "קוֹלִיק טוֹ סְטוֹיִי", icon: "💰" },
+      { czech: "Nerozumím", hebrew: "אני לא מבין/ה", pronounce: "נֶרוֹזוּמִים", icon: "🤔" },
+      { czech: "Mluvíte česky?", hebrew: "אתה מדבר צ'כית?", pronounce: "מְלוּבִיטֶה צ'ֶסְקִי", icon: "🗣️" },
+      { czech: "Trochu", hebrew: "קצת", pronounce: "טְרוֹכוּ", icon: "🤏" },
+      { czech: "Dnes", hebrew: "היום", pronounce: "דְנֶס", icon: "📅" },
+      { czech: "Zítra", hebrew: "מחר", pronounce: "זִיטְרָה", icon: "🌅" },
+      { czech: "Včera", hebrew: "אתמול", pronounce: "פְצ'ֶרָה", icon: "⏮️" },
+      { czech: "Ráno", hebrew: "בוקר", pronounce: "רַאנוֹ", icon: "🌄" },
+      { czech: "Večer", hebrew: "ערב", pronounce: "וֶצ'ֶר", icon: "🌆" },
+      { czech: "Voda", hebrew: "מים", pronounce: "ווֹדָה", icon: "💧" },
+      { czech: "Jídlo", hebrew: "אוכל", pronounce: "יִידְלוֹ", icon: "🍽️" },
+      { czech: "Pivo", hebrew: "בירה", pronounce: "פִּיבוֹ", icon: "🍺" },
+      { czech: "Vlak", hebrew: "רכבת", pronounce: "וְלַאק", icon: "🚂" },
+      { czech: "Metro", hebrew: "מטרו", pronounce: "מֶטְרוֹ", icon: "🚇" },
+      { czech: "Nemocnice", hebrew: "בית חולים", pronounce: "נֶמוֹצְנִיצֶה", icon: "🏥" },
+      { czech: "Lékárna", hebrew: "בית מרקחת", pronounce: "לֶקַארְנָה", icon: "💊" },
+      { czech: "Škola", hebrew: "בית ספר", pronounce: "שְקוֹלָה", icon: "🏫" },
+      { czech: "Práce", hebrew: "עבודה", pronounce: "פְּרַאצֶה", icon: "💼" },
+      { czech: "Dům", hebrew: "בית", pronounce: "דוּם", icon: "🏠" },
+      { czech: "Město", hebrew: "עיר", pronounce: "מְנְיֶסְטוֹ", icon: "🏙️" },
+      { czech: "Ulice", hebrew: "רחוב", pronounce: "אוּלִיצֶה", icon: "🛣️" },
+      { czech: "Číslo", hebrew: "מספר", pronounce: "צ'ִיסְלוֹ", icon: "🔢" },
+      { czech: "Jméno", hebrew: "שם", pronounce: "יְמֶנוֹ", icon: "🏷️" },
+    ];
+
+    const today = new Date();
+    // מחשב אינדקס לפי מספר הימים מתחילת השנה — כל יום מילה חדשה
+    const startOfYear = new Date(today.getFullYear(), 0, 0);
+    const dayOfYear = Math.floor((today - startOfYear) / (1000 * 60 * 60 * 24));
+    const idx = dayOfYear % words.length;
+    const w = words[idx];
+    document.querySelector('.word-czech').textContent = w.czech;
+    document.querySelector('.word-hebrew').textContent = w.hebrew;
+    document.querySelector('.word-pronounce').textContent = 'הגייה: ' + w.pronounce;
+    document.querySelector('.word-icon').textContent = w.icon;
+
+    // Play button — משתמש ב-speechSynthesis של הדפדפן (כמו בשאר הדפים)
+    function speakCzech(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'cs-CZ';
+        u.rate = 0.75;
+        window.speechSynthesis.speak(u);
+      } else {
+        alert('🔊 הדפדפן שלך לא תומך בהשמעה. נסו Chrome או Edge.');
+      }
+    }
+    document.querySelector('.play-circle').addEventListener('click', () => {
+      speakCzech(w.czech);
+    });
+  </script>
+
+</body>
+</html>
