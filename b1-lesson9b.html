@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9ב — יצירת Imperativ | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;margin-bottom:4px;}
+    .page-header h1 .green{color:var(--green);}
+    .page-header p{font-size:14px;color:var(--muted);}
+    .layout{max-width:1060px;margin:0 auto;padding:28px 40px;display:grid;grid-template-columns:1fr 290px;gap:24px;}
+    .main-col{min-width:0;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:14px 18px;font-size:14px;color:var(--gd);line-height:1.7;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;display:block;}
+    .hl{background:#ede9fe;color:#4f46e5;border-radius:4px;padding:1px 4px;font-weight:800;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .ex-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+    .ex-line{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--white);border:1px solid var(--border);border-radius:var(--rs);}
+    .ex-line button{width:28px;height:28px;border-radius:50%;border:none;background:var(--gl);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-line button:hover{background:var(--gm);}
+    .ex-line button svg{width:10px;height:10px;fill:var(--gd);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);direction:ltr;unicode-bidi:isolate;font-size:15px;flex:1;}
+    .ex-he{font-size:13px;color:var(--muted);}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:16px;border:1px solid transparent;}
+    .tip.amber{background:#fef3c7;border-color:#fcd34d;color:#92400e;}
+    .tip.blue{background:#eff6ff;border-color:#bfdbfe;color:#1e40af;}
+    .tip.green{background:var(--gl);border-color:rgba(29,158,117,.25);color:var(--gd);}
+    .tip.indigo{background:#ede9fe;border-color:#c4b5fd;color:#3730a3;}
+    .tip strong{font-weight:700;}
+    .end-table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:24px;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);}
+    .end-table th{text-align:center;background:var(--gl);color:var(--gd);font-weight:700;padding:10px 14px;font-size:13px;}
+    .end-table td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6;}
+    .end-table tr:last-child td{border-bottom:none;}
+    .end-table .section-row td{background:#f0fdf4;font-weight:700;color:var(--gd);font-size:13px;padding:8px 14px;}
+    .end-table .imp{font-family:'Nunito',sans-serif;font-weight:800;color:#4f46e5;direction:ltr;unicode-bidi:isolate;}
+    .end-table .cz-w{font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);direction:ltr;unicode-bidi:isolate;}
+    .pair-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+    .pair-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;}
+    .pair-card h4{font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;margin-bottom:10px;}
+    .pair-card.pos h4{color:#4f46e5;}
+    .pair-card.neg h4{color:#b91c1c;}
+    .pair-row{font-size:13px;line-height:1.9;}
+    .pair-row .cz-w{font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){.breadcrumb,.page-header{padding-right:20px;padding-left:20px;}.layout{padding:18px 20px;grid-template-columns:1fr;}aside{display:none;}.pair-grid{grid-template-columns:1fr;}}
+      .end-table td[class],.prep-table td[class]{text-align:center;}
+    </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson9.html">שיעור 9</a><span>›</span>9ב — יצירת Imperativ
+</div>
+<div class="page-header">
+  <h1>9ב: <span class="green">יצירת Imperativ — קשה ורך</span></h1>
+  <p>מגוף שלישי רבים לציווי: עיצור קשה, -ovat → -uj, גזע רך → -ej.</p>
+</div>
+<div class="layout">
+  <div class="main-col">
+
+    <div class="why-box">
+      <strong>📋 יצירת Imperativ לפי סוג הגזע</strong>
+      הבסיס תמיד מגוף שלישי רבים, אבל הסיומת שמתקבלת תלויה בסוג הגזע. שלוש קבוצות עיקריות: גזע על <strong>עיצור בודד</strong>, גזע על <strong>עיצור רך</strong>, וגזע המסתיים ב-<strong>תנועה</strong>.
+    </div>
+
+    <span class="stitle">קבוצה 1 — גזע מסתיים בעיצור קשה</span>
+    <table class="end-table">
+      <tr><th>פועל</th><th>oni (3 רבים)</th><th>בסיס</th><th class="imp" style="color:var(--gd);">Imperativ</th></tr>
+      <tr class="section-row"><td colspan="4">גזע + סיומת -i (עיצור אחד)</td></tr>
+      <tr><td class="cz-w">číst</td><td class="cz-w">čtou</td><td class="cz-w">čt-</td><td class="imp">Čti! / Čtěte!</td></tr>
+      <tr><td class="cz-w">nést</td><td class="cz-w">nesou</td><td class="cz-w">nes-</td><td class="imp">Nes! / Neste!</td></tr>
+      <tr><td class="cz-w">jít</td><td class="cz-w">jdou</td><td class="cz-w">jd-</td><td class="imp">Jdi! / Jděte!</td></tr>
+      <tr><td class="cz-w">vést</td><td class="cz-w">vedou</td><td class="cz-w">ved-</td><td class="imp">Veď! / Veďte!</td></tr>
+      <tr class="section-row"><td colspan="4">גזע + סיומת ∅ (עיצור נוח)</td></tr>
+      <tr><td class="cz-w">mluvit</td><td class="cz-w">mluví</td><td class="cz-w">mluv-</td><td class="imp">Mluv! / Mluvte!</td></tr>
+      <tr><td class="cz-w">dát</td><td class="cz-w">dají</td><td class="cz-w">daj-</td><td class="imp">Dej! / Dejte!</td></tr>
+      <tr><td class="cz-w">psát</td><td class="cz-w">píšou</td><td class="cz-w">piš-</td><td class="imp">Piš! / Pište!</td></tr>
+    </table>
+
+    <span class="stitle">קבוצה 2 — גזע רך / -ovat / -ovat</span>
+    <table class="end-table">
+      <tr><th>פועל</th><th>oni</th><th>בסיס</th><th class="imp" style="color:var(--gd);">Imperativ</th></tr>
+      <tr class="section-row"><td colspan="4">-ovat → -uj → Imperativ -uj</td></tr>
+      <tr><td class="cz-w">kupovat</td><td class="cz-w">kupují</td><td class="cz-w">kupuj-</td><td class="imp">Kupuj! / Kupujte!</td></tr>
+      <tr><td class="cz-w">pracovat</td><td class="cz-w">pracují</td><td class="cz-w">pracuj-</td><td class="imp">Pracuj! / Pracujte!</td></tr>
+      <tr><td class="cz-w">studovat</td><td class="cz-w">studují</td><td class="cz-w">studuj-</td><td class="imp">Studuj! / Studujte!</td></tr>
+      <tr class="section-row"><td colspan="4">גזע רך -ej</td></tr>
+      <tr><td class="cz-w">dělat</td><td class="cz-w">dělají</td><td class="cz-w">dělej-</td><td class="imp">Dělej! / Dělejte!</td></tr>
+      <tr><td class="cz-w">poslouchat</td><td class="cz-w">poslouchají</td><td class="cz-w">poslouchej-</td><td class="imp">Poslouchej! / Poslouchejte!</td></tr>
+      <tr><td class="cz-w">volat</td><td class="cz-w">volají</td><td class="cz-w">volej-</td><td class="imp">Volej! / Volejte!</td></tr>
+    </table>
+
+    <span class="stitle">דוגמאות לשמיעה</span>
+    <div class="ex-list">
+      <div class="ex-line">
+        <button onclick="speak('Piš česky!')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div><div class="ex-cz"><span class="hl">Piš</span> česky!</div><div class="ex-he">כתוב בצ'כית! (psát → píšou → piš)</div></div>
+      </div>
+      <div class="ex-line">
+        <button onclick="speak('Pracujte tvrdě!')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div><div class="ex-cz"><span class="hl">Pracujte</span> tvrdě!</div><div class="ex-he">עבדו קשה! (pracovat → pracují → pracuj → +te)</div></div>
+      </div>
+      <div class="ex-line">
+        <button onclick="speak('Dělej to pomalu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div><div class="ex-cz"><span class="hl">Dělej</span> to pomalu.</div><div class="ex-he">עשה את זה לאט. (dělat → dělají → dělej)</div></div>
+      </div>
+      <div class="ex-line">
+        <button onclick="speak('Jdi domů!')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div><div class="ex-cz"><span class="hl">Jdi</span> domů!</div><div class="ex-he">לך הביתה! (jít → jdou → jdi)</div></div>
+      </div>
+    </div>
+
+    <div class="tip indigo">
+      <strong>💡 הכלל הפשוט ל--ovat</strong>
+      כל פועל בסיומת <span class="cz-phrase">-ovat</span> — הציווי תמיד ב-<span class="cz-phrase">-uj</span>: <span class="cz-phrase">kupovat → Kupuj!</span>, <span class="cz-phrase">studovat → Studuj!</span>, <span class="cz-phrase">pracovat → Pracuj!</span>. אוטומטי לחלוטין.
+    </div>
+
+    <div class="step-nav">
+      <a href="b1-lesson9a.html" class="btn-back">→ 9א — מה Imperativ?</a>
+      <a href="b1-lesson9c.html" class="btn-next">9ג — לא סדיר ורשמי ←</a>
+    </div>
+  </div>
+  <aside class="sidebar" data-page="b1-lesson9b">
+    <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;margin-bottom:12px;">
+      <h3 style="font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:#11457E;margin-bottom:10px;">📋 Imperativ — סיכום</h3>
+      <div style="font-size:13px;line-height:2.0;color:var(--text);">
+        <span style="font-family:'Nunito',sans-serif;font-weight:700;color:#4f46e5;">čt</span>i — číst<br>
+        <span style="font-family:'Nunito',sans-serif;font-weight:700;color:#4f46e5;">nes</span> — nést<br>
+        <span style="font-family:'Nunito',sans-serif;font-weight:700;color:#4f46e5;">jdi</span> — jít<br>
+        <span style="font-family:'Nunito',sans-serif;font-weight:700;color:#4f46e5;">mluv</span> — mluvit<br>
+        <span style="font-family:'Nunito',sans-serif;font-weight:700;color:#4f46e5;">piš</span> — psát<br>
+        <span style="font-family:'Nunito',sans-serif;font-weight:700;color:#4f46e5;">dělej</span> — dělat<br>
+        <span style="font-family:'Nunito',sans-serif;font-weight:700;color:#4f46e5;">kupuj</span> — kupovat<br>
+        <span style="font-family:'Nunito',sans-serif;font-weight:700;color:#4f46e5;">pracuj</span> — pracovat
+      </div>
+    </div>
+    <div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-inline-start:5px solid #1d4ed8;border-radius:var(--r);padding:14px;font-size:13px;color:#16385f;line-height:1.7;box-shadow:0 6px 18px rgba(17,69,126,.06);">
+      <strong style="display:block;margin-bottom:6px;color:#1d4ed8;font-family:'Nunito',sans-serif;">+ -te / -me</strong>
+      Mluv → Mluv<strong>te</strong>! (רבים)<br>
+      Mluv → Mluv<strong>me</strong>! (בוא נ-)
+    </div>
+  </aside>
+</div>
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script>
+function speak(t){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='cs-CZ';u.rate=0.85;speechSynthesis.speak(u);}
+</script>
+</body>
+</html>

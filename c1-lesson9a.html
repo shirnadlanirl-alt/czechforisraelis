@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 9א — Deklinace שמות מקום | C1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--indigo:#6366f1;--il:#ede9fe;--id:#3730a3;--im:#818cf8;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--indigo);text-decoration:none;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;color:var(--text);margin-bottom:4px;}
+    .page-header p{font-size:14px;color:var(--muted);max-width:700px;line-height:1.65;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:#fef3c7;color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:#eff6ff;color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.2);}
+    .tip.indigo{background:var(--il);color:var(--id);border:1px solid rgba(99,102,241,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .end-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:20px;}
+    .end-table th{background:var(--il);color:var(--id);font-weight:700;padding:8px 12px;text-align:right;border:1px solid rgba(99,102,241,.15);}
+    .end-table td{padding:8px 12px;border:1px solid var(--border);vertical-align:top;}
+    .end-table td:not(:first-child){direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;text-align:left;}
+    .end-table tr:nth-child(even) td{background:#fafafa;}
+    .end-table .hl{background:#f0f0ff !important;font-weight:700;color:var(--id);}
+    .ex-block{margin-bottom:18px;}
+    .ex-line{display:flex;gap:10px;align-items:flex-start;margin-bottom:6px;padding:8px 12px;border-radius:10px;background:var(--white);border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;font-size:13.5px;color:var(--text);flex:1;line-height:1.5;}
+    .ex-he{font-size:13px;color:var(--muted);flex:1;text-align:right;line-height:1.5;}
+    .play-btn{width:26px;height:26px;border-radius:50%;background:var(--il);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--id);transition:background .15s;vertical-align:middle;flex-shrink:0;}
+    .play-btn:hover{background:var(--im);color:white;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--indigo);color:var(--indigo);}
+    .btn-next{background:var(--indigo);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="c1.html">C1</a><span>›</span>
+  <a href="c1-lesson9.html">שיעור 9</a><span>›</span>
+  חלק א — Deklinace שמות מקום
+</div>
+<div class="page-header">
+  <h1>שיעור 9א — <span style="color:var(--indigo)">Deklinace שמות מקום</span></h1>
+  <p>Lokativ ב-C1: centrum→centru · předměstí→předměstí · náměstí→náměstí. ללמוד מתי v ומתי na.</p>
+</div>
+<div class="layout">
+<main>
+
+<div class="why-box">
+  <strong>🗺️ Lokativ — ה"יחסת" של מיקום</strong>
+  ב-C1 חייבים לשלוט בלוקטיב עם שמות מקום מורכבים: <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">centrum → v centru</span>, <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">předměstí → na předměstí</span>, <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">náměstí → na náměstí</span>. חלק מהצורות אינטואיטיביות — וחלק מפתיעות. נלמד את הכללים ונתרגל.
+</div>
+
+<div class="stitle">לוקטיב — מה הוא ומתי משתמשים?</div>
+
+<div class="tip blue">
+  <strong>📍 Lokativ (Loc.) — יחסת המיקום והנושא</strong>
+  הלוקטיב מופיע אחרי המילים <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">v (בתוך), na (על/ב-), o (על/אודות), při (בעת), po (לאחר/על-פני)</span>.
+  הוא אף פעם לא עומד לבד — תמיד עם מילית.
+</div>
+
+<div class="stitle">טבלת לוקטיב — שמות מקום נפוצים</div>
+
+<table class="end-table">
+  <tr>
+    <th>עברית</th>
+    <th>Nom. (בסיס)</th>
+    <th>Lok. (עם v/na)</th>
+    <th>מין</th>
+  </tr>
+  <tr><td>מרכז</td><td>centrum</td><td class="hl">v centru</td><td>střední</td></tr>
+  <tr><td>פרברים</td><td>předměstí</td><td class="hl">na předměstí</td><td>střední</td></tr>
+  <tr><td>כיכר</td><td>náměstí</td><td class="hl">na náměstí</td><td>střední</td></tr>
+  <tr><td>רחוב</td><td>ulice</td><td class="hl">na ulici / v ulici</td><td>ženský</td></tr>
+  <tr><td>שכונה</td><td>čtvrť</td><td class="hl">ve čtvrti</td><td>ženský</td></tr>
+  <tr><td>כפר</td><td>vesnice</td><td class="hl">na vesnici / ve vesnici</td><td>ženský</td></tr>
+  <tr><td>עיר</td><td>město</td><td class="hl">ve městě</td><td>střední</td></tr>
+  <tr><td>פרברים (רבים)</td><td>suburbs/okraj</td><td class="hl">na okraji (města)</td><td>mužský</td></tr>
+  <tr><td>בית</td><td>dům</td><td class="hl">v domě</td><td>mužský</td></tr>
+  <tr><td>דירה</td><td>byt</td><td class="hl">v bytě</td><td>mužský</td></tr>
+  <tr><td>פרדס / גינה</td><td>zahrada</td><td class="hl">na zahradě / v zahradě</td><td>ženský</td></tr>
+  <tr><td>מדינה</td><td>země</td><td class="hl">v zemi / na zemi</td><td>ženský</td></tr>
+</table>
+
+<div class="tip amber">
+  <strong>⚠️ v × na — מתי איזה?</strong>
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">v</span> = בפנים, מוקף (v domě, v bytě, v centru, v zahradě).
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">na</span> = על פני שטח פתוח, או מקומות "פתוחים" (na ulici, na náměstí, na vesnici, na předměstí).
+  יש חריגים — חלקם צריך לשנן.
+</div>
+
+<div class="stitle">דוגמאות — Lokativ בשימוש</div>
+
+<div class="ex-block">
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('Bydlím v centru Prahy, blízko náměstí.')">▶</button>
+    <span class="ex-cz">Bydlím v centru Prahy, blízko náměstí.</span>
+    <span class="ex-he">אני גר/ה במרכז פראג, קרוב לכיכר.</span>
+  </div>
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('Vyrostl jsem na vesnici, ale teď žiji na předměstí.')">▶</button>
+    <span class="ex-cz">Vyrostl jsem na vesnici, ale teď žiju na předměstí.</span>
+    <span class="ex-he">גדלתי בכפר, אבל עכשיו אני גר בפרברים.</span>
+  </div>
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('Jejich dům stojí ve čtvrti plné zeleně.')">▶</button>
+    <span class="ex-cz">Jejich dům stojí ve čtvrti plné zeleně.</span>
+    <span class="ex-he">הבית שלהם נמצא בשכונה ירוקה מאוד.</span>
+  </div>
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('O kvalitě bydlení ve městě se hodně diskutuje.')">▶</button>
+    <span class="ex-cz">O kvalitě bydlení ve městě se hodně diskutuje.</span>
+    <span class="ex-he">על איכות הדיור בעיר מדברים הרבה.</span>
+  </div>
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('Na náměstí Míru se koná každý týden farmářský trh.')">▶</button>
+    <span class="ex-cz">Na náměstí Míru se koná každý týden farmářský trh.</span>
+    <span class="ex-he">בכיכר מיר מתקיים כל שבוע שוק אורגני.</span>
+  </div>
+</div>
+
+<div class="stitle">נטיית Lokativ — ע"פ מין דקדוקי</div>
+
+<table class="end-table">
+  <tr>
+    <th>מין</th>
+    <th>Nom.</th>
+    <th>Lok. יחיד</th>
+    <th>הערה</th>
+  </tr>
+  <tr><td>mužský tvrdý</td><td>dům, park, most</td><td class="hl">domě / parku / mostě</td><td>סיומות: -u, -e, -ě</td></tr>
+  <tr><td>mužský měkký</td><td>hotel, kostel</td><td class="hl">hotelu / kostele</td><td>בד"כ -u או -i</td></tr>
+  <tr><td>ženský -a</td><td>ulice, vesnice</td><td class="hl">ulici / vesnici</td><td>-i</td></tr>
+  <tr><td>ženský -e</td><td>čtvrť, zahrada</td><td class="hl">čtvrti / zahradě</td><td>-i / -ě</td></tr>
+  <tr><td>střední -o</td><td>město, centrum</td><td class="hl">městě / centru</td><td>-ě / -u</td></tr>
+  <tr><td>střední -í</td><td>náměstí, předměstí</td><td class="hl">náměstí / předměstí</td><td>צורה זהה לנומינטיב!</td></tr>
+</table>
+
+<div class="tip green">
+  <strong>✅ כלל-אצבע: שמות עצם על -í לא משתנים בלוקטיב!</strong>
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">náměstí → na náměstí, předměstí → na předměstí, nádraží → na nádraží</span>. הצורה זהה — רק המילית (v/na) נותנת את המשמעות.
+</div>
+
+<div class="step-nav">
+  <a href="c1-lesson9.html" class="btn-back">← סקירת שיעור 9</a>
+  <a href="c1-lesson9b.html" class="btn-next">חלק ב — שמות עצם מופשטים ←</a>
+</div>
+</main>
+<aside class="sidebar" data-page="c1-lesson9a"></aside>
+</div>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script src="_shared/sidebar.js"></script>
+<script>
+function speak(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+</body>
+</html>

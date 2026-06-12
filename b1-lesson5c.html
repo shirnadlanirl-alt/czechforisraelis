@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 5ג — פעלים עם Dativ | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}.breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:#fef3c7;color:#92400e;border:1px solid #fcd34d;}
+    .tip.blue{background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.25);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;display:block;}
+    .verb-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+    .verb-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;}
+    .verb-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
+    .verb-name{font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;color:var(--gd);}
+    .verb-case{font-size:11px;font-weight:700;background:var(--gl);color:var(--gd);padding:2px 8px;border-radius:50px;}
+    .verb-meaning{font-size:12.5px;color:var(--muted);margin-bottom:10px;}
+    .uc-ex{background:#fafaf8;border-radius:var(--rs);padding:7px 12px;font-size:13px;margin-bottom:4px;}
+    .uc-ex .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:13.5px;color:var(--gd);}
+    .uc-ex .he{color:var(--muted);}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:28px;height:28px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl{background:#eff6ff;color:#0369a1;border-radius:4px;padding:1px 4px;font-weight:800;}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0;}
+    .compare-card{border-radius:var(--r);padding:16px 18px;border:1.5px solid;}
+    .compare-card.blue{background:#fff7ed;border-color:#fed7aa;}
+    .compare-card.green{background:var(--gl);border-color:var(--gm);}
+    .compare-card h4{font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;margin-bottom:8px;}
+    .compare-card.blue h4{color:#c2410c;}
+    .compare-card.green h4{color:var(--gd);}
+    .compare-card p{font-size:13px;line-height:1.7;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.verb-grid{grid-template-columns:1fr;}.compare-grid{grid-template-columns:1fr;}}
+
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;margin-bottom:4px;}
+    .page-header h1 .green{color:var(--green);}
+    .page-header p{font-size:14px;color:var(--muted);}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson5.html">שיעור 5 — Dativ</a><span>›</span>5ג — פעלים עם Dativ
+</div>
+<div class="page-header">
+  <h1>5ג: <span class="green">פעלים עם Dativ</span></h1>
+  <p>הפעלים שמחייבים Dativ: dát, říct, pomoci, věřit, líbit se, rozumět ועוד.</p>
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>📋 פעלים שתמיד דורשים Dativ</strong>
+    קבוצת פעלים שהמושא שאחריהם תמיד ב-Dativ — גם כשלא ברור מיד למה.
+    ללמוד אותם בעל פה: <span class="cz-phrase">verb + komu/čemu.</span>
+  </div>
+
+  <p class="stitle">פעלי העברה — נתינה, אמירה, קנייה</p>
+  <div class="verb-grid">
+    <div class="verb-card">
+      <div class="verb-head"><span class="verb-name">dát komu</span><span class="verb-case">+ Dativ</span></div>
+      <div class="verb-meaning">לתת למישהו</div>
+      <div class="uc-ex"><span class="cz">Dal jsem mamince květiny.</span> <span class="he">— נתתי לאמא פרחים</span></div>
+      <div class="uc-ex"><span class="cz">Dám ti zprávu.</span> <span class="he">— אתן לך הודעה</span></div>
+    </div>
+    <div class="verb-card">
+      <div class="verb-head"><span class="verb-name">říct komu</span><span class="verb-case">+ Dativ</span></div>
+      <div class="verb-meaning">לומר למישהו</div>
+      <div class="uc-ex"><span class="cz">Řekl jsem kamarádovi pravdu.</span> <span class="he">— אמרתי לחבר את האמת</span></div>
+      <div class="uc-ex"><span class="cz">Řekni mi, prosím.</span> <span class="he">— אמור לי בבקשה</span></div>
+    </div>
+    <div class="verb-card">
+      <div class="verb-head"><span class="verb-name">koupit komu</span><span class="verb-case">+ Dativ</span></div>
+      <div class="verb-meaning">לקנות למישהו</div>
+      <div class="uc-ex"><span class="cz">Koupil jsem sestře dárek.</span> <span class="he">— קניתי לאחות מתנה</span></div>
+      <div class="uc-ex"><span class="cz">Co koupíš mamince?</span> <span class="he">— מה תקנה לאמא?</span></div>
+    </div>
+    <div class="verb-card">
+      <div class="verb-head"><span class="verb-name">poslat komu</span><span class="verb-case">+ Dativ</span></div>
+      <div class="verb-meaning">לשלוח למישהו</div>
+      <div class="uc-ex"><span class="cz">Pošlu ti email.</span> <span class="he">— אשלח לך אימייל</span></div>
+      <div class="uc-ex"><span class="cz">Poslal jsem rodičům pohled.</span> <span class="he">— שלחתי להורים גלויה</span></div>
+    </div>
+  </div>
+
+  <p class="stitle">פעלי עזרה ותקשורת</p>
+  <div class="verb-grid">
+    <div class="verb-card">
+      <div class="verb-head"><span class="verb-name">pomoci komu</span><span class="verb-case">+ Dativ</span></div>
+      <div class="verb-meaning">לעזור למישהו</div>
+      <div class="uc-ex"><span class="cz">Pomohl jsem kamarádce se stěhováním.</span> <span class="he">— עזרתי לחברה עם המעבר</span></div>
+      <div class="uc-ex"><span class="cz">Pomůžeš mi?</span> <span class="he">— תעזור לי?</span></div>
+    </div>
+    <div class="verb-card">
+      <div class="verb-head"><span class="verb-name">volat komu</span><span class="verb-case">+ Dativ</span></div>
+      <div class="verb-meaning">להתקשר למישהו</div>
+      <div class="uc-ex"><span class="cz">Zavolám lékaři.</span> <span class="he">— אתקשר לרופא</span></div>
+      <div class="uc-ex"><span class="cz">Volám ti každý den.</span> <span class="he">— אני מתקשר אליך כל יום</span></div>
+    </div>
+    <div class="verb-card">
+      <div class="verb-head"><span class="verb-name">psát komu</span><span class="verb-case">+ Dativ</span></div>
+      <div class="verb-meaning">לכתוב למישהו</div>
+      <div class="uc-ex"><span class="cz">Napíšu ti zítra.</span> <span class="he">— אכתוב לך מחר</span></div>
+      <div class="uc-ex"><span class="cz">Píše dceři každý týden.</span> <span class="he">— הוא כותב לבתו כל שבוע</span></div>
+    </div>
+    <div class="verb-card">
+      <div class="verb-head"><span class="verb-name">závidět komu</span><span class="verb-case">+ Dativ</span></div>
+      <div class="verb-meaning">לקנא במישהו</div>
+      <div class="uc-ex"><span class="cz">Závidím ti tu dovolenou.</span> <span class="he">— אני מקנא לך על החופשה</span></div>
+      <div class="uc-ex"><span class="cz">Závidíš mi?</span> <span class="he">— אתה מקנא לי?</span></div>
+    </div>
+  </div>
+
+  <p class="stitle">פעלים ייחודיים — תחושות ואמונות</p>
+  <div class="verb-grid">
+    <div class="verb-card">
+      <div class="verb-head"><span class="verb-name">líbit se komu</span><span class="verb-case">+ Dativ</span></div>
+      <div class="verb-meaning">למצוא חן בעיני מישהו</div>
+      <div class="uc-ex"><span class="cz">Líbí se mi Praha.</span> <span class="he">— פראג מוצאת חן בעיניי</span></div>
+      <div class="uc-ex"><span class="cz">Líbí se ti ten film?</span> <span class="he">— האם הסרט מוצא חן בעינייך?</span></div>
+    </div>
+    <div class="verb-card">
+      <div class="verb-head"><span class="verb-name">věřit komu</span><span class="verb-case">+ Dativ</span></div>
+      <div class="verb-meaning">להאמין למישהו</div>
+      <div class="uc-ex"><span class="cz">Věřím ti.</span> <span class="he">— אני מאמין לך</span></div>
+      <div class="uc-ex"><span class="cz">Nevěřím té zprávě.</span> <span class="he">— אני לא מאמין לחדשה</span></div>
+    </div>
+    <div class="verb-card">
+      <div class="verb-head"><span class="verb-name">rozumět čemu</span><span class="verb-case">+ Dativ</span></div>
+      <div class="verb-meaning">להבין משהו/מישהו</div>
+      <div class="uc-ex"><span class="cz">Nerozumím české gramatice.</span> <span class="he">— לא מבין את הדקדוק הצ'כי</span></div>
+      <div class="uc-ex"><span class="cz">Rozumíš mi?</span> <span class="he">— אתה מבין אותי?</span></div>
+    </div>
+    <div class="verb-card">
+      <div class="verb-head"><span class="verb-name">patřit komu</span><span class="verb-case">+ Dativ</span></div>
+      <div class="verb-meaning">להיות שייך למישהו</div>
+      <div class="uc-ex"><span class="cz">Tato kniha patří sestře.</span> <span class="he">— הספר שייך לאחות</span></div>
+      <div class="uc-ex"><span class="cz">Patříš mi.</span> <span class="he">— אתה שלי (בצחוק)</span></div>
+    </div>
+  </div>
+
+  <p class="stitle">דוגמאות לשמיעה</p>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Líbí se mi Praha.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Líbí se <span class='hl'>mi</span> Praha.</span><span class="ex-he">פראג מוצאת חן בעיניי</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Věřím ti.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Věřím <span class='hl'>ti</span>.</span><span class="ex-he">אני מאמין לך</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Nerozumím české gramatice.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Nerozumím české <span class='hl'>gramatice</span>.</span><span class="ex-he">לא מבין את הדקדוק הצ'כי</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Pomohl jsem kamarádce se stěhováním.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Pomohl jsem <span class='hl'>kamarádce</span> se stěhováním.</span><span class="ex-he">עזרתי לחברה עם המעבר</span>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card blue">
+      <h4>⚠️ לא להתבלבל!</h4>
+      <p><span class="cz-phrase">mít rád/ráda</span> = לאהוב (רגש, ללא Dativ)<br>
+      <span style="font-size:12.5px;">Mám rád Prahu. — אני אוהב את פראג.</span></p>
+    </div>
+    <div class="compare-card green">
+      <h4>✅ líbit se + Dativ</h4>
+      <p><span class="cz-phrase">líbit se komu</span> = למצוא חן (הרושם)<br>
+      <span style="font-size:12.5px;">Líbí se mi Praha. — פראג מוצאת חן בעיניי. (הנושא = Praha!)</span></p>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ líbit se — סדר הפוך!</strong>
+    הנושא הוא הדבר שמוצא חן, לא האדם: <span class="cz-phrase">Líbí se mi <b>Praha</b>.</span>
+    Praha = נושא · mi = Dativ (בעיניי) · הפועל מסכים עם Praha, לא עם mi.
+  </div>
+
+  <div class="step-nav">
+    <a href="b1-lesson5b.html" class="btn-back">→ 5ב — Dativ יחיד</a>
+    <a href="b1-lesson5d.html" class="btn-next">5ד — Dativ רבים + מילות יחס ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson5c">
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;margin-bottom:12px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#11457E;font-family:'Nunito',sans-serif;">📋 פעלים + Dativ</strong>
+    <div style="font-size:12.5px;line-height:2.1;">
+      <span style="font-family:'Nunito',sans-serif;font-weight:700;">dát, říct, koupit, poslat</span><br>
+      <span style="font-family:'Nunito',sans-serif;font-weight:700;">pomoci, volat, psát</span><br>
+      <span style="font-family:'Nunito',sans-serif;font-weight:700;">věřit, závidět, patřit</span><br>
+      <span style="font-family:'Nunito',sans-serif;font-weight:700;">rozumět, líbit se</span>
+    </div>
+  </div>
+  <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:var(--rs);padding:14px;font-size:12.5px;color:#92400e;">
+    <strong style="display:block;margin-bottom:6px;">⚠️ líbit se</strong>
+    Nošu = הנושא הוא הדבר!<br>
+    <span style="font-family:'Nunito',sans-serif;font-weight:700;">Líbí se mi Praha.</span><br>
+    Praha = נושא · mi = למי
+  </div>
+</aside>
+</div>
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script>function speak(t){const u=new SpeechSynthesisUtterance(t);u.lang='cs-CZ';u.rate=0.85;speechSynthesis.cancel();speechSynthesis.speak(u);}</script>
+</body>
+</html>

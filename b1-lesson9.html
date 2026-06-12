@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 9 — Imperativ | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;} .breadcrumb span{margin:0 6px;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;margin-bottom:4px;}
+    .page-header h1 .green{color:var(--green);} .page-header p{font-size:14px;color:var(--muted);}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:14px 18px;font-size:14px;color:var(--gd);line-height:1.7;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+    .sub-wrap{max-width:1060px;margin:0 auto;padding:24px 40px 40px;display:grid;grid-template-columns:1fr 290px;gap:24px;}
+    .sub-main{min-width:0;}
+    .sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;}
+    .sub-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px;text-decoration:none;color:var(--text);transition:all .2s;display:flex;flex-direction:column;gap:8px;position:relative;}
+    .sub-card:hover{border-color:var(--gm);transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,158,117,.1);}
+    .sub-num{position:absolute;top:18px;left:18px;width:32px;height:32px;border-radius:50%;background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;}
+    .sub-title{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--text);padding-right:42px;}
+    .sub-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+    .sub-meta{display:flex;gap:10px;margin-top:auto;padding-top:10px;font-size:11px;color:var(--green);font-weight:600;}
+    .sub-meta .dot{width:4px;height:4px;background:var(--muted);border-radius:50%;align-self:center;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .prep-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+    .pchip{padding:7px 16px;border-radius:20px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;direction:ltr;unicode-bidi:isolate;display:flex;flex-direction:column;align-items:center;gap:2px;}
+    .pchip .he{font-family:'Heebo',sans-serif;font-size:11px;font-weight:400;}
+    .pchip.blue{background:#eff6ff;color:#1d4ed8;}
+    .pchip.green{background:var(--gl);color:var(--gd);}
+    .pchip.amber{background:#fef3c7;color:#b45309;}
+    .pchip.indigo{background:#ede9fe;color:#4f46e5;}
+    .pchip.red{background:#fee2e2;color:#be123c;}
+    .tip-row{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--r);padding:18px 22px;font-size:14px;color:var(--gd);line-height:1.7;}
+    .tip-row strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+    .b1-badge{background:linear-gradient(135deg,#4f46e5 0%,#3730a3 100%);color:white;border-radius:var(--r);padding:18px 22px;margin-bottom:18px;display:flex;align-items:center;gap:14px;}
+    .b1-badge .badge-icon{font-size:32px;flex-shrink:0;}
+    .b1-badge-text{font-size:14px;line-height:1.6;}
+    .b1-badge-text strong{display:block;font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;margin-bottom:3px;}
+    .lesson-nav{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
+    .lesson-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .lesson-nav .ln-prev{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .lesson-nav .ln-prev:hover{border-color:var(--green);color:var(--green);}
+    .lesson-nav .ln-next{background:var(--green);color:white;}
+    .lesson-nav .ln-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){.breadcrumb,.page-header{padding-right:20px;padding-left:20px;}.sub-wrap{padding:18px 20px 30px;grid-template-columns:1fr;}aside.sidebar{display:none;}.sub-grid{grid-template-columns:1fr;}}
+  </style><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span>שיעור 9 — Imperativ
+</div>
+<div class="page-header">
+  <h1>שיעור 9: <span class="green">Imperativ — ציווי</span></h1>
+  <p>יצירת ציווי מגוף שלישי רבים, צורות לא סדירות, שלילה ואספקט.</p>
+</div>
+<div class="sub-wrap">
+  <div class="sub-main">
+  <div class="b1-badge">
+    <div class="badge-icon">📢</div>
+    <div class="b1-badge-text">
+      <strong>Imperativ — ציווי בצ'כית</strong>
+      הנוסחה: oni (גוף שלישי רבים) → הסר סיומת → בסיס ציווי. שלוש צורות: יחיד, רבים/כבוד (+te), הצעה (+me). שלילה <strong>תמיד</strong> IPF.
+    </div>
+  </div>
+  <div class="why-box">
+    <strong>📢 הנוסחה בקיצור</strong>
+    <span class="cz-phrase">dělat → oni dělají → dělej → <strong>Dělej!</strong></span> (יחיד) ·
+    <span class="cz-phrase"><strong>Dělejte!</strong></span> (רבים) ·
+    <span class="cz-phrase"><strong>Dělejme!</strong></span> (הצעה) ·
+    שלילה: <span class="cz-phrase"><strong>Nedělej!</strong></span> (ne + IPF)
+  </div>
+  <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;">מושגי מפתח</p>
+  <div class="prep-row">
+    <div class="pchip indigo">-uj <span class="he">-ovat → ציווי</span></div>
+    <div class="pchip indigo">-ej <span class="he">-ají → ציווי</span></div>
+    <div class="pchip blue">-te <span class="he">רבים / כבוד</span></div>
+    <div class="pchip green">-me <span class="he">הצעה משותפת</span></div>
+    <div class="pchip red">ne + IPF <span class="he">שלילת ציווי</span></div>
+    <div class="pchip amber">Vezmi! <span class="he">לא סדיר</span></div>
+  </div>
+  <div class="sub-grid">
+    <a href="b1-lesson9a.html" class="sub-card">
+      <div class="sub-num">9א</div>
+      <div class="sub-title">מה Imperativ?</div>
+      <div class="sub-desc">שלוש צורות: יחיד, רבים/כבוד, הצעה. הנוסחה מגוף שלישי רבים. prosím מרכך הכל.</div>
+      <div class="sub-meta">⏱ 10 דקות <span class="dot"></span> יחיד, רבים, הצעה</div>
+    </a>
+    <a href="b1-lesson9b.html" class="sub-card">
+      <div class="sub-num">9ב</div>
+      <div class="sub-title">יצירת Imperativ</div>
+      <div class="sub-desc">עיצור קשה → -i/∅: Čti!, Mluv! · -ovat → -uj: Kupuj! · -ají → -ej: Dělej! טבלאות עם כל הקבוצות.</div>
+      <div class="sub-meta">⏱ 13 דקות <span class="dot"></span> קשה, רך, -ovat</div>
+    </a>
+    <a href="b1-lesson9c.html" class="sub-card">
+      <div class="sub-num">9ג</div>
+      <div class="sub-title">לא סדיר ורשמי</div>
+      <div class="sub-desc">Buď!, Jdi!/Pojď!, Vezmi!, Řekni!, Přijď!, Pomoz!, Začni! + פנייה מנומסת ב-vy (-te).</div>
+      <div class="sub-meta">⏱ 11 דקות <span class="dot"></span> לא סדיר, כבוד</div>
+    </a>
+    <a href="b1-lesson9d.html" class="sub-card">
+      <div class="sub-num">9ד</div>
+      <div class="sub-title">שלילה ואספקט</div>
+      <div class="sub-desc">שלילה תמיד ne + IPF: Nedělej!, Nepiš! · IPF ציווי = הרגל · PF ציווי = פעולה ספציפית.</div>
+      <div class="sub-meta">⏱ 11 דקות <span class="dot"></span> שלילה, IPF, PF</div>
+    </a>
+    <a href="b1-lesson9e.html" class="sub-card">
+      <div class="sub-num">9ה</div>
+      <div class="sub-title">תרגול מסכם</div>
+      <div class="sub-desc">20 שאלות — יצירת Imperativ, לא סדיר, שלילה, IPF/PF בציווי, רשמי.</div>
+      <div class="sub-meta">⏱ 15 דקות <span class="dot"></span> 20 שאלות</div>
+    </a>
+  </div>
+  <div class="tip-row">
+    <strong>📢 שלוש הדוגמאות שצריך לזכור</strong>
+    <span class="cz-phrase"><b>Dělej</b> to pomalu.</span> (עשה את זה לאט — IPF, שגרה) ·
+    <span class="cz-phrase"><b>Udělej</b> to hned!</span> (עשה את זה עכשיו! — PF, ספציפי) ·
+    <span class="cz-phrase"><b>Nedělej</b> to!</span> (אל תעשה את זה! — שלילה = IPF) —
+    הרגל, ספציפי, שלילה.
+  </div>
+  <div class="lesson-nav">
+    <a href="b1-lesson8.html" class="ln-prev">→ שיעור 8 — Prefixy</a>
+    <a href="b1-lesson9a.html" class="ln-next">התחל ב-9א ←</a>
+  </div>
+  </div>
+  <aside class="sidebar" data-page="b1-lesson9"></aside>
+</div>
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

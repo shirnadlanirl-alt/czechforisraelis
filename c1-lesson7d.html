@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 7ד — סושיאל מדיה | C1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--indigo:#6366f1;--il:#ede9fe;--id:#3730a3;--im:#818cf8;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--indigo);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.indigo{background:var(--il);color:var(--id);border:1px solid rgba(99,102,241,.2);}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--id);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .vocab-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:15px 18px;margin-bottom:10px;}
+    .vocab-card .cz{font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;color:var(--id);direction:ltr;unicode-bidi:isolate;display:block;margin-bottom:5px;}
+    .vocab-card .def{font-size:13.5px;color:var(--text);line-height:1.65;margin-bottom:6px;direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;}
+    .vocab-card .ex{font-size:12.5px;color:var(--muted);background:#f8f7ff;border-radius:8px;padding:7px 10px;direction:ltr;unicode-bidi:isolate;line-height:1.6;}
+    .vocab-card details summary{font-size:12px;color:var(--im);cursor:pointer;margin-top:6px;font-weight:600;}
+    .vocab-card .he-trans{font-size:13px;color:var(--muted);margin-top:4px;}
+    .ex-play{width:22px;height:22px;border-radius:50%;background:var(--il);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:var(--id);transition:background .15s;margin-left:6px;vertical-align:middle;}
+    .ex-play:hover{background:var(--im);color:white;}
+    .phrase-section{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;margin-bottom:14px;}
+    .phrase-section h3{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:var(--id);margin-bottom:12px;}
+    .phrase-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+    .phrase-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+    .phrase-cz{font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;font-size:14px;color:var(--text);flex:1;line-height:1.5;}
+    .phrase-he{font-size:13px;color:var(--muted);flex:1;text-align:right;line-height:1.5;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--indigo);color:var(--indigo);}
+    .btn-next{background:var(--indigo);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="c1.html">C1</a><span>›</span>
+  <a href="c1-lesson7.html">שיעור 7</a><span>›</span>
+  חלק ד — סושיאל מדיה
+</div>
+<div class="layout">
+<main>
+
+<div class="why-box">
+  <strong>📲 רשתות חברתיות בצ'כית</strong>
+  הצ'כית של הרשתות החברתיות מעניינת — חלקית היא לוקחת מילים מאנגלית (<span class="cz-phrase">follower, lajkovat</span>), חלקית בונה מילים צ'כיות משלה (<span class="cz-phrase">příspěvek, sledovat</span>). ב-C1 חשוב לדעת את שתי השכבות.
+</div>
+
+<div class="stitle">מילות יסוד — רשתות חברתיות</div>
+
+<div class="vocab-card">
+  <span class="cz">příspěvek (m.) / post</span>
+  <div class="def">obsah sdílený uživatelem na sociální síti — text, foto, video nebo jejich kombinace</div>
+  <div class="ex">
+    <button class="ex-play" onclick="speak('Sdílela příspěvek o svém výletu do Prahy.')">▶</button>
+    Sdílela příspěvek o svém výletu do Prahy.
+  </div>
+  <details><summary>עברית</summary><div class="he-trans">פוסט, פרסום, תוכן שפורסם</div></details>
+</div>
+
+<div class="vocab-card">
+  <span class="cz">profilová fotka (f.)</span>
+  <div class="def">fotografie zobrazující uživatele na jeho profilu; hlavní vizuální identita účtu</div>
+  <div class="ex">
+    <button class="ex-play" onclick="speak('Změnil si profilovou fotku.')">▶</button>
+    Změnil si profilovou fotku.
+  </div>
+  <details><summary>עברית</summary><div class="he-trans">תמונת פרופיל</div></details>
+</div>
+
+<div class="vocab-card">
+  <span class="cz">sledovat (nedok.) / odsledovat</span>
+  <div class="def">přihlásit se k odběru obsahu jiného uživatele; vidět jeho příspěvky ve svém feedu</div>
+  <div class="ex">
+    <button class="ex-play" onclick="speak('Sleduji ji na Instagramu už dva roky.')">▶</button>
+    Sleduji ji na Instagramu už dva roky.
+  </div>
+  <details><summary>עברית</summary><div class="he-trans">לעקוב / לבטל מעקב</div></details>
+</div>
+
+<div class="vocab-card">
+  <span class="cz">follower / odběratel (m.)</span>
+  <div class="def">uživatel, který sleduje účet jiného uživatele a dostává jeho obsah</div>
+  <div class="ex">
+    <button class="ex-play" onclick="speak('Má přes sto tisíc followerů.')">▶</button>
+    Má přes sto tisíc followerů.
+  </div>
+  <details><summary>עברית</summary><div class="he-trans">עוקב, מנוי</div></details>
+</div>
+
+<div class="vocab-card">
+  <span class="cz">lajkovat / dát srdíčko</span>
+  <div class="def">vyjádřit souhlas nebo oblibu kliknutím na tlačítko "líbí se mi" pod příspěvkem</div>
+  <div class="ex">
+    <button class="ex-play" onclick="speak('Lajkoval jsem všechny její fotky.')">▶</button>
+    Lajkoval jsem všechny její fotky.
+  </div>
+  <details><summary>עברית</summary><div class="he-trans">ללייקק, ללחוץ לייק</div></details>
+</div>
+
+<div class="vocab-card">
+  <span class="cz">digitální detox (m.)</span>
+  <div class="def">záměrné přerušení používání digitálních zařízení a sociálních sítí na určitou dobu</div>
+  <div class="ex">
+    <button class="ex-play" onclick="speak('Potřebuji digitální detox — přestanu na týden sledovat telefon.')">▶</button>
+    Potřebuji digitální detox — přestanu na týden sledovat telefon.
+  </div>
+  <details><summary>עברית</summary><div class="he-trans">ניקוי דיגיטלי, גמילה מהרשתות</div></details>
+</div>
+
+<div class="vocab-card">
+  <span class="cz">algoritmický feed (m.)</span>
+  <div class="def">obsah zobrazovaný uživateli na základě jeho předchozích interakcí, nikoliv chronologicky</div>
+  <div class="ex">
+    <button class="ex-play" onclick="speak('Algoritmický feed mi ukazuje pořád to samé.')">▶</button>
+    Algoritmický feed mi ukazuje pořád to samé.
+  </div>
+  <details><summary>עברית</summary><div class="he-trans">פיד אלגוריתמי</div></details>
+</div>
+
+<div class="vocab-card">
+  <span class="cz">online vztah (m.) / virtuální seznámení</span>
+  <div class="def">romantický nebo přátelský vztah navázaný přes internet, bez fyzického setkání</div>
+  <div class="ex">
+    <button class="ex-play" onclick="speak('Poznali se přes dating app a teď jsou spolu.')">▶</button>
+    Poznali se přes dating app a teď jsou spolu.
+  </div>
+  <details><summary>עברית</summary><div class="he-trans">היכרות/קשר אונליין</div></details>
+</div>
+
+<div class="stitle">ביטויים שיחתיים</div>
+
+<div class="phrase-section">
+  <h3>💬 Fráze ze sociálních sítí v češtině</h3>
+  <div class="phrase-row">
+    <span class="phrase-cz">Dám ti follow.</span>
+    <span class="phrase-he">אני אעקוב אחריך.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Přidej mě na Instu.</span>
+    <span class="phrase-he">הוסיפ/י אותי באינסטה.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Sdílel to ve stories.</span>
+    <span class="phrase-he">הוא שיתף את זה בסטוריז.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Zmizel mi z feedu.</span>
+    <span class="phrase-he">הוא נעלם לי מהפיד.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Dává si pauzu od sociálních sítí.</span>
+    <span class="phrase-he">הוא/היא לוקח/ת הפסקה מהרשתות.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Scrollovat bez přestání.</span>
+    <span class="phrase-he">לגלול בלי הפסקה.</span>
+  </div>
+</div>
+
+<div class="tip indigo">
+  <strong>💡 lajkovat — פועל אנגלי בצ'כית</strong>
+  הצ'כית מקבלת מילים מאנגלית ומוסיפה להן סיומות פועל: <span class="cz-phrase" style="direction:ltr;unicode-bidi:isolate;">lajkovat, googlovat, chatovat, scrollovat</span>. כולם נטיים כמו פעלים צ'כיים רגילים: <span class="cz-phrase" style="direction:ltr;unicode-bidi:isolate;">lajkuji, lajkuješ, lajkuje…</span>
+</div>
+
+<div class="step-nav">
+  <a href="c1-lesson7c.html" class="btn-back">← חלק ג — משפטי רצון</a>
+  <a href="c1-lesson7e.html" class="btn-next">חלק ה — שיחה ←</a>
+</div>
+</main>
+<aside class="sidebar" data-page="c1-lesson7d"></aside>
+</div>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script src="_shared/sidebar.js"></script>
+<script>
+function speak(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+</body>
+</html>

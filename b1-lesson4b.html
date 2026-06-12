@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 4ב — Instrumentál יחיד | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .end-table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13.5px;}
+    .end-table th{text-align:center;background:var(--gd);color:white;font-weight:700;padding:9px 14px;font-size:11.5px;}
+    .end-table th:first-child{border-radius:0 var(--rs) 0 0;}
+    .end-table th:last-child{border-radius:var(--rs) 0 0 0;}
+    .end-table td{padding:9px 14px;border:1px solid var(--border);line-height:1.5;vertical-align:top;}
+    .end-table td .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:14px;color:var(--gd);}
+    .end-table td .end-badge{display:inline-block;background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;font-size:12px;direction:ltr;unicode-bidi:isolate;padding:1px 7px;border-radius:6px;margin-right:4px;}
+    .end-table td .end-badge.amber{background:#fef3c7;color:#b45309;}
+    .end-table td .end-badge.blue{background:#eff6ff;color:#1d4ed8;}
+    .end-table td .end-badge.purple{background:#f5f3ff;color:#6d28d9;}
+    .end-table tr:nth-child(even) td{background:#fafaf8;}
+    .end-table .section-row td{background:#f1f5f9;font-weight:700;font-size:12px;letter-spacing:.05em;color:var(--muted);padding:6px 14px;}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:28px;height:28px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl{color:var(--green);font-weight:900;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}}
+      .end-table td[class],.prep-table td[class]{text-align:center;}
+    </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson4.html">שיעור 4 — Instrumentál</a><span>›</span>4ב — Instrumentál יחיד
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🛠️ Instrumentál יחיד — הסיומות</strong>
+    בשורה הטובה: Instrumentál יחיד פשוט יחסית. <b>זכרים ונטרלים</b> כמעט תמיד מקבלים <b>-em</b>. <b>נקבות -a</b> מקבלות <b>-ou</b>. <b>נקבות -e/-ce ועיצורים</b> מקבלות <b>-í</b>.
+  </div>
+
+  <table class="end-table">
+    <thead>
+      <tr><th>סוג המילה</th><th>סיומת</th><th>Nom יחיד → Instr יחיד</th><th>דוגמה</th></tr>
+    </thead>
+    <tbody>
+      <tr class="section-row"><td colspan="4">🔵 זכר (Masculine) — כמעט תמיד -em</td></tr>
+      <tr>
+        <td>זכר קשה (חי ודומם)</td>
+        <td><div class="end-badge">-em</div></td>
+        <td><div class="cz">Petr → Petrem<br>kamarád → kamarádem<br>park → parkem<br>hotel → hotelem</div></td>
+        <td><span class="cz-phrase">s Petrem · parkem</span></td>
+      </tr>
+      <tr>
+        <td>זכר רך (-č/-š/-ž/-ř/-c)</td>
+        <td><div class="end-badge">-em</div></td>
+        <td><div class="cz">muž → mužem<br>lékař → lékařem<br>počítač → počítačem<br>klíč → klíčem</div></td>
+        <td><span class="cz-phrase">s mužem · klíčem</span></td>
+      </tr>
+      <tr class="section-row"><td colspan="4">🔴 נקבה (Feminine)</td></tr>
+      <tr>
+        <td>נקבה -a (קשה ורכה)</td>
+        <td><div class="end-badge amber">-ou</div></td>
+        <td><div class="cz">žena → ženou<br>škola → školou<br>Praha → Prahou<br>banka → bankou<br>kavárna → kavárnou</div></td>
+        <td><span class="cz-phrase">s ženou · školou</span></td>
+      </tr>
+      <tr>
+        <td>נקבה -e / -ce (רכה)</td>
+        <td><div class="end-badge purple">-í</div></td>
+        <td><div class="cz">restaurace → restaurací<br>ulice → ulicí<br>práce → prací<br>tramvaj → tramvají*</div></td>
+        <td><span class="cz-phrase">tramvají · s prací</span></td>
+      </tr>
+      <tr>
+        <td>נקבה עיצור בסוף</td>
+        <td><div class="end-badge purple">-í</div></td>
+        <td><div class="cz">věc → věcí<br>radost → radostí<br>noc → nocí<br>loď → lodí</div></td>
+        <td><span class="cz-phrase">lodí · s věcí</span></td>
+      </tr>
+      <tr class="section-row"><td colspan="4">⚪ נטרל (Neuter) — כמעט תמיד -em</td></tr>
+      <tr>
+        <td>נטרל -o קשה</td>
+        <td><div class="end-badge">-em</div></td>
+        <td><div class="cz">město → městem<br>auto → autem<br>okno → oknem<br>víno → vínem</div></td>
+        <td><span class="cz-phrase">autem · s vínem</span></td>
+      </tr>
+      <tr>
+        <td>נטרל -um</td>
+        <td><div class="end-badge">-em</div></td>
+        <td><div class="cz">muzeum → muzeem<br>centrum → centrem<br>metro → metrem</div></td>
+        <td><span class="cz-phrase">metrem · muzeem</span></td>
+      </tr>
+      <tr>
+        <td>נטרל -í (רך)</td>
+        <td><div class="end-badge blue">-ím</div></td>
+        <td><div class="cz">náměstí → náměstím<br>nádraží → nádražím</div></td>
+        <td><span class="cz-phrase">před nádražím</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip amber">
+    <strong>⚠️ tramvaj — שימו לב!</strong>
+    <span class="cz-phrase">tramvaj</span> היא נקבה עם j בסוף (כמו נקבה רכה). Instrumentál: <span class="cz-phrase">tramvají</span> (לא tramvajou!)<br>
+    זה החריג הנפוץ ביותר — כי משתמשים בו כל יום בפראג.
+  </div>
+
+  <p class="stitle">דוגמאות לשמיעה</p>
+
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jedu autobusem.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Jedu <span class="hl">autobusem</span>.</span>
+    <span class="ex-he">נוסע באוטובוס (autobus → autobusem)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jdu s kamarádem.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Jdu s <span class="hl">kamarádem</span>.</span>
+    <span class="ex-he">הולך עם חבר (kamarád → kamarádem)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Přijel vlakem.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Přijel <span class="hl">vlakem</span>.</span>
+    <span class="ex-he">הוא הגיע ברכבת (vlak → vlakem)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jedu tramvají.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Jedu <span class="hl">tramvají</span>.</span>
+    <span class="ex-he">נוסע בטרם (tramvaj → tramvají)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jsem učitelkou.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Jsem <span class="hl">učitelkou</span>.</span>
+    <span class="ex-he">אני מורה (אישה) (učitelka → učitelkou)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Letí letadlem do Londýna.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Letí <span class="hl">letadlem</span> do Londýna.</span>
+    <span class="ex-he">הוא/היא טס/ה במטוס ללונדון</span>
+  </div>
+
+  <div class="tip green">
+    <strong>🎯 הכלל הפשוט לזכור</strong>
+    <b>זכר + נטרל → -em</b> (כמעט תמיד)<br>
+    <b>נקבה -a → -ou</b> (ženou, školou, Prahou)<br>
+    <b>נקבה -e/-ce + עיצור → -í</b> (tramvají, lodí, věcí)
+  </div>
+
+  <div class="step-nav">
+    <a href="b1-lesson4a.html" class="btn-back">→ 4א — שימושים</a>
+    <a href="b1-lesson4c.html" class="btn-next">4ג — פעלים עם Instrumentál ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson4b">
+  <div style="background:#f5f3ff;border:1px solid rgba(109,40,217,.15);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#4c1d95;">📋 Instrumentál יחיד — סיכום</strong>
+    <div style="font-size:12px;line-height:2.4;color:#4c1d95;">
+      <span style="background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;padding:1px 7px;border-radius:5px;direction:ltr;display:inline-block;">-em</span> — זכר + נטרל -o/-um<br>
+      <span style="background:#fef3c7;color:#b45309;font-family:'Nunito',sans-serif;font-weight:800;padding:1px 7px;border-radius:5px;direction:ltr;display:inline-block;">-ou</span> — נקבה -a<br>
+      <span style="background:#f5f3ff;color:#6d28d9;font-family:'Nunito',sans-serif;font-weight:800;padding:1px 7px;border-radius:5px;direction:ltr;display:inline-block;">-í</span> — נקבה -e/-ce + עיצור<br>
+      <span style="background:#eff6ff;color:#1d4ed8;font-family:'Nunito',sans-serif;font-weight:800;padding:1px 7px;border-radius:5px;direction:ltr;display:inline-block;">-ím</span> — נטרל -í
+    </div>
+  </div>
+  <div style="background:var(--amber-light);border:1px solid rgba(245,158,11,.2);border-radius:var(--rs);padding:12px;font-size:12.5px;color:#92400e;">
+    <strong style="display:block;margin-bottom:5px;">⚠️ חשוב לזכור:</strong>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;">tramvaj → tramvají</span><br>
+    (לא tramvajou!)
+  </div>
+</aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+function speak(t){
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='cs-CZ';u.rate=0.85;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>

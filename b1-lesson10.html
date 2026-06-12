@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 10 — Kondicionál | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;} .breadcrumb span{margin:0 6px;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;margin-bottom:4px;}
+    .page-header h1 .green{color:var(--green);} .page-header p{font-size:14px;color:var(--muted);}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:14px 18px;font-size:14px;color:var(--gd);line-height:1.7;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+    .sub-wrap{max-width:1060px;margin:0 auto;padding:24px 40px 40px;display:grid;grid-template-columns:1fr 290px;gap:24px;}
+    .sub-main{min-width:0;}
+    .sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;}
+    .sub-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px;text-decoration:none;color:var(--text);transition:all .2s;display:flex;flex-direction:column;gap:8px;position:relative;}
+    .sub-card:hover{border-color:var(--gm);transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,158,117,.1);}
+    .sub-num{position:absolute;top:18px;left:18px;width:32px;height:32px;border-radius:50%;background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;}
+    .sub-title{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--text);padding-right:42px;}
+    .sub-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+    .sub-meta{display:flex;gap:10px;margin-top:auto;padding-top:10px;font-size:11px;color:var(--green);font-weight:600;}
+    .sub-meta .dot{width:4px;height:4px;background:var(--muted);border-radius:50%;align-self:center;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .prep-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+    .pchip{padding:7px 16px;border-radius:20px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;direction:ltr;unicode-bidi:isolate;display:flex;flex-direction:column;align-items:center;gap:2px;}
+    .pchip .he{font-family:'Heebo',sans-serif;font-size:11px;font-weight:400;}
+    .pchip.pink{background:#fdf2f8;color:#be185d;}
+    .pchip.blue{background:#eff6ff;color:#1d4ed8;}
+    .pchip.green{background:var(--gl);color:var(--gd);}
+    .pchip.amber{background:#fef3c7;color:#b45309;}
+    .tip-row{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--r);padding:18px 22px;font-size:14px;color:var(--gd);line-height:1.7;}
+    .tip-row strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+    .b1-badge{background:linear-gradient(135deg,#db2777 0%,#be185d 100%);color:white;border-radius:var(--r);padding:18px 22px;margin-bottom:18px;display:flex;align-items:center;gap:14px;}
+    .b1-badge .badge-icon{font-size:32px;flex-shrink:0;}
+    .b1-badge-text{font-size:14px;line-height:1.6;}
+    .b1-badge-text strong{display:block;font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;margin-bottom:3px;}
+    .lesson-nav{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
+    .lesson-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .lesson-nav .ln-prev{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .lesson-nav .ln-prev:hover{border-color:var(--green);color:var(--green);}
+    .lesson-nav .ln-next{background:var(--green);color:white;}
+    .lesson-nav .ln-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);} footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){.breadcrumb,.page-header{padding-right:20px;padding-left:20px;}.sub-wrap{padding:18px 20px 30px;grid-template-columns:1fr;}aside.sidebar{display:none;}.sub-grid{grid-template-columns:1fr;}}
+  </style><script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div><script src="hero-navigation.js"></script>
+<div class="breadcrumb"><a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span>שיעור 10 — Kondicionál</div>
+<div class="page-header">
+  <h1>שיעור 10: <span class="green">Kondicionál — תנאי ומשאלות</span></h1>
+  <p>by + עבר = "הייתי רוצה / אם הייתי". chtěl bych, mohl byste, kdyby.</p>
+</div>
+<div class="sub-wrap"><div class="sub-main">
+  <div class="b1-badge">
+    <div class="badge-icon">💭</div>
+    <div class="b1-badge-text">
+      <strong>Kondicionál — תנאי ומשאלות</strong>
+      <span style="font-family:'Nunito',sans-serif;font-weight:700;">by</span> נוטה לפי גוף: bych, bys, by, bychom, byste, by. צורת העבר של הפועל נשארת קבועה. שלושה שימושים: משאלות, נימוס, תנאי עם kdyby.
+    </div>
+  </div>
+  <div class="why-box">
+    <strong>💭 הנוסחה</strong>
+    <span class="cz-phrase">by (נטוי) + פועל בעבר = Kondicionál</span><br>
+    <span class="cz-phrase">Chtěl <b>bych</b> kávu.</span> · <span class="cz-phrase">Mohl <b>byste</b> pomoci?</span> · <span class="cz-phrase">Kdybych měl čas, přišel <b>bych</b>.</span>
+  </div>
+  <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;">מושגי מפתח</p>
+  <div class="prep-row">
+    <div class="pchip pink">bych <span class="he">já</span></div>
+    <div class="pchip pink">bys <span class="he">ty</span></div>
+    <div class="pchip pink">byste <span class="he">vy / כבוד</span></div>
+    <div class="pchip blue">chtěl bych <span class="he">הייתי רוצה</span></div>
+    <div class="pchip green">mohl byste <span class="he">האם תוכל?</span></div>
+    <div class="pchip amber">kdyby <span class="he">אם היה...</span></div>
+  </div>
+  <div class="sub-grid">
+    <a href="b1-lesson10a.html" class="sub-card">
+      <div class="sub-num">10א</div>
+      <div class="sub-title">מה Kondicionál?</div>
+      <div class="sub-desc">שלושה שימושים: משאלות, בקשות מנומסות, תנאי. הנוסחה by + עבר. דוגמאות מהחיים.</div>
+      <div class="sub-meta">⏱ 10 דקות <span class="dot"></span> שימושים, נוסחה</div>
+    </a>
+    <a href="b1-lesson10b.html" class="sub-card">
+      <div class="sub-num">10ב</div>
+      <div class="sub-title">נטיית by</div>
+      <div class="sub-desc">bych, bys, by, bychom, byste, by — עם chtít, moci, být, jít. כלל מיקום שני במשפט.</div>
+      <div class="sub-meta">⏱ 12 דקות <span class="dot"></span> נטייה, מיקום</div>
+    </a>
+    <a href="b1-lesson10c.html" class="sub-card">
+      <div class="sub-num">10ג</div>
+      <div class="sub-title">בקשות ושאלות מנומסות</div>
+      <div class="sub-desc">chtěl bych, mohl byste, chtěl bys — התבניות לחיי היומיום: במסעדה, בחנות, עם חברים.</div>
+      <div class="sub-meta">⏱ 11 דקות <span class="dot"></span> נימוס, תבניות</div>
+    </a>
+    <a href="b1-lesson10d.html" class="sub-card">
+      <div class="sub-num">10ד</div>
+      <div class="sub-title">kdyby — משפטי תנאי</div>
+      <div class="sub-desc">Kdybych měl čas... / Kdybys byl bohatý... נטיית kdyby לפי גופות, כלל המבנה, הבדל בין když לkdyby.</div>
+      <div class="sub-meta">⏱ 12 דקות <span class="dot"></span> kdyby, תנאי</div>
+    </a>
+    <a href="b1-lesson10e.html" class="sub-card">
+      <div class="sub-num">10ה</div>
+      <div class="sub-title">aby — כדי ש / רוצה שי...</div>
+      <div class="sub-desc">שלושה שימושים: מטרה (כדי ש-), רצון (Chci, aby přišel), ציווי עקיף (Řekl mu, aby zavolal). הבדל בין aby, kdyby ו-že.</div>
+      <div class="sub-meta">⏱ 11 דקות <span class="dot"></span> aby, מטרה, רצון</div>
+    </a>
+    <a href="b1-lesson10f.html" class="sub-card">
+      <div class="sub-num">10ו</div>
+      <div class="sub-title">תרגול מסכם</div>
+      <div class="sub-desc">20 שאלות — נטיית by, chtěl bych, mohl byste, kdyby ומשפטי תנאי שלמים.</div>
+      <div class="sub-meta">⏱ 15 דקות <span class="dot"></span> 20 שאלות</div>
+    </a>
+  </div>
+  <div class="tip-row">
+    <strong>💭 שלוש הדוגמאות שצריך לזכור</strong>
+    <span class="cz-phrase">Chtěl <b>bych</b> kávu.</span> (הייתי רוצה קפה — meshala/bקשה) ·
+    <span class="cz-phrase">Mohl <b>byste</b> pomoci?</span> (האם תוכל לעזור? — נימוס) ·
+    <span class="cz-phrase"><b>Kdybych</b> měl čas, přišel bych.</span> (אם היה לי זמן, הייתי בא) —
+    משאלה, נימוס, תנאי.
+  </div>
+  <div class="lesson-nav">
+    <a href="b1-lesson9.html" class="ln-prev">→ שיעור 9 — Imperativ</a>
+    <a href="b1-lesson10a.html" class="ln-next">התחל ב-10א ←</a>
+  </div>
+</div>
+<aside class="sidebar" data-page="b1-lesson10"></aside>
+</div>
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer><script src="footer.js"></script>
+</body></html>

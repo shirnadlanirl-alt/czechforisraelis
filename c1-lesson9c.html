@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 9ג — ביטויי הערכה: klady a zápory | C1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--indigo:#6366f1;--il:#ede9fe;--id:#3730a3;--im:#818cf8;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--indigo);text-decoration:none;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;color:var(--text);margin-bottom:4px;}
+    .page-header p{font-size:14px;color:var(--muted);max-width:700px;line-height:1.65;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:#fef3c7;color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:#eff6ff;color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.2);}
+    .tip.indigo{background:var(--il);color:var(--id);border:1px solid rgba(99,102,241,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px;}
+    .compare-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;}
+    .compare-card.pro{border-top:3px solid #10b981;}
+    .compare-card.con{border-top:3px solid #ef4444;}
+    .compare-card h4{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;margin-bottom:10px;}
+    .compare-card.pro h4{color:#065f46;}
+    .compare-card.con h4{color:#991b1b;}
+    .compare-card ul{list-style:none;font-size:13px;line-height:2;}
+    .compare-card ul li::before{margin-left:6px;}
+    .compare-card.pro ul li::before{content:"✓ ";color:#10b981;}
+    .compare-card.con ul li::before{content:"✗ ";color:#ef4444;}
+    .phrase-block{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;margin-bottom:16px;}
+    .phrase-block h3{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:var(--id);margin-bottom:12px;}
+    .phrase-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+    .phrase-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+    .phrase-cz{font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;font-size:13.5px;color:var(--text);flex:1.2;line-height:1.5;}
+    .phrase-he{font-size:13px;color:var(--muted);flex:1;text-align:right;line-height:1.5;}
+    .play-btn{width:26px;height:26px;border-radius:50%;background:var(--il);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--id);transition:background .15s;vertical-align:middle;flex-shrink:0;}
+    .play-btn:hover{background:var(--im);color:white;}
+    .ex-block{margin-bottom:18px;}
+    .ex-line{display:flex;gap:10px;align-items:flex-start;margin-bottom:6px;padding:8px 12px;border-radius:10px;background:var(--white);border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;font-size:13.5px;color:var(--text);flex:1;line-height:1.5;}
+    .ex-he{font-size:13px;color:var(--muted);flex:1;text-align:right;line-height:1.5;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--indigo);color:var(--indigo);}
+    .btn-next{background:var(--indigo);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}.compare-grid{grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="c1.html">C1</a><span>›</span>
+  <a href="c1-lesson9.html">שיעור 9</a><span>›</span>
+  חלק ג — ביטויי הערכה
+</div>
+<div class="page-header">
+  <h1>שיעור 9ג — <span style="color:var(--indigo)">ביטויי הערכה: klady a zápory</span></h1>
+  <p>Co se týče… · Na jedné straně… na druhé straně… · Přínos spočívá v… — ביטויי טיעון וניסוח מאוזן.</p>
+</div>
+<div class="layout">
+<main>
+
+<div class="why-box">
+  <strong>⚖️ Výrazy hodnocení — לשקול, להשוות, לנמק</strong>
+  ביטויי C1 לניתוח יתרונות/חסרונות. במקום לומר "זה טוב וזה רע" — נלמד לנסח: <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Co se týče dopravy, na jedné straně… na druhé straně…</span> — זה מה שמבדיל שיח C1 משיח B2.
+</div>
+
+<div class="stitle">אוצר הערכה — מילים בסיסיות</div>
+
+<div class="compare-grid">
+  <div class="compare-card pro">
+    <h4>➕ יתרונות</h4>
+    <ul>
+      <li><span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">klady</span> — יתרונות</li>
+      <li><span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">výhoda</span> — יתרון</li>
+      <li><span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">přínos</span> — תועלת</li>
+      <li><span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">přednost</span> — עדיפות</li>
+      <li><span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">pozitivum</span> — פלוס</li>
+    </ul>
+  </div>
+  <div class="compare-card con">
+    <h4>➖ חסרונות</h4>
+    <ul>
+      <li><span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">zápory</span> — חסרונות</li>
+      <li><span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">nevýhoda</span> — חיסרון</li>
+      <li><span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">ztráta</span> — הפסד</li>
+      <li><span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">riziko</span> — סיכון</li>
+      <li><span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">negativa</span> — שליליות</li>
+    </ul>
+  </div>
+</div>
+
+<div class="stitle">מבני שיח להצגת עמדה</div>
+
+<div class="phrase-block">
+  <h3>📌 Co se týče… / Pokud jde o… — "בנוגע ל-"</h3>
+  <div class="phrase-row">
+    <span class="phrase-cz">Co se týče dopravy, situace se zlepšila.</span>
+    <span class="phrase-he">בנוגע לתחבורה, המצב השתפר.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Pokud jde o ceny nájmu, Praha je drahá.</span>
+    <span class="phrase-he">בנוגע למחירי השכירות, פראג יקרה.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Co se týče kvality ovzduší, centrum trpí.</span>
+    <span class="phrase-he">בנוגע לאיכות האוויר, המרכז סובל.</span>
+  </div>
+</div>
+
+<div class="phrase-block">
+  <h3>🔄 Na jedné straně… na druhé straně… — "מצד אחד… מצד שני…"</h3>
+  <div class="phrase-row">
+    <span class="phrase-cz">Na jedné straně je město plné příležitostí, na druhé straně je hlučné a drahé.</span>
+    <span class="phrase-he">מצד אחד העיר מלאת הזדמנויות, מצד שני היא רועשת ויקרה.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Na jedné straně klidná příroda, na druhé straně špatná dostupnost.</span>
+    <span class="phrase-he">מצד אחד טבע שקט, מצד שני נגישות גרועה.</span>
+  </div>
+</div>
+
+<div class="phrase-block">
+  <h3>📊 Výhody a nevýhody — מבנים נוספים</h3>
+  <div class="phrase-row">
+    <span class="phrase-cz">Hlavní výhodou života na venkově je klid.</span>
+    <span class="phrase-he">היתרון הראשי של חיי הכפר הוא השקט.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Nevýhodou je ale špatné spojení s městem.</span>
+    <span class="phrase-he">החיסרון הוא לעומת זאת חיבור גרוע לעיר.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Přínos nové zástavby spočívá v navýšení nabídky bytů.</span>
+    <span class="phrase-he">התועלת של הבנייה החדשה היא הגדלת היצע הדירות.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Klady a zápory musíme pečlivě zvážit.</span>
+    <span class="phrase-he">את היתרונות והחסרונות צריך לשקול היטב.</span>
+  </div>
+</div>
+
+<div class="tip blue">
+  <strong>📝 מבנה של טיעון C1 — מודל שימושי</strong>
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;display:block;margin-bottom:6px;">Co se týče [נושא], na jedné straně [יתרון]. Nicméně na druhé straně [חיסרון]. Přínos spočívá v tom, že [הסבר]. Celkově si myslím, že [עמדה].</span>
+  מבנה זה = ניקוד גבוה בבחינות C1 ובשיחות רשמיות.
+</div>
+
+<div class="stitle">דוגמה מלאה — עיר מול כפר</div>
+
+<div class="ex-block">
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('Co se týče kvality života, venkov nabízí klid a čistý vzduch. Na jedné straně je to velký přínos pro zdraví. Na druhé straně nevýhoda spočívá v omezeném přístupu k pracovním příležitostem a kulturnímu životu. Celkově záleží na tom, co od života člověk očekává.')">▶</button>
+    <span class="ex-cz">Co se týče kvality života, venkov nabízí klid a čistý vzduch. Na jedné straně je to velký přínos pro zdraví. Na druhé straně nevýhoda spočívá v omezeném přístupu k pracovním příležitostem a kulturnímu životu. Celkově záleží na tom, co od života člověk očekává.</span>
+    <span class="ex-he">בנוגע לאיכות חיים, הכפר מציע שקט ואוויר נקי. מצד אחד, זה תועלת בריאותית גדולה. מצד שני, החיסרון הוא גישה מוגבלת לתעסוקה ולחיי תרבות. בסך הכל, זה תלוי במה שאדם מצפה מהחיים.</span>
+  </div>
+</div>
+
+<div class="tip indigo">
+  <strong>💡 Tip: spočívat v — "לטמון/להיות ב-"</strong>
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Výhoda spočívá v tom, že… / Problém spočívá v nedostatku…</span>
+  פועל C1 אלגנטי שמחליף את הפשטני "je to" — שמים לב לשימוש בו!
+</div>
+
+<div class="step-nav">
+  <a href="c1-lesson9b.html" class="btn-back">← חלק ב — שמות מופשטים</a>
+  <a href="c1-lesson9d.html" class="btn-next">חלק ד — אוצר מילים ←</a>
+</div>
+</main>
+<aside class="sidebar" data-page="c1-lesson9c"></aside>
+</div>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script src="_shared/sidebar.js"></script>
+<script>
+function speak(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+</body>
+</html>

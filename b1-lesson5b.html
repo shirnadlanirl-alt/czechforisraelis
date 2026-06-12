@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 5ב — Dativ יחיד | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:#fef3c7;color:#92400e;border:1px solid #fcd34d;}
+    .tip.blue{background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.25);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;display:block;}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:28px;height:28px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl{background:#eff6ff;color:#0369a1;border-radius:4px;padding:1px 4px;font-weight:800;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .end-table{width:100%;border-collapse:collapse;margin-bottom:24px;font-size:14px;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);}
+    .font-family:'Nunito',sans-serif;}
+    .end-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+    .end-table .section-row td{background:#f0fdf4;font-weight:700;color:var(--gd);font-family:'Nunito',sans-serif;font-size:13px;letter-spacing:.05em;padding:8px 14px;}
+    .cz{font-family:'Nunito',sans-serif;color:var(--gd);font-weight:700;direction:ltr;unicode-bidi:isolate;}
+    .eb{background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:700;padding:2px 8px;border-radius:4px;font-size:13px;}
+    .mutation-box{background:#fdf4ff;border:1px solid #d8b4fe;border-radius:var(--r);padding:16px 18px;margin:14px 0;}
+    .mutation-box h4{font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;color:#6b21a8;margin-bottom:10px;}
+    .mut-row{display:flex;gap:8px;align-items:center;font-size:13px;margin-bottom:5px;}
+    .mut-from{font-family:'Nunito',sans-serif;font-weight:700;color:var(--text);}
+    .mut-arr{color:var(--muted);}
+    .mut-to{font-family:'Nunito',sans-serif;font-weight:800;color:#7c3aed;}
+    .mut-ex{color:var(--muted);}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}}
+
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;margin-bottom:4px;}
+    .page-header h1 .green{color:var(--green);}
+    .page-header p{font-size:14px;color:var(--muted);}
+      .end-table td[class],.prep-table td[class]{text-align:center;}
+    </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson5.html">שיעור 5 — Dativ</a><span>›</span>5ב — Dativ יחיד
+</div>
+<div class="page-header">
+  <h1>5ב: <span class="green">Dativ יחיד — סיומות</span></h1>
+  <p>סיומות לפי מין: זכר animate → -ovi/-u, נקבה -a → -ě, נטרל → -u.</p>
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>📋 Dativ יחיד — סיומות לפי מין</strong>
+    כל מין ותת-קטגוריה מקבלים סיומת ייחודית. הטבלה הזו היא הלב של שיעור 5.
+    הכלל לזכירה: זכר animate → <b>-ovi/-u</b> · נקבה -a → <b>-ě</b> (עם מוטציות!) · נטרל → <b>-u</b>.
+  </div>
+
+  <p class="stitle">🟦 זכר — Mužský rod</p>
+  <table class="end-table">
+    <tr><th>קטגוריה</th><th>שורש → Dativ</th><th>סיומת</th><th>עוד דוגמאות</th></tr>
+    <tr class="section-row"><td colspan="4">זכר animate (אנשים/בעלי חיים)</td></tr>
+    <tr><td>hard animate</td><td><span class="cz">kamarád → kamarádovi</span></td><td><span class="eb">-ovi</span> / <span class="eb">-u</span></td><td><span class="cz">Petrovi, otci, bratrovi, tatínkovi</span></td></tr>
+    <tr class="section-row"><td colspan="4">זכר inanimate (דברים)</td></tr>
+    <tr><td>hard inanimate</td><td><span class="cz">park → parku</span></td><td><span class="eb">-u</span></td><td><span class="cz">hotelu, týdnu, měsíci</span></td></tr>
+    <tr class="section-row"><td colspan="4">זכר soft (muž, lékař)</td></tr>
+    <tr><td>soft</td><td><span class="cz">muž → muži</span></td><td><span class="eb">-i</span></td><td><span class="cz">lékaři, průvodci, řidiči</span></td></tr>
+  </table>
+
+  <div class="tip amber">
+    <strong>⚠️ -ovi לעומת -u לזכר animate</strong>
+    שתי הצורות נכונות: <span class="cz-phrase">Petrovi = Petru</span>. בכתיבה רשמית -ovi מועדף. בדיבור -u שכיח.
+    כשיש שמות ברצף — -u לכולם חוץ מהאחרון: <span class="cz-phrase">Janu Petru Novákovi</span>.
+  </div>
+
+  <p class="stitle">🔴 נקבה — Ženský rod</p>
+  <table class="end-table">
+    <tr><th>קטגוריה</th><th>שורש → Dativ</th><th>סיומת</th><th>עוד דוגמאות</th></tr>
+    <tr class="section-row"><td colspan="4">נקבה ב-a (žena, škola, Praha)</td></tr>
+    <tr><td>hard -a</td><td><span class="cz">žena → ženě</span></td><td><span class="eb">-ě / -e</span></td><td><span class="cz">škole, mamince, Praze, bance</span></td></tr>
+    <tr class="section-row"><td colspan="4">נקבה ב-ce/-ze/-je (restaurace, ulice)</td></tr>
+    <tr><td>-ce / -ze</td><td><span class="cz">restaurace → restauraci</span></td><td><span class="eb">-i</span></td><td><span class="cz">ulici, práci, tramvaji</span></td></tr>
+    <tr class="section-row"><td colspan="4">נקבה על עיצור (věc, radost, noc)</td></tr>
+    <tr><td>עיצור</td><td><span class="cz">věc → věci</span></td><td><span class="eb">-i</span></td><td><span class="cz">radosti, noci, nemoci, lodě</span></td></tr>
+  </table>
+
+  <div class="mutation-box">
+    <h4>⚡ מוטציות עיצורים לפני -ě (נקבה hard ב-a)</h4>
+    <p style="font-size:13px;color:#6b21a8;margin-bottom:10px;">לפני הסיומת -ě חלק מהעיצורים האחרונים של הגזרה משתנים — בדיוק כמו ב-Lokál!</p>
+    <div class="mut-row"><span class="mut-from">k</span><span class="mut-arr">→</span><span class="mut-to">c</span><span class="mut-ex">: banka → bance, Praha → Praze... רגע, h→z</span></div>
+    <div class="mut-row"><span class="mut-from">h</span><span class="mut-arr">→</span><span class="mut-to">z</span><span class="mut-ex">: Praha → Praze, kniha → knize</span></div>
+    <div class="mut-row"><span class="mut-from">ch</span><span class="mut-arr">→</span><span class="mut-to">š</span><span class="mut-ex">: střecha → střeše</span></div>
+    <div class="mut-row"><span class="mut-from">r</span><span class="mut-arr">→</span><span class="mut-to">ř</span><span class="mut-ex">: sestra → sestře, dcera → dceři</span></div>
+    <div class="mut-row"><span class="mut-from">k</span><span class="mut-arr">→</span><span class="mut-to">c</span><span class="mut-ex">: banka → bance, kamarádka → kamarádce, mama → mamince (חריג!)</span></div>
+  </div>
+
+  <p class="stitle">🟢 ניטרלי — Střední rod</p>
+  <table class="end-table">
+    <tr><th>קטגוריה</th><th>שורש → Dativ</th><th>סיומת</th><th>עוד דוגמאות</th></tr>
+    <tr class="section-row"><td colspan="4">ניטרלי ב-o (město, auto, okno)</td></tr>
+    <tr><td>-o</td><td><span class="cz">město → městu</span></td><td><span class="eb">-u</span></td><td><span class="cz">autu, oknu, slovu, vínu</span></td></tr>
+    <tr class="section-row"><td colspan="4">ניטרלי ב-um (muzeum, centrum)</td></tr>
+    <tr><td>-um</td><td><span class="cz">muzeum → muzeu</span></td><td><span class="eb">-u</span></td><td><span class="cz">centru, metru, fóru</span></td></tr>
+    <tr class="section-row"><td colspan="4">ניטרלי ב-í (náměstí, nádraží)</td></tr>
+    <tr><td>-í</td><td><span class="cz">náměstí → náměstí</span></td><td><span class="eb">-í (ללא שינוי)</span></td><td><span class="cz">nádraží, učebnici... ⚠️</span></td></tr>
+  </table>
+
+  <p class="stitle">דוגמאות לשמיעה</p>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Dám to Petrovi.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Dám to <span class='hl'>Petrovi</span>.</span><span class="ex-he">אתן את זה לפטר</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Řeknu to mamince.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Řeknu to <span class='hl'>mamince</span>.</span><span class="ex-he">אספר לאמא</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jdu k restauraci.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Jdu k <span class='hl'>restauraci</span>.</span><span class="ex-he">אני הולך למסעדה</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Pomohl jsem kamarádce.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Pomohl jsem <span class='hl'>kamarádce</span>.</span><span class="ex-he">עזרתי לחברה</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jsem blízko městu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Jsem blízko <span class='hl'>městu</span>.</span><span class="ex-he">אני קרוב לעיר</span>
+  </div>
+
+  <div class="tip green">
+    <strong>🎯 קיצור זיכרון לניטרלי</strong>
+    ניטרלי ב-o וב-um תמיד מקבלים <b>-u</b> ב-Dativ. ניטרלי ב-í — ללא שינוי.
+  </div>
+  <div class="tip blue">
+    <strong>💡 k לעומת ke</strong>
+    <span class="cz-phrase">ke</span> לפני צרורות עיצורים: ke škole, ke kamarádovi, ke zdi.<br>
+    <span class="cz-phrase">k</span> לפני עיצור בודד: k lékaři, k moři, k tobě.
+  </div>
+
+  <div class="step-nav">
+    <a href="b1-lesson5a.html" class="btn-back">→ 5א — מה Dativ עושה?</a>
+    <a href="b1-lesson5c.html" class="btn-next">5ג — פעלים עם Dativ ←</a>
+  </div>
+</main>
+<aside class="sidebar" data-page="b1-lesson5b">
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;margin-bottom:12px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#11457E;font-family:'Nunito',sans-serif;">📋 סיכום סיומות יחיד</strong>
+    <div style="font-size:13px;line-height:2.0;color:var(--text);">
+      Masc animate: <b style="color:var(--gd);">-ovi / -u</b><br>
+      Masc inanimate: <b style="color:var(--gd);">-u</b><br>
+      Masc soft: <b style="color:var(--gd);">-i</b><br>
+      Fem -a: <b style="color:var(--gd);">-ě / -e</b><br>
+      Fem -ce/-ze: <b style="color:var(--gd);">-i</b><br>
+      Fem עיצור: <b style="color:var(--gd);">-i</b><br>
+      Neut -o/-um: <b style="color:var(--gd);">-u</b><br>
+      Neut -í: <b style="color:var(--gd);">-í (ללא שינוי)</b>
+    </div>
+  </div>
+  <div style="background:#fdf4ff;border:1px solid #d8b4fe;border-radius:var(--rs);padding:14px;font-size:12.5px;color:#6b21a8;">
+    <strong style="display:block;margin-bottom:6px;">⚡ מוטציות לפני -ě:</strong>
+    k → c (banka → bance)<br>
+    h → z (Praha → Praze)<br>
+    ch → š (střecha → střeše)<br>
+    r → ř (sestra → sestře)<br>
+    mama → mamince (חריג!)
+  </div>
+</aside>
+</div>
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script>
+function speak(t){const u=new SpeechSynthesisUtterance(t);u.lang='cs-CZ';u.rate=0.85;speechSynthesis.cancel();speechSynthesis.speak(u);}
+</script>
+</body>
+</html>

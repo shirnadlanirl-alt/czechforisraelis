@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 9ד — אוצר מילים: דיור ועיר | C1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--indigo:#6366f1;--il:#ede9fe;--id:#3730a3;--im:#818cf8;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--indigo);text-decoration:none;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;color:var(--text);margin-bottom:4px;}
+    .page-header p{font-size:14px;color:var(--muted);max-width:700px;line-height:1.65;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.2);}
+    .tip.indigo{background:var(--il);color:var(--id);border:1px solid rgba(99,102,241,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .vocab-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}
+    .vocab-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rs);padding:14px 16px;}
+    .vocab-cz{font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;direction:ltr;unicode-bidi:isolate;color:var(--text);margin-bottom:4px;}
+    .vocab-def{font-size:13px;color:var(--muted);line-height:1.5;}
+    .vocab-he{font-size:12px;color:var(--im);margin-top:4px;}
+    .play-btn{width:24px;height:24px;border-radius:50%;background:var(--il);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:var(--id);transition:background .15s;vertical-align:middle;}
+    .play-btn:hover{background:var(--im);color:white;}
+    .ex-block{margin-bottom:18px;}
+    .ex-line{display:flex;gap:10px;align-items:flex-start;margin-bottom:6px;padding:8px 12px;border-radius:10px;background:var(--white);border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;font-size:13.5px;color:var(--text);flex:1;line-height:1.5;}
+    .ex-he{font-size:13px;color:var(--muted);flex:1;text-align:right;line-height:1.5;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--indigo);color:var(--indigo);}
+    .btn-next{background:var(--indigo);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}.vocab-grid{grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="c1.html">C1</a><span>›</span>
+  <a href="c1-lesson9.html">שיעור 9</a><span>›</span>
+  חלק ד — אוצר מילים: דיור ועיר
+</div>
+<div class="page-header">
+  <h1>שיעור 9ד — <span style="color:var(--indigo)">אוצר מילים: דיור ועיר</span></h1>
+  <p>panelák · sídliště · zahradní čtvrť · hypotéka · realitní trh — אוצר מילים מתקדם לנושא הדיור.</p>
+</div>
+<div class="layout">
+<main>
+
+<div class="why-box">
+  <strong>🏠 Bydlení a město — אוצר מילים של C1</strong>
+  ב-C1 ההגדרות הן צ'כית-צ'כית — כמו מילון אמיתי. לחצו על החץ ▶ לשמיעה, ופתחו את הגיליון לתרגום עברי.
+</div>
+
+<div class="stitle">סוגי בניינים ומגורים</div>
+<div class="vocab-grid">
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('panelák')">▶</button> panelák</div>
+    <div class="vocab-def">Bytový dům postavený z panelů, typický pro sídliště z doby komunismu.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">בניין פאנל / גוש (בנייה סוציאליסטית)</div></details>
+  </div>
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('činžovní dům')">▶</button> činžovní dům</div>
+    <div class="vocab-def">Starší nájemní bytový dům, obvykle z přelomu 19. a 20. století.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">בית מגורים ישן (שכירות) — בניין אינטנסיבי היסטורי</div></details>
+  </div>
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('vila')">▶</button> vila</div>
+    <div class="vocab-def">Rodinný dům nebo luxusní obytná budova, obvykle s zahradou.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">וילה / בית פרטי מפואר</div></details>
+  </div>
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('rodinný dům')">▶</button> rodinný dům</div>
+    <div class="vocab-def">Samostatný dům určený pro jednu rodinu, obvykle s pozemkem.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">בית פרטי משפחתי</div></details>
+  </div>
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('sídliště')">▶</button> sídliště</div>
+    <div class="vocab-def">Skupina panelákových domů, postavených jako celek, obvykle na okraji města.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">שכונת פאנלים (שיכון)</div></details>
+  </div>
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('zahradní čtvrť')">▶</button> zahradní čtvrť</div>
+    <div class="vocab-def">Klidná rezidenční část města s rodinými domy a zelení.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">שכונת גנים / שכונת וילות</div></details>
+  </div>
+</div>
+
+<div class="stitle">תיאור מקום מגורים</div>
+<div class="vocab-grid">
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('klidná lokalita')">▶</button> klidná lokalita</div>
+    <div class="vocab-def">Místo s malým provozem, hlukem a ruchem — vhodné pro bydlení.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">אזור שקט</div></details>
+  </div>
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('hlučná ulice')">▶</button> hlučná ulice</div>
+    <div class="vocab-def">Rušná ulice s intenzivním provozem a hlukem.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">רחוב רועש</div></details>
+  </div>
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('dobře dostupné místo')">▶</button> dobře dostupné místo</div>
+    <div class="vocab-def">Místo, ke kterému se dá snadno dostat veřejnou dopravou nebo autem.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">מיקום נגיש היטב</div></details>
+  </div>
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('občanská vybavenost')">▶</button> občanská vybavenost</div>
+    <div class="vocab-def">Dostupnost škol, obchodů, zdravotní péče a dalších služeb v okolí.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">שירותים ציבוריים / תשתיות לתושב</div></details>
+  </div>
+</div>
+
+<div class="stitle">שכירות, קנייה, מעבר דירה</div>
+<div class="vocab-grid">
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('platit nájem')">▶</button> platit nájem</div>
+    <div class="vocab-def">Pravidelně platit majiteli za užívání bytu nebo domu.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">לשלם שכירות</div></details>
+  </div>
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('stěhovat se')">▶</button> stěhovat se</div>
+    <div class="vocab-def">Přemisťovat věci a sebe do nového bydlení; měnit místo pobytu.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">לעבור דירה</div></details>
+  </div>
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('hypotéka')">▶</button> hypotéka</div>
+    <div class="vocab-def">Dlouhodobý bankovní úvěr určený na koupi nemovitosti.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">משכנתה</div></details>
+  </div>
+  <div class="vocab-card">
+    <div class="vocab-cz"><button class="play-btn" onclick="speak('realitní trh')">▶</button> realitní trh</div>
+    <div class="vocab-def">Trh s nemovitostmi — koupě, prodej a pronájem bytů a domů.</div>
+    <details><summary style="font-size:12px;color:var(--im);cursor:pointer;">עברית</summary><div class="vocab-he">שוק הנדל"ן</div></details>
+  </div>
+</div>
+
+<div class="stitle">ביטויים שימושיים</div>
+<div class="ex-block">
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('Stěhujeme se z panelákového sídliště do zahradní čtvrti.')">▶</button>
+    <span class="ex-cz">Stěhujeme se z panelákového sídliště do zahradní čtvrti.</span>
+    <span class="ex-he">אנחנו עוברים משכונת פאנלים לשכונת גנים.</span>
+  </div>
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('Nájem v centru Prahy je stále vyšší — mnoho lidí proto hledá bydlení na předměstí.')">▶</button>
+    <span class="ex-cz">Nájem v centru Prahy je stále vyšší — mnoho lidí proto hledá bydlení na předměstí.</span>
+    <span class="ex-he">השכירות במרכז פראג עולה כל הזמן — לכן רבים מחפשים דיור בפרברים.</span>
+  </div>
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('Dobrá občanská vybavenost je pro nás při výběru bytu klíčová.')">▶</button>
+    <span class="ex-cz">Dobrá občanská vybavenost je pro nás při výběru bytu klíčová.</span>
+    <span class="ex-he">שירותים ציבוריים טובים הם עבורנו קריטיים בבחירת דירה.</span>
+  </div>
+</div>
+
+<div class="tip indigo">
+  <strong>💡 Tip C1: bydlení בהקשר מדיה ופוליטיקה</strong>
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">bytová krize</span> — משבר דיור |
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">gentrifikace</span> — ג'נטריפיקציה |
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">dostupné bydlení</span> — דיור בר-השגה |
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">krátkodobé pronájmy</span> — השכרות קצרות (Airbnb)
+</div>
+
+<div class="step-nav">
+  <a href="c1-lesson9c.html" class="btn-back">← חלק ג — ביטויי הערכה</a>
+  <a href="c1-lesson9e.html" class="btn-next">חלק ה — שיחה ←</a>
+</div>
+</main>
+<aside class="sidebar" data-page="c1-lesson9d"></aside>
+</div>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script src="_shared/sidebar.js"></script>
+<script>
+function speak(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+</body>
+</html>

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ברכות בעומק — Ahoj, Čau, Dobrý den | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}
+    .logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+
+    .hero{background:linear-gradient(135deg,#F4FBF8 0%,#FFFBEA 100%);border:1px solid var(--border);border-radius:var(--r);padding:26px 28px;margin-bottom:22px;}
+    .hero h1{font-family:'Heebo',sans-serif;font-size:26px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:8px;}
+    .hero h1 .sub{display:block;font-size:18px;font-weight:500;color:var(--muted);margin-top:4px;}
+    .hero p{font-size:15px;color:var(--muted);line-height:1.7;}
+
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:20px;animation:fadeIn .5s ease both;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+
+    /* GREETING CARD */
+    .person{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px;animation:fadeIn .5s ease both;}
+    .person-head{display:flex;align-items:center;gap:14px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+    .person-num{width:40px;height:40px;border-radius:50%;background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .person-title{flex:1;}
+    .person-pro{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:700;}
+    .person-cz{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);margin-top:2px;}
+    .person-he{font-size:13px;color:var(--muted);margin-top:2px;}
+    .big-play{width:42px;height:42px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .big-play:hover{background:var(--gm);}
+    .big-play svg{width:14px;height:14px;fill:var(--gd);margin-right:-2px;}
+
+    .pronounce{font-size:13px;color:var(--green);font-weight:600;margin-bottom:14px;padding:10px 14px;background:var(--bg);border-radius:var(--rs);border-left:3px solid var(--green);}
+    .pronounce b{font-family:'Nunito',sans-serif;color:var(--gd);}
+
+    .register-line{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+    .reg-tag{font-size:12px;font-weight:600;padding:5px 12px;border-radius:14px;letter-spacing:.02em;}
+    .reg-tag.casual{background:#fef3c7;color:#92400e;}
+    .reg-tag.formal{background:#dbeafe;color:#1e40af;}
+    .reg-tag.both{background:var(--gl);color:var(--gd);}
+    .reg-tag.open{background:#ede9fe;color:#5b21b6;}
+    .reg-tag.close{background:#ffe4e6;color:#9f1239;}
+
+    .examples-sub{display:flex;flex-direction:column;gap:8px;}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:var(--rs);background:var(--bg);}
+    .ex-line:hover{background:var(--gl);}
+    .ex-btn-sm{width:26px;height:26px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn-sm:hover{background:var(--gm);}
+    .ex-btn-sm svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);flex:1;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+
+    .note-line{font-size:13px;color:var(--muted);line-height:1.65;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border);}
+    .note-line b{color:var(--text);}
+
+    /* DIALOGUE CARD */
+    .dialog{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:14px;}
+    .dialog-title{font-size:13px;font-weight:700;color:var(--gd);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .dialog-title .scene{background:var(--gl);padding:3px 10px;border-radius:12px;font-size:11px;letter-spacing:.04em;text-transform:uppercase;}
+    .dline{display:flex;flex-direction:column;gap:3px;padding:8px 0;border-bottom:1px dashed var(--border);}
+    .dline:last-child{border-bottom:none;}
+    .dperson{font-size:11.5px;color:var(--muted);font-weight:700;letter-spacing:.04em;}
+    .dcz{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);}
+    .dhe{font-size:13px;color:var(--muted);margin-top:1px;}
+    .dial-play{margin-right:auto;width:24px;height:24px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .dial-play svg{width:8px;height:8px;fill:var(--gd);margin-right:-1px;}
+    .dline-row{display:flex;align-items:flex-start;gap:8px;}
+    .dline-text{flex:1;}
+
+    /* BONUS GRID */
+    .bonus-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;}
+    .bonus-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;}
+    .bonus-cz{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;color:var(--gd);}
+    .bonus-he{font-size:12.5px;color:var(--muted);margin-top:2px;}
+    .bonus-when{font-size:11.5px;color:var(--green);margin-top:6px;font-weight:600;}
+    .bonus-row{display:flex;align-items:center;gap:8px;}
+    .bonus-row .ex-btn-sm{width:22px;height:22px;}
+
+    /* NAV BUTTONS */
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:30px;padding-top:22px;border-top:1px solid var(--border);}
+    .btn-back{padding:10px 20px;border-radius:20px;border:1.5px solid var(--border);background:var(--white);color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;text-decoration:none;display:inline-block;}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{padding:10px 24px;border-radius:20px;background:var(--green);color:white;border:none;font-size:14px;font-weight:700;cursor:pointer;transition:opacity .15s;display:inline-flex;align-items:center;gap:6px;text-decoration:none;}
+    .btn-next:hover{opacity:.88;}
+
+    /* SIDEBAR */
+    .sidebar{display:flex;flex-direction:column;gap:16px;}
+    .sbox{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px;}
+    .sbox h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px;}
+    .mini-table{font-size:13px;line-height:2;}
+    .mini-table b{font-family:'Nunito',sans-serif;color:var(--green);font-weight:800;margin-left:6px;}
+    .quick-list{font-size:13px;line-height:1.85;color:var(--muted);}
+    .quick-list b{color:var(--gd);font-family:'Nunito',sans-serif;}
+
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+
+    /* QUIZ */
+    .quiz-intro{font-size:14px;color:var(--muted);margin:4px 0 14px;line-height:1.7;}
+    .qcard{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:12px;animation:fadeIn .4s ease both;}
+    .q-text{font-size:15px;font-weight:600;color:var(--text);margin-bottom:14px;line-height:1.7;}
+    .q-text .q-blank{font-family:'Nunito',sans-serif;color:var(--green);font-weight:800;letter-spacing:.05em;}
+    .q-text .q-hint{font-size:12.5px;color:var(--muted);font-weight:400;margin-right:4px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .q-opts{display:flex;flex-wrap:wrap;gap:8px;}
+    .q-opt{padding:9px 18px;border-radius:var(--rs);border:1.5px solid var(--border);background:var(--white);font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);cursor:pointer;transition:all .15s;}
+    .q-opt:hover:not(:disabled){border-color:var(--green);color:var(--green);}
+    .q-opt:disabled{cursor:default;}
+    .q-opt.correct{background:var(--gl);border-color:var(--green);color:var(--gd);}
+    .q-opt.wrong{background:#fef2f2;border-color:#dc2626;color:#dc2626;opacity:.7;}
+    .q-feedback{font-size:13.5px;line-height:1.7;margin-top:12px;padding:10px 14px;border-radius:var(--rs);display:none;animation:fadeIn .25s ease both;}
+    .q-feedback.show{display:block;}
+    .q-feedback.ok{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.18);}
+    .q-feedback.no{background:#fef2f2;color:#991b1b;border:1px solid rgba(220,38,38,.18);}
+    .quiz-done{display:none;background:var(--gl);border:1.5px solid var(--gm);border-radius:var(--r);padding:18px 22px;margin-top:6px;font-size:14.5px;color:var(--gd);line-height:1.7;animation:fadeIn .5s ease both;}
+    .quiz-done.show{display:block;}
+    .quiz-done strong{font-weight:700;display:block;margin-bottom:4px;font-size:16px;}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.level-tabs{display:none;}
+      .layout{grid-template-columns:1fr;padding:20px;}
+      .breadcrumb{padding:12px 20px;}
+      .sidebar{display:none;}
+      .bonus-grid{grid-template-columns:1fr;}
+      .hero h1{font-size:22px;}
+    }
+  </style>
+<!-- Microsoft Clarity -->
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wn8tkghshj");
+</script>
+
+<!-- Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YLK68D3GH4');
+</script>
+
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="a1.html">A1</a><span>›</span>
+  ברכות בעומק
+</div>
+
+<div class="layout">
+<main>
+
+  <section class="hero">
+    <h1>ברכות בצ'כית — מתי איזו<span class="sub">— Ahoj, Čau, Dobrý den, Nashledanou, Měj se</span></h1>
+    <p>בעברית "שלום" עושה הכל — פגישה, פרידה, רשמי, חברי. בצ'כית הברכה הראשונה כבר אומרת לבן/בת שיחתכם אם אתם חברים, זרים, צעירים, מנומסים, או סתם מבולבלים. בדף הזה תכירו את חמש הברכות הכי שימושיות, את הרישום הנכון לכל אחת, ותתאמנו על דיאלוגים אמיתיים — בקופה, ברחוב ובמשרד.</p>
+  </section>
+
+  <div class="why-box">
+    <strong>🎯 למה להעמיק דווקא בברכות?</strong>
+    הברכה היא <b>הצעד הראשון</b> בכל אינטראקציה — גם עם בריסטה, גם עם מנהל הבנק, גם עם בעלת הדירה. אם תפתחו ב-<span class="cz-phrase">Ahoj</span> אצל הרופאה — הוא ייראה לא מנומס. אם תפתחו ב-<span class="cz-phrase">Dobrý den</span> אצל חברה קרובה — היא תרים גבה. הצ'כים מאוד רגישים לרישום הזה, ואין באמת ״ברכה ניטרלית״. אבל החדשות הטובות: יש בסך הכל חמש ברכות שצריך לשלוט בהן, ואחרי הדף הזה תדעו בדיוק מתי לבחור איזו.
+  </div>
+
+  <div class="tip blue">
+    <strong>💡 תובנה לישראלים — מה ש"שלום" מסתיר</strong>
+    בעברית רוב הברכות עובדות בשני הכיוונים: "שלום" בכניסה וביציאה, "ביי" באמצע הכל. בצ'כית הפועל של הברכה הוא <em>חד-כיווני</em>: <span class="cz-phrase">Dobrý den</span> רק לפתיחה, <span class="cz-phrase">Na shledanou</span> רק לפרידה. <span class="cz-phrase">Ahoj</span> ו-<span class="cz-phrase">Čau</span> דווקא דו-כיווניים, אבל רק במצבים לא רשמיים. תחשבו על זה כמו על דלת מסתובבת — צריך לדעת מאיזה צד נכנסים.
+  </div>
+
+  <div class="stitle">חמש הברכות החיוניות</div>
+
+  <!-- 1. AHOJ -->
+  <div class="person">
+    <div class="person-head">
+      <div class="person-num">1</div>
+      <div class="person-title">
+        <div class="person-pro">פתיחה ופרידה · לא רשמי</div>
+        <div class="person-cz">Ahoj</div>
+        <div class="person-he">שלום / ביי (לחבר/קרוב)</div>
+      </div>
+      <button class="big-play" onclick="speak('Ahoj', true)" title="האזינו">
+        <svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"/></svg>
+      </button>
+    </div>
+    <div class="register-line">
+      <span class="reg-tag casual">לא רשמי</span>
+      <span class="reg-tag both">פתיחה + פרידה</span>
+    </div>
+    <div class="pronounce">הגייה: <b>אַהוֹי</b> — h נשמעת בבירור (לא ה' עברית רכה), j בסוף = "י". כמו "אהוי!" של מלחים.</div>
+    <div class="examples-sub">
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Ahoj, jak se máš?',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Ahoj, jak se máš?</div>
+        <div class="ex-he">היי, מה שלומך?</div>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Ahoj Pavle!',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Ahoj Pavle!</div>
+        <div class="ex-he">היי פאבל!</div>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Tak ahoj, zítra!',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Tak ahoj, zítra!</div>
+        <div class="ex-he">אז ביי, נתראה מחר!</div>
+      </div>
+    </div>
+    <div class="note-line"><b>קריטי לישראלים:</b> אל תגידו <span class="cz-phrase">Ahoj</span> למישהו זר ברחוב, בחנות, או למלצרית. הם יהיו מבולבלים או נעלבים. שמרו את זה לחברים, לקרובי משפחה, ולעמיתים שכבר עברתם איתם לדיבור לא רשמי. הצ'כים אומרים על המעבר הזה <em>tykání</em> — להגיד "אתה" במקום "אתם" הרשמי.</div>
+  </div>
+
+  <!-- 2. ČAU -->
+  <div class="person">
+    <div class="person-head">
+      <div class="person-num">2</div>
+      <div class="person-title">
+        <div class="person-pro">פתיחה ופרידה · מאוד לא רשמי</div>
+        <div class="person-cz">Čau</div>
+        <div class="person-he">היי / ביי (קליל מאוד)</div>
+      </div>
+      <button class="big-play" onclick="speak('Čau', true)">
+        <svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"/></svg>
+      </button>
+    </div>
+    <div class="register-line">
+      <span class="reg-tag casual">מאוד לא רשמי</span>
+      <span class="reg-tag both">פתיחה + פרידה</span>
+    </div>
+    <div class="pronounce">הגייה: <b>צָ'אוּ</b> — בדיוק כמו <span class="cz-phrase">ciao</span> האיטלקי. č = "צ'", au = "אאו". מילה אחת, בלי הפסקה.</div>
+    <div class="examples-sub">
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Čau, kámo!',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Čau, kámo!</div>
+        <div class="ex-he">היי, אחי!</div>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Čau, tak zítra.',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Čau, tak zítra.</div>
+        <div class="ex-he">ביי, נתראה מחר.</div>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Čauky!',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Čauky!</div>
+        <div class="ex-he">צ'אוקי! (גרסה קטנטנה וחיבה — בעיקר בין נשים/חברות)</div>
+      </div>
+    </div>
+    <div class="note-line"><b>הערה:</b> <span class="cz-phrase">Čau</span> אפילו יותר קליל מ-<span class="cz-phrase">Ahoj</span>. בני נוער ואנשים צעירים משתמשים בו כל הזמן. בעבודה רשמית — לא. במייל לעמית — תלוי בקרבה. אם בספק — לכו על <span class="cz-phrase">Ahoj</span>, הוא בטוח יותר.</div>
+  </div>
+
+  <!-- 3. DOBRÝ DEN -->
+  <div class="person">
+    <div class="person-head">
+      <div class="person-num">3</div>
+      <div class="person-title">
+        <div class="person-pro">פתיחה · רשמי</div>
+        <div class="person-cz">Dobrý den</div>
+        <div class="person-he">יום טוב (פתיחה רשמית)</div>
+      </div>
+      <button class="big-play" onclick="speak('Dobrý den', true)">
+        <svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"/></svg>
+      </button>
+    </div>
+    <div class="register-line">
+      <span class="reg-tag formal">רשמי</span>
+      <span class="reg-tag open">רק פתיחה</span>
+    </div>
+    <div class="pronounce">הגייה: <b>דוֹבְּרי דֶן</b> — ý ארוכה (כמעט "אִי"), den קצר. הטעם בשתי המילים על ההברה הראשונה.</div>
+    <div class="examples-sub">
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Dobrý den, prosím vás...',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Dobrý den, prosím vás...</div>
+        <div class="ex-he">יום טוב, סליחה... (פנייה מנומסת)</div>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Dobrý den, jak vám můžu pomoct?',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Dobrý den, jak vám můžu pomoct?</div>
+        <div class="ex-he">יום טוב, איך אפשר לעזור? (במשרד/חנות)</div>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Dobrý den, paní doktorko.',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Dobrý den, paní doktorko.</div>
+        <div class="ex-he">יום טוב, ד״ר. (פנייה לרופאה)</div>
+      </div>
+    </div>
+    <div class="note-line"><b>הכלל הזהב:</b> במקום ציבורי (חנות, מסעדה, אוטובוס, בנק, מרפאה) — תמיד תפתחו ב-<span class="cz-phrase">Dobrý den</span>. גם אם אתם רק נכנסים לקנות לחם. הצ'כים מאוד מקפידים על זה, ולהיכנס בלי לברך נחשב גס. שתי מילים שיפתחו לכם הרבה דלתות 🚪.</div>
+  </div>
+
+  <!-- 4. NA SHLEDANOU -->
+  <div class="person">
+    <div class="person-head">
+      <div class="person-num">4</div>
+      <div class="person-title">
+        <div class="person-pro">פרידה · רשמי</div>
+        <div class="person-cz">Na shledanou</div>
+        <div class="person-he">להתראות (פרידה רשמית)</div>
+      </div>
+      <button class="big-play" onclick="speak('Na shledanou', true)">
+        <svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"/></svg>
+      </button>
+    </div>
+    <div class="register-line">
+      <span class="reg-tag formal">רשמי</span>
+      <span class="reg-tag close">רק פרידה</span>
+    </div>
+    <div class="pronounce">הגייה: <b>נָה סְחְלֶדָנוֹאוּ</b> — נראה ארוך, אבל בפועל זורם: <em>na-shle-da-nou</em>. ה-shl זה s+h ולא ש' — נסו: ס + ה (קצרה) + ל.</div>
+    <div class="examples-sub">
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Děkuji, na shledanou.',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Děkuji, na shledanou.</div>
+        <div class="ex-he">תודה, להתראות. (יציאה מחנות)</div>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Na shledanou, hezký den!',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Na shledanou, hezký den!</div>
+        <div class="ex-he">להתראות, יום נעים!</div>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Nashle!',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Nashle!</div>
+        <div class="ex-he">״נאשלה!״ — קיצור חביב, ביום-יום אצל אנשים מוכרים</div>
+      </div>
+    </div>
+    <div class="note-line"><b>שורש המילה:</b> <span class="cz-phrase">shledat se</span> = "להיפגש שוב". זה מילולית "לקראת המפגש הבא" — בדיוק כמו "להתראות" בעברית, או auf Wiedersehen בגרמנית. שימו לב שזו <b>מילה אחת</b> בכתיבה (לא <em>na shledanou</em> בשני חלקים), אבל מבחינת הגייה זה זורם כשתי קבוצות.</div>
+  </div>
+
+  <!-- 5. MĚJ SE -->
+  <div class="person">
+    <div class="person-head">
+      <div class="person-num">5</div>
+      <div class="person-title">
+        <div class="person-pro">פרידה · בין רשמי ללא רשמי</div>
+        <div class="person-cz">Měj se (hezky)</div>
+        <div class="person-he">תהיה לך (יום טוב) — סיום חמים</div>
+      </div>
+      <button class="big-play" onclick="speak('Měj se hezky', true)">
+        <svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"/></svg>
+      </button>
+    </div>
+    <div class="register-line">
+      <span class="reg-tag casual">לא רשמי</span>
+      <span class="reg-tag close">רק פרידה</span>
+    </div>
+    <div class="pronounce">הגייה: <b>מְיֶיי סֶה הֶזְקִי</b> — ě = "יֶה", j = "י". <span class="cz-phrase">Měj se hezky</span> מילולית = "תהיה (לעצמך) יפה".</div>
+    <div class="examples-sub">
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Měj se!',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Měj se!</div>
+        <div class="ex-he">תהיה לך טוב! (קצר, חברי)</div>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Měj se hezky, ahoj!',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Měj se hezky, ahoj!</div>
+        <div class="ex-he">תהיה לך יום נעים, ביי!</div>
+      </div>
+      <div class="ex-line">
+        <button class="ex-btn-sm" onclick="speak('Mějte se hezky!',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div class="ex-cz">Mějte se hezky!</div>
+        <div class="ex-he">תהיה לכם יום נעים! (רשמי / רבים)</div>
+      </div>
+    </div>
+    <div class="note-line"><b>טיפ:</b> זוהי דרך ידידותית לסגור שיחה גם כשלא רוצים את הקרירות של <span class="cz-phrase">Na shledanou</span>. בין חברים אומרים <span class="cz-phrase">Měj se</span>, ובמסעדה למלצרית שכבר עברתם איתה ל-<em>tykání</em> — גם. הגרסה הרשמית/רבים היא <span class="cz-phrase">Mějte se</span> (עם t).<br><strong>*tykání = מעבר לדיבור לא־רשמי, כשאומרים ‘אתה/את’ במקום הפנייה הרשמית.</strong></div>
+  </div>
+
+  <!-- BONUS BOX -->
+  <div class="stitle">בונוס — ברכות לפי שעה</div>
+  <div class="tip green" style="margin-bottom:18px;">
+    <strong>🌅 ברכות שתלויות בשעות היום</strong>
+    <div class="bonus-grid" style="margin-top:10px;">
+      <div class="bonus-card">
+        <div class="bonus-row">
+          <span class="bonus-cz">Dobré ráno</span>
+          <button class="ex-btn-sm" onclick="speak('Dobré ráno',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        </div>
+        <div class="bonus-he">בוקר טוב</div>
+        <div class="bonus-when">עד ~9-10 בבוקר</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-row">
+          <span class="bonus-cz">Dobrý den</span>
+          <button class="ex-btn-sm" onclick="speak('Dobrý den',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        </div>
+        <div class="bonus-he">יום טוב</div>
+        <div class="bonus-when">משעות הצהריים ועד הערב</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-row">
+          <span class="bonus-cz">Dobrý večer</span>
+          <button class="ex-btn-sm" onclick="speak('Dobrý večer',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        </div>
+        <div class="bonus-he">ערב טוב</div>
+        <div class="bonus-when">מ~18:00 ועד שהולכים לישון</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-row">
+          <span class="bonus-cz">Dobrou noc</span>
+          <button class="ex-btn-sm" onclick="speak('Dobrou noc',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        </div>
+        <div class="bonus-he">לילה טוב</div>
+        <div class="bonus-when">רק לפני שינה (לא בכניסה!)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ תשומת לב — Dobrou noc זו <em>פרידה</em>, לא ברכת ערב</strong>
+    בעברית "לילה טוב" אפשר להגיד גם בכניסה לבר ב-22:00. בצ'כית — לא! <span class="cz-phrase">Dobrou noc</span> אומרים <em>רק</em> כשנפרדים לפני שינה. בערב, גם בשעה מאוחרת, נכנסים עם <span class="cz-phrase">Dobrý večer</span>.
+  </div>
+
+  <!-- DIALOGUES -->
+  <div class="stitle">דיאלוגים אמיתיים — מתי נשמע מה</div>
+
+  <div class="dialog">
+    <div class="dialog-title"><span class="scene">בחנות מכולת</span> פגישה עם המוכרת</div>
+    <div class="dline"><div class="dline-row"><div class="dline-text"><div class="dperson">אתם (לקוח)</div><div class="dcz">Dobrý den.</div><div class="dhe">יום טוב.</div></div><button class="dial-play" onclick="speak('Dobrý den.',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></div></div>
+    <div class="dline"><div class="dline-row"><div class="dline-text"><div class="dperson">המוכרת</div><div class="dcz">Dobrý den, co si dáte?</div><div class="dhe">יום טוב, מה תרצו?</div></div><button class="dial-play" onclick="speak('Dobrý den, co si dáte?',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></div></div>
+    <div class="dline"><div class="dline-row"><div class="dline-text"><div class="dperson">אתם</div><div class="dcz">Děkuji, na shledanou.</div><div class="dhe">תודה, להתראות.</div></div><button class="dial-play" onclick="speak('Děkuji, na shledanou.',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></div></div>
+    <div class="note-line">בכניסה: <b>Dobrý den</b>. ביציאה: <b>Na shledanou</b>. בלי קשר אם קניתם רק לחם.</div>
+  </div>
+
+  <div class="dialog">
+    <div class="dialog-title"><span class="scene">פגישה עם חבר</span> ברחוב</div>
+    <div class="dline"><div class="dline-row"><div class="dline-text"><div class="dperson">חבר</div><div class="dcz">Ahoj! Jak se máš?</div><div class="dhe">היי! מה שלומך?</div></div><button class="dial-play" onclick="speak('Ahoj! Jak se máš?',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></div></div>
+    <div class="dline"><div class="dline-row"><div class="dline-text"><div class="dperson">אתם</div><div class="dcz">Čau, dobře. A ty?</div><div class="dhe">היי, בסדר. ואתה?</div></div><button class="dial-play" onclick="speak('Čau, dobře. A ty?',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></div></div>
+    <div class="dline"><div class="dline-row"><div class="dline-text"><div class="dperson">חבר</div><div class="dcz">Taky dobře. Tak měj se!</div><div class="dhe">גם בסדר. תהיה לך טוב!</div></div><button class="dial-play" onclick="speak('Taky dobře. Tak měj se!',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></div></div>
+    <div class="note-line">בין חברים: <b>Ahoj/Čau</b> מתערבבים בחופשיות, <b>Měj se</b> מסיים בחום.</div>
+  </div>
+
+  <div class="dialog">
+    <div class="dialog-title"><span class="scene">במשרד</span> פגישה עם לקוח חדש</div>
+    <div class="dline"><div class="dline-row"><div class="dline-text"><div class="dperson">לקוח</div><div class="dcz">Dobrý den, mám tady schůzku.</div><div class="dhe">יום טוב, יש לי כאן פגישה.</div></div><button class="dial-play" onclick="speak('Dobrý den, mám tady schůzku.',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></div></div>
+    <div class="dline"><div class="dline-row"><div class="dline-text"><div class="dperson">פקידה</div><div class="dcz">Dobrý den, vítejte. Posaďte se prosím.</div><div class="dhe">יום טוב, ברוכים הבאים. שבו בבקשה.</div></div><button class="dial-play" onclick="speak('Dobrý den, vítejte. Posaďte se prosím.',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></div></div>
+    <div class="dline"><div class="dline-row"><div class="dline-text"><div class="dperson">לקוח (ביציאה)</div><div class="dcz">Děkuji moc. Na shledanou.</div><div class="dhe">תודה רבה. להתראות.</div></div><button class="dial-play" onclick="speak('Děkuji moc. Na shledanou.',true)"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button></div></div>
+    <div class="note-line">סיטואציה רשמית מובהקת — אין מקום ל-<b>Ahoj</b> או <b>Čau</b>. רק <b>Dobrý den</b> ו-<b>Na shledanou</b>.</div>
+  </div>
+
+  <div class="tip green">
+    <strong>⭐ סיכום זריז — מטריצת הברכה</strong>
+    <b>חבר/קרוב</b> → Ahoj / Čau (פתיחה+פרידה) · Měj se (פרידה חמה)<br>
+    <b>זר/רשמי</b> → Dobrý den (פתיחה) · Na shledanou (פרידה)<br>
+    <b>תלוי שעה</b> → Dobré ráno (בוקר) · Dobrý večer (ערב) · Dobrou noc (רק לפני שינה)
+  </div>
+
+  <!-- QUIZ -->
+  <div class="stitle">תרגול קצר — מי לאיזה רישום? 🎯</div>
+  <div class="quiz-intro">חמש שאלות מצבים אמיתיים. בחרו את הברכה הנכונה לכל מצב — תקבלו פידבק מיידי.</div>
+
+  <div class="qcard" id="q1">
+    <div class="q-text">1. אתם נכנסים לבית קפה ב-15:00. מה תגידו לבריסטה?</div>
+    <div class="q-opts">
+      <button class="q-opt" data-q="q1" data-correct="false" data-feedback="לא — Ahoj זה לחבר/קרוב. לבריסטה זרה זה ייראה לא מנומס.">Ahoj</button>
+      <button class="q-opt" data-q="q1" data-correct="true" data-feedback="נכון! Dobrý den הוא הברכה הסטנדרטית בכל מקום ציבורי, כולל בית קפה. שימושי מהבוקר ועד הערב.">Dobrý den</button>
+      <button class="q-opt" data-q="q1" data-correct="false" data-feedback="לא — Čau זה אפילו פחות רשמי מ-Ahoj. לא לזרים בעבודה.">Čau</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" id="q2">
+    <div class="q-text">2. אתם נפרדים מחבר אחרי קפה. מה הכי טבעי?</div>
+    <div class="q-opts">
+      <button class="q-opt" data-q="q2" data-correct="false" data-feedback="Na shledanou נכון תחבירית, אבל קר מדי לחבר קרוב — נשמע כאילו אתם רוצים מרחק.">Na shledanou</button>
+      <button class="q-opt" data-q="q2" data-correct="true" data-feedback="מצוין! Měj se (או ״Měj se hezky״) זו פרידה חמימה בין חברים. בהמשך אפשר להוסיף Ahoj/Čau.">Měj se!</button>
+      <button class="q-opt" data-q="q2" data-correct="false" data-feedback="Dobrý den זה רק לפתיחה, אף פעם לא לפרידה — גם לא לזרים.">Dobrý den</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" id="q3">
+    <div class="q-text">3. השעה 21:30. אתם נכנסים למסעדה. מה אומרים למלצר?</div>
+    <div class="q-opts">
+      <button class="q-opt" data-q="q3" data-correct="false" data-feedback="לא! Dobrou noc זו פרידה לפני שינה, אף פעם לא בכניסה. זו טעות קלאסית של ישראלים.">Dobrou noc</button>
+      <button class="q-opt" data-q="q3" data-correct="true" data-feedback="בדיוק! Dobrý večer הוא הברכה הנכונה מ~18:00 ואילך, גם אם השעה מאוחרת.">Dobrý večer</button>
+      <button class="q-opt" data-q="q3" data-correct="false" data-feedback="Dobré ráno זה רק עד ~10 בבוקר. בשעה 21:30 זה ערב.">Dobré ráno</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" id="q4">
+    <div class="q-text">4. <span class="cz-phrase">Na shledanou</span> מילולית פירושו:</div>
+    <div class="q-opts">
+      <button class="q-opt" data-q="q4" data-correct="false" data-feedback="לא — זה אולי תרגום חופשי, אבל המילה <span class=״cz-phrase״>shledat se</span> פירושה ״להיפגש שוב״.">״יום נעים״</button>
+      <button class="q-opt" data-q="q4" data-correct="true" data-feedback="נכון! shledat se = להיפגש שוב. אז Na shledanou = ״לקראת המפגש הבא״, בדיוק כמו ״להתראות״ בעברית או auf Wiedersehen בגרמנית.">״לקראת המפגש הבא״</button>
+      <button class="q-opt" data-q="q4" data-correct="false" data-feedback="לא — את ״תהיה לך טוב״ אומרים Měj se. כאן השורש הוא ״מפגש״.">״תהיה לך טוב״</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="qcard" id="q5">
+    <div class="q-text">5. השעה 8:00 בבוקר. אתם פוגשים את שכנתכם הקשישה במעלית. הכי מתאים:</div>
+    <div class="q-opts">
+      <button class="q-opt" data-q="q5" data-correct="false" data-feedback="Čau מאוד לא רשמי — לא מתאים לשכנה מבוגרת שאתם לא קרובים אליה.">Čau!</button>
+      <button class="q-opt" data-q="q5" data-correct="true" data-feedback="יופי! Dobré ráno מתאים בדיוק עד ~10 בבוקר, בעיקר בסיטואציה רשמית/מנומסת. בהמשך היום עוברים ל-Dobrý den.">Dobré ráno</button>
+      <button class="q-opt" data-q="q5" data-correct="false" data-feedback="Měj se זו פרידה, לא פתיחה. כאן אתם רק נכנסים למעלית.">Měj se</button>
+    </div>
+    <div class="q-feedback"></div>
+  </div>
+
+  <div class="quiz-done" id="quizDone">
+    <strong>🎉 כל הכבוד!</strong> עניתם נכון על הכל. עכשיו אתם מוכנים לפסוע ברחובות פראג ולברך כל מי שתפגשו ברישום הנכון. בפעם הבאה שתיכנסו לחנות לחם — אל תשכחו <span class="cz-phrase">Dobrý den</span>! 🥖
+  </div>
+
+  <div class="step-nav">
+    <a href="greetings.html" class="btn-back">→ חזרה לשיעור 2</a>
+    <a href="practice-greetings.html" class="btn-next">תרגול ←</a>
+  </div>
+
+</main>
+
+<aside class="sidebar" data-page="greetings-deep">
+  <div class="sbox">
+    <h3>חמש הברכות במבט אחד</h3>
+    <div class="quick-list">
+      <div><b>Ahoj</b> — חבר, פתיחה+סיום</div>
+      <div><b>Čau</b> — קליל, פתיחה+סיום</div>
+      <div><b>Dobrý den</b> — רשמי, פתיחה</div>
+      <div><b>Na shledanou</b> — רשמי, סיום</div>
+      <div><b>Měj se</b> — חמים, סיום</div>
+    </div>
+  </div>
+
+  <div class="sbox">
+    <h3>לפי שעה</h3>
+    <div class="mini-table">
+      <div>בוקר <b>Dobré ráno</b></div>
+      <div>יום <b>Dobrý den</b></div>
+      <div>ערב <b>Dobrý večer</b></div>
+      <div>לילה <b>Dobrou noc</b></div>
+    </div>
+  </div>
+
+  <div class="tip green" style="border:1px solid rgba(29,158,117,.2);border-radius:var(--r);padding:16px;margin:0;">
+    <strong>💬 כלל אצבע</strong>
+    כשבספק — לכו על <span style="font-family:'Nunito',sans-serif;font-weight:700;">Dobrý den</span>. הרבה יותר טוב להישמע מנומסים מדי מאשר חצופים. מקסימום החבר יצחק עליכם — ואז תעברו ל-Ahoj.
+  </div>
+</aside>
+</div>
+
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+
+<script>
+function speak(text, slow) {
+  if('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'cs-CZ';
+    u.rate = slow ? 0.7 : 0.88;
+    window.speechSynthesis.speak(u);
+  }
+}
+
+const quizProgress = {};
+document.querySelectorAll('.q-opt').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const qid = btn.dataset.q;
+    const isCorrect = btn.dataset.correct === 'true';
+    const msg = btn.dataset.feedback;
+    const card = document.getElementById(qid);
+    const feedback = card.querySelector('.q-feedback');
+    if (isCorrect) {
+      card.querySelectorAll('.q-opt').forEach(b => { b.disabled = true; });
+      btn.classList.add('correct');
+      feedback.innerHTML = msg;
+      feedback.className = 'q-feedback show ok';
+      quizProgress[qid] = true;
+      if (Object.keys(quizProgress).length >= 5) {
+        document.getElementById('quizDone').classList.add('show');
+      }
+    } else {
+      btn.classList.add('wrong');
+      btn.disabled = true;
+      feedback.innerHTML = msg;
+      feedback.className = 'q-feedback show no';
+    }
+  });
+});
+</script>
+<script src="_shared/sidebar.js"></script>
+</body>
+</html>

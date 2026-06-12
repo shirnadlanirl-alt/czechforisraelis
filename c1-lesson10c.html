@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 10ג — Nominalizace: פועל → שם עצם | C1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--indigo:#6366f1;--il:#ede9fe;--id:#3730a3;--im:#818cf8;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--indigo);text-decoration:none;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;color:var(--text);margin-bottom:4px;}
+    .page-header p{font-size:14px;color:var(--muted);max-width:700px;line-height:1.65;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:#fef3c7;color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.2);}
+    .tip.indigo{background:var(--il);color:var(--id);border:1px solid rgba(99,102,241,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .end-table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:20px;}
+    .end-table th{background:var(--il);color:var(--id);font-weight:700;padding:8px 12px;text-align:right;border:1px solid rgba(99,102,241,.15);}
+    .end-table td{padding:8px 12px;border:1px solid var(--border);vertical-align:top;line-height:1.5;}
+    .end-table td:not(:first-child){direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;text-align:left;}
+    .end-table tr:nth-child(even) td{background:#fafafa;}
+    .end-table .hl{background:#f0f0ff !important;font-weight:700;color:var(--id);}
+    .compare-block{margin-bottom:20px;}
+    .compare-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+    .compare-side{background:var(--white);border:1px solid var(--border);border-radius:var(--rs);padding:14px 16px;}
+    .compare-side .label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+    .compare-side.verbal .label{color:#065f46;}
+    .compare-side.nominal .label{color:var(--id);}
+    .compare-side .cz{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;color:var(--text);line-height:1.5;margin-bottom:4px;}
+    .compare-side .he{font-size:12px;color:var(--muted);}
+    .play-btn{width:26px;height:26px;border-radius:50%;background:var(--il);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--id);transition:background .15s;vertical-align:middle;flex-shrink:0;}
+    .play-btn:hover{background:var(--im);color:white;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--indigo);color:var(--indigo);}
+    .btn-next{background:var(--indigo);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}.compare-row{grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="c1.html">C1</a><span>›</span>
+  <a href="c1-lesson10.html">שיעור 10</a><span>›</span>
+  חלק ג — Nominalizace
+</div>
+<div class="page-header">
+  <h1>שיעור 10ג — <span style="color:var(--indigo)">Nominalizace: פועל → שם עצם</span></h1>
+  <p>léčit→léčba · plánovat→plánování · rozhodovat→rozhodnutí. הפיכת פועל לשם עצם — הסימן לשפה מתוחכמת.</p>
+</div>
+<div class="layout">
+<main>
+
+<div class="why-box">
+  <strong>🔄 Nominalizace — הפיכת פועל לשם עצם</strong>
+  בסגנון מקצועי וספרותי בצ'כית, נעדיף לומר <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">léčba</span> (הטיפול) במקום <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">lékaři léčí</span> (הרופאים מטפלים). תהליך זה — הנומינליזציה — הוא אחד הסימנים המרכזיים של שפה מתוחכמת.
+</div>
+
+<div class="stitle">כיצד יוצרים nominalizace?</div>
+
+<table class="end-table">
+  <tr>
+    <th>פועל</th>
+    <th>שם עצם (nominalizace)</th>
+    <th>עברית</th>
+    <th>סיומת</th>
+  </tr>
+  <tr><td>léčit</td><td class="hl">léčba / léčení</td><td>טיפול</td><td>-ba / -ení</td></tr>
+  <tr><td>preventivně jednat</td><td class="hl">prevence</td><td>מניעה / פרנציה</td><td>-nce</td></tr>
+  <tr><td>plánovat</td><td class="hl">plánování</td><td>תכנון</td><td>-ání</td></tr>
+  <tr><td>vzdělávat</td><td class="hl">vzdělávání / vzdělání</td><td>חינוך / השכלה</td><td>-ání / -ání</td></tr>
+  <tr><td>rozhodovat</td><td class="hl">rozhodování / rozhodnutí</td><td>קבלת החלטות / החלטה</td><td>-ání / -utí</td></tr>
+  <tr><td>pohybovat se</td><td class="hl">pohyb</td><td>תנועה / פעילות גופנית</td><td>-</td></tr>
+  <tr><td>stravovat se</td><td class="hl">stravování</td><td>תזונה, אכילה</td><td>-ání</td></tr>
+  <tr><td>meditovat</td><td class="hl">meditace</td><td>מדיטציה</td><td>-ace</td></tr>
+  <tr><td>vyrovnávat se</td><td class="hl">vyrovnání / vyrovnávání</td><td>התמודדות</td><td>-ání</td></tr>
+  <tr><td>pracovat</td><td class="hl">práce / pracování</td><td>עבודה</td><td>-e</td></tr>
+</table>
+
+<div class="stitle">השוואה: משפט פועלי ↔ משפט שמני</div>
+
+<div class="compare-block">
+  <div class="compare-row">
+    <div class="compare-side verbal">
+      <div class="label">📢 Verbální styl (שיחתי)</div>
+      <div class="cz"><button class="play-btn" onclick="speak('Lékaři léčí pacienty moderními metodami.')">▶</button> Lékaři léčí pacienty moderními metodami.</div>
+      <div class="he">הרופאים מטפלים בחולים בשיטות מודרניות.</div>
+    </div>
+    <div class="compare-side nominal">
+      <div class="label">📝 Nominální styl (מקצועי)</div>
+      <div class="cz"><button class="play-btn" onclick="speak('Léčba pacientů modernními metodami je standardem.')">▶</button> Léčba pacientů moderními metodami je standardem.</div>
+      <div class="he">הטיפול בחולים בשיטות מודרניות הוא הסטנדרט.</div>
+    </div>
+  </div>
+  <div class="compare-row">
+    <div class="compare-side verbal">
+      <div class="label">📢 Verbální</div>
+      <div class="cz"><button class="play-btn" onclick="speak('Je důležité preventivně jednat.')">▶</button> Je důležité preventivně jednat.</div>
+      <div class="he">חשוב לפעול מניעתית.</div>
+    </div>
+    <div class="compare-side nominal">
+      <div class="label">📝 Nominální</div>
+      <div class="cz"><button class="play-btn" onclick="speak('Prevence je klíčovým faktorem zdraví.')">▶</button> Prevence je klíčovým faktorem zdraví.</div>
+      <div class="he">מניעה היא גורם מפתח לבריאות.</div>
+    </div>
+  </div>
+  <div class="compare-row">
+    <div class="compare-side verbal">
+      <div class="label">📢 Verbální</div>
+      <div class="cz"><button class="play-btn" onclick="speak('Lidé se málo pohybují a špatně stravují.')">▶</button> Lidé se málo pohybují a špatně stravují.</div>
+      <div class="he">אנשים לא מספיק זזים ואוכלים גרוע.</div>
+    </div>
+    <div class="compare-side nominal">
+      <div class="label">📝 Nominální</div>
+      <div class="cz"><button class="play-btn" onclick="speak('Nedostatek pohybu a nevhodné stravování jsou příčinami civilizačních nemocí.')">▶</button> Nedostatek pohybu a nevhodné stravování jsou příčinami civilizačních nemocí.</div>
+      <div class="he">מחסור בפעילות גופנית ותזונה לא מתאימה הם הגורמים למחלות ציוויליזציה.</div>
+    </div>
+  </div>
+  <div class="compare-row">
+    <div class="compare-side verbal">
+      <div class="label">📢 Verbální</div>
+      <div class="cz"><button class="play-btn" onclick="speak('Rozhodli se přijít včas.')">▶</button> Rozhodli se přijít včas.</div>
+      <div class="he">הם החליטו לבוא בזמן.</div>
+    </div>
+    <div class="compare-side nominal">
+      <div class="label">📝 Nominální</div>
+      <div class="cz"><button class="play-btn" onclick="speak('Jejich rozhodnutí přijít včas bylo správné.')">▶</button> Jejich rozhodnutí přijít včas bylo správné.</div>
+      <div class="he">ההחלטה שלהם להגיע בזמן הייתה נכונה.</div>
+    </div>
+  </div>
+</div>
+
+<div class="tip amber">
+  <strong>⚠️ יותר מדי nominalizace — מפריע!</strong>
+  גם בסגנון מקצועי, מומחים ממליצים לא להגזים. משפטים עם הרבה שמות עצם צמודים (jako <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';">provedení realizace plánování prevence</span>) הופכים כבדים לקריאה. אחת הטכניקות של C1 — לדעת מתי לחזור לפועל.
+</div>
+
+<div class="tip green">
+  <strong>✅ כלל-אצבע: nominalizace נפוצה בכותרות</strong>
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Zvýšení počtu nemocných · Snížení financování · Zlepšení kvality péče</span> — כותרות עיתון, כותרות דוחות. זה אחד הסימנים שקוראים כותב על נושא ברמה גבוהה.
+</div>
+
+<div class="step-nav">
+  <a href="c1-lesson10b.html" class="btn-back">← חלק ב — ניבים ספרותיים</a>
+  <a href="c1-lesson10d.html" class="btn-next">חלק ד — אוצר מילים ←</a>
+</div>
+</main>
+<aside class="sidebar" data-page="c1-lesson10c"></aside>
+</div>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script src="_shared/sidebar.js"></script>
+<script>
+function speak(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+</body>
+</html>

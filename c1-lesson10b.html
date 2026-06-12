@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 10ב — Knižní a odborné výrazy | C1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--indigo:#6366f1;--il:#ede9fe;--id:#3730a3;--im:#818cf8;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--indigo);text-decoration:none;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;color:var(--text);margin-bottom:4px;}
+    .page-header p{font-size:14px;color:var(--muted);max-width:700px;line-height:1.65;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.indigo{background:var(--il);color:var(--id);border:1px solid rgba(99,102,241,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    /* pair cards */
+    .pair-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;}
+    .pair-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rs);padding:14px 16px;display:flex;flex-direction:column;gap:7px;}
+    .pair-knizni{font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;direction:ltr;unicode-bidi:isolate;color:var(--id);text-align:left;}
+    /* שורת "יומיומי" + צ'כית + כפתור על אותה שורה */
+    .pair-middle{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+    .pair-arrow{font-size:11.5px;font-weight:700;color:var(--muted);white-space:nowrap;flex-shrink:0;}
+    .pair-hovorovy{font-family:'Nunito',sans-serif;font-weight:600;font-size:13px;direction:ltr;unicode-bidi:isolate;color:var(--text);text-align:left;flex:1;}
+    .pair-he{font-size:12px;color:var(--im);text-align:right;}
+    /* כפתורי השמעה */
+    .play-btn{width:24px;height:24px;border-radius:50%;background:var(--il);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:var(--id);transition:background .15s;vertical-align:middle;flex-shrink:0;}
+    .play-btn:hover{background:var(--im);color:white;}
+    /* שורות דוגמה */
+    .ex-block{margin-bottom:18px;}
+    .ex-line{display:flex;gap:10px;align-items:flex-start;margin-bottom:6px;padding:8px 12px;border-radius:10px;background:var(--white);border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;font-size:13.5px;color:var(--text);flex:1;line-height:1.5;text-align:left;}
+    .ex-he{font-size:13px;color:var(--muted);flex:1;text-align:right;line-height:1.5;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--indigo);color:var(--indigo);}
+    .btn-next{background:var(--indigo);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}.pair-grid{grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="c1.html">C1</a><span>›</span>
+  <a href="c1-lesson10.html">שיעור 10</a><span>›</span>
+  חלק ב — Knižní a odborné výrazy
+</div>
+<div class="page-header">
+  <h1>שיעור 10ב — <span style="color:var(--indigo)">Knižní a odborné výrazy</span></h1>
+  <p>15 זוגות knižní↔hovorový: spatřovat↔vidět · usilovat↔snažit se · konstatovat↔říct.</p>
+</div>
+<div class="layout">
+<main>
+
+<div class="why-box">
+  <strong>📚 Knižní výrazy — ניבים ספרותיים ומקצועיים</strong>
+  15 זוגות: knižní/odborný ↔ hovorový/neutrální. לחצו ▶ לשמיעה — גם של הניסוח הספרותי וגם של היומיומי.
+</div>
+
+<div class="stitle">15 זוגות: ספרותי ↔ יומיומי</div>
+
+<div class="pair-grid">
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('spatřovat')">▶</button> spatřovat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">vidět / vnímat</span>
+      <button class="play-btn" onclick="speak('vidět, vnímat')">▶</button>
+    </div>
+    <div class="pair-he">לראות, להתבונן</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('usilovat')">▶</button> usilovat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">snažit se</span>
+      <button class="play-btn" onclick="speak('snažit se')">▶</button>
+    </div>
+    <div class="pair-he">לשאוף, להתאמץ</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('poukazovat')">▶</button> poukazovat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">upozorňovat</span>
+      <button class="play-btn" onclick="speak('upozorňovat')">▶</button>
+    </div>
+    <div class="pair-he">להצביע על, לציין</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('přistoupit k')">▶</button> přistoupit k</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">začít</span>
+      <button class="play-btn" onclick="speak('začít')">▶</button>
+    </div>
+    <div class="pair-he">לגשת אל, להתחיל</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('zastávat')">▶</button> zastávat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">mít / zastávat názor</span>
+      <button class="play-btn" onclick="speak('mít názor')">▶</button>
+    </div>
+    <div class="pair-he">לייצג עמדה, לדגול</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('předpokládat')">▶</button> předpokládat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">myslet si</span>
+      <button class="play-btn" onclick="speak('myslet si')">▶</button>
+    </div>
+    <div class="pair-he">להניח, להניח מראש</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('konstituovat')">▶</button> konstituovat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">tvořit / vytvářet</span>
+      <button class="play-btn" onclick="speak('tvořit, vytvářet')">▶</button>
+    </div>
+    <div class="pair-he">להוות, לכונן</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('manifestovat')">▶</button> manifestovat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">ukázat / projevit</span>
+      <button class="play-btn" onclick="speak('ukázat, projevit')">▶</button>
+    </div>
+    <div class="pair-he">לבטא, להפגין</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('konstatovat')">▶</button> konstatovat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">říct / zjistit</span>
+      <button class="play-btn" onclick="speak('říct, zjistit')">▶</button>
+    </div>
+    <div class="pair-he">לקבוע, לציין עובדתית</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('reflektovat')">▶</button> reflektovat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">přemýšlet / zamýšlet se</span>
+      <button class="play-btn" onclick="speak('přemýšlet, zamýšlet se')">▶</button>
+    </div>
+    <div class="pair-he">להתבונן, לשקף</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('implikovat')">▶</button> implikovat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">znamenat / vyžadovat</span>
+      <button class="play-btn" onclick="speak('znamenat, vyžadovat')">▶</button>
+    </div>
+    <div class="pair-he">להשתמע, להכיל</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('rezignovat')">▶</button> rezignovat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">vzdát se / přestat se snažit</span>
+      <button class="play-btn" onclick="speak('vzdát se, přestat se snažit')">▶</button>
+    </div>
+    <div class="pair-he">לוותר, להתפטר</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('vymezit')">▶</button> vymezit</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">určit / definovat</span>
+      <button class="play-btn" onclick="speak('určit, definovat')">▶</button>
+    </div>
+    <div class="pair-he">לתחם, להגדיר</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('participovat')">▶</button> participovat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">podílet se / účastnit se</span>
+      <button class="play-btn" onclick="speak('podílet se, účastnit se')">▶</button>
+    </div>
+    <div class="pair-he">להשתתף</div>
+  </div>
+
+  <div class="pair-card">
+    <div class="pair-knizni"><button class="play-btn" onclick="speak('akcentovat')">▶</button> akcentovat</div>
+    <div class="pair-middle">
+      <span class="pair-arrow">↕ יומיומי:</span>
+      <span class="pair-hovorovy">zdůraznit / vyzdvihnout</span>
+      <button class="play-btn" onclick="speak('zdůraznit, vyzdvihnout')">▶</button>
+    </div>
+    <div class="pair-he">להדגיש, לבלט</div>
+  </div>
+
+</div>
+
+<div class="stitle">דוגמאות — knižní בהקשר</div>
+
+<div class="ex-block">
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('Odborníci spatřují v prevenci klíč ke zdravějšímu životnímu stylu.')">▶</button>
+    <span class="ex-cz">Odborníci spatřují v prevenci klíč ke zdravějšímu životnímu stylu.</span>
+    <span class="ex-he">המומחים רואים בפרנציה מפתח לאורח חיים בריא יותר.</span>
+  </div>
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('Zpráva poukazuje na nedostatečné investice do duševního zdraví.')">▶</button>
+    <span class="ex-cz">Zpráva poukazuje na nedostatečné investice do duševního zdraví.</span>
+    <span class="ex-he">הדוח מצביע על השקעות לא מספיקות בבריאות הנפש.</span>
+  </div>
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('Lékaři konstatují, že civilizační nemoci narůstají.')">▶</button>
+    <span class="ex-cz">Lékaři konstatují, že civilizační nemoci narůstají.</span>
+    <span class="ex-he">הרופאים קובעים שמחלות הציוויליזציה גדלות.</span>
+  </div>
+  <div class="ex-line">
+    <button class="play-btn" onclick="speak('Je třeba přistoupit k řešení krize duševního zdraví s naléhavostí.')">▶</button>
+    <span class="ex-cz">Je třeba přistoupit k řešení krize duševního zdraví s naléhavostí.</span>
+    <span class="ex-he">יש לגשת אל פתרון משבר בריאות הנפש בדחיפות.</span>
+  </div>
+</div>
+
+<div class="tip indigo">
+  <strong>💡 Tip: איך לזכור — שלוש שאלות</strong>
+  1. <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';">Kde to říkám?</span> (שיחה / מסמך / ספרות)<br>
+  2. <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';">Komu to říkám?</span> (חבר / קולגה / ציבור)<br>
+  3. <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';">Jak chci působit?</span> (ספונטני / מקצועי / מכובד)
+</div>
+
+<div class="step-nav">
+  <a href="c1-lesson10a.html" class="btn-back">← חלק א — 4 רמות סגנון</a>
+  <a href="c1-lesson10c.html" class="btn-next">חלק ג — Nominalizace ←</a>
+</div>
+</main>
+<aside class="sidebar" data-page="c1-lesson10b"></aside>
+</div>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script src="_shared/sidebar.js"></script>
+<script>
+function speak(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+</body>
+</html>

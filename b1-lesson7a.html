@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7א — מה זה אספקט? | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;margin-bottom:4px;}
+    .page-header h1 .green{color:var(--green);}
+    .page-header p{font-size:14px;color:var(--muted);}
+    .layout{max-width:1060px;margin:0 auto;padding:28px 40px;display:grid;grid-template-columns:1fr 290px;gap:24px;}
+    .main-col{min-width:0;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:14px 18px;font-size:14px;color:var(--gd);line-height:1.7;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;display:block;}
+    .use-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 22px 22px 22px;margin-bottom:16px;position:relative;}
+    .uc-num{width:32px;height:32px;border-radius:50%;background:#fee2e2;color:#be123c;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;float:left;margin-left:14px;flex-shrink:0;}
+    .uc-title{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;margin-bottom:6px;}
+    .uc-rule{font-size:14px;color:var(--muted);margin-bottom:12px;line-height:1.6;}
+    .uc-exs{display:flex;flex-direction:column;gap:8px;}
+    .uc-ex{background:var(--bg);border-radius:var(--rs);padding:10px 14px;}
+    .uc-ex .cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);direction:ltr;unicode-bidi:isolate;font-size:15px;}
+    .uc-ex .he{font-size:13px;color:var(--muted);margin-top:2px;}
+    .hl{background:#fee2e2;color:#be123c;border-radius:4px;padding:1px 4px;font-weight:800;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .ex-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+    .ex-line{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--white);border:1px solid var(--border);border-radius:var(--rs);}
+    .ex-line button{width:28px;height:28px;border-radius:50%;border:none;background:var(--gl);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-line button:hover{background:var(--gm);}
+    .ex-line button svg{width:10px;height:10px;fill:var(--gd);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);direction:ltr;unicode-bidi:isolate;font-size:15px;flex:1;}
+    .ex-he{font-size:13px;color:var(--muted);}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:16px;border:1px solid transparent;}
+    .tip.amber{background:#fef3c7;border-color:#fcd34d;color:#92400e;}
+    .tip.blue{background:#eff6ff;border-color:#bfdbfe;color:#1e40af;}
+    .tip.green{background:var(--gl);border-color:rgba(29,158,117,.25);color:var(--gd);}
+    .tip.red{background:#fee2e2;border-color:#fca5a5;color:#9f1239;}
+    .tip strong{font-weight:700;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){.breadcrumb,.page-header{padding-right:20px;padding-left:20px;}.layout{padding:18px 20px;grid-template-columns:1fr;}aside{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson7.html">שיעור 7</a><span>›</span>7א — מה זה אספקט?
+</div>
+
+<div class="page-header">
+  <h1>7א: <span class="green">מה זה אספקט?</span></h1>
+  <p>פרפקטיבי מול אימפרפקטיבי — ההבדל הגדול שאין בעברית.</p>
+</div>
+
+<div class="layout">
+  <div class="main-col">
+
+    <div class="why-box">
+      <strong>🔄 אספקט — השאלה הגדולה: הושלם או מתמשך?</strong>
+      כל פועל בצ'כית שייך לאחת משתי קבוצות: <strong>פרפקטיבי</strong> (PF) — פעולה שמסתיימת, ו<strong>אימפרפקטיבי</strong> (IPF) — פעולה מתמשכת או חוזרת. זה אחד ההבדלים הגדולים ביותר בין צ'כית לעברית — בעברית אין את זה!
+    </div>
+
+    <span class="stitle">שני הסוגים</span>
+
+    <div class="use-card">
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:12px;">
+        <div class="uc-num">IPF</div>
+        <div>
+          <div class="uc-title">אימפרפקטיבי — פעולה מתמשכת / חוזרת</div>
+          <div class="uc-rule">פעולה שאין לה סוף ברור, מתמשכת ברגע מסוים, רגילה, או חוזרת שוב ושוב. תשובה ל: <span class="cz-phrase">Co dělal/dělá/bude dělat?</span> (מה עשה/עושה/יעשה — בכלל?)</div>
+        </div>
+      </div>
+      <div class="uc-exs">
+        <div class="uc-ex">
+          <div class="cz"><span class="hl">Četl</span> jsem celý večer. (číst — IPF)</div>
+          <div class="he">קראתי כל הערב. (פעולה מתמשכת)</div>
+        </div>
+        <div class="uc-ex">
+          <div class="cz"><span class="hl">Píšu</span> emaily každý den. (psát — IPF)</div>
+          <div class="he">אני כותב אימיילים כל יום. (פעולה חוזרת)</div>
+        </div>
+        <div class="uc-ex">
+          <div class="cz"><span class="hl">Učil</span> se češtinu. (učit se — IPF)</div>
+          <div class="he">הוא למד צ'כית. (תיאור כללי)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="use-card">
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:12px;">
+        <div class="uc-num">PF</div>
+        <div>
+          <div class="uc-title">פרפקטיבי — פעולה שהושלמה / תושלם</div>
+          <div class="uc-rule">פעולה עם תוצאה ברורה, שהסתיימה (בעבר) או תסתיים (בעתיד). תשובה ל: <span class="cz-phrase">Co udělal/udělá?</span> (מה סיים לעשות?) לא קיים בהווה!</div>
+        </div>
+      </div>
+      <div class="uc-exs">
+        <div class="uc-ex">
+          <div class="cz"><span class="hl">Přečetl</span> jsem knihu. (přečíst — PF)</div>
+          <div class="he">קראתי את הספר. (סיימתי לקרוא אותו)</div>
+        </div>
+        <div class="uc-ex">
+          <div class="cz"><span class="hl">Napíšu</span> ti email zítra. (napsat — PF)</div>
+          <div class="he">אכתוב לך אימייל מחר. (ואסיים אותו)</div>
+        </div>
+        <div class="uc-ex">
+          <div class="cz"><span class="hl">Naučil</span> se slovíčka. (naučit se — PF)</div>
+          <div class="he">הוא למד את המילים. (והצליח — סיים)</div>
+        </div>
+      </div>
+    </div>
+
+    <span class="stitle">דוגמאות לשמיעה</span>
+    <div class="ex-list">
+      <div class="ex-line">
+        <button onclick="speak('Četl jsem celý večer.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div>
+          <div class="ex-cz"><span class="hl">Četl</span> jsem celý večer. <span style="font-size:12px;color:var(--muted);">(IPF)</span></div>
+          <div class="ex-he">קראתי כל הערב — פעולה מתמשכת, בלי סוף ברור</div>
+        </div>
+      </div>
+      <div class="ex-line">
+        <button onclick="speak('Přečetl jsem tu knihu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div>
+          <div class="ex-cz"><span class="hl">Přečetl</span> jsem tu knihu. <span style="font-size:12px;color:var(--muted);">(PF)</span></div>
+          <div class="ex-he">קראתי את הספר הזה — סיימתי לקרוא אותו</div>
+        </div>
+      </div>
+      <div class="ex-line">
+        <button onclick="speak('Každý den vařím polévku.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div>
+          <div class="ex-cz"><span class="hl">Vařím</span> polévku každý den. <span style="font-size:12px;color:var(--muted);">(IPF)</span></div>
+          <div class="ex-he">אני מבשל מרק כל יום — פעולה חוזרת</div>
+        </div>
+      </div>
+      <div class="ex-line">
+        <button onclick="speak('Uvařím ti polévku.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div>
+          <div class="ex-cz"><span class="hl">Uvařím</span> ti polévku. <span style="font-size:12px;color:var(--muted);">(PF)</span></div>
+          <div class="ex-he">אבשל לך מרק — ואסיים, יהיה מוכן</div>
+        </div>
+      </div>
+      <div class="ex-line">
+        <button onclick="speak('Psal jsem celou hodinu.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div>
+          <div class="ex-cz"><span class="hl">Psal</span> jsem celou hodinu. <span style="font-size:12px;color:var(--muted);">(IPF)</span></div>
+          <div class="ex-he">כתבתי שעה שלמה — תיאור משך הזמן</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip red">
+      <strong>🔑 הכלל הזהוב</strong>
+      PF בהווה — <strong>לא קיים</strong>. פרפקטיבי = עבר (פעולה שהסתיימה) או עתיד (פעולה שתסתיים). אם הפועל בהווה — תמיד IPF.
+    </div>
+
+    <div class="tip amber">
+      <strong>⚠️ לא מושלם = לא שגוי</strong>
+      IPF לא אומר "לא הצלחתי" — רק שהדגש הוא על הפעולה עצמה, לא על התוצאה. <span class="cz-phrase">Četl jsem</span> זה בסדר גמור — אני קראתי, זה התהליך שחשוב.
+    </div>
+
+    <div class="step-nav">
+      <a href="b1-lesson7.html" class="btn-back">→ חזרה לשיעור 7</a>
+      <a href="b1-lesson7b.html" class="btn-next">7ב — זוגות אספקטיביים ←</a>
+    </div>
+  </div>
+  <aside class="sidebar" data-page="b1-lesson7a">
+    <div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-inline-start:5px solid #1d4ed8;border-radius:var(--r);padding:14px;font-size:13px;color:#16385f;line-height:1.7;box-shadow:0 6px 18px rgba(17,69,126,.06);margin-bottom:12px;">
+      <strong style="display:block;margin-bottom:8px;font-size:14px;color:#1d4ed8;font-family:'Nunito',sans-serif;">📋 IPF vs. PF — בקיצור</strong>
+      <strong>IPF (אימפרפקטיבי):</strong><br>
+      מתמשך, חוזר, תיאורי<br>
+      קיים בעבר, הווה, עתיד<br><br>
+      <strong>PF (פרפקטיבי):</strong><br>
+      מושלם, תוצאה ברורה<br>
+      רק בעבר או עתיד!
+    </div>
+    <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;">
+      <h3 style="font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:#11457E;margin-bottom:10px;">דוגמאות זוגות</h3>
+      <div style="font-size:13px;line-height:2.0;color:var(--text);">
+        <span style="color:var(--muted);">IPF</span> číst → <span style="font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);">PF přečíst</span><br>
+        <span style="color:var(--muted);">IPF</span> psát → <span style="font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);">PF napsat</span><br>
+        <span style="color:var(--muted);">IPF</span> vařit → <span style="font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);">PF uvařit</span><br>
+        <span style="color:var(--muted);">IPF</span> učit se → <span style="font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);">PF naučit se</span>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script>
+function speak(t){
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='cs-CZ';u.rate=0.85;
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 9ה — שיחה: Kde bys chtěl/a žít? | C1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--indigo:#6366f1;--il:#ede9fe;--id:#3730a3;--im:#818cf8;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--indigo);text-decoration:none;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;color:var(--text);margin-bottom:4px;}
+    .page-header p{font-size:14px;color:var(--muted);max-width:700px;line-height:1.65;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.indigo{background:var(--il);color:var(--id);border:1px solid rgba(99,102,241,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .round-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:18px;}
+    .round-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--im);margin-bottom:10px;}
+    .context-box{background:#f8f7ff;border-radius:var(--rs);padding:12px 16px;margin-bottom:12px;font-size:13.5px;color:var(--muted);line-height:1.6;direction:ltr;unicode-bidi:isolate;text-align:left;}
+    .trigger{font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;color:var(--text);direction:ltr;unicode-bidi:isolate;margin-bottom:10px;line-height:1.5;display:block;}
+    .trigger-he{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.5;}
+    .answer-btn{background:var(--il);color:var(--id);border:none;padding:9px 18px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;font-family:'Heebo',sans-serif;}
+    .answer-btn:hover{background:var(--im);color:white;}
+    .answer-reveal{display:none;margin-top:14px;border-top:1px solid rgba(99,102,241,.15);padding-top:14px;}
+    .answer-reveal.open{display:block;}
+    .cz-part{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-size:14px;line-height:1.8;color:var(--text);background:#f0f0ff;border-radius:10px;padding:12px 16px;margin-bottom:8px;}
+    .note{font-size:13px;color:var(--muted);line-height:1.7;margin-top:6px;}
+    .play-btn{width:26px;height:26px;border-radius:50%;background:var(--il);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--id);transition:background .15s;vertical-align:middle;margin-left:6px;}
+    .play-btn:hover{background:var(--im);color:white;}
+    .phrase-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:14px;}
+    .phrase-box h3{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:var(--id);margin-bottom:10px;}
+    .phrase-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:7px;}
+    .phrase-cz{font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;font-size:13.5px;color:var(--text);flex:1;line-height:1.5;}
+    .phrase-he{font-size:13px;color:var(--muted);flex:1;text-align:right;line-height:1.5;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--indigo);color:var(--indigo);}
+    .btn-next{background:var(--indigo);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="c1.html">C1</a><span>›</span>
+  <a href="c1-lesson9.html">שיעור 9</a><span>›</span>
+  חלק ה — שיחה: Kde bys chtěl/a žít?
+</div>
+<div class="page-header">
+  <h1>שיעור 9ה — <span style="color:var(--indigo)">שיחה: Kde bys chtěl/a žít?</span></h1>
+  <p>שיחה פתוחה — עיר, פרבר או כפר? שימוש בביטויי הערכה, טיעון ואוצר מילים של שיעור 9.</p>
+</div>
+<div class="layout">
+<main>
+
+<div class="why-box">
+  <strong>🏘️ Kde bys chtěl/a žít a proč? — איפה היית רוצה לגור ולמה?</strong>
+  ארבעה סיבובים שיחה — עיר, כפר, פרברים, השוואה. הדגש: שימוש בביטויי הערכה (<span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Co se týče… Na jedné straně… Klady a zápory…</span>) ובאוצר הדיור מחלק ד.
+</div>
+
+<div class="stitle">ביטויים שימושיים לשיחה זו</div>
+
+<div class="phrase-box">
+  <h3>🗣️ Výrazy pro vyjádření preference — ביטויי העדפה</h3>
+  <div class="phrase-row">
+    <span class="phrase-cz">Upřednostňuji život ve městě, protože…</span>
+    <span class="phrase-he">אני מעדיף/ה חיים בעיר, כי…</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Ideálně bych bydlel/a na klidném předměstí.</span>
+    <span class="phrase-he">באופן אידיאלי הייתי גר/ה בפרברים שקטים.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Co se týče bydlení, pro mě je klíčová dostupnost.</span>
+    <span class="phrase-he">בנוגע למגורים, הנגישות חשובה לי מכל.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Nejdůležitějším kritériem pro mě je sousedství.</span>
+    <span class="phrase-he">הקריטריון החשוב ביותר עבורי הוא השכנות/שכונה.</span>
+  </div>
+</div>
+
+<!-- סיבוב 1 -->
+<div class="round-card">
+  <div class="round-label">סיבוב 1 מתוך 4</div>
+  <div class="context-box">Diskutujete s kamarádem/kou o tom, kde byste chtěli žít. Váš kamarád/ka miluje velká města.</div>
+  <span class="trigger">„Já bych nikdy nemohl/a žít mimo centrum — city life je pro mě základ. Ty co?"</span>
+  <div class="trigger-he">"אני לעולם לא יכול/ה לגור מחוץ למרכז — חיי עיר הם בשבילי בסיס. ואתה/את?"</div>
+  <button class="answer-btn" onclick="toggleAnswer('a1')">הצג תשובה</button>
+  <div class="answer-reveal" id="a1">
+    <div class="cz-part">
+      <button class="play-btn" onclick="speak('Chápu tě — centrum nabízí spoustu výhod: kulturu, restaurace, dostupnost. Co se týče mě, upřednostňuji klidnější čtvrť na předměstí. Na jedné straně ztrácím blízkost centra, na druhé straně získávám větší byt, zahradu a klid. Záleží na tom, v jaké fázi života jsme.')">▶</button>
+      Chápu tě — centrum nabízí spoustu výhod: kulturu, restaurace, dostupnost. Co se týče mě, upřednostňuji klidnější čtvrť na předměstí. Na jedné straně ztrácím blízkost centra, na druhé straně získávám větší byt, zahradu a klid. Záleží na tom, v jaké fázi života jsme.
+    </div>
+    <div class="note">
+      <span style="direction:rtl;display:block;margin-top:6px;">
+        🔍 שימו לב: <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Co se týče mě</span> (בנוגע אלי) + <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">na jedné straně… na druhé straně</span> — מבני C1 מהחלק ג.
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- סיבוב 2 -->
+<div class="round-card">
+  <div class="round-label">סיבוב 2 מתוך 4</div>
+  <div class="context-box">Téma se přesouvá na venkov — kamarád/ka tvrdí, že venkov je jen pro důchodce.</div>
+  <span class="trigger">„Na vesnici? To je přece pro starší lidi. Tam by mě nudilo všechno."</span>
+  <div class="trigger-he">"בכפר? זה הרי לאנשים מבוגרים. כל דבר היה משעמם אותי שם."</div>
+  <button class="answer-btn" onclick="toggleAnswer('a2')">הצג תשובה</button>
+  <div class="answer-reveal" id="a2">
+    <div class="cz-part">
+      <button class="play-btn" onclick="speak('To je docela rozšířený předsudek. Přínos života na vesnici nespočívá jen v klidu, ale i v komunitě — lidé se znají, pomáhají si. Nevýhodou samozřejmě je horší dostupnost práce a služeb. Ale s home office se mnohé změnilo. Klady a zápory závisejí hodně na konkrétní vesnici a jejím zázemí.')">▶</button>
+      To je docela rozšířený předsudek. Přínos života na vesnici nespočívá jen v klidu, ale i v komunitě — lidé se znají, pomáhají si. Nevýhodou samozřejmě je horší dostupnost práce a služeb. Ale s home office se mnohé změnilo. Klady a zápory závisejí hodně na konkrétní vesnici a jejím zázemí.
+    </div>
+    <div class="note">
+      <span style="direction:rtl;display:block;margin-top:6px;">
+        🔍 שימו לב: <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">přínos nespočívá jen v…, ale i v…</span> — שימוש אלגנטי ב-spočívat. <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">klady a zápory závisejí na…</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- סיבוב 3 -->
+<div class="round-card">
+  <div class="round-label">סיבוב 3 מתוך 4</div>
+  <div class="context-box">Srovnání s Izraelem — jak se liší pojetí bydlení?</div>
+  <span class="trigger">„Jak je to s bydlením v Izraeli? Je to tam podobné jako tady?"</span>
+  <div class="trigger-he">"איך זה עם הדיור בישראל? זה דומה לכאן?"</div>
+  <button class="answer-btn" onclick="toggleAnswer('a3')">הצג תשובה</button>
+  <div class="answer-reveal" id="a3">
+    <div class="cz-part">
+      <button class="play-btn" onclick="speak('V Izraeli je situace jiná. Co se týče cen, realitní trh je výrazně dražší — zejména v Tel Avivu a Jeruzalémě. Bytová krize je tam velmi aktuální téma. Panelákové sídliště v českém stylu tam neexistuje — většina lidí bydlí v bytových domech nebo v rodinných domech na předměstí. Hypotéka je pro mnoho mladých lidí nedostupná, takže nájemní bydlení převládá.')">▶</button>
+      V Izraeli je situace jiná. Co se týče cen, realitní trh je výrazně dražší — zejména v Tel Avivu a Jeruzalémě. Bytová krize je tam velmi aktuální téma. Panelákové sídliště v českém stylu tam neexistuje — většina lidí bydlí v bytových domech nebo v rodinných domech na předměstí. Hypotéka je pro mnoho mladých lidí nedostupná, takže nájemní bydlení převládá.
+    </div>
+    <div class="note">
+      <span style="direction:rtl;display:block;margin-top:6px;">
+        🔍 שימו לב: <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Co se týče cen</span> + שימוש ב-<span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">realitní trh, bytová krize, hypotéka</span> — אוצר מילים C1 בהקשר.
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- סיבוב 4 -->
+<div class="round-card">
+  <div class="round-label">סיבוב 4 מתוך 4</div>
+  <div class="context-box">Závěrečná otázka — kde bys ideálně žil/a?</div>
+  <span class="trigger">„Takže kdybys mohl/a bydlet kdekoliv — kde by to bylo a proč?"</span>
+  <div class="trigger-he">"אז אם יכולת לגור בכל מקום — איפה זה היה ולמה?"</div>
+  <button class="answer-btn" onclick="toggleAnswer('a4')">הצג תשובה</button>
+  <div class="answer-reveal" id="a4">
+    <div class="cz-part">
+      <button class="play-btn" onclick="speak('Ideálně bych bydlel/a v klidné zahradní čtvrti na okraji velkého města — nejlépe Prahy. Výhodou by byla blízkost centra, ale zároveň klid a zeleň v sousedství. Co se týče bytu, upřednostnil/a bych starší činžovní dům s vysokými stropy před moderním panelákem. Přínos takového bydlení spočívá v charakteru a historii místa — to je pro mě klíčové.')">▶</button>
+      Ideálně bych bydlel/a v klidné zahradní čtvrti na okraji velkého města — nejlépe Prahy. Výhodou by byla blízkost centra, ale zároveň klid a zeleň v sousedství. Co se týče bytu, upřednostnil/a bych starší činžovní dům s vysokými stropy před moderním panelákem. Přínos takového bydlení spočívá v charakteru a historii místa — to je pro mě klíčové.
+    </div>
+    <div class="note">
+      <span style="direction:rtl;display:block;margin-top:6px;">
+        🔍 שימו לב: <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Kondicionál (bych bydlel/a)</span> לדמיון עתידי + <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">přínos spočívá v</span> + כל אוצר הדיור של שיעור 9.
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="tip indigo">
+  <strong>💡 סיכום שיעור 9</strong>
+  שיעור 9 חיבר דקדוק (Lokativ, שמות מופשטים) עם תוכן (דיור, עיר, כפר) ועם שיח (ביטויי הערכה). בשיחה השתמשנו ב-<span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Co se týče, na jedné straně, přínos spočívá v, klady a zápory</span>. שיעור 10 — האחרון ב-C1 — מחכה לנו עם בריאות וסיכום הרמה!
+</div>
+
+<div class="step-nav">
+  <a href="c1-lesson9d.html" class="btn-back">← חלק ד — אוצר מילים</a>
+  <a href="c1-lesson10.html" class="btn-next">שיעור 10 — בריאות ←</a>
+</div>
+</main>
+<aside class="sidebar" data-page="c1-lesson9e"></aside>
+</div>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script src="_shared/sidebar.js"></script>
+<script>
+function speak(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+function toggleAnswer(id){const el=document.getElementById(id);el.classList.toggle('open');}
+</script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 8ג — Deverbativa | C1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--indigo:#6366f1;--il:#ede9fe;--id:#3730a3;--im:#818cf8;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--indigo);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.indigo{background:var(--il);color:var(--id);border:1px solid rgba(99,102,241,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--id);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .deriv-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:12px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;}
+    .deriv-side .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:5px;}
+    .deriv-side .cz{font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;color:var(--id);direction:ltr;unicode-bidi:isolate;display:block;margin-bottom:3px;}
+    .deriv-side .he{font-size:13px;color:var(--muted);}
+    .arrow{font-size:22px;color:var(--im);text-align:center;padding-top:18px;}
+    .ex-line{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;unicode-bidi:isolate;line-height:1.5;}
+    .ex-play{width:28px;height:28px;border-radius:50%;background:var(--il);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:var(--id);transition:background .15s;margin-top:2px;}
+    .ex-play:hover{background:var(--im);color:white;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:right;line-height:1.5;}
+    .end-table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13px;}
+    .end-table th{background:var(--id);color:white;font-weight:700;padding:9px 14px;font-size:11.5px;text-align:right;}
+    .end-table td{padding:9px 14px;border:1px solid var(--border);line-height:1.6;vertical-align:top;}
+    .end-table td.cz-cell{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;color:var(--id);background:#f8f7ff;}
+    .end-table tr:nth-child(even) td:not(.cz-cell){background:#fafaf8;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--indigo);color:var(--indigo);}
+    .btn-next{background:var(--indigo);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}.deriv-card{grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="c1.html">C1</a><span>›</span>
+  <a href="c1-lesson8.html">שיעור 8</a><span>›</span>
+  חלק ג — Deverbativa
+</div>
+<div class="layout">
+<main>
+
+<div class="why-box">
+  <strong>🔁 Deverbativa — פועל הופך לשם עצם</strong>
+  <span class="cz-phrase">cestovat → cestování</span>, <span class="cz-phrase">přemístit → přemístění</span>, <span class="cz-phrase">provozovat → provoz</span> — כשקוראים או כותבים בצ'כית רשמית, שמות עצם מפעלים הם חלק חיוני מהשפה. הם נותנים לטקסט טון מדויק ומקצועי.
+</div>
+
+<div class="stitle">שלוש הדרכים ליצור deverbativum</div>
+
+<table class="end-table">
+  <thead><tr><th>דרך</th><th>פועל</th><th>שם עצם</th><th>עברית</th></tr></thead>
+  <tbody>
+    <tr><td>-ní / -tí (תהליך)</td><td class="cz-cell">cestovat</td><td class="cz-cell">cestování (n.)</td><td>נסיעה, טיול (כתהליך)</td></tr>
+    <tr><td>-ní / -tí</td><td class="cz-cell">parkovat</td><td class="cz-cell">parkování (n.)</td><td>חניה (כפעולה)</td></tr>
+    <tr><td>-í (תוצאה)</td><td class="cz-cell">přemístit</td><td class="cz-cell">přemístění (n.)</td><td>העברה, מעבר (תוצאה)</td></tr>
+    <tr><td>-í</td><td class="cz-cell">zpozdít se</td><td class="cz-cell">zpoždění (n.)</td><td>עיכוב (תוצאת האיחור)</td></tr>
+    <tr><td>שם קצר (מוצא)</td><td class="cz-cell">provozovat</td><td class="cz-cell">provoz (m.)</td><td>תנועה, תפעול</td></tr>
+    <tr><td>שם קצר</td><td class="cz-cell">přestupovat</td><td class="cz-cell">přestup (m.)</td><td>מעבר, החלפת קו</td></tr>
+  </tbody>
+</table>
+
+<div class="stitle">פועל מול שם עצם — מתי כל אחד?</div>
+
+<div class="deriv-card">
+  <div class="deriv-side">
+    <div class="label">פועל — דיבור / שיחה</div>
+    <span class="cz">Cestuju rád vlakem.</span>
+    <div class="he">אני אוהב לנסוע ברכבת.</div>
+  </div>
+  <div style="font-size:22px;color:var(--im);text-align:center;padding-top:14px;">→</div>
+  <div class="deriv-side">
+    <div class="label">שם עצם — כתיבה / רשמי</div>
+    <span class="cz">Cestování vlakem je pohodlné.</span>
+    <div class="he">נסיעה ברכבת נוחה. (כללי, מופשט)</div>
+  </div>
+</div>
+
+<div class="deriv-card">
+  <div class="deriv-side">
+    <div class="label">פועל</div>
+    <span class="cz">Vlak se zpozdil.</span>
+    <div class="he">הרכבת איחרה.</div>
+  </div>
+  <div style="font-size:22px;color:var(--im);text-align:center;padding-top:14px;">→</div>
+  <div class="deriv-side">
+    <div class="label">שם עצם</div>
+    <span class="cz">Zpoždění vlaku bylo 40 minut.</span>
+    <div class="he">העיכוב של הרכבת היה 40 דקות.</div>
+  </div>
+</div>
+
+<div class="stitle">דוגמאות בהקשר תחבורה</div>
+
+<div class="ex-line">
+  <button class="ex-play" onclick="speak('Parkování v centru Prahy je velmi drahé.')">▶</button>
+  <span class="ex-cz">Parkování v centru Prahy je velmi drahé.</span>
+  <span class="ex-he">החניה במרכז פראג יקרה מאוד.</span>
+</div>
+<div class="ex-line">
+  <button class="ex-play" onclick="speak('Přestup na linku A trvá dvě minuty.')">▶</button>
+  <span class="ex-cz">Přestup na linku A trvá dvě minuty.</span>
+  <span class="ex-he">ההחלפה לקו A לוקחת שתי דקות.</span>
+</div>
+<div class="ex-line">
+  <button class="ex-play" onclick="speak('Provoz na dálnici byl omezen kvůli nehodě.')">▶</button>
+  <span class="ex-cz">Provoz na dálnici byl omezen kvůli nehodě.</span>
+  <span class="ex-he">התנועה בכביש המהיר הוגבלה עקב תאונה.</span>
+</div>
+<div class="ex-line">
+  <button class="ex-play" onclick="speak('Přemístění autobusové zastávky způsobilo zmatek.')">▶</button>
+  <span class="ex-cz">Přemístění autobusové zastávky způsobilo zmatek.</span>
+  <span class="ex-he">העברת תחנת האוטובוס גרמה לבלבול.</span>
+</div>
+
+<div class="tip indigo">
+  <strong>💡 מתי deverbativum יותר טבעי?</strong>
+  בשלושה מקרים: 1) נושא המשפט הוא פעולה (<span class="cz-phrase" style="direction:ltr;unicode-bidi:isolate;">Cestování je skvělé.</span>). 2) כתיבה רשמית / עיתונאית (<span class="cz-phrase" style="direction:ltr;unicode-bidi:isolate;">Přemístění bylo plánováno.</span> — פסיב). 3) שם של שירות (<span class="cz-phrase" style="direction:ltr;unicode-bidi:isolate;">parkování, sdílení kol</span>).
+</div>
+
+<div class="tip amber">
+  <strong>⚠️ cestování × cesta — שני שמות לאחת הפעולה</strong>
+  <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;">
+    <div style="background:rgba(255,255,255,.6);border-radius:8px;padding:8px 12px;direction:ltr;unicode-bidi:isolate;font-size:13px;font-family:'Nunito',sans-serif;"><strong>cestování</strong> — הנסיעה כתחביב / תהליך מופשט: Miluji cestování.</div>
+    <div style="background:rgba(255,255,255,.6);border-radius:8px;padding:8px 12px;direction:ltr;unicode-bidi:isolate;font-size:13px;font-family:'Nunito',sans-serif;"><strong>cesta</strong> — נסיעה ספציפית / דרך: Cesta trvala tři hodiny.</div>
+  </div>
+</div>
+
+<div class="step-nav">
+  <a href="c1-lesson8b.html" class="btn-back">← חלק ב — Vazby עם מיליות אחרות</a>
+  <a href="c1-lesson8d.html" class="btn-next">חלק ד — אוצר מילים ←</a>
+</div>
+</main>
+<aside class="sidebar" data-page="c1-lesson8c"></aside>
+</div>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script src="_shared/sidebar.js"></script>
+<script>
+function speak(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+</body>
+</html>

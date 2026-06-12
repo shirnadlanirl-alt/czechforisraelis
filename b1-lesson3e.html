@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 3ה — תרגול מסכם Genitiv | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .quiz-wrap{margin-bottom:24px;}
+    .q-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:12px;}
+    .q-num{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.06em;}
+    .q-text{font-size:15px;font-weight:600;margin-bottom:12px;line-height:1.5;}
+    .q-cz{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;direction:ltr;unicode-bidi:isolate;color:var(--text);margin-bottom:10px;display:block;}
+    .options{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .opt{padding:10px 14px;border-radius:var(--rs);border:1.5px solid var(--border);background:var(--white);font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-align:center;direction:ltr;transition:all .15s;}
+    .opt:hover:not(:disabled){border-color:var(--gm);background:var(--gl);}
+    .opt.correct{background:#dcfce7;border-color:#16a34a;color:#15803d;}
+    .opt.wrong{background:#fee2e2;border-color:#dc2626;color:#dc2626;}
+    .q-feedback{margin-top:10px;font-size:13px;line-height:1.6;display:none;padding:10px 14px;border-radius:var(--rs);}
+    .q-feedback.show{display:block;}
+    .q-feedback.ok{background:#dcfce7;color:#15803d;}
+    .q-feedback.err{background:#fee2e2;color:#dc2626;}
+    .score-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:28px 22px;text-align:center;margin-top:20px;display:none;}
+    .score-box.show{display:block;}
+    .score-num{font-family:'Nunito',sans-serif;font-size:56px;font-weight:800;color:var(--green);}
+    .score-label{font-size:16px;color:var(--muted);margin-top:6px;}
+    .score-msg{font-size:15px;font-weight:600;margin-top:12px;color:var(--text);}
+    .retry-btn{margin-top:16px;padding:10px 28px;border-radius:20px;background:var(--green);color:white;border:none;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;}
+    .retry-btn:hover{opacity:.88;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.options{grid-template-columns:1fr;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson3.html">שיעור 3 — Genitiv</a><span>›</span>3ה — תרגול מסכם
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🔑 תרגול מסכם — Genitiv</strong>
+    20 שאלות על כל החומר: יחיד ורבים, שלילה, שייכות, כמות, ומילות יחס. בחרו את התשובה הנכונה — תקבלו הסבר מיידי לכל שאלה.
+  </div>
+
+  <div id="quiz-root" class="quiz-wrap"></div>
+  <div id="score-box" class="score-box"></div>
+
+  <div class="step-nav">
+    <a href="b1-lesson3d.html" class="btn-back">→ 3ד — Genitiv רבים</a>
+    <a href="b1-lesson4.html" class="btn-next">שיעור 4 — Instrumentál ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson3e">
+  <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#11457E;">📋 Genitiv — חזרה מהירה</strong>
+    <div style="font-size:12px;line-height:2.1;color:#16385f;">
+      <b>זכר חי:</b> -a (Petra)<br>
+      <b>זכר דומם:</b> -u (parku) / -e (počítače)<br>
+      <b>נקבה -a:</b> -y (školy)<br>
+      <b>נקבה -ce:</b> ללא שינוי (práce)<br>
+      <b>נקבה עיצור:</b> -i (věci)<br>
+      <b>נטרל -o:</b> -a (města)<br>
+      <b>נטרל -í:</b> ללא שינוי (náměstí)<br>
+      <hr style="margin:7px 0;border:none;border-top:1px solid var(--border);">
+      <b>Gen רבים:</b><br>
+      זכר: -ů · נקבה -a: ∅ (žen)<br>
+      נטרל -o: ∅ (měst)
+    </div>
+  </div>
+  <div style="background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:12px;font-size:12px;color:var(--gd);">
+    <strong style="display:block;margin-bottom:5px;">מילות יחס חשובות:</strong>
+    do · z · od · u · bez · kolem · vedle · kvůli · podle · místo · během
+  </div>
+</aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+const questions = [
+  {
+    q: "אני הולך/ת לבית הספר. Jdu ___",
+    cz: "Jdu ___ (škola)",
+    opts: ["do školy","do škole","na školy","do škola"],
+    ans: 0,
+    ex: "do + Genitiv = ל-, לתוך. škola (נקבה -a) → školy ב-Genitiv. Jdu do školy."
+  },
+  {
+    q: "אני מפראג. Jsem ___",
+    cz: "Jsem ___ (Praha)",
+    opts: ["z Prahu","z Prahy","z Praze","od Prahy"],
+    ans: 1,
+    ex: "z + Genitiv = מ-. Praha (נקבה -a) → Prahy ב-Genitiv. Jsem z Prahy."
+  },
+  {
+    q: "אין לי זמן. Nemám ___",
+    cz: "Nemám ___ (čas)",
+    opts: ["čas","času","čase","časy"],
+    ans: 1,
+    ex: "בשלילה: המושא עובר ל-Genitiv. čas (זכר דומם) → času ב-Genitiv."
+  },
+  {
+    q: "כוסית יין. Sklenička ___",
+    cz: "Sklenička ___ (víno)",
+    opts: ["víno","vína","vínech","víně"],
+    ans: 1,
+    ex: "כמות + Genitiv יחיד. víno (נטרל -o) → vína ב-Genitiv. Sklenička vína."
+  },
+  {
+    q: "הספר של פטר. Kniha ___",
+    cz: "Kniha ___ (Petr)",
+    opts: ["Petr","Petru","Petra","Petrovi"],
+    ans: 2,
+    ex: "שייכות = Genitiv. Petr (זכר חי) → Petra. Kniha Petra = הספר של פטר."
+  },
+  {
+    q: "קפה בלי סוכר. Káva ___",
+    cz: "Káva ___ (cukr = סוכר)",
+    opts: ["bez cukr","bez cukru","bez cukra","bez cukrů"],
+    ans: 1,
+    ex: "bez + Genitiv = בלי. cukr (זכר דומם) → cukru ב-Genitiv."
+  },
+  {
+    q: "אני גר/ה אצל חבר. Bydlím ___",
+    cz: "Bydlím ___ (kamarád)",
+    opts: ["u kamaráda","u kamarád","od kamaráda","v kamaráda"],
+    ans: 0,
+    ex: "u + Genitiv = אצל. kamarád (זכר חי) → kamaráda. Bydlím u kamaráda."
+  },
+  {
+    q: "הרבה עבודה. Hodně ___",
+    cz: "Hodně ___ (práce)",
+    opts: ["práce","práci","prací","pracích"],
+    ans: 0,
+    ex: "כמות + Genitiv. práce (נקבה -ce) → ב-Genitiv יחיד: ללא שינוי! Hodně práce."
+  },
+  {
+    q: "אני הולך/ת לעיר. Jdu ___",
+    cz: "Jdu ___ (město)",
+    opts: ["do město","do města","v města","na město"],
+    ans: 1,
+    ex: "do + Genitiv. město (נטרל -o) → města. Jdu do města."
+  },
+  {
+    q: "הוא בא מהרופא. Přišel ___",
+    cz: "Přišel ___ (lékař)",
+    opts: ["z lékaře","od lékaře","u lékaře","do lékaře"],
+    ans: 1,
+    ex: "od + Genitiv = מ- (מאדם). lékař (זכר חי רך) → lékaře. Přišel od lékaře."
+  },
+  {
+    q: "לפי המפה. ___ mapy jsme tady.",
+    cz: "___ mapy jsme tady.",
+    opts: ["Kvůli","Podle","Během","Místo"],
+    ans: 1,
+    ex: "podle + Genitiv = לפי. mapa → mapy (נקבה -a). Podle mapy jsme tady."
+  },
+  {
+    q: "5 ערים — Genitiv רבים של město",
+    cz: "Pět ___ (město → רבים Gen)",
+    opts: ["měst","měst","městů","měste"],
+    ans: 0,
+    ex: "מספרים 5+ + Genitiv רבים. נטרל -o: Genitiv רבים = סיומת אפס. město → měst."
+  },
+  {
+    q: "הרבה נשים — Genitiv רבים של žena",
+    cz: "Hodně ___ (žena → רבים Gen)",
+    opts: ["ženy","ženách","žen","ženám"],
+    ans: 2,
+    ex: "נקבה -a: Genitiv רבים = סיומת אפס. žena → žen. Hodně žen."
+  },
+  {
+    q: "הרבה חברים — Genitiv רבים של kamarád",
+    cz: "Hodně ___ (kamarád → רבים Gen)",
+    opts: ["kamarádů","kamarádech","kamarádí","kamarádám"],
+    ans: 0,
+    ex: "זכר: Genitiv רבים = -ů. kamarád → kamarádů. Hodně kamarádů."
+  },
+  {
+    q: "קילו תפוחים — Genitiv רבים של jablko",
+    cz: "Kilo ___ (jablko → רבים Gen)",
+    opts: ["jablek","jablek","jablků","jablkách"],
+    ans: 0,
+    ex: "jablko = נטרל -o, עם תנועה מוכנסת ב-Gen רבים. jablko → jablek (∅+e מוכנסת). Kilo jablek."
+  },
+  {
+    q: "ליד הגן. Jdu ___ parku.",
+    cz: "Jdu ___ parku.",
+    opts: ["vedle","kolem","kvůli","podle"],
+    ans: 1,
+    ex: "kolem + Genitiv = סביב, ליד (כשהולכים). park → parku (Gen יחיד). Jdu kolem parku."
+  },
+  {
+    q: "במהלך השבוע. ___ týdne.",
+    cz: "___ týdne.",
+    opts: ["Vedle","Podle","Během","Místo"],
+    ans: 2,
+    ex: "během + Genitiv = במהלך. týden → týdne (Gen יחיד, יוצא דופן). Během týdne."
+  },
+  {
+    q: "אין לי מחשב. Nemám ___",
+    cz: "Nemám ___ (počítač)",
+    opts: ["počítač","počítače","počítači","počítačů"],
+    ans: 1,
+    ex: "שלילה + Genitiv. počítač (זכר דומם רך) → počítače ב-Genitiv. Nemám počítače."
+  },
+  {
+    q: "מהמרכז. Z ___",
+    cz: "Z ___ (centrum)",
+    opts: ["centrum","centra","centru","centrem"],
+    ans: 1,
+    ex: "z + Genitiv. centrum (נטרל -um) → centra ב-Genitiv. Z centra."
+  },
+  {
+    q: "בגלל מזג האוויר. ___ počasí jsme doma.",
+    cz: "___ počasí jsme doma.",
+    opts: ["Podle","Vedle","Kvůli","Během"],
+    ans: 2,
+    ex: "kvůli + Genitiv = בגלל. počasí (נטרל -í) → ללא שינוי ב-Genitiv. Kvůli počasí jsme doma."
+  }
+];
+
+let score = 0;
+let answered = 0;
+
+function initQuiz() {
+  const root = document.getElementById("quiz-root");
+  root.innerHTML = "";
+  score = 0;
+  answered = 0;
+  document.getElementById("score-box").classList.remove("show");
+  questions.forEach((q, qi) => {
+    const card = document.createElement("div");
+    card.className = "q-card";
+    card.id = "q" + qi;
+    const optsHtml = q.opts.map((o, j) =>
+      `<button class="opt" onclick="answer(${qi},${j})">${o}</button>`
+    ).join("");
+    card.innerHTML = `
+      <div class="q-num">שאלה ${qi+1} מתוך ${questions.length}</div>
+      <div class="q-text">${q.q}</div>
+      <span class="q-cz">${q.cz}</span>
+      <div class="options">${optsHtml}</div>
+      <div class="q-feedback" id="fb${qi}"></div>
+    `;
+    root.appendChild(card);
+  });
+}
+
+function answer(qi, j) {
+  const card = document.getElementById("q" + qi);
+  const opts = card.querySelectorAll(".opt");
+  opts.forEach(o => o.disabled = true);
+  const fb = document.getElementById("fb" + qi);
+  const correct = questions[qi].ans;
+  opts[j].classList.add(j === correct ? "correct" : "wrong");
+  if (j !== correct) opts[correct].classList.add("correct");
+  fb.textContent = questions[qi].ex;
+  fb.className = "q-feedback show " + (j === correct ? "ok" : "err");
+  if (j === correct) score++;
+  answered++;
+  if (answered === questions.length) showScore();
+}
+
+function showScore() {
+  const pct = Math.round((score / questions.length) * 100);
+  let msg = pct === 100 ? "מושלם! שליטה מלאה ב-Genitiv 🎉" :
+            pct >= 80  ? "כל הכבוד! כמעט שם 💪" :
+            pct >= 60  ? "טוב, עוד קצת תרגול וזה יהיה מושלם 📚" :
+                         "Genitiv קשה — כדאי לחזור על הסיומות! 🔄";
+  const sb = document.getElementById("score-box");
+  sb.innerHTML = `
+    <div class="score-num">${score}/${questions.length}</div>
+    <div class="score-label">${pct}% נכון</div>
+    <div class="score-msg">${msg}</div>
+    <button class="retry-btn" onclick="initQuiz()">נסה שוב</button>
+  `;
+  sb.classList.add("show");
+  sb.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+initQuiz();
+</script>
+</body>
+</html>

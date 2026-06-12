@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 5ה — תרגול מסכם Dativ | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .quiz-wrap{margin-bottom:24px;}
+    .q-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:12px;}
+    .q-num{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.06em;}
+    .q-text{font-size:15px;font-weight:600;margin-bottom:12px;line-height:1.5;}
+    .q-cz{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;direction:ltr;unicode-bidi:isolate;color:var(--text);margin-bottom:10px;display:block;}
+    .options{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .opt{padding:10px 14px;border-radius:var(--rs);border:1.5px solid var(--border);background:var(--white);font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-align:center;direction:ltr;transition:all .15s;}
+    .opt:hover:not(:disabled){border-color:var(--gm);background:var(--gl);}
+    .opt.correct{background:#dcfce7;border-color:#16a34a;color:#15803d;}
+    .opt.wrong{background:#fee2e2;border-color:#dc2626;color:#dc2626;}
+    .q-feedback{margin-top:10px;font-size:13px;line-height:1.6;display:none;padding:10px 14px;border-radius:var(--rs);}
+    .q-feedback.show{display:block;}
+    .q-feedback.ok{background:#dcfce7;color:#15803d;}
+    .q-feedback.err{background:#fee2e2;color:#dc2626;}
+    .score-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:28px 22px;text-align:center;margin-top:20px;display:none;}
+    .score-box.show{display:block;}
+    .score-num{font-family:'Nunito',sans-serif;font-size:56px;font-weight:800;color:var(--green);}
+    .score-label{font-size:16px;color:var(--muted);margin-top:6px;}
+    .score-msg{font-size:15px;font-weight:600;margin-top:12px;color:var(--text);}
+    .retry-btn{margin-top:16px;padding:10px 28px;border-radius:20px;background:var(--green);color:white;border:none;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;}
+    .retry-btn:hover{opacity:.88;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.options{grid-template-columns:1fr;}}
+
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson5.html">שיעור 5 — Dativ</a><span>›</span>5ה — תרגול מסכם
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 תרגול מסכם — Dativ</strong>
+    20 שאלות על כל החומר: יחיד ורבים לכל המינים, פעלים, מילות יחס וכינויים. בחרו את התשובה הנכונה — תקבלו הסבר מיידי לכל שאלה.
+  </div>
+
+  <div id="quiz-root" class="quiz-wrap"></div>
+  <div id="score-box" class="score-box"></div>
+
+  <div class="step-nav">
+    <a href="b1-lesson5d.html" class="btn-back">→ 5ד — Dativ רבים ומילות יחס</a>
+    <a href="b1-lesson6.html" class="btn-next">שיעור 6 ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson5e">
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:var(--gd);">📋 Dativ — חזרה מהירה</strong>
+    <div style="font-size:12px;line-height:2.1;color:var(--text);">
+      <b>Masc animate:</b> -ovi / -u<br>
+      <b>Masc inanimate:</b> -u<br>
+      <b>Masc soft:</b> -i<br>
+      <b>Fem -a:</b> -ě (k→c, h→z, r→ř)<br>
+      <b>Fem -ce:</b> -i<br>
+      <b>Fem עיצור:</b> -i<br>
+      <b>Neut -o/-um:</b> -u<br>
+      <b>Neut -í:</b> -í (ללא שינוי)<br>
+      <hr style="margin:7px 0;border:none;border-top:1px solid var(--border);">
+      <b>רבים:</b><br>
+      Masc/Neut -o: -ům · Fem -a: -ám<br>
+      Fem -ce + Neut -í: -ím
+    </div>
+  </div>
+  <div style="background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:12px;font-size:12px;color:var(--gd);">
+    <strong style="display:block;margin-bottom:5px;">מילות יחס:</strong>
+    k/ke · naproti · díky · navzdory · oproti · vůči
+  </div>
+</aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+const questions = [
+  {
+    q: "נתתי ספר לפטר. Dal jsem knihu ___",
+    cz: "Dal jsem knihu ___ (Petr)",
+    opts: ["Petrovi","Petra","Petru","Petrovi"],
+    ans: 0,
+    ex: "Petr — זכר animate hard: Dativ = Petrovi (או Petru). בכתיבה Petrovi מועדף."
+  },
+  {
+    q: "אני הולך לרופא. Jdu ___",
+    cz: "Jdu ___ (lékař)",
+    opts: ["k lékaři","k lékaře","ke lékaři","do lékaře"],
+    ans: 0,
+    ex: "k + Dativ. lékař (זכר soft) → lékaři. k (ולא ke) כי l אינו צרור עיצורים."
+  },
+  {
+    q: "פראג מוצאת חן בעיניי. Líbí se ___ Praha.",
+    cz: "Líbí se ___ Praha.",
+    opts: ["mi","mě","já","mně"],
+    ans: 0,
+    ex: "líbit se komu: já → mi (צורה קצרה). הנושא = Praha, mi = Dativ = בעיניי."
+  },
+  {
+    q: "מה ה-Dativ יחיד של žena?",
+    cz: "žena → Dativ",
+    opts: ["ženě","ženy","ženou","žení"],
+    ans: 0,
+    ex: "žena — נקבה hard ב-a: žena → ženě (סיומת -ě)."
+  },
+  {
+    q: "מה ה-Dativ יחיד של Praha?",
+    cz: "Praha → Dativ (k + Praha)",
+    opts: ["Praze","Prahu","Prahy","Praze"],
+    ans: 0,
+    ex: "Praha → Praze: h→z מוטציה לפני -ě. Jdu k Praze."
+  },
+  {
+    q: "מה ה-Dativ יחיד של restaurace?",
+    cz: "restaurace → Dativ",
+    opts: ["restauraci","restaurace","restauracemi","restaurací"],
+    ans: 0,
+    ex: "restaurace — נקבה ב-ce: restaurace → restauraci (סיומת -i)."
+  },
+  {
+    q: "מה ה-Dativ יחיד של město?",
+    cz: "město → Dativ",
+    opts: ["městu","městu","měste","městem"],
+    ans: 0,
+    ex: "město — ניטרלי ב-o: město → městu (סיומת -u)."
+  },
+  {
+    q: "אני מאמין לך. Věřím ___",
+    cz: "Věřím ___ (ty)",
+    opts: ["ti","tě","tebe","tobě"],
+    ans: 0,
+    ex: "věřit komu + Dativ. ty → ti (צורה קצרה) / tobě (צורה מודגשת אחרי מילת יחס). בלי מילת יחס: ti."
+  },
+  {
+    q: "בזכות מילת היחס שדורשת Dativ היא:",
+    cz: "בזכות = ___",
+    opts: ["díky","kvůli","podle","navzdory"],
+    ans: 0,
+    ex: "díky + Dativ = בזכות (חיובי). kvůli + Genitiv = בגלל (שלילי). לא להתבלבל!"
+  },
+  {
+    q: "מה ה-Dativ רבים של kamarád?",
+    cz: "kamarádi → Dativ רבים",
+    opts: ["kamarádům","kamarádami","kamarádech","kamarádách"],
+    ans: 0,
+    ex: "kamarád — זכר hard: Dativ רבים → kamarádům (סיומת -ům)."
+  },
+  {
+    q: "מה ה-Dativ רבים של žena?",
+    cz: "ženy → Dativ רבים",
+    opts: ["ženám","ženami","ženách","ženům"],
+    ans: 0,
+    ex: "žena — נקבה ב-a: Dativ רבים → ženám (סיומת -ám)."
+  },
+  {
+    q: "מה ה-Dativ רבים של město?",
+    cz: "města → Dativ רבים",
+    opts: ["městům","městami","městech","měst"],
+    ans: 0,
+    ex: "město — ניטרלי ב-o: Dativ רבים → městům (סיומת -ům)."
+  },
+  {
+    q: "הבנק ממול בית הספר. Banka je ___ škole.",
+    cz: "Banka je ___ škole.",
+    opts: ["naproti","vedle","blízko","oproti"],
+    ans: 0,
+    ex: "naproti + Dativ = ממול. škola → škole (Dativ יחיד). Banka je naproti škole."
+  },
+  {
+    q: "אני לא מבין את הדקדוק. Nerozumím ___",
+    cz: "Nerozumím ___ (česká gramatika)",
+    opts: ["české gramatice","českou gramatikou","česká gramatika","o české gramatice"],
+    ans: 0,
+    ex: "rozumět čemu + Dativ: česká gramatika → české gramatice (k→c מוטציה)."
+  },
+  {
+    q: "עזרתי לחברה. Pomohl jsem ___",
+    cz: "Pomohl jsem ___ (kamarádka)",
+    opts: ["kamarádce","kamarádku","kamarádky","kamarádkám"],
+    ans: 0,
+    ex: "pomoci komu: kamarádka → kamarádce (k→c מוטציה, Dativ יחיד נקבה ב-a)."
+  },
+  {
+    q: "מה ה-Dativ יחיד של muž?",
+    cz: "muž → Dativ",
+    opts: ["muži","mužovi","muže","mužem"],
+    ans: 0,
+    ex: "muž — זכר soft: Dativ = muži (סיומת -i, לא -ovi)."
+  },
+  {
+    q: "קניתי לאחות מתנה. Koupil jsem ___",
+    cz: "Koupil jsem ___ dárek. (sestra)",
+    opts: ["sestře","sestry","sestru","sestrou"],
+    ans: 0,
+    ex: "koupit komu: sestra → sestře (r→ř מוטציה, Dativ יחיד נקבה ב-a)."
+  },
+  {
+    q: "מה ה-Dativ רבים של restaurace?",
+    cz: "restaurace (רבים) → Dativ",
+    opts: ["restauracím","restauracemi","restauracích","restaurací"],
+    ans: 0,
+    ex: "restaurace — נקבה ב-ce: Dativ רבים → restauracím (סיומת -ím)."
+  },
+  {
+    q: "למרות מזג האוויר יצאו. ___ počasí šli ven.",
+    cz: "___ počasí šli ven.",
+    opts: ["Navzdory","Díky","Oproti","Naproti"],
+    ans: 0,
+    ex: "navzdory + Dativ = למרות. počasí (ניטרלי ב-í) — ללא שינוי ב-Dativ."
+  },
+  {
+    q: "מה ה-Dativ יחיד של banka (k + banka)?",
+    cz: "k + banka → Dativ",
+    opts: ["k bance","k banku","ke banky","k bance"],
+    ans: 0,
+    ex: "banka → bance: k→c מוטציה לפני -ě. k bance = לבנק. k (לא ke) כי b אינו צרור עיצורים."
+  }
+];
+
+let score = 0;
+let answered = 0;
+
+function initQuiz() {
+  const root = document.getElementById("quiz-root");
+  root.innerHTML = "";
+  score = 0;
+  answered = 0;
+  document.getElementById("score-box").classList.remove("show");
+  questions.forEach((q, qi) => {
+    const card = document.createElement("div");
+    card.className = "q-card";
+    card.id = "q" + qi;
+    const optsHtml = q.opts.map((o, j) =>
+      `<button class="opt" onclick="answer(${qi},${j})">${o}</button>`
+    ).join("");
+    card.innerHTML = `
+      <div class="q-num">שאלה ${qi+1} מתוך ${questions.length}</div>
+      <div class="q-text">${q.q}</div>
+      <span class="q-cz">${q.cz}</span>
+      <div class="options">${optsHtml}</div>
+      <div class="q-feedback" id="fb${qi}"></div>
+    `;
+    root.appendChild(card);
+  });
+}
+
+function answer(qi, j) {
+  const card = document.getElementById("q" + qi);
+  const opts = card.querySelectorAll(".opt");
+  opts.forEach(o => o.disabled = true);
+  const fb = document.getElementById("fb" + qi);
+  const correct = questions[qi].ans;
+  opts[j].classList.add(j === correct ? "correct" : "wrong");
+  if (j !== correct) opts[correct].classList.add("correct");
+  fb.textContent = questions[qi].ex;
+  fb.className = "q-feedback show " + (j === correct ? "ok" : "err");
+  if (j === correct) score++;
+  answered++;
+  if (answered === questions.length) showScore();
+}
+
+function showScore() {
+  const pct = Math.round((score / questions.length) * 100);
+  let msg = pct === 100 ? "מושלם! שליטה מלאה ב-Dativ 🎉" :
+            pct >= 80  ? "כל הכבוד! כמעט שם 💪" :
+            pct >= 60  ? "טוב, עוד קצת תרגול וזה יהיה מושלם 📚" :
+                         "Dativ קשה — חזרו על הסיומות ונסו שוב! 🔄";
+  const sb = document.getElementById("score-box");
+  sb.innerHTML = `
+    <div class="score-num">${score}/${questions.length}</div>
+    <div class="score-label">${pct}% נכון</div>
+    <div class="score-msg">${msg}</div>
+    <button class="retry-btn" onclick="initQuiz()">נסה שוב</button>
+  `;
+  sb.classList.add("show");
+  sb.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+initQuiz();
+
+</script>
+</body>
+</html>

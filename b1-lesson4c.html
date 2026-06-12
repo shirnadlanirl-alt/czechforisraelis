@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 4ג — פעלים עם Instrumentál | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .verb-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px;}
+    .verb-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rs);padding:14px 16px;}
+    .verb-card .vc-verb{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;direction:ltr;unicode-bidi:isolate;color:var(--gd);margin-bottom:3px;}
+    .verb-card .vc-prep{display:inline-block;background:#f5f3ff;color:#6d28d9;font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;padding:1px 7px;border-radius:6px;direction:ltr;unicode-bidi:isolate;margin-bottom:6px;}
+    .verb-card .vc-he{font-size:12.5px;color:var(--muted);margin-bottom:6px;}
+    .verb-card .vc-ex{font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:700;direction:ltr;unicode-bidi:isolate;color:var(--text);}
+    .verb-card .vc-exhe{font-size:11.5px;color:var(--muted);}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px;}
+    .compare-card{border-radius:var(--rs);padding:16px 18px;}
+    .compare-card.left{background:#fef3c7;border:1px solid rgba(245,158,11,.25);}
+    .compare-card.right{background:var(--gl);border:1px solid rgba(29,158,117,.2);}
+    .compare-card .cc-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+    .compare-card.left .cc-label{color:#b45309;}
+    .compare-card.right .cc-label{color:var(--gd);}
+    .compare-card .cc-ex{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;direction:ltr;unicode-bidi:isolate;margin-bottom:4px;}
+    .compare-card.left .cc-ex{color:#92400e;}
+    .compare-card.right .cc-ex{color:var(--gd);}
+    .compare-card .cc-he{font-size:13px;color:var(--muted);}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:28px;height:28px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl{color:var(--green);font-weight:900;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.verb-grid{grid-template-columns:1fr;}.compare-grid{grid-template-columns:1fr;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson4.html">שיעור 4 — Instrumentál</a><span>›</span>4ג — פעלים עם Instrumentál
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🔗 פעלים שדורשים Instrumentál</strong>
+    כמו ב-Lokál ו-Genitiv, יש פעלים שתמיד מגיעים עם Instrumentál — ישירות, ללא מילת יחס נוספת. הפועל המשמעותי ביותר הוא <span class="cz-phrase">stát se</span> (להפוך ל-, לקרות).
+  </div>
+
+  <div class="verb-grid">
+    <div class="verb-card">
+      <div class="vc-verb">stát se</div>
+      <div class="vc-prep">+ Instrumentál</div>
+      <div class="vc-he">להפוך ל-, לקרות</div>
+      <div class="vc-ex">Stal se lékařem.</div>
+      <div class="vc-exhe">הוא הפך לרופא</div>
+    </div>
+    <div class="verb-card">
+      <div class="vc-verb">být</div>
+      <div class="vc-prep">+ Instrumentál</div>
+      <div class="vc-he">להיות (מקצוע/תפקיד)</div>
+      <div class="vc-ex">Jsem programátorem.</div>
+      <div class="vc-exhe">אני מתכנת</div>
+    </div>
+    <div class="verb-card">
+      <div class="vc-verb">zabývat se</div>
+      <div class="vc-prep">+ Instrumentál</div>
+      <div class="vc-he">לעסוק ב-, לטפל ב-</div>
+      <div class="vc-ex">Zabývám se hudbou.</div>
+      <div class="vc-exhe">אני עוסק/ת במוזיקה</div>
+    </div>
+    <div class="verb-card">
+      <div class="vc-verb">zajímat se</div>
+      <div class="vc-prep">o + Akuzativ</div>
+      <div class="vc-he">להתעניין ב- (שים לב: Akuzativ!)</div>
+      <div class="vc-ex">Zajímám se o hudbu.</div>
+      <div class="vc-exhe">אני מתעניין/ת במוזיקה</div>
+    </div>
+    <div class="verb-card">
+      <div class="vc-verb">trpět</div>
+      <div class="vc-prep">+ Instrumentál</div>
+      <div class="vc-he">לסבול מ-</div>
+      <div class="vc-ex">Trpí bolestí hlavy.</div>
+      <div class="vc-exhe">הוא/היא סובל/ת מכאב ראש</div>
+    </div>
+    <div class="verb-card">
+      <div class="vc-verb">disponovat</div>
+      <div class="vc-prep">+ Instrumentál</div>
+      <div class="vc-he">להחזיק ב-, לכלול</div>
+      <div class="vc-ex">Disponuje volným časem.</div>
+      <div class="vc-exhe">יש לו/לה זמן פנוי</div>
+    </div>
+  </div>
+
+  <p class="stitle">stát se לעומת stávat se — חשוב!</p>
+
+  <div class="compare-grid">
+    <div class="compare-card left">
+      <div class="cc-label">stát se — פרפקטיב (חד-פעמי)</div>
+      <div class="cc-ex">Stal se lékařem.</div>
+      <div class="cc-he">הוא הפך לרופא (בעבר, פעם אחת)</div>
+    </div>
+    <div class="compare-card right">
+      <div class="cc-label">stávat se — אימפרפקטיב (חוזר)</div>
+      <div class="cc-ex">Stávalo se to často.</div>
+      <div class="cc-he">זה קרה לעתים קרובות</div>
+    </div>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ zajímat se — לא Instrumentál!</strong>
+    <span class="cz-phrase">zajímat se <b>o</b> + Akuzativ</span> = להתעניין ב- (o + Akuzativ, לא Instrumentál!)<br>
+    <span class="cz-phrase">Zajímám se o <b>hudbu</b>.</span> (hudba → hudbu = Akuzativ)<br>
+    לעומת: <span class="cz-phrase">zabývat se + Instrumentál</span> = לעסוק ב-<br>
+    <span class="cz-phrase">Zabývám se <b>hudbou</b>.</span> (hudba → hudbou = Instrumentál)
+  </div>
+
+  <p class="stitle">דוגמאות לשמיעה</p>
+
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Stal se lékařem.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Stal se <span class="hl">lékařem</span>.</span>
+    <span class="ex-he">הוא הפך לרופא</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Zabývám se fotografií.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Zabývám se <span class="hl">fotografií</span>.</span>
+    <span class="ex-he">אני עוסק/ת בצילום</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jsem spokojený se svou prací.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Jsem spokojený se svou <span class="hl">prací</span>.</span>
+    <span class="ex-he">אני מרוצה מהעבודה שלי</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Chce se stát programátorem.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Chce se stát <span class="hl">programátorem</span>.</span>
+    <span class="ex-he">הוא/היא רוצה להיות מתכנת/ת</span>
+  </div>
+
+  <div class="tip green">
+    <strong>🎯 שני צמדים לזכור</strong>
+    <span class="cz-phrase">stát se + Instrumentál</span> — להפוך ל- (Stal se <b>ředitelem</b>)<br>
+    <span class="cz-phrase">zabývat se + Instrumentál</span> — לעסוק ב- (Zabývám se <b>hudbou</b>)
+  </div>
+
+  <div class="step-nav">
+    <a href="b1-lesson4b.html" class="btn-back">→ 4ב — סיומות יחיד</a>
+    <a href="b1-lesson4d.html" class="btn-next">4ד — Instrumentál רבים ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson4c">
+  <div style="background:#f5f3ff;border:1px solid rgba(109,40,217,.15);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#4c1d95;">🔗 פעלים + Instrumentál</strong>
+    <div style="font-size:12px;line-height:2.2;color:#4c1d95;">
+      <b>být</b> — להיות (מקצוע)<br>
+      <b>stát se</b> — להפוך ל-<br>
+      <b>zabývat se</b> — לעסוק ב-<br>
+      <b>trpět</b> — לסבול מ-<br>
+      <b>disponovat</b> — להחזיק ב-
+    </div>
+  </div>
+  <div style="background:var(--amber-light);border:1px solid rgba(245,158,11,.2);border-radius:var(--rs);padding:12px;font-size:12.5px;color:#92400e;">
+    <strong style="display:block;margin-bottom:5px;">⚠️ zajímat se — שים לב!</strong>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;">zajímat se o</span> + <b>Akuzativ</b><br>
+    (לא Instrumentál!)
+  </div>
+</aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+function speak(t){
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='cs-CZ';u.rate=0.85;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>

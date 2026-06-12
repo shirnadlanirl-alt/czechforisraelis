@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6ה — תרגול מסכם | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;margin-bottom:4px;}
+    .page-header h1 .green{color:var(--green);}
+    .page-header p{font-size:14px;color:var(--muted);}
+    .layout{max-width:1060px;margin:0 auto;padding:28px 40px;display:grid;grid-template-columns:1fr 290px;gap:24px;}
+    .main-col{min-width:0;}
+    .quiz-wrap{display:flex;flex-direction:column;gap:18px;}
+    .q-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px;}
+    .q-num{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+    .q-text{font-size:15px;font-weight:500;margin-bottom:6px;line-height:1.6;}
+    .q-cz{display:inline-block;font-family:'Nunito',sans-serif;font-weight:700;font-size:17px;color:var(--gd);direction:ltr;unicode-bidi:isolate;margin-bottom:14px;background:var(--gl);padding:6px 14px;border-radius:var(--rs);}
+    .options{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .opt{padding:10px 16px;border-radius:var(--rs);border:1.5px solid var(--border);background:var(--white);font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-align:right;transition:all .15s;direction:ltr;unicode-bidi:isolate;}
+    .opt:hover:not(:disabled){border-color:var(--gm);background:var(--gl);}
+    .opt.correct{background:#d1fae5;border-color:#34d399;color:#065f46;}
+    .opt.wrong{background:#fee2e2;border-color:#f87171;color:#991b1b;}
+    .q-feedback{margin-top:10px;font-size:13px;border-radius:var(--rs);padding:8px 12px;display:none;}
+    .q-feedback.show{display:block;}
+    .q-feedback.ok{background:#d1fae5;color:#065f46;}
+    .q-feedback.err{background:#fee2e2;color:#991b1b;}
+    .score-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:32px;text-align:center;margin-top:18px;display:none;}
+    .score-box.show{display:block;}
+    .score-num{font-family:'Nunito',sans-serif;font-size:52px;font-weight:800;color:var(--green);}
+    .score-label{font-size:16px;color:var(--muted);margin-bottom:8px;}
+    .score-msg{font-size:15px;color:var(--text);margin-bottom:20px;}
+    .retry-btn{padding:12px 28px;border-radius:20px;background:var(--green);color:white;border:none;font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;cursor:pointer;}
+    .retry-btn:hover{opacity:.88;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .sidebar{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px;height:fit-content;}
+    .sidebar h3{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;margin-bottom:14px;color:var(--text);}
+    .sb-tip{font-size:13px;color:var(--gd);background:var(--gl);border-radius:var(--rs);padding:10px 12px;margin-bottom:10px;line-height:1.6;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){.breadcrumb,.page-header{padding-right:20px;padding-left:20px;}.layout{padding:18px 20px;grid-template-columns:1fr;}aside{display:none;}.options{grid-template-columns:1fr;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="b1.html">B1</a><span>›</span>
+  <a href="b1-lesson6.html">שיעור 6</a><span>›</span>
+  6ה — תרגול מסכם
+</div>
+
+<div class="page-header">
+  <h1>6ה: <span class="green">תרגול מסכם</span></h1>
+  <p>20 שאלות — Nominativ Ma, שינויי גזע, Akuzativ Ma, כל המינים ברבים.</p>
+</div>
+
+<div class="layout">
+  <div class="main-col">
+    <div id="quiz-root" class="quiz-wrap"></div>
+    <div id="score-box" class="score-box">
+      <div class="score-label">ניקוד</div>
+      <div class="score-num" id="score-num"></div>
+      <div class="score-msg" id="score-msg"></div>
+      <button class="retry-btn" onclick="initQuiz()">נסה שוב</button>
+    </div>
+    <div class="step-nav">
+      <a href="b1-lesson6d.html" class="btn-back">→ 6ד — שאר הסוגים</a>
+      <a href="b1-lesson7.html" class="btn-next">שיעור 7 — Aspekt ←</a>
+    </div>
+  </div>
+
+  <aside class="sidebar" data-page="b1-lesson6e">
+
+    <div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-inline-start:5px solid #1d4ed8;border-radius:var(--r);padding:16px;font-size:13px;color:#16385f;line-height:1.85;box-shadow:0 6px 18px rgba(17,69,126,.06);">
+      <strong style="display:block;margin-bottom:10px;font-size:14px;color:#1d4ed8;font-family:'Nunito',sans-serif;">📋 עזרה מהירה</strong>
+      <strong>Nom. Ma קשה → -i</strong><br>
+      student → studenti<br>
+      Čech → Češi (ch→š)<br>
+      doktor → doktoři (r→ř)<br>
+      Slovák → Slováci (k→c)<br>
+      <br>
+      <strong>Nom. Ma רך → -é / -i</strong><br>
+      muž → muži<br>
+      učitel → učitelé<br>
+      přítel → přátelé<br>
+      <br>
+      <strong>Ak. Ma רבים = Gen.</strong><br>
+      studenti → studenty<br>
+      muži → muže<br>
+      učitelé → učitele<br>
+      <br>
+      <strong>לא סדיר</strong><br>
+      člověk → lidé (Nom.)<br>
+      člověk → lidi (Ak.)
+    </div>
+
+  </aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script>
+const questions = [
+  {
+    q: "מה הצורה הנכונה של Nominativ רבים?",
+    cz: "student → studenti / studenty / studentů",
+    opts: ["studenti","studenty","studentů","studentem"],
+    ans: 0,
+    ex: "student → studenti — גזע קשה Ma, סיומת -i ללא שינוי (t נשאר)"
+  },
+  {
+    q: "שינוי גזע ch→š: מה הצורה הנכונה?",
+    cz: "Čech (Nom. רבים)",
+    opts: ["Češi","Čechi","Čechové","Čechy"],
+    ans: 0,
+    ex: "Čech → Češi — שינוי גזע ch→š לפני סיומת -i"
+  },
+  {
+    q: "שינוי גזע r→ř: מה הצורה הנכונה?",
+    cz: "doktor (Nom. רבים)",
+    opts: ["doktoři","doktori","doktorové","doktory"],
+    ans: 0,
+    ex: "doktor → doktoři — שינוי גזע r→ř לפני סיומת -i"
+  },
+  {
+    q: "שינוי גזע k→c: מה הצורה הנכונה?",
+    cz: "Slovák (Nom. רבים)",
+    opts: ["Slováci","Slováki","Slováky","Slováků"],
+    ans: 0,
+    ex: "Slovák → Slováci — שינוי גזע k→c לפני סיומת -i"
+  },
+  {
+    q: "גזע רך -l: מה הצורה הנכונה?",
+    cz: "učitel (Nom. רבים)",
+    opts: ["učitelé","učiteli","učitely","učitelů"],
+    ans: 0,
+    ex: "učitel → učitelé — גזע רך Ma, סיומת -é"
+  },
+  {
+    q: "הצורה הלא סדירה: מה הצורה הנכונה?",
+    cz: "přítel (Nom. רבים)",
+    opts: ["přátelé","přítelé","přátelí","příteli"],
+    ans: 0,
+    ex: "přítel → přátelé — שינוי תנועת הגזע (í→á) + סיומת -é"
+  },
+  {
+    q: "הצורה הלא סדירה ביותר: מה הצורה הנכונה?",
+    cz: "člověk (Nom. רבים)",
+    opts: ["lidé","člověci","lidí","člověky"],
+    ans: 0,
+    ex: "člověk → lidé — שינוי גזע מוחלט, לא סדיר לחלוטין"
+  },
+  {
+    q: "Akuzativ רבים Ma — בחר את הצורה הנכונה:",
+    cz: "Vidím ... (student, Ak. רבים)",
+    opts: ["studenty","studenti","studentů","studentům"],
+    ans: 0,
+    ex: "Vidím studenty — Ak. Ma רבים = Gen. רבים (studentů → studenty, לא studenti)"
+  },
+  {
+    q: "Akuzativ רבים Ma — בחר את הצורה הנכונה:",
+    cz: "Znám ty ... (muž, Ak. רבים)",
+    opts: ["muže","muži","mužů","mužem"],
+    ans: 0,
+    ex: "Znám ty muže — Ak. Ma רבים = Gen. רבים (mužů → muže)"
+  },
+  {
+    q: "Akuzativ רבים Ma — בחר את הצורה הנכונה:",
+    cz: "Vidím ... (učitel, Ak. רבים)",
+    opts: ["učitele","učitelé","učitelů","učitelům"],
+    ans: 0,
+    ex: "Vidím učitele — Ak. Ma רבים = Gen. רבים (učitelů → učitele)"
+  },
+  {
+    q: "Akuzativ רבים של člověk — הצורה הלא סדירה:",
+    cz: "Vidím ... (člověk → lidi, Ak. רבים)",
+    opts: ["lidi","lidé","lidí","lidům"],
+    ans: 0,
+    ex: "Vidím lidi — Ak. המיוחד של člověk ברבים הוא lidi (לא lidé)"
+  },
+  {
+    q: "זכר דומם — Nom. = Ak. רבים. מה הנכון?",
+    cz: "Vidím nové ... (stůl, זכר דומם)",
+    opts: ["stoly","stolu","stolů","stolům"],
+    ans: 0,
+    ex: "Vidím nové stoly — זכר דומם: Ak. רבים = Nom. רבים (-y), לא כמו Ma"
+  },
+  {
+    q: "נקבה -a — Nom. = Ak. רבים:",
+    cz: "Vidím krásné ... (žena, נקבה)",
+    opts: ["ženy","žen","ženě","ženám"],
+    ans: 0,
+    ex: "Vidím krásné ženy — נקבה -a: Ak. רבים = Nom. רבים (-y)"
+  },
+  {
+    q: "נקבה עיצור — Nom. = Ak. רבים:",
+    cz: "Vidím moderní ... (místnost, נקבה עיצור)",
+    opts: ["místnosti","místnostů","místnostech","místnostem"],
+    ans: 0,
+    ex: "Vidím moderní místnosti — נקבה עיצור: רבים -i, Ak. = Nom."
+  },
+  {
+    q: "נטרל -o — Nom. = Ak. רבים:",
+    cz: "Vidím velká ... (město, נטרל)",
+    opts: ["města","měst","městech","městům"],
+    ans: 0,
+    ex: "Vidím velká města — נטרל -o: Nom./Ak. רבים -a"
+  },
+  {
+    q: "מה ההבדל בין Nom. ל-Ak. רבים?",
+    cz: "To jsou studenti. / Vidím ...",
+    opts: ["Vidím studenty","Vidím studenti","Vidím studentů","Vidím studentem"],
+    ans: 0,
+    ex: "Nom.: studenti (נושא) / Ak.: studenty (מושא) = Gen. רבים — רק Ma!"
+  },
+  {
+    q: "מה הנכון ב-Nominativ רבים?",
+    cz: "bratr (אח, Ma קשה r→ř)",
+    opts: ["bratři","bratři","bratrové","bratry"],
+    ans: 0,
+    ex: "bratr → bratři — שינוי גזע r→ř, כמו doktor → doktoři"
+  },
+  {
+    q: "השלם: Slováci are from Slovakia. (Nom.)",
+    cz: "... jsou ze Slovenska.",
+    opts: ["Slováci","Slováky","Slováků","Slovákovi"],
+    ans: 0,
+    ex: "Slováci jsou ze Slovenska — Nom. Ma: Slovák → Slováci (k→c)"
+  },
+  {
+    q: "בחר את הצורה הנכונה ל-Ak. Ma רבים:",
+    cz: "Pozvala jsem ... na večeři. (přítel)",
+    opts: ["přátele","přátelé","přátel","přátelům"],
+    ans: 0,
+    ex: "Pozvala jsem přátele — Ak. Ma: přátelé (Nom.) → přátele (Ak. = Gen.)"
+  },
+  {
+    q: "מה ההבדל בין Ma לשאר המינים ב-Akuzativ רבים?",
+    cz: "Vidím stoly (Mi) / Vidím studenty (Ma)",
+    opts: ["Ma: Ak.=Gen. / שאר: Ak.=Nom.","Ma: Ak.=Nom. / שאר: Ak.=Gen.","אין הבדל","שניהם = Gen."],
+    ans: 0,
+    ex: "Ma בלבד: Ak. רבים = Gen. רבים. זכר דומם, נקבה, נטרל: Ak. = Nom."
+  }
+];
+
+let score = 0;
+let answered = 0;
+
+function initQuiz() {
+  const root = document.getElementById("quiz-root");
+  root.innerHTML = "";
+  score = 0; answered = 0;
+  document.getElementById("score-box").classList.remove("show");
+  questions.forEach((q, qi) => {
+    const card = document.createElement("div");
+    card.className = "q-card"; card.id = "q" + qi;
+    const optsHtml = q.opts.map((o, j) =>
+      `<button class="opt" onclick="answer(${qi},${j})">${o}</button>`
+    ).join("");
+    card.innerHTML = `
+      <div class="q-num">שאלה ${qi+1} מתוך ${questions.length}</div>
+      <div class="q-text">${q.q}</div>
+      <span class="q-cz">${q.cz}</span>
+      <div class="options">${optsHtml}</div>
+      <div class="q-feedback" id="fb${qi}"></div>
+    `;
+    root.appendChild(card);
+  });
+}
+
+function answer(qi, j) {
+  const card = document.getElementById("q" + qi);
+  const opts = card.querySelectorAll(".opt");
+  opts.forEach(o => o.disabled = true);
+  const fb = document.getElementById("fb" + qi);
+  const correct = questions[qi].ans;
+  opts[j].classList.add(j === correct ? "correct" : "wrong");
+  if (j !== correct) opts[correct].classList.add("correct");
+  fb.textContent = questions[qi].ex;
+  fb.className = "q-feedback show " + (j === correct ? "ok" : "err");
+  if (j === correct) score++;
+  answered++;
+  if (answered === questions.length) showScore();
+}
+
+function showScore() {
+  const sb = document.getElementById("score-box");
+  document.getElementById("score-num").textContent = score + "/" + questions.length;
+  let msg = "";
+  if (score === questions.length) msg = "מושלם! שלטת ברבים של כל המינים!";
+  else if (score >= 16) msg = "מצוין! כמעט מושלם — עוד קצת תרגול ואתה שם.";
+  else if (score >= 12) msg = "טוב! הבסיס חזק — שכלל את שינויי הגזע.";
+  else msg = "המשך לתרגל — שים דגש על שינויי גזע ו-Ak. Ma.";
+  document.getElementById("score-msg").textContent = msg;
+  sb.classList.add("show");
+}
+
+initQuiz();
+</script>
+</body>
+</html>

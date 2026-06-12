@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 5א — מה Dativ עושה? | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:#fef3c7;color:#92400e;border:1px solid #fcd34d;}
+    .tip.blue{background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.25);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;display:block;}
+    .use-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:14px;}
+    .use-card .uc-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#eff6ff;color:#0369a1;font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;margin-bottom:10px;float:left;margin-left:14px;flex-shrink:0;}
+    .use-card .uc-title{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--gd);margin-bottom:6px;}
+    .use-card .uc-rule{font-size:13.5px;line-height:1.7;color:var(--text);margin-bottom:10px;}
+    .uc-exs{display:flex;flex-direction:column;gap:5px;}
+    .uc-ex{background:#fafaf8;border-radius:var(--rs);padding:7px 12px;font-size:13px;}
+    .uc-ex .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:14px;color:var(--gd);}
+    .uc-ex .he{color:var(--muted);}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:28px;height:28px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl{background:#eff6ff;color:#0369a1;border-radius:4px;padding:1px 4px;font-weight:800;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .end-table{width:100%;border-collapse:collapse;margin-bottom:24px;font-size:14px;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);}
+    .font-family:'Nunito',sans-serif;}
+    .end-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+    .end-table .section-row td{background:#f0fdf4;font-weight:700;color:var(--gd);font-family:'Nunito',sans-serif;font-size:13px;letter-spacing:.05em;padding:8px 14px;}
+    .cz{font-family:'Nunito',sans-serif;color:var(--gd);font-weight:700;direction:ltr;unicode-bidi:isolate;}
+    .eb{background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:700;padding:2px 8px;border-radius:4px;font-size:13px;}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0;}
+    .compare-card{border-radius:var(--r);padding:16px 18px;border:1.5px solid;}
+    .compare-card.blue{background:#eff6ff;border-color:#93c5fd;}
+    .compare-card.green{background:var(--gl);border-color:var(--gm);}
+    .compare-card h4{font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;margin-bottom:8px;}
+    .compare-card.blue h4{color:#1d4ed8;}
+    .compare-card.green h4{color:var(--gd);}
+    .compare-card p{font-size:13px;line-height:1.7;}
+    .mutation-box{background:#fdf4ff;border:1px solid #d8b4fe;border-radius:var(--r);padding:16px 18px;margin:14px 0;}
+    .mutation-box h4{font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;color:#6b21a8;margin-bottom:10px;}
+    .mut-row{display:flex;gap:8px;align-items:center;font-size:13px;margin-bottom:5px;}
+    .mut-from{font-family:'Nunito',sans-serif;font-weight:700;color:var(--text);}
+    .mut-arr{color:var(--muted);}
+    .mut-to{font-family:'Nunito',sans-serif;font-weight:800;color:#7c3aed;}
+    .mut-ex{color:var(--muted);}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.compare-grid{grid-template-columns:1fr;}}
+
+  
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;margin-bottom:4px;}
+    .page-header h1 .green{color:var(--green);}
+    .page-header p{font-size:14px;color:var(--muted);}
+      .end-table td[class],.prep-table td[class]{text-align:center;}
+    </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="b1.html">B1</a><span>›</span>
+  <a href="b1-lesson5.html">שיעור 5 — Dativ</a><span>›</span>
+  5א — מה Dativ עושה?
+</div>
+<div class="page-header">
+  <h1>5א: <span class="green">מה Dativ עושה?</span></h1>
+  <p>שלושת השימושים: מושא עקיף (komu), פעלים מיוחדים ומילות יחס.</p>
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🎯 Dativ — שלושה שימושים עיקריים</strong>
+    השאלה: <b>״למי? / למה?״</b> (komu? / čemu?).<br>
+    שלושה מצבים: <b>מושא עקיף</b> (נתינה, אמירה, קנייה), <b>פעלים מיוחדים</b> (věřit, líbit se), ו-<b>מילות יחס</b> (k, naproti, díky).
+  </div>
+
+  <div class="use-card">
+    <div class="uc-num">1</div>
+    <div class="uc-title">מושא עקיף — komu? למי?</div>
+    <div class="uc-rule">
+      כשנותנים, אומרים, קונים, שולחים — <b>לְמִי</b>? זה Dativ. בעברית זה ה-ל׳ שמצטרפת לשם.<br>
+      <span class="cz-phrase">Dal jsem knihu <b>Petrovi</b>.</span> (נתתי ספר לפטר) ·
+      <span class="cz-phrase">Říkám <b>ti</b> pravdu.</span> (אני אומר לך אמת)
+    </div>
+    <div class="uc-exs">
+      <div class="uc-ex"><span class="cz">Dal jsem mamince květiny.</span> <span class="he">— נתתי לאמא פרחים</span></div>
+      <div class="uc-ex"><span class="cz">Koupil jsem sestře dárek.</span> <span class="he">— קניתי לאחות מתנה</span></div>
+      <div class="uc-ex"><span class="cz">Pošlu ti email.</span> <span class="he">— אשלח לך אימייל</span></div>
+      <div class="uc-ex"><span class="cz">Zavolám lékaři.</span> <span class="he">— אתקשר לרופא</span></div>
+    </div>
+  </div>
+
+  <div class="use-card">
+    <div class="uc-num">2</div>
+    <div class="uc-title">פעלים מיוחדים שדורשים Dativ</div>
+    <div class="uc-rule">
+      חלק מהפעלים תמיד מחייבים Dativ — ללמוד בעל פה.<br>
+      <span class="cz-phrase">věřit komu</span> (להאמין ל-) · <span class="cz-phrase">rozumět čemu</span> (להבין את) ·
+      <span class="cz-phrase">líbit se komu</span> (למצוא חן) · <span class="cz-phrase">pomoci komu</span> (לעזור ל-)
+    </div>
+    <div class="uc-exs">
+      <div class="uc-ex"><span class="cz">Věřím ti.</span> <span class="he">— אני מאמין לך (věřit komu)</span></div>
+      <div class="uc-ex"><span class="cz">Nerozumím české gramatice.</span> <span class="he">— לא מבין את הדקדוק הצ'כי</span></div>
+      <div class="uc-ex"><span class="cz">Líbí se mi Praha.</span> <span class="he">— פראג מוצאת חן בעיניי (mi = Dativ של já)</span></div>
+      <div class="uc-ex"><span class="cz">Pomůžeš mi?</span> <span class="he">— תעזור לי?</span></div>
+    </div>
+  </div>
+
+  <div class="use-card">
+    <div class="uc-num">3</div>
+    <div class="uc-title">מילות יחס + Dativ</div>
+    <div class="uc-rule">
+      מילות יחס אלה תמיד דורשות Dativ:<br>
+      <span class="cz-phrase">k / ke</span> (אל) · <span class="cz-phrase">naproti</span> (ממול) · <span class="cz-phrase">díky</span> (בזכות) · <span class="cz-phrase">navzdory</span> (למרות) · <span class="cz-phrase">oproti</span> (לעומת)
+    </div>
+    <div class="uc-exs">
+      <div class="uc-ex"><span class="cz">Jdu k lékaři.</span> <span class="he">— אני הולך לרופא</span></div>
+      <div class="uc-ex"><span class="cz">Banka je naproti škole.</span> <span class="he">— הבנק ממול בית הספר</span></div>
+      <div class="uc-ex"><span class="cz">Díky tobě jsem to zvládl.</span> <span class="he">— בזכותך הצלחתי</span></div>
+      <div class="uc-ex"><span class="cz">Navzdory počasí šli ven.</span> <span class="he">— למרות מזג האוויר יצאו</span></div>
+    </div>
+  </div>
+
+  <p class="stitle">דוגמאות לשמיעה</p>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Dal jsem knihu Petrovi.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Dal jsem knihu <span class='hl'>Petrovi</span>.</span>
+    <span class="ex-he">נתתי ספר לפטר</span>
+  </div>  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Líbí se mi Praha.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Líbí se <span class='hl'>mi</span> Praha.</span>
+    <span class="ex-he">פראג מוצאת חן בעיניי</span>
+  </div>  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jdu k lékaři.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Jdu k <span class='hl'>lékaři</span>.</span>
+    <span class="ex-he">אני הולך לרופא</span>
+  </div>  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Věřím ti.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Věřím <span class='hl'>ti</span>.</span>
+    <span class="ex-he">אני מאמין לך</span>
+  </div>  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Díky tobě jsem to zvládl.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+    <span class="ex-cz">Díky <span class='hl'>tobě</span> jsem to zvládl.</span>
+    <span class="ex-he">בזכותך הצלחתי</span>
+  </div>
+  <div class="tip blue">
+    <strong>💡 כינויי Dativ</strong>
+    já → <span class="cz-phrase">mi / mně</span> · ty → <span class="cz-phrase">ti / tobě</span> · on → <span class="cz-phrase">mu / jemu</span> · ona → <span class="cz-phrase">jí</span> · my → <span class="cz-phrase">nám</span> · vy → <span class="cz-phrase">vám</span> · oni → <span class="cz-phrase">jim</span>
+  </div>
+
+  <div class="tip amber">
+    <strong>⚠️ Dativ מול Akuzativ</strong>
+    Akuzativ = מושא ישיר (את מה/מי): <span class="cz-phrase">Dal jsem <b>knihu</b>.</span> (את הספר)<br>
+    Dativ = מושא עקיף (למי): <span class="cz-phrase">Dal jsem knihu <b>Petrovi</b>.</span> (לפטר)<br>
+    בדרך כלל שניהם מופיעים יחד באותו משפט!
+  </div>
+
+  <div class="step-nav">
+    <a href="b1-lesson5.html" class="btn-back">→ חזרה לשיעור 5</a>
+    <a href="b1-lesson5b.html" class="btn-next">5ב — סיומות יחיד ←</a>
+  </div>
+</main>
+<aside class="sidebar" data-page="b1-lesson5a">
+  <div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-inline-start:5px solid #1d4ed8;border-radius:var(--r);padding:14px;font-size:13px;color:#16385f;line-height:1.7;box-shadow:0 6px 18px rgba(17,69,126,.06);margin-bottom:12px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#1d4ed8;font-family:'Nunito',sans-serif;">🎯 3 שימושי Dativ</strong>
+    <div style="font-size:13px;line-height:2.0;color:#16385f;">
+      <b>1. מושא עקיף</b> — dát, říct, koupit komu<br>
+      <b>2. פעלים</b> — věřit, rozumět, líbit se<br>
+      <b>3. מילות יחס</b> — k, naproti, díky
+    </div>
+  </div>
+  <div style="background:var(--gl);border:1px solid rgba(29,158,117,.25);border-radius:var(--rs);padding:14px;font-size:12.5px;color:var(--gd);">
+    <strong style="display:block;margin-bottom:8px;">🔤 כינויי Dativ:</strong>
+    já → mi/mně<br>ty → ti/tobě<br>on → mu/jemu<br>ona → jí<br>my → nám · vy → vám · oni → jim
+  </div>
+</aside>
+</div>
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script>
+function speak(t){
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='cs-CZ';u.rate=0.85;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>

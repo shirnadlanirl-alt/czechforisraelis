@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 8ב — Vazby עם מיליות אחרות | C1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--indigo:#6366f1;--il:#ede9fe;--id:#3730a3;--im:#818cf8;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--indigo);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.indigo{background:var(--il);color:var(--id);border:1px solid rgba(99,102,241,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--id);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .vazba-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:12px;}
+    .vazba-card .cz{font-family:'Nunito',sans-serif;font-weight:800;font-size:17px;color:var(--id);direction:ltr;unicode-bidi:isolate;display:block;margin-bottom:4px;}
+    .vazba-card .case-badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;background:var(--il);color:var(--id);margin-bottom:8px;}
+    .vazba-card .he{font-size:14px;color:var(--text);font-weight:600;margin-bottom:8px;}
+    .vazba-card .ex{font-size:13px;color:var(--muted);background:#f8f7ff;border-radius:8px;padding:8px 12px;direction:ltr;unicode-bidi:isolate;line-height:1.6;}
+    .ex-play{width:22px;height:22px;border-radius:50%;background:var(--il);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:var(--id);transition:background .15s;margin-left:6px;vertical-align:middle;}
+    .ex-play:hover{background:var(--im);color:white;}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+    .compare-card{border-radius:var(--rs);padding:14px 16px;}
+    .compare-card.a{background:#fff7ed;border:1px solid rgba(249,115,22,.25);}
+    .compare-card.b{background:var(--il);border:1px solid rgba(99,102,241,.2);}
+    .compare-card .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+    .compare-card.a .label{color:#c2410c;}
+    .compare-card.b .label{color:var(--id);}
+    .compare-card .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:14px;margin-bottom:5px;line-height:1.5;}
+    .compare-card .he{font-size:13px;color:var(--muted);line-height:1.5;}
+    .end-table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13px;}
+    .end-table th{background:var(--id);color:white;font-weight:700;padding:9px 14px;font-size:11.5px;text-align:right;}
+    .end-table td{padding:9px 14px;border:1px solid var(--border);line-height:1.6;vertical-align:top;}
+    .end-table td.cz-cell{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;color:var(--id);background:#f8f7ff;}
+    .end-table tr:nth-child(even) td:not(.cz-cell){background:#fafaf8;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--indigo);color:var(--indigo);}
+    .btn-next{background:var(--indigo);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}.compare-grid{grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="c1.html">C1</a><span>›</span>
+  <a href="c1-lesson8.html">שיעור 8</a><span>›</span>
+  חלק ב — Vazby עם מיליות אחרות
+</div>
+<div class="layout">
+<main>
+
+<div class="why-box">
+  <strong>🔄 o × nad × s × z — כל מילית = עולם אחר</strong>
+  <span class="cz-phrase">přemýšlet o</span> vs <span class="cz-phrase">přemýšlet nad</span> — שניהם "לחשוב על", אבל המשמעות שונה. <span class="cz-phrase">dbát o</span> vs <span class="cz-phrase">dbát na</span> — שוב, שני ניואנסים שונים. זה הלב של Předložkové vazby ב-C1.
+</div>
+
+<div class="stitle">přemýšlet o × nad — "לחשוב על"</div>
+
+<div class="compare-grid">
+  <div class="compare-card a">
+    <div class="label">přemýšlet o čem (Lok.)</div>
+    <div class="cz">Přemýšlím o tom.</div>
+    <div class="he">אני חושב/ת על זה — בכלליות, בנינוחות</div>
+  </div>
+  <div class="compare-card b">
+    <div class="label">přemýšlet nad čím (Instr.)</div>
+    <div class="cz">Přemýšlím nad tím problémem.</div>
+    <div class="he">אני מתמודד/ת עם בעיה — עומק, מאמץ מחשבתי</div>
+  </div>
+</div>
+
+<div class="stitle">dbát o × dbát na — "לדאוג ל-"</div>
+
+<div class="compare-grid">
+  <div class="compare-card a">
+    <div class="label">dbát o co (Ak.) — לטפל ב-</div>
+    <div class="cz">Dbá o své zdraví.</div>
+    <div class="he">הוא/היא מטפל/ת בבריאות שלו/ה (אכפת לו/ה)</div>
+  </div>
+  <div class="compare-card b">
+    <div class="label">dbát na co (Ak.) — לשים לב ל-</div>
+    <div class="cz">Dbej na bezpečnost.</div>
+    <div class="he">שים/י לב לבטיחות (ציית, שמור/י)</div>
+  </div>
+</div>
+
+<div class="stitle">vazby נוספות חשובות</div>
+
+<div class="vazba-card">
+  <span class="cz">zajímat se o co (Ak.)</span>
+  <span class="case-badge">o + Akuzativ</span>
+  <div class="he">להתעניין ב-, לגלות עניין ב-</div>
+  <div class="ex">
+    <button class="ex-play" onclick="speak('Zajímám se o českou historii.')">▶</button>
+    Zajímám se o českou historii. — אני מתעניין/ת בהיסטוריה הצ'כית.
+  </div>
+</div>
+
+<div class="vazba-card">
+  <span class="cz">spoléhat se na koho/co (Ak.)</span>
+  <span class="case-badge">na + Akuzativ</span>
+  <div class="he">לסמוך על-, להתבסס על-</div>
+  <div class="ex">
+    <button class="ex-play" onclick="speak('Spoléhám se na veřejnou dopravu.')">▶</button>
+    Spoléhám se na veřejnou dopravu. — אני סומכ/ת על התחבורה הציבורית.
+  </div>
+</div>
+
+<div class="vazba-card">
+  <span class="cz">obávat se čeho (Gen.)</span>
+  <span class="case-badge">Genitiv (בלי מילית)</span>
+  <div class="he">לחשוש מ-, לפחד מ-</div>
+  <div class="ex">
+    <button class="ex-play" onclick="speak('Obávám se zpoždění.')">▶</button>
+    Obávám se zpoždění. — אני חושש/ת מעיכוב.
+  </div>
+</div>
+
+<div class="vazba-card">
+  <span class="cz">věřit v co (Ak.) × věřit komu (Dat.)</span>
+  <span class="case-badge">v + Ak. / Dativ</span>
+  <div class="he">להאמין במשהו (ערכי) / להאמין למישהו (אמון)</div>
+  <div class="ex">
+    <button class="ex-play" onclick="speak('Věřím v budoucnost. Věřím ti.')">▶</button>
+    Věřím v budoucnost. / Věřím ti. — אני מאמין/ת בעתיד. / אני מאמין/ת לך.
+  </div>
+</div>
+
+<div class="stitle">טבלת עזר מלאה</div>
+
+<table class="end-table">
+  <thead><tr><th>פועל</th><th>מילית + יחסה</th><th>עברית</th></tr></thead>
+  <tbody>
+    <tr><td class="cz-cell">zajímat se o</td><td>o + Akuzativ</td><td>להתעניין ב-</td></tr>
+    <tr><td class="cz-cell">přemýšlet o</td><td>o + Lokativ</td><td>לחשוב על- (בנינוחות)</td></tr>
+    <tr><td class="cz-cell">přemýšlet nad</td><td>nad + Instrumentál</td><td>להתמודד מחשבתית עם-</td></tr>
+    <tr><td class="cz-cell">spoléhat se na</td><td>na + Akuzativ</td><td>לסמוך על-</td></tr>
+    <tr><td class="cz-cell">dbát o</td><td>o + Akuzativ</td><td>לטפל ב-, לדאוג ל-</td></tr>
+    <tr><td class="cz-cell">dbát na</td><td>na + Akuzativ</td><td>לשים לב ל-, לציית ל-</td></tr>
+    <tr><td class="cz-cell">obávat se</td><td>Genitiv (ישיר)</td><td>לחשוש מ-</td></tr>
+    <tr><td class="cz-cell">věřit v</td><td>v + Akuzativ</td><td>להאמין ב- (ערכי)</td></tr>
+    <tr><td class="cz-cell">věřit komu</td><td>Dativ (ישיר)</td><td>להאמין למישהו</td></tr>
+  </tbody>
+</table>
+
+<div class="tip indigo">
+  <strong>🖊️ Doplňte správnou předložku</strong>
+  <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;">
+    <div style="background:rgba(255,255,255,.6);border-radius:8px;padding:10px 14px;">
+      <div style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;margin-bottom:4px;">1. Zajímám se _______ architekturu.</div>
+      <details><summary style="font-size:12px;cursor:pointer;color:var(--id);">הצג תשובה</summary><div style="direction:ltr;unicode-bidi:isolate;margin-top:4px;font-family:'Nunito',sans-serif;font-weight:800;color:#166534;">o architekturu</div></details>
+    </div>
+    <div style="background:rgba(255,255,255,.6);border-radius:8px;padding:10px 14px;">
+      <div style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;margin-bottom:4px;">2. Přemýšlím _______ tím problémem celý den.</div>
+      <details><summary style="font-size:12px;cursor:pointer;color:var(--id);">הצג תשובה</summary><div style="direction:ltr;unicode-bidi:isolate;margin-top:4px;font-family:'Nunito',sans-serif;font-weight:800;color:#166534;">nad tím problémem</div></details>
+    </div>
+    <div style="background:rgba(255,255,255,.6);border-radius:8px;padding:10px 14px;">
+      <div style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;margin-bottom:4px;">3. Spoléhám se _______ tebe.</div>
+      <details><summary style="font-size:12px;cursor:pointer;color:var(--id);">הצג תשובה</summary><div style="direction:ltr;unicode-bidi:isolate;margin-top:4px;font-family:'Nunito',sans-serif;font-weight:800;color:#166534;">na tebe</div></details>
+    </div>
+  </div>
+</div>
+
+<div class="step-nav">
+  <a href="c1-lesson8a.html" class="btn-back">← חלק א — Vazby s na</a>
+  <a href="c1-lesson8c.html" class="btn-next">חלק ג — Deverbativa ←</a>
+</div>
+</main>
+<aside class="sidebar" data-page="c1-lesson8b"></aside>
+</div>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script src="_shared/sidebar.js"></script>
+<script>
+function speak(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+</body>
+</html>

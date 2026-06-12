@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 4א — מה Instrumentál עושה? | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:var(--blue-light);color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.15);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .use-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:14px;}
+    .use-card .uc-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#6d28d9;color:white;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;margin-bottom:10px;float:right;margin-left:12px;}
+    .use-card .uc-title{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--gd);margin-bottom:6px;}
+    .use-card .uc-rule{font-size:13.5px;line-height:1.7;color:var(--text);margin-bottom:10px;}
+    .uc-exs{display:flex;flex-direction:column;gap:5px;}
+    .uc-ex{background:#fafaf8;border-radius:var(--rs);padding:7px 12px;font-size:13px;}
+    .uc-ex .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:14px;color:var(--gd);}
+    .uc-ex .he{color:var(--muted);}
+    .transport-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
+    .tc{background:var(--white);border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;text-align:center;}
+    .tc .emoji{font-size:22px;display:block;margin-bottom:4px;}
+    .tc .cz{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;font-size:14px;color:var(--gd);display:block;}
+    .tc .orig{font-family:'Nunito',sans-serif;font-size:11.5px;color:var(--muted);direction:ltr;unicode-bidi:isolate;display:block;}
+    .tc .he{font-size:12px;color:var(--muted);}
+    .ex-line{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1;direction:ltr;}
+    .ex-he{font-size:12.5px;color:var(--muted);flex:1;text-align:left;}
+    .ex-btn{width:28px;height:28px;border-radius:50%;background:var(--gl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-btn:hover{background:var(--gm);}
+    .ex-btn svg{width:9px;height:9px;fill:var(--gd);margin-right:-1px;}
+    .hl{color:var(--green);font-weight:900;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.transport-grid{grid-template-columns:repeat(2,1fr);}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson4.html">שיעור 4 — Instrumentál</a><span>›</span>4א — מה Instrumentál עושה?
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🛠️ Instrumentál — שלושה שימושים עיקריים</strong>
+    Instrumentál היא יחסה 7 — האחרונה! השאלה: <b>״עם מי? / במה?״</b> (s kým? čím?)<br>
+    שלושה שימושים שנפגוש יום-יום: לוואי עם <span class="cz-phrase">s/se</span>, אמצעי תחבורה, ומקצוע/תפקיד עם <span class="cz-phrase">být</span>.
+  </div>
+
+  <div class="use-card">
+    <div class="uc-num">1</div>
+    <div class="uc-title">s / se + Instrumentál — עם מי?</div>
+    <div class="uc-rule">
+      <b>s</b> (לפני עיצורים) / <b>se</b> (לפני שתי עיצורים או s/z) = עם.<br>
+      המילה שאחרי s/se עוברת ל-Instrumentál.<br>
+      <span class="cz-phrase">Jdu s <b>kamarádem</b>.</span> (הולך עם חבר) ·
+      <span class="cz-phrase">Mluvím s <b>učitelkou</b>.</span> (מדבר עם המורה)<br>
+      <span class="cz-phrase">Se <b>sestrou</b></span> (עם אחות — se כי s+s)
+    </div>
+    <div class="uc-exs">
+      <div class="uc-ex"><span class="cz">Jdu s kamarádem do kina.</span> <span class="he">— אני הולך עם חבר לקולנוע</span></div>
+      <div class="uc-ex"><span class="cz">Mluvím s Petrou.</span> <span class="he">— אני מדבר עם פטרה</span></div>
+      <div class="uc-ex"><span class="cz">Přišel se sestrou.</span> <span class="he">— הוא בא עם אחותו</span></div>
+      <div class="uc-ex"><span class="cz">Káva s mlékem.</span> <span class="he">— קפה עם חלב</span></div>
+    </div>
+  </div>
+
+  <div class="use-card">
+    <div class="uc-num">2</div>
+    <div class="uc-title">אמצעי תחבורה — במה נוסעים?</div>
+    <div class="uc-rule">
+      בצ'כית אמצעי התחבורה מגיע ב-Instrumentál <b>ללא מילת יחס</b> — ישירות!<br>
+      לא אומרים "v autobuse" (בתוך) כשמדברים על אמצעי נסיעה — אלא <span class="cz-phrase">autobusem</span>.
+    </div>
+    <div class="transport-grid">
+      <div class="tc"><span class="emoji">🚌</span><span class="cz">autobusem</span><span class="orig">autobus</span><span class="he">באוטובוס</span></div>
+      <div class="tc"><span class="emoji">🚋</span><span class="cz">tramvají</span><span class="orig">tramvaj</span><span class="he">בטרם</span></div>
+      <div class="tc"><span class="emoji">🚇</span><span class="cz">metrem</span><span class="orig">metro</span><span class="he">במטרו</span></div>
+      <div class="tc"><span class="emoji">🚗</span><span class="cz">autem</span><span class="orig">auto</span><span class="he">באוטו</span></div>
+      <div class="tc"><span class="emoji">🚂</span><span class="cz">vlakem</span><span class="orig">vlak</span><span class="he">ברכבת</span></div>
+      <div class="tc"><span class="emoji">✈️</span><span class="cz">letadlem</span><span class="orig">letadlo</span><span class="he">במטוס</span></div>
+      <div class="tc"><span class="emoji">🚲</span><span class="cz">na kole</span><span class="orig">kolo (na!)</span><span class="he">באופניים*</span></div>
+      <div class="tc"><span class="emoji">🚢</span><span class="cz">lodí</span><span class="orig">loď</span><span class="he">בספינה</span></div>
+      <div class="tc"><span class="emoji">🚶</span><span class="cz">pěšky</span><span class="orig">(תואר פועל)</span><span class="he">ברגל</span></div>
+    </div>
+    <div class="tip amber" style="margin:0;">
+      <strong>⚠️ אופניים — יוצא דופן!</strong>
+      <span class="cz-phrase">Jedu <b>na kole</b></span> (לא "kolem"!) — na + Lokál. זו חריגה נפוצה שחשוב לזכור.
+    </div>
+  </div>
+
+  <div class="use-card">
+    <div class="uc-num">3</div>
+    <div class="uc-title">být + Instrumentál — מקצוע ותפקיד</div>
+    <div class="uc-rule">
+      כשמצהירים על מקצוע או תפקיד עם הפועל <b>být</b>, המקצוע מגיע ב-Instrumentál.<br>
+      <em>שימו לב: בשפות אחרות אומרים "אני מורה" עם Nominativ. בצ'כית B1 — Instrumentál!</em><br>
+      <span class="cz-phrase">Jsem <b>učitelem</b>.</span> (גבר) · <span class="cz-phrase">Jsem <b>učitelkou</b>.</span> (אישה)<br>
+      <span class="cz-phrase">Pracuje jako <b>lékařem</b>.</span> — גם אחרי <span class="cz-phrase">jako</span> (כ-)
+    </div>
+    <div class="uc-exs">
+      <div class="uc-ex"><span class="cz">Jsem učitelem / učitelkou.</span> <span class="he">— אני מורה (גבר/אישה)</span></div>
+      <div class="uc-ex"><span class="cz">Chce být lékařem.</span> <span class="he">— הוא רוצה להיות רופא</span></div>
+      <div class="uc-ex"><span class="cz">Pracuje jako programátorem.</span> <span class="he">— הוא עובד כמתכנת</span></div>
+      <div class="uc-ex"><span class="cz">Stal se ředitelem.</span> <span class="he">— הוא הפך למנהל (stát se + Instrumentál)</span></div>
+    </div>
+  </div>
+
+  <p class="stitle">דוגמאות לשמיעה</p>
+
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jedu autobusem.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Jedu <span class="hl">autobusem</span>.</span>
+    <span class="ex-he">אני נוסע/ת באוטובוס</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jdu s kamarádem do kina.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Jdu s <span class="hl">kamarádem</span> do kina.</span>
+    <span class="ex-he">אני הולך עם חבר לקולנוע</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Jsem učitelkou.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Jsem <span class="hl">učitelkou</span>.</span>
+    <span class="ex-he">אני מורה (אישה)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Letíme letadlem do Tel Avivu.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Letíme <span class="hl">letadlem</span> do Tel Avivu.</span>
+    <span class="ex-he">אנחנו טסים במטוס לתל אביב</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-btn" onclick="speak('Přišel se sestrou.')">
+      <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+    </button>
+    <span class="ex-cz">Přišel se <span class="hl">sestrou</span>.</span>
+    <span class="ex-he">הוא בא עם אחותו (se כי s+s)</span>
+  </div>
+
+  <div class="tip green">
+    <strong>🎯 שלוש הדוגמאות לזכור</strong>
+    <span class="cz-phrase">Jedu <b>autobusem</b></span> (תחבורה, ללא מילת יחס) ·
+    <span class="cz-phrase">s <b>kamarádem</b></span> (עם + Instrumentál) ·
+    <span class="cz-phrase">Jsem <b>učitelkou</b></span> (מקצוע → Instrumentál)
+  </div>
+
+  <div class="step-nav">
+    <a href="b1-lesson4.html" class="btn-back">→ חזרה לשיעור 4</a>
+    <a href="b1-lesson4b.html" class="btn-next">4ב — סיומות יחיד ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson4a">
+  <div style="background:#f5f3ff;border:1px solid rgba(109,40,217,.15);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#4c1d95;">🛠️ 3 שימושי Instrumentál</strong>
+    <div style="font-size:12.5px;line-height:2.3;color:#4c1d95;">
+      <b>1. s/se + Instr</b> — עם מי<br>
+      <b>2. תחבורה</b> — autobusem, tramvají…<br>
+      <b>3. být + Instr</b> — מקצוע/תפקיד
+    </div>
+  </div>
+  <div style="background:var(--amber-light);border:1px solid rgba(245,158,11,.2);border-radius:var(--rs);padding:14px;font-size:12.5px;color:#92400e;">
+    <strong style="display:block;margin-bottom:6px;">⚠️ s לעומת se:</strong>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;">s</span> — לפני רוב העיצורים<br>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;">se</span> — לפני s/z/š/ž + צרורות עיצורים<br>
+    <span style="font-family:'Nunito',sans-serif;font-weight:800;">se sestrou · se mnou</span>
+  </div>
+</aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+function speak(t){
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='cs-CZ';u.rate=0.85;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>

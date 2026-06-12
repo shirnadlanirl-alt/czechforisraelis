@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 8 — Prefixy | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;margin-bottom:4px;}
+    .page-header h1 .green{color:var(--green);}
+    .page-header p{font-size:14px;color:var(--muted);}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:14px 18px;font-size:14px;color:var(--gd);line-height:1.7;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+    .sub-wrap{max-width:1060px;margin:0 auto;padding:24px 40px 40px;display:grid;grid-template-columns:1fr 290px;gap:24px;}
+    .sub-main{min-width:0;}
+    .sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;}
+    .sub-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px;text-decoration:none;color:var(--text);transition:all .2s;display:flex;flex-direction:column;gap:8px;position:relative;}
+    .sub-card:hover{border-color:var(--gm);transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,158,117,.1);}
+    .sub-num{position:absolute;top:18px;left:18px;width:32px;height:32px;border-radius:50%;background:var(--gl);color:var(--gd);font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;}
+    .sub-title{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--text);padding-right:42px;}
+    .sub-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+    .sub-meta{display:flex;gap:10px;margin-top:auto;padding-top:10px;font-size:11px;color:var(--green);font-weight:600;}
+    .sub-meta .dot{width:4px;height:4px;background:var(--muted);border-radius:50%;align-self:center;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .prep-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+    .pchip{padding:7px 16px;border-radius:20px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;direction:ltr;unicode-bidi:isolate;display:flex;flex-direction:column;align-items:center;gap:2px;}
+    .pchip .he{font-family:'Heebo',sans-serif;font-size:11px;font-weight:400;}
+    .pchip.blue{background:#eff6ff;color:#1d4ed8;}
+    .pchip.green{background:var(--gl);color:var(--gd);}
+    .pchip.amber{background:#fef3c7;color:#b45309;}
+    .pchip.teal{background:#ecfeff;color:#0e7490;}
+    .tip-row{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--r);padding:18px 22px;font-size:14px;color:var(--gd);line-height:1.7;}
+    .tip-row strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+    .b1-badge{background:linear-gradient(135deg,#0891b2 0%,#0e7490 100%);color:white;border-radius:var(--r);padding:18px 22px;margin-bottom:18px;display:flex;align-items:center;gap:14px;}
+    .b1-badge .badge-icon{font-size:32px;flex-shrink:0;}
+    .b1-badge-text{font-size:14px;line-height:1.6;}
+    .b1-badge-text strong{display:block;font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;margin-bottom:3px;}
+    .lesson-nav{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
+    .lesson-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .lesson-nav .ln-prev{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .lesson-nav .ln-prev:hover{border-color:var(--green);color:var(--green);}
+    .lesson-nav .ln-next{background:var(--green);color:white;}
+    .lesson-nav .ln-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){.breadcrumb,.page-header{padding-right:20px;padding-left:20px;}.sub-wrap{padding:18px 20px 30px;grid-template-columns:1fr;}aside.sidebar{display:none;}.sub-grid{grid-template-columns:1fr;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span>שיעור 8 — Prefixy
+</div>
+<div class="page-header">
+  <h1>שיעור 8: <span class="green">Prefixy — קידומות שמשנות משמעות</span></h1>
+  <p>כיצד prefix אחד יוצר פעלים שונים לגמרי: přijít, odejít, vyjít, vejít, přinést ועוד.</p>
+</div>
+<div class="sub-wrap">
+  <div class="sub-main">
+  <div class="b1-badge">
+    <div class="badge-icon">🔧</div>
+    <div class="b1-badge-text">
+      <strong>Prefixy — קידומות של כיוון ומשמעות</strong>
+      <span style="font-family:'Nunito',sans-serif;font-weight:700;">při-</span> (הגעה), <span style="font-family:'Nunito',sans-serif;font-weight:700;">od-</span> (עזיבה), <span style="font-family:'Nunito',sans-serif;font-weight:700;">vy-</span> (יציאה), <span style="font-family:'Nunito',sans-serif;font-weight:700;">v-</span> (כניסה) — ועוד. כשמבינים את הלוגיקה של prefix, לא צריך לשנן כל פועל בנפרד.
+    </div>
+  </div>
+  <div class="why-box">
+    <strong>🔧 למה prefixes חשובים?</strong>
+    <span class="cz-phrase">jít</span> + 7 prefixes = 7 פעלים שונים לגמרי. <span class="cz-phrase">nést</span> + אותם prefixes = עוד 7. ברגע שלומדים את הלוגיקה — המילון מתרחב פי כמה ללא מאמץ.
+  </div>
+  <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;">prefixes מרכזיים</p>
+  <div class="prep-row">
+    <div class="pchip teal">při- <span class="he">הגעה</span></div>
+    <div class="pchip teal">od- <span class="he">עזיבה</span></div>
+    <div class="pchip teal">vy- <span class="he">יציאה</span></div>
+    <div class="pchip teal">v- <span class="he">כניסה</span></div>
+    <div class="pchip blue">pře- <span class="he">חציה</span></div>
+    <div class="pchip blue">pro- <span class="he">מעבר</span></div>
+    <div class="pchip green">na- <span class="he">מלאות</span></div>
+    <div class="pchip amber">roz- <span class="he">פיזור</span></div>
+  </div>
+  <div class="sub-grid">
+    <a href="b1-lesson8a.html" class="sub-card">
+      <div class="sub-num">8א</div>
+      <div class="sub-title">מה Prefix עושה?</div>
+      <div class="sub-desc">הלוגיקה הבסיסית: prefix = כיוון. jít + 8 prefixes → 8 פעלים. טבלת prefixes עם משמעותם.</div>
+      <div class="sub-meta">⏱ 10 דקות <span class="dot"></span> כיוון, לוגיקה</div>
+    </a>
+    <a href="b1-lesson8b.html" class="sub-card">
+      <div class="sub-num">8ב</div>
+      <div class="sub-title">תנועה: jít ו-jet עם Prefixes</div>
+      <div class="sub-desc">כל prefix על שני פעלי התנועה הבסיסיים: přijít/přijet, odejít/odjet, vyjít/vyjet... + IPF (přicházet, přijíždět).</div>
+      <div class="sub-meta">⏱ 13 דקות <span class="dot"></span> jít, jet, IPF</div>
+    </a>
+    <a href="b1-lesson8c.html" class="sub-card">
+      <div class="sub-num">8ג</div>
+      <div class="sub-title">nést ו-vést עם Prefixes</div>
+      <div class="sub-desc">přinést/odnést/vynést (לשאת חפץ) ו-přivést/odvést (להוביל אדם). הבדל חשוב: přinést ≠ přivést.</div>
+      <div class="sub-meta">⏱ 11 דקות <span class="dot"></span> nést, vést, הבדל</div>
+    </a>
+    <a href="b1-lesson8d.html" class="sub-card">
+      <div class="sub-num">8ד</div>
+      <div class="sub-title">Prefixes כלליים</div>
+      <div class="sub-desc">na- (מלאות), vy- (ביצוע/הסבר), roz- (פיזור/החלטה), s-/se- (ירידה/פגישה), za- (שכחה/התחלה).</div>
+      <div class="sub-meta">⏱ 12 דקות <span class="dot"></span> na, vy, roz, za</div>
+    </a>
+    <a href="b1-lesson8e.html" class="sub-card">
+      <div class="sub-num">8ה</div>
+      <div class="sub-title">nastoupit / vystoupit / přestoupit</div>
+      <div class="sub-desc">לעלות לאוטובוס, לרדת בתחנה, להחליף קו — ומשמעויות נוספות: להתחיל עבודה, לנאום, לעבור על חוק.</div>
+      <div class="sub-meta">⏱ 8 דקות <span class="dot"></span> na-, vy-, pře-</div>
+    </a>
+    <a href="b1-lesson8f.html" class="sub-card">
+      <div class="sub-num">8ו</div>
+      <div class="sub-title">תרגול מסכם</div>
+      <div class="sub-desc">20 שאלות — prefixes של כיוון, jít/jet/nést עם prefixes, משמעויות na-/vy-/roz-/za-.</div>
+      <div class="sub-meta">⏱ 15 דקות <span class="dot"></span> 20 שאלות</div>
+    </a>
+  </div>
+  <div class="tip-row">
+    <strong>🔧 שלוש הדוגמאות שצריך לזכור</strong>
+    <span class="cz-phrase"><b>Při</b>šel jsem domů.</span> (הגעתי הביתה — při- = הגעה) ·
+    <span class="cz-phrase"><b>Při</b>nes mi kávu.</span> (הבא לי קפה — přinést = להביא חפץ) ·
+    <span class="cz-phrase"><b>Roz</b>hodl jsem se.</span> (החלטתי — roz- = פיזור → החלטה) —
+    כיוון, שאת, החלטה.
+  </div>
+  <div class="lesson-nav">
+    <a href="b1-lesson7.html" class="ln-prev">→ שיעור 7 — Aspekt</a>
+    <a href="b1-lesson8a.html" class="ln-next">התחל ב-8א ←</a>
+  </div>
+  </div>
+  <aside class="sidebar" data-page="b1-lesson8"></aside>
+</div>
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+</body>
+</html>

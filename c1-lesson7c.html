@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 7ג — משפטי רצון | C1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--indigo:#6366f1;--il:#ede9fe;--id:#3730a3;--im:#818cf8;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--indigo);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:var(--amber-light);color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.indigo{background:var(--il);color:var(--id);border:1px solid rgba(99,102,241,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--id);}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .wish-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:14px;}
+    .wish-card .cz{font-family:'Nunito',sans-serif;font-weight:800;font-size:17px;color:var(--id);direction:ltr;unicode-bidi:isolate;display:block;margin-bottom:6px;}
+    .wish-card .tone{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:8px;}
+    .tone-formal{background:#ede9fe;color:#3730a3;}
+    .tone-neutral{background:#dcfce7;color:#166534;}
+    .tone-emotional{background:#fce7f3;color:#9d174d;}
+    .wish-card .he{font-size:13.5px;color:var(--text);margin-bottom:10px;line-height:1.6;}
+    .wish-card .structure{font-size:12px;color:var(--muted);background:#f8f7ff;border-radius:8px;padding:7px 12px;direction:ltr;unicode-bidi:isolate;margin-bottom:8px;font-family:'Nunito',sans-serif;}
+    .ex-line{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;border-radius:var(--rs);background:rgba(255,255,255,.8);margin-bottom:6px;border:1px solid var(--border);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:700;color:var(--text);flex:1;direction:ltr;unicode-bidi:isolate;line-height:1.5;}
+    .ex-play{width:26px;height:26px;border-radius:50%;background:var(--il);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:var(--id);transition:background .15s;margin-top:2px;}
+    .ex-play:hover{background:var(--im);color:white;}
+    .ex-he{font-size:12px;color:var(--muted);flex:1;text-align:right;line-height:1.5;}
+    .end-table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13px;}
+    .end-table th{background:var(--id);color:white;font-weight:700;padding:9px 14px;font-size:11.5px;text-align:right;}
+    .end-table td{padding:9px 14px;border:1px solid var(--border);line-height:1.6;vertical-align:top;}
+    .end-table td.cz-cell{font-family:'Nunito',sans-serif;font-weight:800;direction:ltr;unicode-bidi:isolate;color:var(--id);background:#f8f7ff;}
+    .end-table tr:nth-child(even) td:not(.cz-cell){background:#fafaf8;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--indigo);color:var(--indigo);}
+    .btn-next{background:var(--indigo);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="c1.html">C1</a><span>›</span>
+  <a href="c1-lesson7.html">שיעור 7</a><span>›</span>
+  חלק ג — משפטי רצון
+</div>
+<div class="layout">
+<main>
+
+<div class="why-box">
+  <strong>✨ Přací věty — לבטא רצון בצ'כית</strong>
+  בעברית יש "הלוואי", "הלוואי ש-", "הייתי רוצה". בצ'כית: <span class="cz-phrase">Přál bych si</span>, <span class="cz-phrase">Kéž by</span>, <span class="cz-phrase">Kdyby tak</span>, <span class="cz-phrase">Ať</span> — כל אחד עם טון קצת אחר. ב-C1 חשוב לדעת את ההבדל.
+</div>
+
+<div class="stitle">ארבע דרכי ביטוי רצון</div>
+
+<div class="wish-card">
+  <span class="cz">Přál/a bych si, aby…</span>
+  <span class="tone tone-formal">פורמלי / רשמי</span>
+  <div class="he">הייתי רוצה ש… / הלוואי ש… (מנומס ומכיל)</div>
+  <div class="structure">Přál/a bych si + aby + kondicionál nebo sloveso</div>
+  <div class="ex-line">
+    <button class="ex-play" onclick="speak('Přál bych si, aby ses mi ozvala dřív.')">▶</button>
+    <span class="ex-cz">Přál bych si, aby ses mi ozvala dřív.</span>
+    <span class="ex-he">הייתי רוצה שהיית יוצרת איתי קשר מוקדם יותר.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-play" onclick="speak('Přála bych si, aby byl svět lepší.')">▶</button>
+    <span class="ex-cz">Přála bych si, aby byl svět lepší.</span>
+    <span class="ex-he">הייתי רוצה שהעולם יהיה טוב יותר.</span>
+  </div>
+</div>
+
+<div class="wish-card">
+  <span class="cz">Kéž by…</span>
+  <span class="tone tone-emotional">רגשי / ספרותי</span>
+  <div class="he">הלוואי ש… (חזק, רגשי, לעתים ייאוש או תקווה עמוקה)</div>
+  <div class="structure">Kéž by + kondicionál (přítomný nebo minulý)</div>
+  <div class="ex-line">
+    <button class="ex-play" onclick="speak('Kéž by přišel.')">▶</button>
+    <span class="ex-cz">Kéž by přišel.</span>
+    <span class="ex-he">הלוואי שהוא היה בא.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-play" onclick="speak('Kéž by to bylo jinak.')">▶</button>
+    <span class="ex-cz">Kéž by to bylo jinak.</span>
+    <span class="ex-he">הלוואי שזה היה אחרת.</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-play" onclick="speak('Kéž by aspoň zavolal!')">▶</button>
+    <span class="ex-cz">Kéž by aspoň zavolal!</span>
+    <span class="ex-he">הלוואי שלפחות היה מתקשר!</span>
+  </div>
+</div>
+
+<div class="wish-card">
+  <span class="cz">Kdyby tak…</span>
+  <span class="tone tone-neutral">שיחתי / יומיומי</span>
+  <div class="he">אילו לפחות… / לו רק… (בשיחה, פחות פורמלי מ-Kéž by)</div>
+  <div class="structure">Kdyby tak + kondicionál</div>
+  <div class="ex-line">
+    <button class="ex-play" onclick="speak('Kdyby tak nebyla taková zima!')">▶</button>
+    <span class="ex-cz">Kdyby tak nebyla taková zima!</span>
+    <span class="ex-he">לו רק לא היה כל כך קר!</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-play" onclick="speak('Kdyby tak byl tady!')">▶</button>
+    <span class="ex-cz">Kdyby tak byl tady!</span>
+    <span class="ex-he">לו רק היה פה!</span>
+  </div>
+</div>
+
+<div class="wish-card">
+  <span class="cz">Ať…!</span>
+  <span class="tone tone-neutral">ברכה / קריאה</span>
+  <div class="he">שיהיה…! (ברכה, קריאה, ביטוי רצון עבור מישהו אחר)</div>
+  <div class="structure">Ať + přítomný čas slovesa</div>
+  <div class="ex-line">
+    <button class="ex-play" onclick="speak('Ať se ti daří!')">▶</button>
+    <span class="ex-cz">Ať se ti daří!</span>
+    <span class="ex-he">שיצליח לך! (ברכה)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-play" onclick="speak('Ať žije republika!')">▶</button>
+    <span class="ex-cz">Ať žije republika!</span>
+    <span class="ex-he">שתחי הרפובליקה! (קריאה)</span>
+  </div>
+  <div class="ex-line">
+    <button class="ex-play" onclick="speak('Ať to dobře dopadne.')">▶</button>
+    <span class="ex-cz">Ať to dobře dopadne.</span>
+    <span class="ex-he">שיסתיים טוב. (איחול)</span>
+  </div>
+</div>
+
+<div class="stitle">טבלת סיכום</div>
+
+<table class="end-table">
+  <thead><tr><th>ביטוי</th><th>טון</th><th>שימוש</th></tr></thead>
+  <tbody>
+    <tr><td class="cz-cell">Přál/a bych si, aby…</td><td>פורמלי, כתיבה</td><td>רצון מנומס ואישי</td></tr>
+    <tr><td class="cz-cell">Kéž by…</td><td>רגשי, ספרותי</td><td>הלוואי עמוק — תקווה/ייאוש</td></tr>
+    <tr><td class="cz-cell">Kdyby tak…</td><td>שיחתי</td><td>לו רק — בשיחה יומיומית</td></tr>
+    <tr><td class="cz-cell">Ať…</td><td>ברכה / קריאה</td><td>שיהיה — ל"אחר"</td></tr>
+  </tbody>
+</table>
+
+<div class="tip amber">
+  <strong>⚠️ Kéž by × Kdyby tak — מתי כל אחד?</strong>
+  שניהם "הלוואי", אבל <span class="cz-phrase" style="direction:ltr;unicode-bidi:isolate;">Kéž by</span> הוא עמוק יותר, יותר ספרותי — תמצאו אותו בשירה, בספרים, בנאומים. <span class="cz-phrase" style="direction:ltr;unicode-bidi:isolate;">Kdyby tak</span> הוא מה שאומרים בחיים היומיומיים כשמשתחזרים ונאנחים.
+</div>
+
+<div class="step-nav">
+  <a href="c1-lesson7b.html" class="btn-back">← חלק ב — משפטי תנאי</a>
+  <a href="c1-lesson7d.html" class="btn-next">חלק ד — אוצר מילים ←</a>
+</div>
+</main>
+<aside class="sidebar" data-page="c1-lesson7c"></aside>
+</div>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script src="_shared/sidebar.js"></script>
+<script>
+function speak(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+</body>
+</html>

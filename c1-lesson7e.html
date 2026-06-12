@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 7ה — שיחה: Jak jsi poznal přítele? | C1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--indigo:#6366f1;--il:#ede9fe;--id:#3730a3;--im:#818cf8;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--indigo);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.indigo{background:var(--il);color:var(--id);border:1px solid rgba(99,102,241,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .round-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;margin-bottom:18px;}
+    .round-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--im);margin-bottom:10px;}
+    .context-box{background:#f8f7ff;border-radius:var(--rs);padding:12px 16px;margin-bottom:12px;font-size:13.5px;color:var(--muted);line-height:1.6;direction:ltr;unicode-bidi:isolate;text-align:left;}
+    .trigger{font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;color:var(--text);direction:ltr;unicode-bidi:isolate;margin-bottom:10px;line-height:1.5;display:block;}
+    .trigger-he{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.5;}
+    .answer-btn{background:var(--il);color:var(--id);border:none;padding:9px 18px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;font-family:'Heebo',sans-serif;}
+    .answer-btn:hover{background:var(--im);color:white;}
+    .answer-reveal{display:none;margin-top:14px;border-top:1px solid rgba(99,102,241,.15);padding-top:14px;}
+    .answer-reveal.open{display:block;}
+    .cz-part{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-size:14px;line-height:1.8;color:var(--text);background:#f0f0ff;border-radius:10px;padding:12px 16px;margin-bottom:8px;}
+    .note{font-size:13px;color:var(--muted);line-height:1.7;margin-top:6px;}
+    .play-btn{width:26px;height:26px;border-radius:50%;background:var(--il);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--id);transition:background .15s;vertical-align:middle;margin-left:6px;}
+    .play-btn:hover{background:var(--im);color:white;}
+    .phrase-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:14px;}
+    .phrase-box h3{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:var(--id);margin-bottom:10px;}
+    .phrase-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:7px;}
+    .phrase-cz{font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;font-size:13.5px;color:var(--text);flex:1;line-height:1.5;}
+    .phrase-he{font-size:13px;color:var(--muted);flex:1;text-align:right;line-height:1.5;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--indigo);color:var(--indigo);}
+    .btn-next{background:var(--indigo);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="c1.html">C1</a><span>›</span>
+  <a href="c1-lesson7.html">שיעור 7</a><span>›</span>
+  חלק ה — שיחה: Jak jsi poznal/a přítele?
+</div>
+<div class="layout">
+<main>
+
+<div class="why-box">
+  <strong>🤝 Jak jsi poznal/a svého nejlepšího přítele?</strong>
+  ארבעה סיבובי שיחה על היכרויות, רשתות חברתיות, וקשרים. הדגש: שימוש בקונדיציונל עבר (<span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">byl bych</span>), משפטי תנאי, ומשפטי רצון בהקשר אמיתי.
+</div>
+
+<div class="stitle">ביטויים לתיאור אנשים וקשרים</div>
+
+<div class="phrase-box">
+  <h3>💬 Popis člověka a vztahů</h3>
+  <div class="phrase-row">
+    <span class="phrase-cz">Poznali jsme se přes společného přítele.</span>
+    <span class="phrase-he">הכרנו דרך חבר משותף.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Hned si rozuměli jsme.</span>
+    <span class="phrase-he">מיד הסתדרנו / מיד לחצנו.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Máme hodně společného.</span>
+    <span class="phrase-he">יש לנו הרבה במשותף.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Je to člověk, na kterého se dá spolehnout.</span>
+    <span class="phrase-he">זה אדם שאפשר לסמוך עליו.</span>
+  </div>
+  <div class="phrase-row">
+    <span class="phrase-cz">Byl bych si nikdy nepomyslel, že…</span>
+    <span class="phrase-he">מעולם לא הייתי חושב ש… (קונדיציונל עבר)</span>
+  </div>
+</div>
+
+<!-- סיבוב 1 -->
+<div class="round-card">
+  <div class="round-label">סיבוב 1 מתוך 4</div>
+  <div class="context-box">Jste s kamarádem/kamarádkou na kávě a řeč přijde na to, jak se lidé dnes poznávají.</div>
+  <span class="trigger">„Jak jsi poznal/a svého nejlepšího kamaráda nebo kamarádku? Přes internet, nebo osobně?"</span>
+  <div class="trigger-he">"איך הכרת את החבר/ה הכי טוב/ה שלך? דרך האינטרנט או אישית?"</div>
+  <button class="answer-btn" onclick="toggleAnswer('a1')">הצג תשובה</button>
+  <div class="answer-reveal" id="a1">
+    <div class="cz-part">
+      <button class="play-btn" onclick="speak('Poznali jsme se osobně, na koleji. Byl bych si nikdy nepomyslel, že se staneme tak blízkými přáteli — zpočátku jsme si ani moc nerozuměli. Ale postupně jsme zjistili, že máme hodně společného.')">▶</button>
+      Poznali jsme se osobně, na koleji. Byl bych si nikdy nepomyslel, že se staneme tak blízkými přáteli — zpočátku jsme si ani moc nerozuměli. Ale postupně jsme zjistili, že máme hodně společného.
+    </div>
+    <div class="note">
+      <span style="direction:rtl;display:block;margin-top:6px;">
+        🔍 שימו לב: <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Byl bych si nikdy nepomyslel</span> — קונדיציונל עבר בהקשר טבעי. <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">postupně</span> = בהדרגה.
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- סיבוב 2 -->
+<div class="round-card">
+  <div class="round-label">סיבוב 2 מתוך 4</div>
+  <div class="context-box">Kamarád/ka se ptá na vztahy přes internet a dating aplikace.</div>
+  <span class="trigger">„Myslíš, že by mohla fungovat přátelství vzniklá výhradně přes internet — nikdy se osobně nesetkali?"</span>
+  <div class="trigger-he">"אתה/את חושב/ת שיכולה לפעול חברות שנוצרה אך ורק דרך האינטרנט — מעולם לא נפגשו אישית?"</div>
+  <button class="answer-btn" onclick="toggleAnswer('a2')">הצג תשובה</button>
+  <div class="answer-reveal" id="a2">
+    <div class="cz-part">
+      <button class="play-btn" onclick="speak('Myslím, že ano, ale bylo by to těžší. Kdybych nikdy osobně neviděl svého kamaráda, pravděpodobně bychom si tolik nerozuměli. Přesto si myslím, že online přátelství mohou být skutečná — záleží na tom, jak moc si dáváte do vztahu.')">▶</button>
+      Myslím, že ano, ale bylo by to těžší. Kdybych nikdy osobně neviděl svého kamaráda, pravděpodobně bychom si tolik nerozuměli. Přesto si myslím, že online přátelství mohou být skutečná — záleží na tom, jak moc si dáváte do vztahu.
+    </div>
+    <div class="note">
+      <span style="direction:rtl;display:block;margin-top:6px;">
+        🔍 שימו לב: <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Kdybych nikdy neviděl</span> — לא ריאלי הווה. <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">přesto</span> — ובכל זאת (C1). <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">pravděpodobně</span> — ביטוי עמדה.
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- סיבוב 3 -->
+<div class="round-card">
+  <div class="round-label">סיבוב 3 מתוך 4</div>
+  <div class="context-box">Kamarád/ka sdílí zkušenost s odepsáním starého přítele na sociálních sítích.</div>
+  <span class="trigger">„Stal/a ses mi z Instagramu — prostě tě tam nemám. Vadí ti to?"</span>
+  <div class="trigger-he">"הסרתי אותך מהאינסטגרם — פשוט אין לי אותך שם. זה מפריע לך?"</div>
+  <button class="answer-btn" onclick="toggleAnswer('a3')">הצג תשובה</button>
+  <div class="answer-reveal" id="a3">
+    <div class="cz-part">
+      <button class="play-btn" onclick="speak('Upřímně? Trochu mě to překvapilo. Přál bych si, abys mi to řekla dřív. Nicméně chápu, že každý má jiný vztah k sociálním sítím. Kdyby tak lidé nekombinovali online a offline přátelství — bylo by to jednodušší.')">▶</button>
+      Upřímně? Trochu mě to překvapilo. Přál bych si, abys mi to řekla dřív. Nicméně chápu, že každý má jiný vztah k sociálním sítím. Kdyby tak lidé nekombinovali online a offline přátelství — bylo by to jednodušší.
+    </div>
+    <div class="note">
+      <span style="direction:rtl;display:block;margin-top:6px;">
+        🔍 שימו לב: <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Přál bych si, abys</span> — משפט רצון פורמלי. <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Kdyby tak</span> — "לו רק" (שיחתי). <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">nicméně</span> — אולם (C1).
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- סיבוב 4 -->
+<div class="round-card">
+  <div class="round-label">סיבוב 4 מתוך 4</div>
+  <div class="context-box">Rozhovor se přesune na budoucnost — jak se bude vyvíjet přátelství v digitální době.</div>
+  <span class="trigger">„Jak si myslíš, že budeme navazovat přátelství za dvacet let? Virtuálně? Přes AI?"</span>
+  <div class="trigger-he">"איך אתה/את חושב/ת שנקשור חברויות בעוד עשרים שנה? וירטואלית? דרך AI?"</div>
+  <button class="answer-btn" onclick="toggleAnswer('a4')">הצג תשובה</button>
+  <div class="answer-reveal" id="a4">
+    <div class="cz-part">
+      <button class="play-btn" onclick="speak('Kéž by to bylo tak jednoduché — jen si vybrat přítele přes algoritmus. Ale myslím, že skutečné přátelství vždy bude potřebovat něco víc. Kdybychom se nikdy náhodně nepotkali, byl bych bych přišel o ty nejdůležitější lidi v mém životě. Přál bych si, aby technologie přátelství usnadnila, avšak ne nahradila.')">▶</button>
+      Kéž by to bylo tak jednoduché — jen si vybrat přítele přes algoritmus. Ale myslím, že skutečné přátelství vždy bude potřebovat něco víc. Kdybychom se nikdy náhodně nepotkali, byl bych přišel o ty nejdůležitější lidi v mém životě. Přál bych si, aby technologie přátelství usnadnila, avšak ne nahradila.
+    </div>
+    <div class="note">
+      <span style="direction:rtl;display:block;margin-top:6px;">
+        🔍 שימו לב: <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Kéž by</span> — הלוואי (ספרותי/רגשי). <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Kdybychom se nepotkali… byl bych přišel o</span> — לא ריאלי עבר. <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">Přál bych si, aby… avšak</span> — שילוב מושלם של השיעור.
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="tip indigo">
+  <strong>💡 סיכום שיעור 7</strong>
+  עכשיו יש לכם שלוש "כלי נשק" של הקונדיציונל המתקדם: קונדיציונל עבר (<span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">byl bych přišel</span>), שלושת סוגי התנאי (ריאלי/לא ריאלי הווה/לא ריאלי עבר), ומשפטי רצון (Přál bych si / Kéž by / Kdyby tak / Ať). כשמשלבים אותם בשיחה — זה C1 אמיתי.
+</div>
+
+<div class="step-nav">
+  <a href="c1-lesson7d.html" class="btn-back">← חלק ד — סושיאל מדיה</a>
+  <a href="c1-lesson8.html" class="btn-next">שיעור 8 — תחבורה ←</a>
+</div>
+</main>
+<aside class="sidebar" data-page="c1-lesson7e"></aside>
+</div>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script src="_shared/sidebar.js"></script>
+<script>
+function speak(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+function toggleAnswer(id){const el=document.getElementById(id);el.classList.toggle('open');}
+</script>
+</body>
+</html>

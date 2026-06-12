@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6ג — Akuzativ רבים: זכר חי | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:24px;font-weight:800;margin-bottom:4px;}
+    .page-header h1 .green{color:var(--green);}
+    .page-header p{font-size:14px;color:var(--muted);}
+    .layout{max-width:1060px;margin:0 auto;padding:28px 40px;display:grid;grid-template-columns:1fr 290px;gap:24px;}
+    .main-col{min-width:0;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:14px 18px;font-size:14px;color:var(--gd);line-height:1.7;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:4px;font-size:15px;}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;display:block;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .hl{background:#fff7ed;color:#c2410c;border-radius:4px;padding:1px 4px;font-weight:800;}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;}
+    .cmp-card{border-radius:var(--r);padding:18px;border:1px solid transparent;}
+    .cmp-card.nom{background:#eff6ff;border-color:#bfdbfe;}
+    .cmp-card.ak{background:#fff7ed;border-color:#fed7aa;}
+    .cmp-card h4{font-family:'Nunito',sans-serif;font-weight:800;font-size:15px;margin-bottom:10px;}
+    .cmp-card h4.blue{color:#1d4ed8;}
+    .cmp-card h4.orange{color:#c2410c;}
+    .cmp-row{display:flex;gap:10px;align-items:baseline;margin-bottom:8px;}
+    .cmp-cz{font-family:'Nunito',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;font-size:15px;}
+    .cmp-he{font-size:13px;color:var(--muted);}
+    .end-table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:24px;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);}
+    .end-table th{text-align:center;background:var(--gl);color:var(--gd);font-weight:700;padding:10px 14px;font-size:13px;}
+    .end-table td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6;}
+    .end-table tr:last-child td{border-bottom:none;}
+    .end-table .section-row td{background:#f0fdf4;font-weight:700;color:var(--gd);font-size:13px;letter-spacing:.05em;}
+    .end-table .cz-end{font-family:'Nunito',sans-serif;font-weight:800;color:#c2410c;direction:ltr;unicode-bidi:isolate;font-size:15px;}
+    .end-table .examples{font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);direction:ltr;unicode-bidi:isolate;font-size:13px;}
+    .ex-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+    .ex-line{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--white);border:1px solid var(--border);border-radius:var(--rs);}
+    .ex-line button{width:28px;height:28px;border-radius:50%;border:none;background:var(--gl);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    .ex-line button:hover{background:var(--gm);}
+    .ex-line button svg{width:10px;height:10px;fill:var(--gd);}
+    .ex-cz{font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);direction:ltr;unicode-bidi:isolate;font-size:15px;flex:1;}
+    .ex-he{font-size:13px;color:var(--muted);}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:16px;border:1px solid transparent;}
+    .tip.amber{background:#fef3c7;border-color:#fcd34d;color:#92400e;}
+    .tip.blue{background:#eff6ff;border-color:#bfdbfe;color:#1e40af;}
+    .tip.green{background:var(--gl);border-color:rgba(29,158,117,.25);color:var(--gd);}
+    .tip strong{font-weight:700;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    .sidebar{height:fit-content;display:flex;flex-direction:column;gap:12px;}
+    .sidebar h3{font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;margin-bottom:14px;color:var(--text);}
+    .sb-table{width:100%;border-collapse:collapse;font-size:13px;}
+    .sb-table th{background:var(--gl);color:var(--gd);font-weight:700;padding:6px 10px;text-align:right;}
+    .sb-table td{padding:6px 10px;border-bottom:1px solid var(--border);}
+    .sb-table tr:last-child td{border-bottom:none;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){.breadcrumb,.page-header{padding-right:20px;padding-left:20px;}.layout{padding:18px 20px;grid-template-columns:1fr;}aside{display:none;}.compare-grid{grid-template-columns:1fr;}}
+      .end-table td[class],.prep-table td[class]{text-align:center;}
+    </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="b1.html">B1</a><span>›</span>
+  <a href="b1-lesson6.html">שיעור 6</a><span>›</span>
+  6ג — Akuzativ רבים: זכר חי
+</div>
+
+<div class="page-header">
+  <h1>6ג: <span class="green">Akuzativ רבים — זכר חי</span></h1>
+  <p>הכלל הגדול: Akuzativ רבים של Ma = Genitiv רבים. דוגמאות, השוואות וטבלה.</p>
+</div>
+
+<div class="layout">
+  <div class="main-col">
+
+    <div class="why-box">
+      <strong>🎯 הכלל: Akuzativ Ma רבים = Genitiv רבים</strong>
+      כאשר זכר חי הוא <strong>מושא ישיר ברבים</strong> (Akuzativ רבים), הצורה זהה לצורת <strong>Genitiv רבים</strong> — לא Nominativ! הכלל הזה תקף רק לזכר חי (Ma). שאר המינים — Akuzativ רבים = Nominativ רבים.
+    </div>
+
+    <span class="stitle">Nominativ vs. Akuzativ — השוואה</span>
+    <div class="compare-grid">
+      <div class="cmp-card nom">
+        <h4 class="blue">Nominativ רבים Ma (נושא)</h4>
+        <div class="cmp-row"><div class="cmp-cz">Studenti přišli.</div><div class="cmp-he">הסטודנטים הגיעו.</div></div>
+        <div class="cmp-row"><div class="cmp-cz">Muži pracují.</div><div class="cmp-he">הגברים עובדים.</div></div>
+        <div class="cmp-row"><div class="cmp-cz">Doktoři jsou tady.</div><div class="cmp-he">הרופאים כאן.</div></div>
+      </div>
+      <div class="cmp-card ak">
+        <h4 class="orange">Akuzativ רבים Ma (מושא) = Genitiv</h4>
+        <div class="cmp-row"><div class="cmp-cz">Vidím studenty.</div><div class="cmp-he">אני רואה סטודנטים.</div></div>
+        <div class="cmp-row"><div class="cmp-cz">Znám ty muže.</div><div class="cmp-he">אני מכיר את הגברים.</div></div>
+        <div class="cmp-row"><div class="cmp-cz">Potřebuji doktory.</div><div class="cmp-he">אני צריך רופאים.</div></div>
+      </div>
+    </div>
+
+    <span class="stitle">טבלת Akuzativ רבים Ma — לפי גזע</span>
+    <table class="end-table">
+      <tr><th>יחיד (Nom.)</th><th>Nom. רבים</th><th>Gen. רבים</th><th class="cz-end" style="color:var(--gd);">Ak. רבים = Gen.</th><th>משמעות</th></tr>
+      <tr class="section-row"><td colspan="5">גזע קשה Ma</td></tr>
+      <tr>
+        <td><span class="cz-phrase">student</span></td>
+        <td><span class="examples">studenti</span></td>
+        <td><span class="examples">studentů</span></td>
+        <td class="cz-end">student<span style="color:#c2410c;">y</span></td>
+        <td>Vidím studenty</td>
+      </tr>
+      <tr>
+        <td><span class="cz-phrase">doktor</span></td>
+        <td><span class="examples">doktoři</span></td>
+        <td><span class="examples">doktorů</span></td>
+        <td class="cz-end">doktor<span style="color:#c2410c;">y</span></td>
+        <td>Vidím doktory</td>
+      </tr>
+      <tr>
+        <td><span class="cz-phrase">Slovák</span></td>
+        <td><span class="examples">Slováci</span></td>
+        <td><span class="examples">Slováků</span></td>
+        <td class="cz-end">Slovák<span style="color:#c2410c;">y</span></td>
+        <td>Znám Slováky</td>
+      </tr>
+      <tr class="section-row"><td colspan="5">גזע רך Ma</td></tr>
+      <tr>
+        <td><span class="cz-phrase">muž</span></td>
+        <td><span class="examples">muži</span></td>
+        <td><span class="examples">mužů</span></td>
+        <td class="cz-end">muž<span style="color:#c2410c;">e</span></td>
+        <td>Znám ty muže</td>
+      </tr>
+      <tr>
+        <td><span class="cz-phrase">učitel</span></td>
+        <td><span class="examples">učitelé</span></td>
+        <td><span class="examples">učitelů</span></td>
+        <td class="cz-end">učitel<span style="color:#c2410c;">e</span></td>
+        <td>Mám ráda učitele</td>
+      </tr>
+      <tr>
+        <td><span class="cz-phrase">přítel</span></td>
+        <td><span class="examples">přátelé</span></td>
+        <td><span class="examples">přátel</span></td>
+        <td class="cz-end">přátel<span style="color:#c2410c;">e</span></td>
+        <td>Vidím přátele</td>
+      </tr>
+      <tr class="section-row"><td colspan="5">לא סדיר</td></tr>
+      <tr>
+        <td><span class="cz-phrase">člověk</span></td>
+        <td><span class="examples">lidé</span></td>
+        <td><span class="examples">lidí</span></td>
+        <td class="cz-end">lid<span style="color:#c2410c;">i</span></td>
+        <td>Vidím lidi</td>
+      </tr>
+    </table>
+
+    <span class="stitle">דוגמאות לשמיעה</span>
+    <div class="ex-list">
+      <div class="ex-line">
+        <button onclick="speak('Vidím studenty a učitele.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div>
+          <div class="ex-cz">Vidím <span style="color:#c2410c;font-weight:800;">studenty</span> a <span style="color:#c2410c;font-weight:800;">učitele</span>.</div>
+          <div class="ex-he">אני רואה סטודנטים ומורים. (Ak. Ma רבים)</div>
+        </div>
+      </div>
+      <div class="ex-line">
+        <button onclick="speak('Pozvali jsme naše přátele.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div>
+          <div class="ex-cz">Pozvali jsme naše <span style="color:#c2410c;font-weight:800;">přátele</span>.</div>
+          <div class="ex-he">הזמנו את החברים שלנו. (Ak. Ma = přátele)</div>
+        </div>
+      </div>
+      <div class="ex-line">
+        <button onclick="speak('Znám ty muže z práce.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div>
+          <div class="ex-cz">Znám ty <span style="color:#c2410c;font-weight:800;">muže</span> z práce.</div>
+          <div class="ex-he">אני מכיר את הגברים האלה מהעבודה. (Ak. muže)</div>
+        </div>
+      </div>
+      <div class="ex-line">
+        <button onclick="speak('Na ulici vidím lidi.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div>
+          <div class="ex-cz">Na ulici vidím <span style="color:#c2410c;font-weight:800;">lidi</span>.</div>
+          <div class="ex-he">ברחוב אני רואה אנשים. (Ak. lidi — לא סדיר)</div>
+        </div>
+      </div>
+      <div class="ex-line">
+        <button onclick="speak('Potřebuji doktory a sestry.')"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></button>
+        <div>
+          <div class="ex-cz">Potřebuji <span style="color:#c2410c;font-weight:800;">doktory</span> a sestry.</div>
+          <div class="ex-he">אני צריך רופאים ואחיות. (Ak. Ma רבים: doktory)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip green">
+      <strong>✅ הכלל בקיצור</strong>
+      זכר דומם/נקבה/נטרל: Akuzativ רבים = Nominativ רבים.<br>
+      זכר חי בלבד: Akuzativ רבים = <strong>Genitiv</strong> רבים.<br>
+      לכן: <span class="cz-phrase">To jsou stoly</span> (Nom.) → <span class="cz-phrase">Vidím stoly</span> (Ak.) — זהה.<br>
+      <span class="cz-phrase">To jsou studenti</span> (Nom.) → <span class="cz-phrase">Vidím studenty</span> (Ak.) — שונה!
+    </div>
+
+    <div class="tip amber">
+      <strong>⚠️ הפעלים שדורשים Akuzativ Ma רבים</strong>
+      כל פועל יוצא (transitiv) כשהמושא הוא Ma רבים: <span class="cz-phrase">vidět, znát, mít rád, potřebovat, pozvat, navštívit, čekat na, hledat</span>... בכל המקרים האלה — Akuzativ Ma = Genitiv רבים.
+    </div>
+
+    <div class="step-nav">
+      <a href="b1-lesson6b.html" class="btn-back">→ 6ב — Nominativ רבים</a>
+      <a href="b1-lesson6d.html" class="btn-next">6ד — שאר הסוגים ←</a>
+    </div>
+
+  </div>
+
+  <aside class="sidebar" data-page="b1-lesson6c">
+    <div style="background:#f7faff;border:1px solid rgba(17,69,126,.14);border-radius:var(--r);padding:16px;">
+    <h3 style="font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:#11457E;margin-bottom:12px;">📋 Akuzativ Ma רבים = Gen.</h3>
+    <table class="sb-table">
+      <tr><th>יחיד</th><th>Ak. רבים</th></tr>
+      <tr><td style="font-family:'Nunito',sans-serif;font-weight:700;">student</td><td style="font-family:'Nunito',sans-serif;font-weight:700;color:#c2410c;">studenty</td></tr>
+      <tr><td style="font-family:'Nunito',sans-serif;font-weight:700;">doktor</td><td style="font-family:'Nunito',sans-serif;font-weight:700;color:#c2410c;">doktory</td></tr>
+      <tr><td style="font-family:'Nunito',sans-serif;font-weight:700;">muž</td><td style="font-family:'Nunito',sans-serif;font-weight:700;color:#c2410c;">muže</td></tr>
+      <tr><td style="font-family:'Nunito',sans-serif;font-weight:700;">učitel</td><td style="font-family:'Nunito',sans-serif;font-weight:700;color:#c2410c;">učitele</td></tr>
+      <tr><td style="font-family:'Nunito',sans-serif;font-weight:700;">přítel</td><td style="font-family:'Nunito',sans-serif;font-weight:700;color:#c2410c;">přátele</td></tr>
+      <tr><td style="font-family:'Nunito',sans-serif;font-weight:700;">člověk</td><td style="font-family:'Nunito',sans-serif;font-weight:700;color:#c2410c;">lidi</td></tr>
+    </table>
+    </div>
+    <div style="background:#eef4fb;border:1px solid rgba(17,69,126,.22);border-inline-start:5px solid #1d4ed8;border-radius:var(--r);padding:14px;font-size:13px;color:#16385f;line-height:1.7;box-shadow:0 6px 18px rgba(17,69,126,.06);">
+      <strong style="display:block;margin-bottom:4px;color:#1d4ed8;font-family:'Nunito',sans-serif;">זכר דומם, נקבה, נטרל:</strong>
+      Ak. רבים = Nom. רבים
+    </div>
+  </aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script>
+function speak(t){
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='cs-CZ';u.rate=0.85;
+  speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>

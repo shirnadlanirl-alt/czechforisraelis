@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 10א — Funkční styly češtiny | C1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--indigo:#6366f1;--il:#ede9fe;--id:#3730a3;--im:#818cf8;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--indigo);color:white;border-color:var(--indigo);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--indigo);text-decoration:none;}
+    .page-header{background:var(--white);border-bottom:1px solid var(--border);padding:22px 40px 24px;}
+    .page-header h1{font-family:'Nunito',sans-serif;font-size:26px;font-weight:800;color:var(--text);margin-bottom:4px;}
+    .page-header p{font-size:14px;color:var(--muted);max-width:700px;line-height:1.65;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--il);border:1px solid rgba(99,102,241,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--id);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .tip{border-radius:var(--rs);padding:14px 18px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+    .tip.amber{background:#fef3c7;color:#92400e;border:1px solid rgba(245,158,11,.2);}
+    .tip.blue{background:#eff6ff;color:#1e40af;border:1px solid rgba(59,130,246,.2);}
+    .tip.green{background:var(--gl);color:var(--gd);border:1px solid rgba(29,158,117,.2);}
+    .tip.indigo{background:var(--il);color:var(--id);border:1px solid rgba(99,102,241,.2);}
+    .tip strong{font-weight:700;display:block;margin-bottom:5px;}
+    .stitle{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+    .style-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:20px;}
+    .style-table th{padding:10px 14px;text-align:right;font-weight:700;border:1px solid var(--border);}
+    .style-table td{padding:10px 14px;border:1px solid var(--border);vertical-align:top;line-height:1.5;}
+    .style-table .cz{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;text-align:left;}
+    .style-table .th-hovorovy{background:#fef3c7;}
+    .style-table .th-neutralni{background:#f0fdf4;}
+    .style-table .th-odborny{background:#eff6ff;}
+    .style-table .th-knizni{background:var(--il);}
+    .style-table .td-hovorovy{background:#fffbeb;}
+    .style-table .td-neutralni{background:#f0fdf4;}
+    .style-table .td-odborny{background:#eff6ff;}
+    .style-table .td-knizni{background:#f5f3ff;}
+    .play-btn{width:24px;height:24px;border-radius:50%;background:var(--il);border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:var(--id);transition:background .15s;vertical-align:middle;margin-left:4px;}
+    .play-btn:hover{background:var(--im);color:white;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--indigo);color:var(--indigo);}
+    .btn-next{background:var(--indigo);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.style-table{font-size:11px;}}
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="c1.html">C1</a><span>›</span>
+  <a href="c1-lesson10.html">שיעור 10</a><span>›</span>
+  חלק א — Funkční styly češtiny
+</div>
+<div class="page-header">
+  <h1>שיעור 10א — <span style="color:var(--indigo)">Funkční styly češtiny</span></h1>
+  <p>hovorový · neutrální · odborný · knižní — ארבעת הסגנונות הפונקציונליים של הצ'כית.</p>
+</div>
+<div class="layout">
+<main>
+
+<div class="why-box">
+  <strong>🎭 Funkční styly — ארבע פנים של אותה שפה</strong>
+  ב-C1 לא מספיק לדעת מה נכון — צריך לדעת מה מתאים להקשר. אותה מחשבה ניתן לבטא ב-4 דרכים שונות: שיחתית, ניטרלית, מקצועית, וספרותית. הבדל זה הוא מה שמבדיל דובר שוטף מדובר מתוחכם.
+</div>
+
+<div class="stitle">ארבע הרמות — סקירה</div>
+
+<div class="tip blue">
+  <strong>📊 hovorový · neutrální · odborný · knižní</strong>
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">hovorový</span> — שיחתי (חברים, משפחה, יומיום לא-פורמלי)<br>
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">neutrální</span> — ניטרלי (שפה סטנדרטית, מדיה, שיחות נורמליות)<br>
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">odborný</span> — מקצועי (מסמכים, דוחות, ספרות מקצועית)<br>
+  <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;">knižní</span> — ספרותי/רשמי מאוד (ספרות, נאומים, כתיבה גבוהה)
+</div>
+
+<div class="stitle">טבלת השוואה — אותה משמעות, 4 סגנונות</div>
+
+<table class="style-table">
+  <tr>
+    <th>משמעות</th>
+    <th class="th-hovorovy">hovorový</th>
+    <th class="th-neutralni">neutrální</th>
+    <th class="th-odborny">odborný</th>
+    <th class="th-knizni">knižní</th>
+  </tr>
+  <tr>
+    <td>לראות / לשים לב</td>
+    <td class="cz td-hovorovy"><button class="play-btn" onclick="speak('vidět')">▶</button> vidět</td>
+    <td class="cz td-neutralni"><button class="play-btn" onclick="speak('pozorovat')">▶</button> pozorovat</td>
+    <td class="cz td-odborny"><button class="play-btn" onclick="speak('zaznamenat')">▶</button> zaznamenat</td>
+    <td class="cz td-knizni"><button class="play-btn" onclick="speak('spatřovat')">▶</button> spatřovat</td>
+  </tr>
+  <tr>
+    <td>לנסות / לשאוף</td>
+    <td class="cz td-hovorovy"><button class="play-btn" onclick="speak('snažit se')">▶</button> snažit se</td>
+    <td class="cz td-neutralni"><button class="play-btn" onclick="speak('pokusit se')">▶</button> pokusit se</td>
+    <td class="cz td-odborny"><button class="play-btn" onclick="speak('usilovat o')">▶</button> usilovat o</td>
+    <td class="cz td-knizni"><button class="play-btn" onclick="speak('aspirovat na')">▶</button> aspirovat na</td>
+  </tr>
+  <tr>
+    <td>לדבר על / להצביע על</td>
+    <td class="cz td-hovorovy"><button class="play-btn" onclick="speak('říkat')">▶</button> říkat</td>
+    <td class="cz td-neutralni"><button class="play-btn" onclick="speak('upozorňovat')">▶</button> upozorňovat</td>
+    <td class="cz td-odborny"><button class="play-btn" onclick="speak('poukazovat na')">▶</button> poukazovat na</td>
+    <td class="cz td-knizni"><button class="play-btn" onclick="speak('poukázat na skutečnost')">▶</button> poukázat na skutečnost</td>
+  </tr>
+  <tr>
+    <td>להתחיל</td>
+    <td class="cz td-hovorovy"><button class="play-btn" onclick="speak('začít')">▶</button> začít</td>
+    <td class="cz td-neutralni"><button class="play-btn" onclick="speak('zahájit')">▶</button> zahájit</td>
+    <td class="cz td-odborny"><button class="play-btn" onclick="speak('iniciovat')">▶</button> iniciovat</td>
+    <td class="cz td-knizni"><button class="play-btn" onclick="speak('přistoupit k')">▶</button> přistoupit k</td>
+  </tr>
+  <tr>
+    <td>להשתמש</td>
+    <td class="cz td-hovorovy"><button class="play-btn" onclick="speak('používat')">▶</button> používat</td>
+    <td class="cz td-neutralni"><button class="play-btn" onclick="speak('využívat')">▶</button> využívat</td>
+    <td class="cz td-odborny"><button class="play-btn" onclick="speak('aplikovat')">▶</button> aplikovat</td>
+    <td class="cz td-knizni"><button class="play-btn" onclick="speak('pracovat s nástrojem')">▶</button> pracovat s nástrojem</td>
+  </tr>
+  <tr>
+    <td>לחשוב</td>
+    <td class="cz td-hovorovy"><button class="play-btn" onclick="speak('myslet')">▶</button> myslet</td>
+    <td class="cz td-neutralni"><button class="play-btn" onclick="speak('domnívat se')">▶</button> domnívat se</td>
+    <td class="cz td-odborny"><button class="play-btn" onclick="speak('předpokládat')">▶</button> předpokládat</td>
+    <td class="cz td-knizni"><button class="play-btn" onclick="speak('zastávat názor')">▶</button> zastávat názor</td>
+  </tr>
+  <tr>
+    <td>לאפשר</td>
+    <td class="cz td-hovorovy"><button class="play-btn" onclick="speak('dovolit')">▶</button> dovolit</td>
+    <td class="cz td-neutralni"><button class="play-btn" onclick="speak('umožnit')">▶</button> umožnit</td>
+    <td class="cz td-odborny"><button class="play-btn" onclick="speak('poskytnout podmínky')">▶</button> poskytnout podmínky</td>
+    <td class="cz td-knizni"><button class="play-btn" onclick="speak('připustit')">▶</button> připustit</td>
+  </tr>
+  <tr>
+    <td>לדרוש / להכיל</td>
+    <td class="cz td-hovorovy"><button class="play-btn" onclick="speak('potřebovat')">▶</button> potřebovat</td>
+    <td class="cz td-neutralni"><button class="play-btn" onclick="speak('vyžadovat')">▶</button> vyžadovat</td>
+    <td class="cz td-odborny"><button class="play-btn" onclick="speak('implikovat')">▶</button> implikovat</td>
+    <td class="cz td-knizni"><button class="play-btn" onclick="speak('předpokládat nutnost')">▶</button> předpokládat nutnost</td>
+  </tr>
+</table>
+
+<div class="tip amber">
+  <strong>⚠️ hovorový ≠ טעות!</strong>
+  שפה שיחתית אינה שגויה — היא מתאימה בהקשרים בלתי-פורמליים. הבעיה מתחילה כשמשתמשים ב-hovorový בהקשר שדורש odborný או knižní, ולהיפך — ניסוח ספרותי בשיחה יומיומית נשמע מוזר ומרוחק.
+</div>
+
+<div class="stitle">אותו משפט — 4 סגנונות</div>
+
+<div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;margin-bottom:20px;">
+  <div style="font-size:13px;color:var(--muted);margin-bottom:10px;">🌡️ נושא: "חשוב לטפל בבריאות הנפשית"</div>
+  <div style="margin-bottom:10px;">
+    <span style="font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:10px;">hovorový</span><br>
+    <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;font-size:14px;"><button class="play-btn" onclick="speak('Je fakt důležitý dávat si pozor na psychiku.')">▶</button> Je fakt důležitý dávat si pozor na psychiku.</span>
+  </div>
+  <div style="margin-bottom:10px;">
+    <span style="font-size:11px;font-weight:700;background:#f0fdf4;color:#065f46;padding:2px 8px;border-radius:10px;">neutrální</span><br>
+    <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;font-size:14px;"><button class="play-btn" onclick="speak('Je důležité pečovat o duševní zdraví.')">▶</button> Je důležité pečovat o duševní zdraví.</span>
+  </div>
+  <div style="margin-bottom:10px;">
+    <span style="font-size:11px;font-weight:700;background:#eff6ff;color:#1e40af;padding:2px 8px;border-radius:10px;">odborný</span><br>
+    <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;font-size:14px;"><button class="play-btn" onclick="speak('Péče o duševní pohodu představuje klíčový aspekt celkového zdraví jedince.')">▶</button> Péče o duševní pohodu představuje klíčový aspekt celkového zdraví jedince.</span>
+  </div>
+  <div>
+    <span style="font-size:11px;font-weight:700;background:var(--il);color:var(--id);padding:2px 8px;border-radius:10px;">knižní</span><br>
+    <span style="direction:ltr;unicode-bidi:isolate;font-family:'Nunito';font-weight:700;font-size:14px;"><button class="play-btn" onclick="speak('Péče o duši jest zárukou všestranného blaha člověka.')">▶</button> Péče o duši jest zárukou všestranného blaha člověka.</span>
+  </div>
+</div>
+
+<div class="tip green">
+  <strong>✅ מה ב-C1 נדרש?</strong>
+  ב-C1 מצפים ממך להשתמש ב-neutrální ו-odborný בצורה טבעית, ולזהות knižní ו-hovorový בקריאה. לא מצפים שתדבר כמו ספר — אבל כן מצפים שתדע מה כל סגנון מבטא.
+</div>
+
+<div class="step-nav">
+  <a href="c1-lesson10.html" class="btn-back">← סקירת שיעור 10</a>
+  <a href="c1-lesson10b.html" class="btn-next">חלק ב — ניבים ספרותיים ←</a>
+</div>
+</main>
+<aside class="sidebar" data-page="c1-lesson10a"></aside>
+</div>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+<script src="_shared/sidebar.js"></script>
+<script>
+function speak(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='cs-CZ';u.rate=0.85;window.speechSynthesis.speak(u);}
+</script>
+</body>
+</html>

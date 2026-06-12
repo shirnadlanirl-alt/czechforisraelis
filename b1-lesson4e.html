@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שיעור 4ה — תרגול מסכם Instrumentál | B1 | צ'כית בעברית</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#1D9E75;--gl:#E1F5EE;--gd:#085041;--gm:#5DCAA5;--text:#1a1a1a;--muted:#6b7280;--bg:#fafaf8;--white:#fff;--border:rgba(0,0,0,0.08);--r:16px;--rs:10px;--amber-light:#fef3c7;--blue-light:#eff6ff;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+    @media (min-width: 769px) { body { zoom: 1.2; } }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+    .logo{font-family:'Nunito',sans-serif;font-size:22px;font-weight:800;color:var(--text);text-decoration:none;}.logo span{color:var(--green);}
+    .level-tabs{display:flex;gap:6px;}
+    .ltab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--muted);text-decoration:none;transition:all .15s;}
+    .ltab.active{background:var(--green);color:white;border-color:var(--green);}
+    .ltab:hover:not(.active){border-color:var(--green);color:var(--green);}
+    .dict-btn{font-size:14px;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:20px;border:1px solid var(--border);transition:all .15s;}
+    .dict-btn:hover{color:var(--green);border-color:var(--green);}
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--muted);background:var(--white);border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--green);text-decoration:none;}
+    .breadcrumb span{margin:0 6px;}
+    .layout{display:grid;grid-template-columns:1fr 290px;gap:24px;max-width:1060px;margin:0 auto;padding:28px 40px;}
+    .why-box{background:var(--gl);border:1px solid rgba(29,158,117,.15);border-radius:var(--rs);padding:16px 20px;font-size:14px;color:var(--gd);line-height:1.75;margin-bottom:24px;}
+    .why-box strong{font-weight:700;display:block;margin-bottom:5px;font-size:15.5px;}
+    .cz-phrase{direction:ltr;unicode-bidi:isolate;font-family:'Nunito',sans-serif;font-weight:700;color:var(--gd);}
+    .quiz-wrap{margin-bottom:24px;}
+    .q-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:12px;}
+    .q-num{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.06em;}
+    .q-text{font-size:15px;font-weight:600;margin-bottom:12px;line-height:1.5;}
+    .q-cz{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;direction:ltr;unicode-bidi:isolate;color:var(--text);margin-bottom:10px;display:block;}
+    .options{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .opt{padding:10px 14px;border-radius:var(--rs);border:1.5px solid var(--border);background:var(--white);font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-align:center;direction:ltr;transition:all .15s;}
+    .opt:hover:not(:disabled){border-color:var(--gm);background:var(--gl);}
+    .opt.correct{background:#dcfce7;border-color:#16a34a;color:#15803d;}
+    .opt.wrong{background:#fee2e2;border-color:#dc2626;color:#dc2626;}
+    .q-feedback{margin-top:10px;font-size:13px;line-height:1.6;display:none;padding:10px 14px;border-radius:var(--rs);}
+    .q-feedback.show{display:block;}
+    .q-feedback.ok{background:#dcfce7;color:#15803d;}
+    .q-feedback.err{background:#fee2e2;color:#dc2626;}
+    .score-box{background:var(--white);border:2px solid var(--green);border-radius:var(--r);padding:28px 22px;text-align:center;margin-top:20px;display:none;}
+    .score-box.show{display:block;}
+    .score-num{font-family:'Nunito',sans-serif;font-size:56px;font-weight:800;color:var(--green);}
+    .score-label{font-size:16px;color:var(--muted);margin-top:6px;}
+    .score-msg{font-size:15px;font-weight:600;margin-top:12px;color:var(--text);}
+    .retry-btn{margin-top:16px;padding:10px 28px;border-radius:20px;background:var(--green);color:white;border:none;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;}
+    .retry-btn:hover{opacity:.88;}
+    .step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+    .step-nav a{padding:10px 22px;border-radius:20px;font-size:14px;font-weight:700;text-decoration:none;transition:all .15s;}
+    .btn-back{border:1.5px solid var(--border);background:var(--white);color:var(--muted);}
+    .btn-back:hover{border-color:var(--green);color:var(--green);}
+    .btn-next{background:var(--green);color:white;}
+    .btn-next:hover{opacity:.88;}
+    footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);}
+    footer a{color:var(--green);text-decoration:none;}
+    @media(max-width:768px){nav{padding:14px 20px;}.level-tabs{display:none;}.breadcrumb{padding:12px 20px;}.layout{padding:20px;grid-template-columns:1fr;}aside.sidebar{display:none;}.options{grid-template-columns:1fr;}}
+
+  </style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wn8tkghshj");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YLK68D3GH4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YLK68D3GH4');</script>
+</head>
+<body>
+<div id="global-hero"></div>
+<script src="hero-navigation.js"></script>
+
+<div class="breadcrumb">
+  <a href="index.html">בית</a><span>›</span><a href="b1.html">B1</a><span>›</span><a href="b1-lesson4.html">שיעור 4 — Instrumentál</a><span>›</span>4ה — תרגול מסכם
+</div>
+
+<div class="layout">
+<main>
+
+  <div class="why-box">
+    <strong>🛠️ תרגול מסכם — Instrumentál</strong>
+    20 שאלות על כל החומר: סיומות יחיד ורבים, תחבורה, s/se, מקצועות ופעלים. בחרו את התשובה הנכונה — תקבלו הסבר מיידי.
+  </div>
+
+  <div id="quiz-root" class="quiz-wrap"></div>
+  <div id="score-box" class="score-box"></div>
+
+  <div class="step-nav">
+    <a href="b1-lesson4d.html" class="btn-back">→ 4ד — Instrumentál רבים</a>
+    <a href="b1-lesson5.html" class="btn-next">שיעור 5 — Dativ ←</a>
+  </div>
+
+</main>
+<aside class="sidebar" data-page="b1-lesson4e">
+  <div style="background:#f5f3ff;border:1px solid rgba(109,40,217,.15);border-radius:var(--r);padding:16px;margin-bottom:14px;">
+    <strong style="display:block;margin-bottom:10px;font-size:14px;color:#4c1d95;">📋 Instrumentál — חזרה מהירה</strong>
+    <div style="font-size:12px;line-height:2.1;color:#4c1d95;">
+      <b>Masc/Neut:</b> -em<br>
+      <b>Fem -a:</b> -ou (ženou)<br>
+      <b>Fem -ce/-ze:</b> -í (restaurací)<br>
+      <b>Fem עיצור:</b> -í (tramvají)<br>
+      <b>Neut -í:</b> -ím (náměstím)<br>
+      <hr style="margin:7px 0;border:none;border-top:1px solid var(--border);">
+      <b>רבים:</b><br>
+      Masc hard: -y · Masc soft: -i<br>
+      Fem -a: -ami · Fem -ce: -emi<br>
+      Neut -o: -y
+    </div>
+  </div>
+  <div style="background:var(--amber-light);border:1px solid rgba(245,158,11,.2);border-radius:var(--rs);padding:12px;font-size:12px;color:#92400e;">
+    <strong style="display:block;margin-bottom:5px;">⚠️ זכור:</strong>
+    na kole (לא kolem!)<br>
+    zajímat se o + Akuzativ<br>
+    se לפני s/z/š/ž
+  </div>
+</aside>
+</div>
+
+<script src="_shared/sidebar.js"></script>
+<footer id="main-footer"></footer>
+<script src="footer.js"></script>
+
+<script>
+const questions = [
+  {
+    q: "איך אומרים עם פטר?",
+    cz: "s/se + Petr →",
+    opts: ["s Petrem","se Petrem","s Petra","se Petra"],
+    ans: 0,
+    ex: "s Petrem — Petrem מתחיל ב-P, לא ב-s/z/š/ž, לכן s (לא se). Petr → Petrem."
+  },
+  {
+    q: "איך נוסעים באוטובוס?",
+    cz: "cestovat + autobus →",
+    opts: ["autobusem","autobusou","autobusí","autobusi"],
+    ans: 0,
+    ex: "Jedu do práce autobusem. autobus — זכר hard: autobus → autobusem."
+  },
+  {
+    q: "מה ה-Instrumentál של tramvaj?",
+    cz: "tramvaj →",
+    opts: ["tramvají","tramvajou","tramvajem","tramvajemi"],
+    ans: 0,
+    ex: "tramvaj — נקבה על עיצור: tramvaj → tramvají. לא tramvajou!"
+  },
+  {
+    q: "כיצד אומרים על אופניים (kolo)?",
+    cz: "jet + kolo →",
+    opts: ["na kole","kolem","s kolem","koly"],
+    ans: 0,
+    ex: "Jedu na kole. חריג! kolo → na + Lokál בהקשר תחבורה, לא Instrumentál."
+  },
+  {
+    q: "מה ה-Instrumentál יחיד של žena?",
+    cz: "žena →",
+    opts: ["ženou","ženi","ženom","ženem"],
+    ans: 0,
+    ex: "žena — נקבה ב-a: žena → ženou (סיומת -ou)."
+  },
+  {
+    q: "איך אומרים אני רוצה להיות מורה (učitel)?",
+    cz: "Chci být + učitel →",
+    opts: ["Chci být učitelem","Chci být učitel","Chci být učitele","Chci být učiteli"],
+    ans: 0,
+    ex: "být + Instrumentál: učitel (זכר hard) → učitelem."
+  },
+  {
+    q: "מתי משתמשים ב-se?",
+    cz: "s nebo se + sestrou?",
+    opts: ["se sestrou","s sestrou","s sestra","se sestry"],
+    ans: 0,
+    ex: "se sestrou — se כי המילה הבאה מתחילה ב-s. הכלל: se לפני s, z, š, ž וצרורות עיצורים."
+  },
+  {
+    q: "מה ה-Instrumentál יחיד של město?",
+    cz: "město →",
+    opts: ["městem","městou","městím","městu"],
+    ans: 0,
+    ex: "město — ניטרלי ב-o: město → městem (סיומת -em)."
+  },
+  {
+    q: "היא הפכה להיות מרצה (lektorka). Stala se ___",
+    cz: "Stala se ___ (lektorka)",
+    opts: ["lektorkou","lektorka","lektorky","lektorkám"],
+    ans: 0,
+    ex: "stát se + Instrumentál: lektorka (נקבה ב-a) → lektorkou."
+  },
+  {
+    q: "מה ה-Instrumentál יחיד של náměstí?",
+    cz: "náměstí →",
+    opts: ["náměstím","náměstí","náměstie","náměstích"],
+    ans: 0,
+    ex: "náměstí — ניטרלי ב-í: náměstí → náměstím (סיומת -ím)."
+  },
+  {
+    q: "איזה פועל דורש o + Akuzativ ולא Instrumentál?",
+    cz: "בחר את הפועל הנכון:",
+    opts: ["zajímat se o","zabývat se","trpět","disponovat"],
+    ans: 0,
+    ex: "zajímat se o + Akuzativ (לא Instrumentál!). zabývat se, trpět, disponovat — Instrumentál."
+  },
+  {
+    q: "מה ה-Instrumentál רבים של kamarád?",
+    cz: "kamarádi → Instrumentál רבים",
+    opts: ["kamarády","kamarádami","kamarádech","kamarádům"],
+    ans: 0,
+    ex: "kamarád — זכר hard: Instrumentál רבים → kamarády (סיומת -y)."
+  },
+  {
+    q: "מה ה-Instrumentál רבים של žena?",
+    cz: "ženy → Instrumentál רבים",
+    opts: ["ženami","ženou","ženech","ženách"],
+    ans: 0,
+    ex: "žena — נקבה ב-a: Instrumentál רבים → ženami (סיומת -ami)."
+  },
+  {
+    q: "מה ה-Instrumentál רבים של restaurace?",
+    cz: "restaurace (רבים) → Instrumentál",
+    opts: ["restauracemi","restauracích","restaurací","restauracou"],
+    ans: 0,
+    ex: "restaurace — נקבה ב-ce: Instrumentál רבים → restauracemi (סיומת -emi)."
+  },
+  {
+    q: "מה ה-Instrumentál רבים של muž?",
+    cz: "muži → Instrumentál רבים",
+    opts: ["muži","mužemi","mužy","mužami"],
+    ans: 0,
+    ex: "muž — זכר soft: Instrumentál רבים → muži (סיומת -i). זהה לנומינטיב רבים!"
+  },
+  {
+    q: "כיצד נוסעים במטוס?",
+    cz: "cestovat + letadlo →",
+    opts: ["letadlem","letadlou","letadlím","letadlí"],
+    ans: 0,
+    ex: "letadlo — ניטרלי ב-o: letadlo → letadlem."
+  },
+  {
+    q: "היא עוסקת בספרות (literatura). Zabývá se ___",
+    cz: "Zabývá se ___ (literatura)",
+    opts: ["literaturou","literatury","literaturu","o literatuře"],
+    ans: 0,
+    ex: "zabývat se + Instrumentál: literatura (נקבה ב-a) → literaturou."
+  },
+  {
+    q: "מה ה-Instrumentál יחיד של lékař?",
+    cz: "lékař →",
+    opts: ["lékařem","lékařou","lékařím","lékaři"],
+    ans: 0,
+    ex: "lékař — זכר soft: lékař → lékařem. כל הזכרים מקבלים -em ב-Instrumentál יחיד."
+  },
+  {
+    q: "אני סובל ממחלה (nemoc). Trpím ___",
+    cz: "Trpím ___ (nemoc)",
+    opts: ["nemocí","nemoc","nemoci","nemocou"],
+    ans: 0,
+    ex: "trpět + Instrumentál: nemoc — נקבה על עיצור → nemocí (סיומת -í)."
+  },
+  {
+    q: "מה ה-Instrumentál רבים של město?",
+    cz: "města → Instrumentál רבים",
+    opts: ["městy","městami","městech","měst"],
+    ans: 0,
+    ex: "město — ניטרלי ב-o: Instrumentál רבים → městy (סיומת -y)."
+  }
+];
+
+let score = 0;
+let answered = 0;
+
+function initQuiz() {
+  const root = document.getElementById("quiz-root");
+  root.innerHTML = "";
+  score = 0;
+  answered = 0;
+  document.getElementById("score-box").classList.remove("show");
+  questions.forEach((q, qi) => {
+    const card = document.createElement("div");
+    card.className = "q-card";
+    card.id = "q" + qi;
+    const optsHtml = q.opts.map((o, j) =>
+      `<button class="opt" onclick="answer(${qi},${j})">${o}</button>`
+    ).join("");
+    card.innerHTML = `
+      <div class="q-num">שאלה ${qi+1} מתוך ${questions.length}</div>
+      <div class="q-text">${q.q}</div>
+      <span class="q-cz">${q.cz}</span>
+      <div class="options">${optsHtml}</div>
+      <div class="q-feedback" id="fb${qi}"></div>
+    `;
+    root.appendChild(card);
+  });
+}
+
+function answer(qi, j) {
+  const card = document.getElementById("q" + qi);
+  const opts = card.querySelectorAll(".opt");
+  opts.forEach(o => o.disabled = true);
+  const fb = document.getElementById("fb" + qi);
+  const correct = questions[qi].ans;
+  opts[j].classList.add(j === correct ? "correct" : "wrong");
+  if (j !== correct) opts[correct].classList.add("correct");
+  fb.textContent = questions[qi].ex;
+  fb.className = "q-feedback show " + (j === correct ? "ok" : "err");
+  if (j === correct) score++;
+  answered++;
+  if (answered === questions.length) showScore();
+}
+
+function showScore() {
+  const pct = Math.round((score / questions.length) * 100);
+  let msg = pct === 100 ? "מושלם! שליטה מלאה ב-Instrumentál 🎉" :
+            pct >= 80  ? "כל הכבוד! כמעט שם 💪" :
+            pct >= 60  ? "טוב, עוד קצת תרגול וזה יהיה מושלם 📚" :
+                         "Instrumentál קשה — חזרו על הסיומות ונסו שוב! 🔄";
+  const sb = document.getElementById("score-box");
+  sb.innerHTML = `
+    <div class="score-num">${score}/${questions.length}</div>
+    <div class="score-label">${pct}% נכון</div>
+    <div class="score-msg">${msg}</div>
+    <button class="retry-btn" onclick="initQuiz()">נסה שוב</button>
+  `;
+  sb.classList.add("show");
+  sb.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+initQuiz();
+
+</script>
+</body>
+</html>
